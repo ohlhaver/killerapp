@@ -1,0 +1,8 @@
+[Tue Aug 12 11:25:05.588 2008] [  678] creating server socket on 0.0.0.0:3313
+[Tue Aug 12 11:25:05.588 2008] [  678] accepting connections
+[Tue Aug 12 16:47:00.844 2008] [  678] rotating indices (seamless=1)
+[Tue Aug 12 16:47:00.852 2008] [  678] rotating index 'main': success
+[Tue Aug 12 16:47:00.853 2008] [  678] rotating finished
+[Tue Aug 12 16:57:07.103 2008] [  678] rotating indices (seamless=1)
+[Tue Aug 12 16:57:07.110 2008] [  678] rotating index 'main': success
+[Tue Aug 12 16:57:07.110 2008] [  678] rotating finished

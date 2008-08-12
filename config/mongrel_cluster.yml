@@ -1,0 +1,11 @@
+---
+log_file: log/mongrel.log
+cwd: /home/justus/killerapp/current
+port: "8000"
+environment: production
+address: 127.0.0.1
+pid_file: tmp/pids/mongrel.pid
+servers: 3
+docroot: public
+user: justus
+group: justus

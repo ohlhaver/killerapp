@@ -1,0 +1,9 @@
+
+<h2>Stories published by <%=  @source.name %></h2>
+
+<p>
+  <%= render :partial => @rawstories_published %>
+</p>
+<%= will_paginate(@rawstories_published) %>
+
+

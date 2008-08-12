@@ -1,0 +1,20 @@
+<p>
+<h4>Search results for '<%= params[:q] %>'</h4>
+<% unless @rawstories.empty? -%> 
+</p>
+
+<p>
+
+    <%= render :partial => @rawstories %>
+</p>
+  
+  <%= will_paginate(@rawstories) %>
+<% else -%>
+  <p>No articles were found.</p>
+<% end -%>
+
+
+
+
+
+
