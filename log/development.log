@@ -16499,3 +16499,160 @@ Completed in 0.05618 (17 reqs/sec) | Rendering: 0.02471 (43%) | DB: 0.01266 (22%
   [4;35;1mSQL (0.000107)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
 ** ultrasphinx: spelling support not available (raspell configuration raised "uninitialized constant Ultrasphinx::Spell::Aspell")
   [4;36;1mRawstory Columns (0.003013)[0m   [0;1mSHOW FIELDS FROM `rawstories`[0m
+  [4;36;1mSQL (0.000270)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000179)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+** ultrasphinx: spelling support not available (raspell configuration raised "uninitialized constant Ultrasphinx::Spell::Aspell")
+  [4;36;1mRawstory Columns (0.003084)[0m   [0;1mSHOW FIELDS FROM `rawstories`[0m
+
+
+Processing RawstoriesController#index (for 127.0.0.1 at 2008-08-13 16:52:04) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlOGJmOTlmNjA3ZDc3YzI0MDU4
+NWMwMjA3ZDNmMWNmYjE=--32be01c027e2b6562b943f422b583346c0f611fe
+  Parameters: {"action"=>"index", "controller"=>"rawstories"}
+Rendering template within layouts/application
+Rendering rawstories/index
+Completed in 0.04382 (22 reqs/sec) | Rendering: 0.04048 (92%) | DB: 0.00353 (8%) | 200 OK [http://localhost/]
+
+
+Processing RawstoriesController#search (for 127.0.0.1 at 2008-08-13 16:52:32) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlOGJmOTlmNjA3ZDc3YzI0MDU4NWMwMjA3ZDNmMWNm
+YjEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--c8a5ea4fb3b3e7484406b954dae1030318e4c1eb
+  Parameters: {"commit"=>"Search", "action"=>"search", "q"=>"olympics", "controller"=>"rawstories"}
+searching for {"indexes"=>"main", "class_names"=>[], "sort_by"=>nil, "parsed_query"=>"olympics", "sort_mode"=>"relevance", "weights"=>{"title"=>2.0}, "filters"=>{}, "per_page"=>20, "page"=>1, "query"=>"olympics", "location"=>{"units"=>"radians", "long_attribute_name"=>"lng", "lat_attribute_name"=>"lat"}, "facets"=>[]}
+search returned 7/7 in 0.036 seconds.
+  [4;35;1mRawstory Columns (0.002025)[0m   [0mSHOW FIELDS FROM `rawstories`[0m
+  [4;36;1mRawstory Load (0.002115)[0m   [0;1mSELECT * FROM `rawstories` WHERE (`rawstories`.`id` IN (219,492,64,67,1226,1285,1415)) [0m
+Rendering template within layouts/application
+Rendering rawstories/search
+  [4;35;1mAuthor Columns (0.001613)[0m   [0mSHOW FIELDS FROM `authors`[0m
+  [4;36;1mAuthor Load (0.000888)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 39) [0m
+  [4;35;1mSource Columns (0.001519)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.000849)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.25348)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 39) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.00124)
+  [4;35;1mAuthor Load (0.000599)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 1) [0m
+  [4;36;1mSource Load (0.000156)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+Rendered rawstories/_rawstory (0.00261)
+  [4;35;1mAuthor Load (0.000203)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 13) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.00139)
+  [4;35;1mAuthor Load (0.000150)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 163) [0m
+  [4;36;1mSource Load (0.000137)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 4) [0m
+Rendered rawstories/_rawstory (0.00130)
+  [4;35;1mAuthor Load (0.000149)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 42) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.00194)
+  [4;35;1mAuthor Load (0.000181)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 319) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+Rendered rawstories/_rawstory (0.00124)
+Completed in 0.40735 (2 reqs/sec) | Rendering: 0.27550 (67%) | DB: 0.01058 (2%) | 200 OK [http://localhost/rawstories/search?q=olympics&commit=Search]
+
+
+Processing SourcesController#show (for 127.0.0.1 at 2008-08-13 16:52:50) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlOGJmOTlmNjA3ZDc3YzI0MDU4
+NWMwMjA3ZDNmMWNmYjE=--32be01c027e2b6562b943f422b583346c0f611fe
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"sources"}
+  [4;35;1mSource Columns (0.006475)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.001523)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+  [4;35;1mRawstory Load (0.031809)[0m   [0mSELECT * FROM `rawstories` WHERE (`rawstories`.source_id = 2) ORDER BY rawstories.id DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering sources/show
+  [4;36;1mRawstory Columns (0.001994)[0m   [0;1mSHOW FIELDS FROM `rawstories`[0m
+  [4;35;1mAuthor Columns (0.001871)[0m   [0mSHOW FIELDS FROM `authors`[0m
+  [4;36;1mAuthor Load (0.000909)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 341) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.01724)
+  [4;36;1mAuthor Load (0.000318)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 339) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.00220)
+  [4;36;1mAuthor Load (0.001489)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 338) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.00507)
+  [4;36;1mAuthor Load (0.000296)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.00200)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.00113)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.00109)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.00143)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.00113)
+Completed in 0.21157 (4 reqs/sec) | Rendering: 0.05662 (26%) | DB: 0.04668 (22%) | 200 OK [http://localhost/sources/2]
+
+
+Processing SourcesController#show (for 127.0.0.1 at 2008-08-13 16:53:24) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlOGJmOTlmNjA3ZDc3YzI0MDU4NWMwMjA3ZDNmMWNm
+YjEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--c8a5ea4fb3b3e7484406b954dae1030318e4c1eb
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.003391)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.001453)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+  [4;36;1mRawstory Load (0.064997)[0m   [0;1mSELECT * FROM `rawstories` WHERE (`rawstories`.source_id = 2) ORDER BY rawstories.id DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering sources/show
+  [4;35;1mRawstory Columns (0.002664)[0m   [0mSHOW FIELDS FROM `rawstories`[0m
+  [4;36;1mAuthor Columns (0.001891)[0m   [0;1mSHOW FIELDS FROM `authors`[0m
+  [4;35;1mAuthor Load (0.000927)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 341) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.01756)
+  [4;35;1mAuthor Load (0.000273)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 339) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.00184)
+  [4;35;1mAuthor Load (0.000226)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 338) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.00204)
+  [4;35;1mAuthor Load (0.000657)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 1) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.00231)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 1) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.00154)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 1) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.00157)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 1) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.00211)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 1) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.00144)
+Completed in 0.13331 (7 reqs/sec) | Rendering: 0.03132 (23%) | DB: 0.07648 (57%) | 200 OK [http://localhost/sources/2]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2008-08-13 16:53:26) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlOGJmOTlmNjA3ZDc3YzI0MDU4
+NWMwMjA3ZDNmMWNmYjE=--32be01c027e2b6562b943f422b583346c0f611fe
+  Parameters: {"action"=>"show", "id"=>"339", "controller"=>"authors"}
+  [4;35;1mAuthor Columns (0.079984)[0m   [0mSHOW FIELDS FROM `authors`[0m
+  [4;36;1mAuthor Load (0.007287)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 339) [0m
+  [4;35;1mRawstory Load (0.057038)[0m   [0mSELECT * FROM `rawstories` WHERE (`rawstories`.author_id = 339) ORDER BY rawstories.id DESC[0m
+Rendering template within layouts/application
+Rendering authors/show
+  [4;36;1mRawstory Columns (0.008470)[0m   [0;1mSHOW FIELDS FROM `rawstories`[0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 339) [0m
+  [4;36;1mSource Columns (0.002776)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.001060)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 2) [0m
+Rendered rawstories/_rawstory (0.03334)
+Completed in 0.24243 (4 reqs/sec) | Rendering: 0.04507 (18%) | DB: 0.15662 (64%) | 200 OK [http://localhost/authors/339]
+
+
+Processing RawstoriesController#index (for 127.0.0.1 at 2008-08-13 16:53:36) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlOGJmOTlmNjA3ZDc3YzI0MDU4NWMwMjA3ZDNmMWNm
+YjEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--c8a5ea4fb3b3e7484406b954dae1030318e4c1eb
+  Parameters: {"action"=>"index", "controller"=>"rawstories"}
+Rendering template within layouts/application
+Rendering rawstories/index
+Completed in 0.00503 (198 reqs/sec) | Rendering: 0.00165 (32%) | DB: 0.00000 (0%) | 200 OK [http://localhost/rawstories]
