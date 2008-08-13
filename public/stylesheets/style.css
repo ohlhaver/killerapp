@@ -14,3 +14,9 @@ float: center;
   color: #999;
   font-size: normal;
 }
+
+
+#footer {
+  float: center;
+  font-size: small;
+}

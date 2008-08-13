@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     xml:lang="en" lang="en">
 <%= stylesheet_link_tag 'style' %>
-
+<title> jurnalo </title>
   <head>
 		
 	<div id= "login_logout">
@@ -16,41 +16,23 @@
 		      <%= link_to 'Login', :controller => 'sessions', :action => 'new' %>
 		    <% end %>
 			</div>
-		
+	
 			<list id="navigation">
-				<b><%= link_to 'jurnalo!', rawstories_path %> </b>
+				<b><%= link_to 'jurnalo', rawstories_path %> </b>
 				</list>
-	
-
-	
-	
-
-
 
     <% form_tag search_rawstories_path, :method => :get do -%>
-
 	<div id="search">
-		<br><br>
+		<br>
+		<br>
         <%= text_field_tag :q, params[:q], :class => 'text' %>
+
         <%= submit_tag 'Search', :class => 'button' %>
       </div>
-
-
-
-
     <% end -%>
-
 	</head>
-
-
 <body>
  <div id="content">
-
-
-
 	<%= yield %>
-</body>
-	
-
- 
+</body> 
 </html>

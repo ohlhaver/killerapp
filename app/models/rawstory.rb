@@ -7,6 +7,8 @@ class Rawstory < ActiveRecord::Base
   {:field => :title},
   {:field => :body},
   {:field => :opinion},
-  {:field => :created_at}]
+  {:field => :created_at}],
+      :delta => true
+  
   
 end

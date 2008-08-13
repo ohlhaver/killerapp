@@ -6,3 +6,24 @@
 [Tue Aug 12 16:57:07.103 2008] [  678] rotating indices (seamless=1)
 [Tue Aug 12 16:57:07.110 2008] [  678] rotating index 'main': success
 [Tue Aug 12 16:57:07.110 2008] [  678] rotating finished
+[Wed Aug 13 00:58:39.723 2008] [  678] caught SIGTERM, shutting down
+[Wed Aug 13 00:58:39.724 2008] [  678] shutdown complete
+[Wed Aug 13 08:39:20.808 2008] [  369] creating server socket on 0.0.0.0:3313
+[Wed Aug 13 08:39:20.826 2008] [  369] accepting connections
+[Wed Aug 13 08:50:52.930 2008] [  369] rotating indices (seamless=1)
+[Wed Aug 13 08:50:52.958 2008] [  369] rotating index 'main': success
+[Wed Aug 13 08:50:52.958 2008] [  369] rotating finished
+[Wed Aug 13 08:50:57.051 2008] [  369] caught SIGTERM, shutting down
+[Wed Aug 13 08:50:57.052 2008] [  369] shutdown complete
+[Wed Aug 13 08:51:01.074 2008] [  408] creating server socket on 0.0.0.0:3313
+[Wed Aug 13 08:51:01.074 2008] [  408] accepting connections
+[Wed Aug 13 11:42:14.666 2008] [  408] rotating indices (seamless=1)
+[Wed Aug 13 11:42:14.694 2008] [  408] rotating index 'main': success
+[Wed Aug 13 11:42:14.694 2008] [  408] rotating finished
+[Wed Aug 13 11:42:18.712 2008] [  408] caught SIGTERM, shutting down
+[Wed Aug 13 11:42:18.714 2008] [  408] shutdown complete
+[Wed Aug 13 11:42:22.732 2008] [  712] creating server socket on 0.0.0.0:3313
+[Wed Aug 13 11:42:22.732 2008] [  712] accepting connections
+[Wed Aug 13 12:34:40.643 2008] [  712] rotating indices (seamless=1)
+[Wed Aug 13 12:34:40.650 2008] [  712] rotating index 'main': success
+[Wed Aug 13 12:34:40.651 2008] [  712] rotating finished

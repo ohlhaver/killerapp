@@ -3,6 +3,7 @@ class SourcesController < ApplicationController
 
 
 def show
+  
   @source = Source.find(params[:id])
   @rawstories_published = @source.rawstories.find(:all, :order => 'rawstories.id DESC', :limit => '100')
   @rawstories_published = @rawstories_published.paginate :page => params[:page],

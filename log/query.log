@@ -65,3 +65,75 @@
 [Tue Aug 12 17:09:21.919 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] klinsman
 [Tue Aug 12 17:09:25.463 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] klinsmann
 [Tue Aug 12 17:09:31.393 2008] 0.001 sec [ext/0/rel 6 (0,20)] [main] bayern
+[Wed Aug 13 08:40:16.031 2008] 0.081 sec [ext/0/rel 15 (0,20)] [main] olympia
+[Wed Aug 13 08:41:53.462 2008] 0.000 sec [ext/0/rel 39 (0,20)] [main] russland
+[Wed Aug 13 08:50:29.502 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] kk
+[Wed Aug 13 08:51:27.494 2008] 0.000 sec [ext/0/rel 2 (0,20)] [main] tennis
+[Wed Aug 13 09:12:49.027 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] vcv
+[Wed Aug 13 09:16:20.325 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] vccv
+[Wed Aug 13 09:16:25.622 2008] 0.000 sec [ext/0/rel 5 (0,20)] [main] hsv
+[Wed Aug 13 09:29:21.941 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] kjk
+[Wed Aug 13 09:29:53.316 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] kjk
+[Wed Aug 13 09:29:54.281 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] kjk
+[Wed Aug 13 09:31:25.525 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] vcv
+[Wed Aug 13 09:32:47.335 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] vcv
+[Wed Aug 13 09:33:16.874 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] vcv
+[Wed Aug 13 09:33:22.334 2008] 0.001 sec [scan/0/rel 879 (0,20)] [main] 
+[Wed Aug 13 09:36:10.266 2008] 0.000 sec [ext/0/rel 2 (0,20)] [main] tennis
+[Wed Aug 13 09:37:57.560 2008] 0.001 sec [ext/0/rel 0 (0,20)] [main] kjk
+[Wed Aug 13 09:43:31.130 2008] 0.001 sec [scan/0/rel 879 (0,20)] [main] 
+[Wed Aug 13 09:43:53.204 2008] 0.001 sec [scan/0/rel 879 (0,20)] [main] 
+[Wed Aug 13 09:43:54.575 2008] 0.001 sec [scan/0/rel 879 (0,20)] [main] 
+[Wed Aug 13 09:46:14.887 2008] 0.000 sec [ext/0/rel 87 (0,20)] [main] russland
+[Wed Aug 13 09:53:21.812 2008] 0.000 sec [ext/0/rel 33 (0,20)] [main] bush
+[Wed Aug 13 09:59:38.073 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] dfdf
+[Wed Aug 13 10:01:19.464 2008] 0.000 sec [ext/0/rel 33 (0,20)] [main] bush
+[Wed Aug 13 10:01:20.477 2008] 0.000 sec [ext/0/rel 33 (0,20)] [main] bush
+[Wed Aug 13 10:02:24.008 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] fdf
+[Wed Aug 13 10:03:53.018 2008] 0.001 sec [scan/0/rel 879 (0,20)] [main] 
+[Wed Aug 13 10:04:06.485 2008] 0.002 sec [ext/0/rel 3 (0,20)] [main] delhi
+[Wed Aug 13 10:06:43.640 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] tru
+[Wed Aug 13 10:07:59.443 2008] 0.001 sec [scan/0/rel 879 (0,20)] [main] 
+[Wed Aug 13 10:10:12.850 2008] 0.001 sec [scan/0/rel 879 (0,20)] [main] 
+[Wed Aug 13 10:10:18.585 2008] 0.001 sec [scan/0/rel 879 (0,20)] [main] 
+[Wed Aug 13 10:12:21.956 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] ccx
+[Wed Aug 13 10:12:34.773 2008] 0.000 sec [ext/0/rel 38 (0,20)] [main] putin
+[Wed Aug 13 10:15:00.652 2008] 0.000 sec [ext/0/rel 2 (0,20)] [main] hello
+[Wed Aug 13 10:17:22.745 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] goal
+[Wed Aug 13 10:19:18.918 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] dsd
+[Wed Aug 13 10:20:51.025 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] fdf
+[Wed Aug 13 10:22:50.570 2008] 0.001 sec [scan/0/rel 879 (0,20)] [main] 
+[Wed Aug 13 10:24:41.378 2008] 0.000 sec [ext/0/rel 38 (0,20)] [main] putin
+[Wed Aug 13 10:25:30.055 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] ff
+[Wed Aug 13 10:25:43.124 2008] 0.002 sec [scan/0/rel 879 (0,20)] [main] 
+[Wed Aug 13 11:26:36.645 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] khk
+[Wed Aug 13 11:30:38.588 2008] 0.002 sec [scan/0/rel 879 (0,20)] [main] 
+[Wed Aug 13 11:42:37.517 2008] 0.000 sec [ext/0/rel 84 (0,20)] [main] olympia
+[Wed Aug 13 11:43:01.339 2008] 0.000 sec [ext/0/rel 23 (0,20)] [main] obama
+[Wed Aug 13 11:43:18.183 2008] 0.000 sec [ext/0/rel 73 (0,20)] [main] georgien
+[Wed Aug 13 11:45:26.862 2008] 0.000 sec [ext/0/rel 14 (0,20)] [main] indien
+[Wed Aug 13 11:45:53.899 2008] 0.000 sec [ext/0/rel 14 (0,20)] [main] indien
+[Wed Aug 13 11:46:08.314 2008] 0.000 sec [ext/0/rel 6 (0,20)] [main] google
+[Wed Aug 13 11:46:49.955 2008] 0.000 sec [ext/0/rel 2 (0,20)] [main] larry page
+[Wed Aug 13 11:50:12.347 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] sergey brin
+[Wed Aug 13 11:50:20.785 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] eric schmidt
+[Wed Aug 13 11:50:23.909 2008] 0.000 sec [ext/0/rel 11 (0,20)] [main] schmidt
+[Wed Aug 13 11:50:29.197 2008] 0.000 sec [ext/0/rel 45 (0,20)] [main] new york
+[Wed Aug 13 11:53:57.016 2008] 0.000 sec [ext/0/rel 20 (0,20)] [main] telefon
+[Wed Aug 13 11:56:39.078 2008] 0.000 sec [ext/0/rel 20 (0,20)] [main] telefon
+[Wed Aug 13 11:57:51.952 2008] 0.002 sec [ext/0/rel 0 (0,20)] [main] kjk
+[Wed Aug 13 11:57:57.272 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] kjkjk
+[Wed Aug 13 12:00:00.611 2008] 0.001 sec [scan/0/rel 1029 (0,20)] [main] 
+[Wed Aug 13 12:01:11.870 2008] 0.001 sec [scan/0/rel 1029 (0,20)] [main] 
+[Wed Aug 13 12:01:20.296 2008] 0.000 sec [ext/0/rel 21 (0,20)] [main] for
+[Wed Aug 13 12:01:39.333 2008] 0.001 sec [scan/0/rel 1029 (0,20)] [main] 
+[Wed Aug 13 12:03:23.475 2008] 0.000 sec [ext/0/rel 1 (0,20)] [main] bauer
+[Wed Aug 13 12:03:31.163 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main] bazaar
+[Wed Aug 13 12:03:37.277 2008] 0.000 sec [ext/0/rel 113 (0,20)] [main] haus
+[Wed Aug 13 12:04:15.442 2008] 0.000 sec [ext/0/rel 15 (0,20)] [main] fertig
+[Wed Aug 13 12:04:57.378 2008] 0.001 sec [scan/0/rel 1029 (0,20)] [main] 
+[Wed Aug 13 12:05:48.954 2008] 0.000 sec [ext/0/rel 43 (0,20)] [main] putin
+[Wed Aug 13 12:06:56.252 2008] 0.000 sec [ext/0/rel 16 (0,20)] [main] fußball
+[Wed Aug 13 12:32:57.831 2008] 0.001 sec [scan/0/rel 1029 (0,20)] [main] 
+[Wed Aug 13 12:33:17.464 2008] 0.030 sec [ext/0/rel 113 (0,20)] [main] haus
+[Wed Aug 13 12:34:13.612 2008] 0.000 sec [ext/0/rel 113 (0,20)] [main] haus
