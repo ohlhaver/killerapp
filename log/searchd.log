@@ -43,3 +43,37 @@
 [Thu Aug 14 00:16:40.254 2008] [  965] shutdown complete
 [Thu Aug 14 12:50:27.954 2008] [  349] creating server socket on 0.0.0.0:3313
 [Thu Aug 14 12:50:27.981 2008] [  349] accepting connections
+[Thu Aug 14 15:58:11.174 2008] [  349] rotating indices (seamless=1)
+[Thu Aug 14 15:58:11.181 2008] [  349] rotating index 'delta': success
+[Thu Aug 14 15:58:11.188 2008] [  349] rotating index 'main': success
+[Thu Aug 14 15:58:11.188 2008] [  349] rotating finished
+[Thu Aug 14 15:58:15.522 2008] [  349] caught SIGTERM, shutting down
+[Thu Aug 14 15:58:15.523 2008] [  349] shutdown complete
+[Thu Aug 14 15:58:19.575 2008] [ 1346] creating server socket on 0.0.0.0:3313
+[Thu Aug 14 15:58:19.575 2008] [ 1346] accepting connections
+[Thu Aug 14 16:13:04.300 2008] [ 1346] rotating indices (seamless=1)
+[Thu Aug 14 16:13:04.306 2008] [ 1346] rotating index 'delta': success
+[Thu Aug 14 16:13:04.313 2008] [ 1346] rotating index 'main': success
+[Thu Aug 14 16:13:04.314 2008] [ 1346] rotating finished
+[Thu Aug 14 16:13:08.350 2008] [ 1346] caught SIGTERM, shutting down
+[Thu Aug 14 16:13:08.351 2008] [ 1346] shutdown complete
+[Thu Aug 14 16:13:12.373 2008] [ 1458] creating server socket on 0.0.0.0:3313
+[Thu Aug 14 16:13:12.373 2008] [ 1458] accepting connections
+[Thu Aug 14 17:40:02.421 2008] [ 1458] rotating indices (seamless=1)
+[Thu Aug 14 17:40:02.463 2008] [ 1458] rotating index 'delta': success
+[Thu Aug 14 17:40:02.483 2008] [ 1458] rotating index 'main': success
+[Thu Aug 14 17:40:02.483 2008] [ 1458] rotating finished
+[Thu Aug 14 17:40:06.501 2008] [ 1458] caught SIGTERM, shutting down
+[Thu Aug 14 17:40:06.502 2008] [ 1458] shutdown complete
+[Thu Aug 14 17:40:10.525 2008] [ 1915] creating server socket on 0.0.0.0:3313
+[Thu Aug 14 17:40:10.525 2008] [ 1915] accepting connections
+[Thu Aug 14 18:05:25.779 2008] [  246] creating server socket on 0.0.0.0:3313
+[Thu Aug 14 18:05:25.796 2008] [  246] accepting connections
+[Thu Aug 14 19:45:35.944 2008] [  246] rotating indices (seamless=1)
+[Thu Aug 14 19:45:35.950 2008] [  246] rotating index 'delta': success
+[Thu Aug 14 19:45:35.955 2008] [  246] rotating index 'main': success
+[Thu Aug 14 19:45:35.955 2008] [  246] rotating finished
+[Thu Aug 14 19:50:37.045 2008] [  246] rotating indices (seamless=1)
+[Thu Aug 14 19:50:37.051 2008] [  246] rotating index 'delta': success
+[Thu Aug 14 19:50:37.058 2008] [  246] rotating index 'main': success
+[Thu Aug 14 19:50:37.058 2008] [  246] rotating finished

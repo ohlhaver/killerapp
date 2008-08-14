@@ -3,7 +3,6 @@
 <br>
 
 <%= link_to rawstory.author.name, rawstory.author %><%= ' - ' if rawstory.author.name != '' %><%= link_to rawstory.source.name, rawstory.source  %> - 
-
 <%= '1 minute ago' if ((Time.new - rawstory.created_at).to_i) < 120 %>
 <%= (((Time.new - rawstory.created_at).to_i)/60).to_s + ' minutes ago' if ((Time.new - rawstory.created_at).to_i) > 119 && ((Time.new - rawstory.created_at).to_i) < 3600 %> 
 <%= '1 hour ago' if ((Time.new - rawstory.created_at).to_i) > 3599 && ((Time.new - rawstory.created_at).to_i) < 7200 %> 
@@ -16,6 +15,8 @@
 
 
 <%= rawstory.created_at if ((Time.new - rawstory.created_at).to_i) > 1727999 %>
+
+
 
 
 

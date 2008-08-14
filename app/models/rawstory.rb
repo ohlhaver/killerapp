@@ -1,5 +1,7 @@
 class Rawstory < ActiveRecord::Base
   
+  attr_accessor :age, :weight, :blub
+  
   belongs_to :author
   belongs_to :source
 
