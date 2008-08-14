@@ -2,6 +2,23 @@
  <b> <%= link_to rawstory.title, rawstory.link %><%= ' (opinion)' if rawstory.opinion == 1 %></b>
 <br>
 
-<%= link_to rawstory.author.name, rawstory.author %><%= ' - ' if rawstory.author.name != '' %><%= link_to rawstory.source.name, rawstory.source  %> - <%= rawstory.created_at %> <br><br>
+<%= link_to rawstory.author.name, rawstory.author %><%= ' - ' if rawstory.author.name != '' %><%= link_to rawstory.source.name, rawstory.source  %> - 
+
+<%= '1 minute ago' if ((Time.new - rawstory.created_at).to_i) < 120 %>
+<%= (((Time.new - rawstory.created_at).to_i)/60).to_s + ' minutes ago' if ((Time.new - rawstory.created_at).to_i) > 119 && ((Time.new - rawstory.created_at).to_i) < 3600 %> 
+<%= '1 hour ago' if ((Time.new - rawstory.created_at).to_i) > 3599 && ((Time.new - rawstory.created_at).to_i) < 7200 %> 
+<%= (((Time.new - rawstory.created_at).to_i)/3600).to_s + ' hours ago' if ((Time.new - rawstory.created_at).to_i) > 7199 && ((Time.new - rawstory.created_at).to_i) < 86400 %> 
+
+<%= '1 day ago' if ((Time.new - rawstory.created_at).to_i) > 86399 && ((Time.new - rawstory.created_at).to_i) < 172800 %> 
+<%= (((Time.new - rawstory.created_at).to_i)/86400).to_s + ' days ago' if ((Time.new - rawstory.created_at).to_i) > 172799 && ((Time.new - rawstory.created_at).to_i) < 1728000 %>
+
+
+
+
+<%= rawstory.created_at if ((Time.new - rawstory.created_at).to_i) > 1727999 %>
+
+
+
+<br><br>
 
 <% end %>

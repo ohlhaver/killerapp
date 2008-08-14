@@ -12,6 +12,8 @@ class RawstoriesController < ApplicationController
     @rawstories = @search.results
     @rawstories = @rawstories.paginate :page => params[:page],
                                         :per_page => 8
+                                        
+                                                
   end
  
   
