@@ -299,3 +299,11 @@
 [Fri Aug 15 20:51:12.805 2008] [  248] shutdown complete
 [Sat Aug 16 10:11:25.200 2008] [  364] creating server socket on 0.0.0.0:3313
 [Sat Aug 16 10:11:25.226 2008] [  364] accepting connections
+[Sat Aug 16 15:18:44.977 2008] [  364] rotating indices (seamless=1)
+[Sat Aug 16 15:18:44.984 2008] [  364] rotating index 'delta': success
+[Sat Aug 16 15:18:45.028 2008] [  364] rotating index 'main': success
+[Sat Aug 16 15:18:45.028 2008] [  364] rotating finished
+[Sat Aug 16 15:18:49.087 2008] [  364] caught SIGTERM, shutting down
+[Sat Aug 16 15:18:49.088 2008] [  364] shutdown complete
+[Sat Aug 16 15:18:53.110 2008] [ 1048] creating server socket on 0.0.0.0:3313
+[Sat Aug 16 15:18:53.110 2008] [ 1048] accepting connections

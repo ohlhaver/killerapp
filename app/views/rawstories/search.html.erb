@@ -25,7 +25,9 @@ Search results for <b>'<%= @current_user.query %>'</b>
 <%= will_paginate(@rawstories) %>
 </dive>
 <% else -%>
-  <p>No articles were found.</p>
+  <p><%= 'No articles were found.' if @current_user.filter == 0 %>
+<%= 'No <b>opinions</b> were found.' if @current_user.filter == 1 %>
+</p>
 <% end -%>
 
 
