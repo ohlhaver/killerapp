@@ -1,14 +1,29 @@
-<p>
-<h4>Search results for '<%= params[:q] %>'</h4>
-<% unless @rawstories.empty? -%> 
-</p>
+<%= stylesheet_link_tag 'style' %>
 
+<p>
+
+
+
+<div id= "filter">
+<b><%= 'Showing all articles - ' if @current_user.filter != 1 %></b> 
+<%= (link_to 'show opinions',  {:controller => 'rawstories', :action => 'filter_by_opinions'}) if @current_user.filter != 1 %>
+
+<%= link_to 'Show all articles',  {:controller => 'rawstories', :action => 'show_all'} if @current_user.filter == 1 %>
+<b><%= ' - showing opinions'  if @current_user.filter == 1 %></b>
+</div>
+
+Search results for <b>'<%= @current_user.query %>'</b>
+     
+<% unless @rawstories.empty? -%> 
+
+</p>
 <p>
 
     <%= render :partial => @rawstories %>
 </p>
-  
-  <%= will_paginate(@rawstories) %>
+<div id= "pagination" > 
+<%= will_paginate(@rawstories) %>
+</dive>
 <% else -%>
   <p>No articles were found.</p>
 <% end -%>

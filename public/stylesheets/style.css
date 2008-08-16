@@ -20,3 +20,15 @@ float: center;
   float: center;
   font-size: small;
 }
+
+#pagination {
+
+  font-size: large;
+}
+
+#filter {
+float: right;
+color: #999;
+  font-size: normal;
+}
+

@@ -6,16 +6,7 @@
 <title> jurnalo </title>
   <head>
 		
-	<div id= "login_logout">
-		    <% if @current_user %>
-		      Logged in as:
-		      <%= @current_user.login %>
-		      <em><%= link_to "(Logout)", session_path, :method => :delete %></em>
-		    <% else %>
-		      <em>Not logged in.</em>
-		      <%= link_to 'Login', :controller => 'sessions', :action => 'new' %>
-		    <% end %>
-			</div>
+	
 	
 			<list id="navigation">
 				<b><%= link_to 'jurnalo', rawstories_path %> </b>
@@ -23,7 +14,6 @@
 
     <% form_tag search_rawstories_path, :method => :get do -%>
 	<div id="search">
-		<br>
 		<br>
         <%= text_field_tag :q, params[:q], :class => 'text' %>
 

@@ -38,7 +38,7 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   map.resource :session
   map.resources :sources
-  map.resources :rawstories, :collection => {:create => :get, :opinions => :get, :search => :get, :sort_by_time => :get}
+  map.resources :rawstories, :collection => {:filter_by_opinions => :get, :search => :get, :show_all => :get, :sort_by_relevance => :get, :sort_by_time => :get}
   map.resources :authors
   
   map.connect ':controller/:action/:id'

@@ -1,5 +1,6 @@
 <% div_for(rawstory) do %>
- <b> <%= link_to rawstory.title, rawstory.link %><%= ' (opinion)' if rawstory.opinion == 1 %></b>
+ <b> <%= link_to rawstory.title, rawstory.link %><font color =#999><%= ' (opinion)' if rawstory.opinion == 1 %></font></b>
+
 <br>
 
 <%= link_to rawstory.author.name, rawstory.author %><%= ' - ' if rawstory.author.name != '' %><%= link_to rawstory.source.name, rawstory.source  %> - 
@@ -9,12 +10,12 @@
 <%= (((Time.new - rawstory.created_at).to_i)/3600).to_s + ' hours ago' if ((Time.new - rawstory.created_at).to_i) > 7199 && ((Time.new - rawstory.created_at).to_i) < 86400 %> 
 
 <%= '1 day ago' if ((Time.new - rawstory.created_at).to_i) > 86399 && ((Time.new - rawstory.created_at).to_i) < 172800 %> 
-<%= (((Time.new - rawstory.created_at).to_i)/86400).to_s + ' days ago' if ((Time.new - rawstory.created_at).to_i) > 172799 && ((Time.new - rawstory.created_at).to_i) < 1728000 %>
+<%= (((Time.new - rawstory.created_at).to_i)/86400).to_s + ' days ago' if ((Time.new - rawstory.created_at).to_i) > 172799 && ((Time.new - rawstory.created_at).to_i) < 864000 %>
 
 
 
 
-<%= rawstory.created_at if ((Time.new - rawstory.created_at).to_i) > 1727999 %>
+<%= rawstory.created_at.to_s(:long) if ((Time.new - rawstory.created_at).to_i) > 863999 %>
 
 
 
