@@ -3,7 +3,14 @@
 
 <br>
 
-<%= link_to rawstory.author.name, rawstory.author %><%= ' - ' if rawstory.author.name != '' %><%= link_to rawstory.source.name, rawstory.source  %> - 
+<%= link_to rawstory.author.name, rawstory.author %> 
+<%= link_to '(favoritize)', :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) == nil  %> <%= ' - ' if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) == nil%> 
+
+<%= link_to '(remove)', :controller => 'subscriptions', :action => 'remove', :id => @current_user.subscriptions.find_by_author_id(rawstory.author.id) if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) != nil  %> <%= ' - ' if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) != nil  %>
+<%= link_to rawstory.source.name, rawstory.source  %>
+
+
+- 
 <%= '1 minute ago' if ((Time.new - rawstory.created_at).to_i) < 120 %>
 <%= (((Time.new - rawstory.created_at).to_i)/60).to_s + ' minutes ago' if ((Time.new - rawstory.created_at).to_i) > 119 && ((Time.new - rawstory.created_at).to_i) < 3600 %> 
 <%= '1 hour ago' if ((Time.new - rawstory.created_at).to_i) > 3599 && ((Time.new - rawstory.created_at).to_i) < 7200 %> 

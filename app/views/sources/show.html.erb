@@ -1,9 +1,13 @@
 
-<h2>Stories published by <%=  @source.name %></h2>
+<br>
+
+Stories published by <b><%=  @source.name %></b>
+
 
 <p>
   <%= render :partial => @rawstories_published %>
 </p>
+<div id= 'pagination'>
 <%= will_paginate(@rawstories_published) %>
-
+</div>
 

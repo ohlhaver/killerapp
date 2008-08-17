@@ -1,6 +1,7 @@
 class AuthorsController < ApplicationController
   
-  
+
+
 
 
   def show
@@ -10,5 +11,5 @@ class AuthorsController < ApplicationController
                                            :per_page => 8
   end
 
- 
+
 end

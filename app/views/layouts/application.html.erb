@@ -5,12 +5,11 @@
 <%= stylesheet_link_tag 'style' %>
 <title> jurnalo </title>
   <head>
-		
+		<br>
 		<div id="login_logout">
 	        <% if @current_user.login %>
 	          Logged in as:
-	          <%= @current_user.login %>
-	          <em><%= link_to "(Logout)", session_path, :method => :delete %></em>
+	          <%= @current_user.login %><em> <%= link_to "(logout)", session_path, :method => :delete %></em>
 	        <% else %>
 	          <em>Not logged in.</em>
 	          <%= link_to 'Login', :controller => 'sessions', :action => 'new' %>
@@ -18,7 +17,7 @@
 	      </div>
 	
 			<list id="navigation">
-				<b><%= link_to 'jurnalo', rawstories_path %> </b>
+				<b><%= link_to 'jurnalo', rawstories_path %> - <%= (link_to 'favorite authors' , subscriptions_path) %> </b>
 				</list>
 
     <% form_tag search_rawstories_path, :method => :get do -%>
@@ -32,6 +31,7 @@
 	</head>
 <body>
  <div id="content">
+
 	<%= yield %>
 </body> 
 </html>

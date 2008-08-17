@@ -307,3 +307,11 @@
 [Sat Aug 16 15:18:49.088 2008] [  364] shutdown complete
 [Sat Aug 16 15:18:53.110 2008] [ 1048] creating server socket on 0.0.0.0:3313
 [Sat Aug 16 15:18:53.110 2008] [ 1048] accepting connections
+[Sat Aug 16 18:40:18.186 2008] [ 1048] caught SIGTERM, shutting down
+[Sat Aug 16 18:40:18.186 2008] [ 1048] shutdown complete
+[Sun Aug 17 00:38:08.924 2008] [  297] creating server socket on 0.0.0.0:3313
+[Sun Aug 17 00:38:08.942 2008] [  297] accepting connections
+[Sun Aug 17 01:05:37.788 2008] [  297] caught SIGTERM, shutting down
+[Sun Aug 17 01:05:37.789 2008] [  297] shutdown complete
+[Sun Aug 17 10:10:12.877 2008] [  297] creating server socket on 0.0.0.0:3313
+[Sun Aug 17 10:10:12.893 2008] [  297] accepting connections

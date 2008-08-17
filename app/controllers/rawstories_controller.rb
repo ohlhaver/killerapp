@@ -2,6 +2,11 @@ class RawstoriesController < ApplicationController
   
 before_filter :login_required
   
+  def index
+
+  end
+  
+  
   def search
     require 'will_paginate'
     @current_user.query = params[:q] unless params[:q] == nil

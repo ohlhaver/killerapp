@@ -31,10 +31,21 @@ class ApplicationController < ActionController::Base
       ! @current_user.nil?
     end
     
+    def real_logged_in?
+       ! @current_user.login.nil?
+    end
+    
+    
     helper_method :logged_in?
     
     def login_required
       return true if logged_in?
+      session[:return_to] = request.request_uri
+      redirect_to new_session_path and return false
+    end
+  
+    def real_login_required
+      return true if real_logged_in?
       session[:return_to] = request.request_uri
       redirect_to new_session_path and return false
     end

@@ -1,0 +1,24 @@
+<%= stylesheet_link_tag 'style' %>
+
+<br>
+
+
+<% unless @user_rawstories.empty? -%> 
+
+<div id= "filter">
+<b><%= 'Showing articles - ' %></b> 
+<%= link_to 'show list of authors',  {:controller => 'subscriptions', :action => 'list'} %>
+</div>
+
+<%='Articles by your favorite authors' if @current_user.login %>
+
+<p>
+    <%= render :partial => @user_rawstories %>
+</p>
+<div id= "pagination" > 
+<%= will_paginate(@user_rawstories) %>
+</div>
+<% else -%>
+  <%= 'You don\'t have any favorite authors.' %>
+
+<% end -%>
