@@ -29,8 +29,8 @@ before_filter :login_required
     blub = age*weight/100
     
     
-    story.age = age   
-    story.weight = weight
+    #story.age = age   
+    #story.weight = weight
     story.blub = blub    
     counter = counter + 1
     end                                            
