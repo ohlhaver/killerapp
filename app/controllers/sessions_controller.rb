@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
   def create 
+    if User.find_by_login_and_password(params[:login], params[:password]) != nil
      @current_user = User.find_by_login_and_password(params[:login], params[:password])
+    end
+   
 
       if @current_user.login
         session[:user_id] = @current_user.id
