@@ -23,7 +23,8 @@ before_filter :login_required
     @rawstories.each do |story|
     weight = (@matches[counter])[:weight]  
     age = ((Time.new - story.created_at)/3600).to_i 
-    age = ((24-(age))*100/24).to_i 
+    age = 1 if age < 1
+    age = (100*(1/(age**(0.33)))).to_i 
       
     blub = age*weight/100
     
@@ -34,7 +35,7 @@ before_filter :login_required
     counter = counter + 1
     end                                            
   
-    (@rawstories = @rawstories.sort_by {|u| - u.blub })  
+    @rawstories = @rawstories.sort_by {|u| - u.blub }  
     
     
     
