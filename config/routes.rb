@@ -31,7 +31,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-   map.root :controller => "rawstories"
+   map.root :controller => "clusters"
 
   # See how all your routes lay out with "rake routes"
 
@@ -41,6 +41,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :rawstories, :collection => {:filter_by_opinions => :get, :search => :get, :show_all => :get, :sort_by_relevance => :get, :sort_by_time => :get}
   map.resources :authors
   map.resources :subscriptions
+   map.resources :clusters
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

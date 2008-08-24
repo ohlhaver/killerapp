@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
           redirect_to session[:return_to]
           session[:return_to] = nil
         else    
-        redirect_to rawstories_path
+        redirect_to clusters_path
         end
       else
         render :action => 'new'
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
     unless logged_in?
       @current_user = User.create
       session[:user_id] = @current_user.id
-      redirect_to rawstories_path 
+      redirect_to clusters_path 
     end    
   end
 
