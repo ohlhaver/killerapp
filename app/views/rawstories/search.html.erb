@@ -2,8 +2,6 @@
 
 <p>
 
-
-
 <div id= "filter">
 <b><%= 'Showing all articles - ' if @current_user.filter != 1 %></b> 
 <%= (link_to 'show opinions',  {:controller => 'rawstories', :action => 'filter_by_opinions'}) if @current_user.filter != 1 %>

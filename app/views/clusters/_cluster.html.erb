@@ -1,7 +1,6 @@
+<%= stylesheet_link_tag 'style' %>
+
 <% div_for(@clusters) do %>
-<br><br>
-<%= render :partial => cluster.rawstories %>
-
-
+<%= render :partial => cluster.rawstories.last %>
 
 <% end %>

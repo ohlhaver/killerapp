@@ -3,7 +3,8 @@
 
 body {
 float: center;	
-  margin: 0px 350px;
+  margin: 0px 250px;
+font-family: Arial;
   	
 }
 
@@ -16,9 +17,8 @@ float: center;
 }
 
 
-#footer {
-  float: center;
-  font-size: small;
+#main_headline {
+  font-size: large;
 }
 
 #pagination {
