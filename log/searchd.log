@@ -349,3 +349,7 @@
 [Mon Aug 25 18:09:00.151 2008] [ 1894] shutdown complete
 [Mon Aug 25 18:09:04.174 2008] [ 2549] creating server socket on 0.0.0.0:3313
 [Mon Aug 25 18:09:04.174 2008] [ 2549] accepting connections
+[Tue Aug 26 00:02:34.727 2008] [ 2549] caught SIGTERM, shutting down
+[Tue Aug 26 00:02:34.727 2008] [ 2549] shutdown complete
+[Tue Aug 26 14:10:51.307 2008] [ 1675] creating server socket on 0.0.0.0:3313
+[Tue Aug 26 14:10:51.328 2008] [ 1675] accepting connections

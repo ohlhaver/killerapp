@@ -1,0 +1,6 @@
+<%= stylesheet_link_tag 'style' %>
+
+<% div_for(@groups) do %>
+<%= render :partial => group.rawstories.last %>
+
+<% end %>
