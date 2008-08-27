@@ -24,7 +24,7 @@
 
 <%= rawstory.created_at.to_s(:long) if ((Time.new - rawstory.created_at).to_i) > 863999 %>
 <%= ' - ' if rawstory.group && rawstory.group.weight > 1 && params[:action] != 'show' %>
-<%= link_to 'all ' + rawstory.group.weight.to_s + ' articles ..', rawstory.group if rawstory.group && rawstory.group.weight > 1 && params[:action] != 'show' %>
+<%= link_to 'all ' + rawstory.group.weight.to_s + ' articles ..', rawstory if rawstory.group && rawstory.group.weight > 1 && params[:action] != 'show' %>
 
 
 <br><br>

@@ -72,7 +72,14 @@ before_filter :login_required
    redirect_to :action => 'search'
  end
 
-
+ def show
+   require 'will_paginate'
+   
+    story = Rawstory.find(params[:id])
+    @group_stories = story.group.rawstories.find(:all, :order => 'rawstories.id DESC')
+    @group_stories = @group_stories.paginate :page => params[:page],
+                                          :per_page => 8
+ end
 
 
 
