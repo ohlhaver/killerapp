@@ -1224,3 +1224,13 @@
 [Tue Aug 26 14:24:13.550 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] dd
 [Tue Aug 26 14:24:16.248 2008] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] zeit
 [Tue Aug 26 14:24:20.399 2008] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] heute
+[Wed Aug 27 23:33:03.705 2008] 0.003 sec [scan/0/rel 309 (0,20)] [main delta] 
+[Wed Aug 27 23:33:06.699 2008] 0.002 sec [ext/0/rel 95 (0,20)] [main delta] k
+[Wed Aug 27 23:33:11.754 2008] 0.001 sec [ext/0/rel 95 (0,20)] [main delta] k
+[Wed Aug 27 23:33:13.490 2008] 0.001 sec [ext/0/rel 95 (0,20)] [main delta] k
+[Wed Aug 27 23:33:31.321 2008] 0.001 sec [ext/0/rel 3 (0,20)] [main delta] hut
+[Wed Aug 27 23:33:34.013 2008] 0.000 sec [ext/0/rel 3 (0,20)] [main delta] hut
+[Wed Aug 27 23:33:36.099 2008] 0.000 sec [ext/0/rel 3 (0,20)] [main delta] hut
+[Wed Aug 27 23:33:39.976 2008] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] putin
+[Wed Aug 27 23:33:42.122 2008] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] putin
+[Wed Aug 27 23:33:44.678 2008] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] putin

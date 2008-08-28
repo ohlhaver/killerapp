@@ -3,7 +3,7 @@
 
 body {
 float: center;	
-  margin: 0px 250px;
+  margin: 0px 200px;
 font-family: Arial;
   	
 }
@@ -15,6 +15,13 @@ font-family: Arial;
   color: #999;
   font-size: normal;
 }
+
+#group_navigation {
+  color: #500;
+  font-size: normal;
+}
+
+
 
 
 #main_headline {

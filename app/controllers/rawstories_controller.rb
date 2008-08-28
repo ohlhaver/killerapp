@@ -40,7 +40,7 @@ before_filter :login_required
     
     
     
-    (@rawstories = @rawstories.find_all{|v| v.opinion == 1 } ) if @current_user.filter == 1 
+    @rawstories = @rawstories.find_all{|v| v.opinion == 1 } if @current_user.filter == 1 
     
     @rawstories = @rawstories.paginate  :page => params[:page],
                                         :per_page => 8

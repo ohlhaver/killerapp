@@ -1,6 +1,71 @@
 <p>
-<b>Top stories</b>
+<list id="group_navigation">
+<% if params[:action] == 'index' %> 
+<b><%= 'Top stories'  %></b> -
+<% else %> 
+<%= link_to 'Top stories', :controller => 'groups', :action => 'index'  %>  -
+<% end %>
+
+
+<% if params[:action] == 'politics' %> 
+<b><%= 'Politics'  %></b> -
+<% else %> 
+<%= link_to 'Politics', :controller => 'groups', :action => 'politics'  %>  -
+<% end %>
+
+<% if params[:action] == 'business' %> 
+<b><%= 'Business'  %></b> -
+<% else %> 
+<%= link_to 'Business', :controller => 'groups', :action => 'business'  %>  -
+<% end %>
+
+<% if params[:action] == 'sport' %> 
+<b><%= 'Sport'  %></b> -
+<% else %> 
+<%= link_to 'Sport', :controller => 'groups', :action => 'sport'  %> -
+<% end %>
+
+
+<% if params[:action] == 'culture' %> 
+<b><%= 'Culture'  %></b> -
+<% else %> 
+<%= link_to 'Culture',:controller => 'groups', :action => 'culture'  %>  -
+<% end %>
+
+
+<% if params[:action] == 'science' %> 
+<b><%= 'Science'  %></b> -
+<% else %> 
+<%= link_to 'Science', :controller => 'groups', :action => 'science'  %>  -
+<% end %>
+
+<% if params[:action] == 'technology' %> 
+<b><%= 'Technology'  %></b> -
+<% else %> 
+<%= link_to 'Technology', :controller => 'groups', :action => 'technology'  %>  -
+<% end %>
+
+<% if params[:action] == 'mixed' %> 
+<b><%= 'Mixed'  %></b> -
+<% else %> 
+<%= link_to 'Mixed', :controller => 'groups', :action => 'mixed'  %>  -
+<% end %>
+
+
+<% if params[:action] == 'humor' %> 
+<b><%= 'Humor'  %></b>
+<% else %> 
+<%= link_to 'Humor', :controller => 'groups', :action => 'humor'  %>
+<% end %>
+
+
+
+
+
+</list>
+
 </p>
+<br>
 <%= render :partial => @groups %>
 
 
