@@ -34,7 +34,7 @@ end
       @current_user.subscriptions.create(:author_id => params[:id])
       end
 
-      redirect_to :controller => 'rawstories', :action => 'search'
+      redirect_to :controller => 'subscriptions', :action => 'index'
     end
   
   

@@ -8,17 +8,17 @@
 		<br>
 		<div id="login_logout">
 	        <% if @current_user.login %>
-	          Logged in as:
-	          <%= @current_user.login %><em> <%= link_to "(logout)", session_path, :method => :delete %></em>
+	          Eingeloggt als:
+	          <%= @current_user.login %><em> <%= link_to "(ausloggen)", session_path, :method => :delete %></em>
 	        <% else %>
-	          <em>Not logged in.</em>
-	          <%= link_to 'Login', :controller => 'sessions', :action => 'new' %>
+	          <em>Nicht eingeloggt.</em>
+	          <%= link_to 'Einloggen', :controller => 'sessions', :action => 'new' %>
 	        <% end %>
 	      </div>
 	
 			<list id="navigation">
 				<b><%= link_to 'jurnalo', groups_path %>  -
-				<%= (link_to 'favorites' , subscriptions_path) %></b>
+				<%= (link_to 'Lieblingsautoren' , subscriptions_path) %></b>
 				</list>
 
     <% form_tag search_rawstories_path, :method => :get do -%>
@@ -26,7 +26,7 @@
 		<br>
         <%= text_field_tag :q, params[:q], :class => 'text' %>
 
-        <%= submit_tag 'Search', :class => 'button' %>
+        <%= submit_tag 'Suche', :class => 'button' %>
       </div>
     <% end -%>
 	</head>

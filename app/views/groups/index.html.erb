@@ -1,22 +1,22 @@
 <p>
 <list id="group_navigation">
 <% if params[:action] == 'index' %> 
-<b><%= 'Top stories'  %></b> -
+<b><%= 'Schlagzeilen'  %></b> -
 <% else %> 
-<%= link_to 'Top stories', :controller => 'groups', :action => 'index'  %>  -
+<%= link_to 'Schlagzeilen', :controller => 'groups', :action => 'index'  %>  -
 <% end %>
 
 
 <% if params[:action] == 'politics' %> 
-<b><%= 'Politics'  %></b> -
+<b><%= 'Politik'  %></b> -
 <% else %> 
-<%= link_to 'Politics', :controller => 'groups', :action => 'politics'  %>  -
+<%= link_to 'Politik', :controller => 'groups', :action => 'politics'  %>  -
 <% end %>
 
 <% if params[:action] == 'business' %> 
-<b><%= 'Business'  %></b> -
+<b><%= 'Wirtschaft'  %></b> -
 <% else %> 
-<%= link_to 'Business', :controller => 'groups', :action => 'business'  %>  -
+<%= link_to 'Wirtschaft', :controller => 'groups', :action => 'business'  %>  -
 <% end %>
 
 <% if params[:action] == 'sport' %> 
@@ -27,35 +27,35 @@
 
 
 <% if params[:action] == 'culture' %> 
-<b><%= 'Culture'  %></b> -
+<b><%= 'Feuilleton'  %></b> -
 <% else %> 
-<%= link_to 'Culture',:controller => 'groups', :action => 'culture'  %>  -
+<%= link_to 'Feuilleton',:controller => 'groups', :action => 'culture'  %>  -
 <% end %>
 
 
 <% if params[:action] == 'science' %> 
-<b><%= 'Science'  %></b> -
+<b><%= 'Wissen'  %></b> -
 <% else %> 
-<%= link_to 'Science', :controller => 'groups', :action => 'science'  %>  -
+<%= link_to 'Wissen', :controller => 'groups', :action => 'science'  %>  -
 <% end %>
 
 <% if params[:action] == 'technology' %> 
-<b><%= 'Technology'  %></b> -
+<b><%= 'Technik'  %></b> -
 <% else %> 
-<%= link_to 'Technology', :controller => 'groups', :action => 'technology'  %>  -
+<%= link_to 'Technik', :controller => 'groups', :action => 'technology'  %>  -
 <% end %>
 
 <% if params[:action] == 'mixed' %> 
-<b><%= 'Mixed'  %></b> -
+<b><%= 'Vermischtes'  %></b> -
 <% else %> 
-<%= link_to 'Mixed', :controller => 'groups', :action => 'mixed'  %>  -
+<%= link_to 'Vermischtes', :controller => 'groups', :action => 'mixed'  %>  -
 <% end %>
 
 
 <% if params[:action] == 'humor' %> 
-<b><%= 'Humor'  %></b>
+<b><%= 'Satire'  %></b>
 <% else %> 
-<%= link_to 'Humor', :controller => 'groups', :action => 'humor'  %>
+<%= link_to 'Satire', :controller => 'groups', :action => 'humor'  %>
 <% end %>
 
 

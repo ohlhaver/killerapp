@@ -46,27 +46,6 @@ class GroupsController < ApplicationController
         fetch_groups 9      
         render :action => 'index'
       end
-      
-      
-      
-      
-      
-      
-      
-   
-  
-
-  #   def sports
-  #      @groups = Gsession.find(:last).groups
-  #      @groups = @groups.find_all {|u| u.topic == 6 }   
-  #      @groups = @groups.sort_by {|u| - u.weight }  
-  #      @groups = @groups.first(8)
-  #    end
-
-
-
-
-
 
 
 
@@ -78,14 +57,7 @@ class GroupsController < ApplicationController
                                                :per_page => 8
       end
 
-#      def index
-#        fetch_stories 'votes_count >= 5'
-#      end
 
-#      def bin
-#        fetch_stories 'votes_count < 5'
-#        render :action => 'index'
-#      end
       
      protected
      def fetch_groups(conditions)

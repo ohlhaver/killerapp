@@ -1,30 +1,30 @@
 <% div_for(rawstory) do %>
- <b> <%= link_to rawstory.title, rawstory.link %><font color =#999><%= ' (opinion)' if rawstory.opinion == 1 %></font></b>
+ <b> <%= link_to rawstory.title, rawstory.link %><font color =#999><%= ' (Meinung)' if rawstory.opinion == 1 %></font></b>
 
 <br>
 
 <%= link_to rawstory.author.name, rawstory.author %> 
-<%= link_to '(favoritize)', :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) == nil  %> <%= ' - ' if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) == nil%> 
+<%= link_to '(verlieben)', :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) == nil  %> <%= ' - ' if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) == nil%> 
 
-<%= link_to '(remove)', :controller => 'subscriptions', :action => 'remove', :id => @current_user.subscriptions.find_by_author_id(rawstory.author.id) if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) != nil  %> <%= ' - ' if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) != nil  %>
+<%= link_to '(entfernen)', :controller => 'subscriptions', :action => 'remove', :id => @current_user.subscriptions.find_by_author_id(rawstory.author.id) if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) != nil  %> <%= ' - ' if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) != nil  %>
 <%= link_to rawstory.source.name, rawstory.source  %>
 
 
 - 
-<%= '1 minute ago' if ((Time.new - rawstory.created_at).to_i) < 120 %>
-<%= (((Time.new - rawstory.created_at).to_i)/60).to_s + ' minutes ago' if ((Time.new - rawstory.created_at).to_i) > 119 && ((Time.new - rawstory.created_at).to_i) < 3600 %> 
-<%= '1 hour ago' if ((Time.new - rawstory.created_at).to_i) > 3599 && ((Time.new - rawstory.created_at).to_i) < 7200 %> 
-<%= (((Time.new - rawstory.created_at).to_i)/3600).to_s + ' hours ago' if ((Time.new - rawstory.created_at).to_i) > 7199 && ((Time.new - rawstory.created_at).to_i) < 86400 %> 
+<%= 'vor 1 Minute' if ((Time.new - rawstory.created_at).to_i) < 120 %>
+<%= 'vor ' + (((Time.new - rawstory.created_at).to_i)/60).to_s + ' Minuten' if ((Time.new - rawstory.created_at).to_i) > 119 && ((Time.new - rawstory.created_at).to_i) < 3600 %> 
+<%= 'vor 1 Stunde' if ((Time.new - rawstory.created_at).to_i) > 3599 && ((Time.new - rawstory.created_at).to_i) < 7200 %> 
+<%= 'vor ' + (((Time.new - rawstory.created_at).to_i)/3600).to_s + ' Stunden' if ((Time.new - rawstory.created_at).to_i) > 7199 && ((Time.new - rawstory.created_at).to_i) < 86400 %> 
 
-<%= '1 day ago' if ((Time.new - rawstory.created_at).to_i) > 86399 && ((Time.new - rawstory.created_at).to_i) < 172800 %> 
-<%= (((Time.new - rawstory.created_at).to_i)/86400).to_s + ' days ago' if ((Time.new - rawstory.created_at).to_i) > 172799 && ((Time.new - rawstory.created_at).to_i) < 864000 %>
+<%= 'vor 1 Tag' if ((Time.new - rawstory.created_at).to_i) > 86399 && ((Time.new - rawstory.created_at).to_i) < 172800 %> 
+<%= 'vor ' + (((Time.new - rawstory.created_at).to_i)/86400).to_s + ' Tagen' if ((Time.new - rawstory.created_at).to_i) > 172799 && ((Time.new - rawstory.created_at).to_i) < 864000 %>
 
 
 
 
 <%= rawstory.created_at.to_s(:long) if ((Time.new - rawstory.created_at).to_i) > 863999 %>
 <%= ' - ' if rawstory.group && rawstory.group.weight > 1 && params[:action] != 'show' %>
-<%= link_to 'all ' + rawstory.group.weight.to_s + ' articles ..', rawstory if rawstory.group && rawstory.group.weight > 1 && params[:action] != 'show' %>
+<%= link_to 'alle ' + rawstory.group.weight.to_s + ' Artikel ..', rawstory if rawstory.group && rawstory.group.weight > 1 && params[:action] != 'show' %>
 
 
 <br><br>

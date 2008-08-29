@@ -3,14 +3,14 @@
 <p>
 
 <div id= "filter">
-<b><%= 'Showing all articles - ' if @current_user.filter != 1 %></b> 
-<%= (link_to 'show opinions',  {:controller => 'rawstories', :action => 'filter_by_opinions'}) if @current_user.filter != 1 %>
+<b><%= 'alle Artikel - ' if @current_user.filter != 1 %></b> 
+<%= (link_to 'zeige Meinungen',  {:controller => 'rawstories', :action => 'filter_by_opinions'}) if @current_user.filter != 1 %>
 
-<%= link_to 'Show all articles',  {:controller => 'rawstories', :action => 'show_all'} if @current_user.filter == 1 %>
-<b><%= ' - showing opinions'  if @current_user.filter == 1 %></b>
+<%= link_to 'Zeige alle Artikel',  {:controller => 'rawstories', :action => 'show_all'} if @current_user.filter == 1 %>
+<b><%= ' - nur Meinungen'  if @current_user.filter == 1 %></b>
 </div>
 
-Search results for <b>'<%= @current_user.query %>'</b>
+Suchergebnisse für <b>'<%= @current_user.query %>'</b>
      
 <% unless @rawstories.empty? -%> 
 
@@ -21,10 +21,10 @@ Search results for <b>'<%= @current_user.query %>'</b>
 </p>
 <div id= "pagination" > 
 <%= will_paginate(@rawstories) %>
-</dive>
+</div>
 <% else -%>
-  <p><%= 'No articles were found.' if @current_user.filter == 0 %>
-<%= 'No <b>opinions</b> were found.' if @current_user.filter == 1 %>
+  <p><%= 'Keine Artikel gefunden.' if @current_user.filter == 0 %>
+<%= 'Keine <b>Meinungen</b> gefunden.' if @current_user.filter == 1 %>
 </p>
 <% end -%>
 
