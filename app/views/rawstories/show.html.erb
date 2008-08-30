@@ -1,5 +1,13 @@
-
+<%= stylesheet_link_tag 'style' %>
 <br>
+<div id= "filter">
+<b><%= 'alle Artikel - ' if params[:action] == 'show' %></b> 
+<%= (link_to 'Meinungen zeigen',  {:controller => 'rawstories', :action => 'filter_group_by_opinions', :id => params[:id]}) if params[:action] == 'show' %>
+
+<%= link_to 'alle Artikel zeigen',  { :action => 'show', :id => params[:id]} if params[:action] == 'filter_group_by_opinions' %>
+<b><%= ' - Meinungen'  if params[:action] == 'filter_group_by_opinions' %></b>
+</div>
+
 
 <b>Ähnliche Artikel</b>
 

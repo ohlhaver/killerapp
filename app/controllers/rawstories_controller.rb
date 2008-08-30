@@ -46,7 +46,7 @@ before_filter :login_required
                                         :per_page => 8
                                         
   
-  end
+  end 
  
  def filter_by_opinions
    @current_user.filter = 1
@@ -58,7 +58,9 @@ before_filter :login_required
    @current_user.filter = 0
    @current_user.save
    redirect_to :action => 'search'
- end   
+ end
+  
+  
    
  def sort_by_time
    @current_user.mode = 1
@@ -72,17 +74,34 @@ before_filter :login_required
    redirect_to :action => 'search'
  end
 
+ #def show
+#   require 'will_paginate'
+   
+#    story = Rawstory.find(params[:id])
+#    @group_stories = story.group.rawstories.find(:all, :order => 'rawstories.id DESC')
+#    @group_stories = @group_stories.paginate :page => params[:page],
+                     #                     :per_page => 8
+# end
+
  def show
    require 'will_paginate'
-   
-    story = Rawstory.find(params[:id])
-    @group_stories = story.group.rawstories.find(:all, :order => 'rawstories.id DESC')
-    @group_stories = @group_stories.paginate :page => params[:page],
-                                          :per_page => 8
+   fetch_stories nil
+ end
+ 
+ def filter_group_by_opinions
+   fetch_stories 1      
+   render :action => 'show'
  end
 
-
-
+ protected
+ def fetch_stories(conditions)   
+    story = Rawstory.find(params[:id])
+   
+    @group_stories = story.group.rawstories.find(:all, :order => 'rawstories.id DESC')
+     (@group_stories = @group_stories.find_all {|u| u.opinion == conditions }) if conditions != nil
+    @group_stories = @group_stories.paginate :page => params[:page],
+                                          :per_page => 8
+  end
 
 
    

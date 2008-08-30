@@ -4,7 +4,7 @@
 <br>
 
 <%= link_to rawstory.author.name, rawstory.author %> 
-<%= link_to '(verlieben)', :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) == nil  %> <%= ' - ' if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) == nil%> 
+<%= link_to '(sammeln)', :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) == nil  %> <%= ' - ' if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) == nil%> 
 
 <%= link_to '(entfernen)', :controller => 'subscriptions', :action => 'remove', :id => @current_user.subscriptions.find_by_author_id(rawstory.author.id) if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) != nil  %> <%= ' - ' if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) != nil  %>
 <%= link_to rawstory.source.name, rawstory.source  %>

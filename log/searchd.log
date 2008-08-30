@@ -365,3 +365,5 @@
 [Fri Aug 29 02:02:54.372 2008] [ 2173] shutdown complete
 [Fri Aug 29 13:32:21.819 2008] [ 2696] creating server socket on 0.0.0.0:3313
 [Fri Aug 29 13:32:21.873 2008] [ 2696] accepting connections
+[Fri Aug 29 18:46:03.714 2008] [ 2696] caught SIGTERM, shutting down
+[Fri Aug 29 18:46:03.714 2008] [ 2696] shutdown complete

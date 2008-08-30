@@ -1,14 +1,15 @@
 <%= stylesheet_link_tag 'style' %>
 
-<p>
-
 <div id= "filter">
 <b><%= 'alle Artikel - ' if @current_user.filter != 1 %></b> 
-<%= (link_to 'zeige Meinungen',  {:controller => 'rawstories', :action => 'filter_by_opinions'}) if @current_user.filter != 1 %>
+<%= (link_to 'Meinungen zeigen',  {:controller => 'rawstories', :action => 'filter_by_opinions'}) if @current_user.filter != 1 %>
 
-<%= link_to 'Zeige alle Artikel',  {:controller => 'rawstories', :action => 'show_all'} if @current_user.filter == 1 %>
-<b><%= ' - nur Meinungen'  if @current_user.filter == 1 %></b>
+<%= link_to 'alle Artikel zeigen',  {:controller => 'rawstories', :action => 'show_all'} if @current_user.filter == 1 %>
+<b><%= ' - Meinungen'  if @current_user.filter == 1 %></b>
 </div>
+
+
+<p>
 
 Suchergebnisse für <b>'<%= @current_user.query %>'</b>
      

@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   
   before_filter :login_required
-      
+     
       
       def index
         fetch_groups nil

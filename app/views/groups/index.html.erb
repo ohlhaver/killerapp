@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag 'style' %>
+
+
 <p>
 <list id="group_navigation">
 <% if params[:action] == 'index' %> 
@@ -46,17 +49,12 @@
 <% end %>
 
 <% if params[:action] == 'mixed' %> 
-<b><%= 'Vermischtes'  %></b> -
+<b><%= 'Vermischtes'  %></b>
 <% else %> 
-<%= link_to 'Vermischtes', :controller => 'groups', :action => 'mixed'  %>  -
+<%= link_to 'Vermischtes', :controller => 'groups', :action => 'mixed'  %>
 <% end %>
 
 
-<% if params[:action] == 'humor' %> 
-<b><%= 'Satire'  %></b>
-<% else %> 
-<%= link_to 'Satire', :controller => 'groups', :action => 'humor'  %>
-<% end %>
 
 
 
