@@ -14,7 +14,6 @@ before_filter :login_required
     @search = Ultrasphinx::Search.new(:query => @current_user.query, 
                                       :weights => { 'title' => 2.0 })
                                       
-    #@search.run
     @rawstories = @search.results
     
     @matches = @search.response[:matches]
@@ -28,9 +27,6 @@ before_filter :login_required
       
     blub = age*weight/100
     
-    
-    #story.age = age   
-    #story.weight = weight
     story.blub = blub    
     counter = counter + 1
     end                                            
@@ -74,14 +70,6 @@ before_filter :login_required
    redirect_to :action => 'search'
  end
 
- #def show
-#   require 'will_paginate'
-   
-#    story = Rawstory.find(params[:id])
-#    @group_stories = story.group.rawstories.find(:all, :order => 'rawstories.id DESC')
-#    @group_stories = @group_stories.paginate :page => params[:page],
-                     #                     :per_page => 8
-# end
 
  def show
    require 'will_paginate'
@@ -97,9 +85,9 @@ before_filter :login_required
  def fetch_stories(conditions)   
     story = Rawstory.find(params[:id])
    
-    @group_stories = story.group.rawstories.find(:all, :order => 'rawstories.id DESC')
-     (@group_stories = @group_stories.find_all {|u| u.opinion == conditions }) if conditions != nil
-    @group_stories = @group_stories.paginate :page => params[:page],
+    @haufen_stories = story.haufen.rawstories.find(:all, :order => 'rawstories.id DESC')
+     (@haufen_stories = @haufen_stories.find_all {|u| u.opinion == conditions }) if conditions != nil
+    @haufen_stories = @haufen_stories.paginate :page => params[:page],
                                           :per_page => 8
   end
 

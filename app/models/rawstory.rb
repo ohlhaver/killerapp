@@ -6,7 +6,7 @@ class Rawstory < ActiveRecord::Base
   
   belongs_to :author
   belongs_to :source
-
+  belongs_to :haufen
   is_indexed :fields =>[
   {:field => :title},
   {:field => :body},

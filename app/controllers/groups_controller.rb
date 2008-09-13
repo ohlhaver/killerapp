@@ -49,22 +49,15 @@ class GroupsController < ApplicationController
 
 
 
-      def show
-        require 'will_paginate'
-        @group = Group.find(params[:id])
-        @group_stories = @group.rawstories.find(:all, :order => 'rawstories.id DESC')
-        @group_stories = @group_stories.paginate :page => params[:page],
-                                               :per_page => 8
-      end
 
 
       
      protected
      def fetch_groups(conditions)
-        @groups = Gsession.find(:last).groups  
-        (@groups = @groups.find_all {|u| u.topic == conditions }) if conditions != nil
-        @groups = @groups.sort_by {|u| - u.weight }  
-        @groups = @groups.first(8)
+        @haufens = Hsession.find(:last).haufens  
+        (@haufens = @haufens.find_all {|u| u.topic == conditions }) if conditions != nil
+        @haufens = @haufens.sort_by {|u| - u.weight }  
+        @haufens = @haufens.first(8)
       end
 
   
