@@ -23,6 +23,7 @@ Suchergebnisse für <b>'<%= @current_user.query %>'</b>
 <div id= "pagination" > 
 <%= will_paginate(@rawstories) %>
 </div>
+<br>
 <% else -%>
   <p><%= 'Keine Artikel gefunden.' if @current_user.filter == 0 %>
 <%= 'Keine <b>Meinungen</b> gefunden.' if @current_user.filter == 1 %>

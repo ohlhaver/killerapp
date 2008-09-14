@@ -57,7 +57,11 @@ class GroupsController < ApplicationController
         @haufens = Hsession.find(:last).haufens  
         (@haufens = @haufens.find_all {|u| u.topic == conditions }) if conditions != nil
         @haufens = @haufens.sort_by {|u| - u.weight }  
-        @haufens = @haufens.first(8)
+        
+        (@haufens = @haufens.paginate  :page => params[:page], :per_page => 8) if conditions != nil
+        @haufens = @haufens.first(8) if conditions == nil
+        
+        
       end
 
   
