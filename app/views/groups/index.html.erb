@@ -1,68 +1,7 @@
 <%= stylesheet_link_tag 'style' %>
 
 
-<p>
-<list id="group_navigation">
-<% if params[:action] == 'index' %> 
-<b><%= 'Schlagzeilen'  %></b> -
-<% else %> 
-<%= link_to 'Schlagzeilen', :controller => 'groups', :action => 'index'  %>  -
-<% end %>
 
-
-<% if params[:action] == 'politics' %> 
-<b><%= 'Politik'  %></b> -
-<% else %> 
-<%= link_to 'Politik', :controller => 'groups', :action => 'politics'  %>  -
-<% end %>
-
-<% if params[:action] == 'business' %> 
-<b><%= 'Wirtschaft'  %></b> -
-<% else %> 
-<%= link_to 'Wirtschaft', :controller => 'groups', :action => 'business'  %>  -
-<% end %>
-
-<% if params[:action] == 'sport' %> 
-<b><%= 'Sport'  %></b> -
-<% else %> 
-<%= link_to 'Sport', :controller => 'groups', :action => 'sport'  %> -
-<% end %>
-
-
-<% if params[:action] == 'culture' %> 
-<b><%= 'Feuilleton'  %></b> -
-<% else %> 
-<%= link_to 'Feuilleton',:controller => 'groups', :action => 'culture'  %>  -
-<% end %>
-
-
-<% if params[:action] == 'science' %> 
-<b><%= 'Wissen'  %></b> -
-<% else %> 
-<%= link_to 'Wissen', :controller => 'groups', :action => 'science'  %>  -
-<% end %>
-
-<% if params[:action] == 'technology' %> 
-<b><%= 'Technik'  %></b> -
-<% else %> 
-<%= link_to 'Technik', :controller => 'groups', :action => 'technology'  %>  -
-<% end %>
-
-<% if params[:action] == 'mixed' %> 
-<b><%= 'Vermischtes'  %></b>
-<% else %> 
-<%= link_to 'Vermischtes', :controller => 'groups', :action => 'mixed'  %>
-<% end %>
-
-
-
-
-
-
-
-</list>
-
-</p>
 <br>
 <%= render :partial => @haufens %>
 
