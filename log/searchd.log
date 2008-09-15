@@ -377,3 +377,5 @@
 [Sun Sep 14 17:43:26.987 2008] [  415] shutdown complete
 [Sun Sep 14 17:43:31.008 2008] [  835] creating server socket on 0.0.0.0:3313
 [Sun Sep 14 17:43:31.008 2008] [  835] accepting connections
+[Sun Sep 14 19:12:35.635 2008] [  835] caught SIGTERM, shutting down
+[Sun Sep 14 19:12:35.635 2008] [  835] shutdown complete

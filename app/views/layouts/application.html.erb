@@ -41,7 +41,6 @@
 		<%= link_to 'Schlagzeilen', :controller => 'groups', :action => 'index'  %>  -
 		<% end %>
 
-
 		<% if params[:action] == 'politics' %> 
 		<b><%= 'Politik'  %></b> -
 		<% else %> 
@@ -54,19 +53,11 @@
 		<%= link_to 'Wirtschaft', :controller => 'groups', :action => 'business'  %>  -
 		<% end %>
 
-		<% if params[:action] == 'sport' %> 
-		<b><%= 'Sport'  %></b> -
-		<% else %> 
-		<%= link_to 'Sport', :controller => 'groups', :action => 'sport'  %> -
-		<% end %>
-
-
 		<% if params[:action] == 'culture' %> 
 		<b><%= 'Feuilleton'  %></b> -
 		<% else %> 
 		<%= link_to 'Feuilleton',:controller => 'groups', :action => 'culture'  %>  -
 		<% end %>
-
 
 		<% if params[:action] == 'science' %> 
 		<b><%= 'Wissen'  %></b> -
@@ -78,6 +69,12 @@
 		<b><%= 'Technik'  %></b> -
 		<% else %> 
 		<%= link_to 'Technik', :controller => 'groups', :action => 'technology'  %>  -
+		<% end %>
+
+		<% if params[:action] == 'sport' %> 
+		<b><%= 'Sport'  %></b> -
+		<% else %> 
+		<%= link_to 'Sport', :controller => 'groups', :action => 'sport'  %> -
 		<% end %>
 
 		<% if params[:action] == 'mixed' %> 
