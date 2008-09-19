@@ -379,3 +379,9 @@
 [Sun Sep 14 17:43:31.008 2008] [  835] accepting connections
 [Sun Sep 14 19:12:35.635 2008] [  835] caught SIGTERM, shutting down
 [Sun Sep 14 19:12:35.635 2008] [  835] shutdown complete
+[Thu Sep 18 18:23:40.236 2008] [  857] creating server socket on 0.0.0.0:3313
+[Thu Sep 18 18:23:40.256 2008] [  857] accepting connections
+[Fri Sep 19 01:50:30.127 2008] [  857] caught SIGTERM, shutting down
+[Fri Sep 19 01:50:30.128 2008] [  857] shutdown complete
+[Fri Sep 19 14:21:23.114 2008] [  641] creating server socket on 0.0.0.0:3313
+[Fri Sep 19 14:21:23.132 2008] [  641] accepting connections

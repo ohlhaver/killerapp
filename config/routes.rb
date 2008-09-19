@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :users
+
+  map.resource :session
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -41,10 +45,20 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :rawstories, :collection => {:filter_by_opinions => :get, :search => :get, :show_all => :get, :sort_by_relevance => :get, :sort_by_time => :get}
   map.resources :authors
   map.resources :subscriptions
-   map.resources :groups, :collection => {:politics => :get, :culture => :get, :science => :get, :business => :get, :sport => :get, :mixed => :get, :humor => :get, :technology => :get}
-  
+  map.resources :groups, :collection => {:politics => :get, :culture => :get, :science => :get, :business => :get, :sport => :get, :mixed => :get, :humor => :get, :technology => :get}
+  map.resources :users
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+  
+  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate'
+  
+  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
+  map.signup '/signup', :controller => 'users', :action => 'new'
+  map.login '/login', :controller => 'sessions', :action => 'new'
+  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+  
+  
+  
   
 
 end

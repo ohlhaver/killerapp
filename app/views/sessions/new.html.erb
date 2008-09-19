@@ -1,12 +1,16 @@
-<% form_tag session_path do %>
-  <p>Bitte loggen Sie sich ein.</p>
-  <p>
-    <label>Benutzername:</label>
-    <%= text_field_tag 'login' %>
-  </p>
-  <p>
-    <label>Passwort:</label>
-    <%= password_field_tag 'password' %>
-  </p>
-  <p><%= submit_tag 'einloggen' %></p>
-<% end %>
+<% form_tag session_path do -%>
+<p><label for="login">Login</label><br/>
+<%= text_field_tag 'login' %></p>
+
+<p><label for="password">Passwort</label><br/>
+<%= password_field_tag 'password' %></p>
+
+
+<p><label for="remember_me">Auf diesem Computer merken:</label>
+<%= check_box_tag 'remember_me' %></p>
+<p><%= link_to 'Als neuer Benutzer anmelden', new_user_path %></p>
+
+
+
+<p><%= submit_tag 'Einloggen' %></p>
+<% end -%>

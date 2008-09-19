@@ -52,6 +52,8 @@ Rails::Initializer.run do |config|
     :secret      => '1ae9d0588c4ce4c5675a5b94dbf2720f5a1d9085b9934567b5d80eb0326b50b86bcd4a0d50491bb146fc9d22554abaa7fb84ce394c36cab0e1af3005533d0506'
   }
 
+  config.active_record.observers = :user_observer
+
   # Use the database for sessions instead of the cookie-based default,
   # which shouldn't be used to store highly confidential information
   # (create the session table with "rake db:sessions:create")

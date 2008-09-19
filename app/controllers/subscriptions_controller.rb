@@ -1,6 +1,6 @@
 class SubscriptionsController < ApplicationController
 
-before_filter :real_login_required
+before_filter :login_required
   
   def show
       @subscriptions = @current_user.subscriptions.find(:all)

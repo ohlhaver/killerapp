@@ -4,12 +4,19 @@
 <br>
 
 <%= link_to rawstory.author.name, rawstory.author %> 
+
+<% if logged_in? %>
 <%= link_to '(sammeln)', :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) == nil  %> <%= ' - ' if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) == nil%> 
 
 <%= link_to '(entfernen)', :controller => 'subscriptions', :action => 'remove', :id => @current_user.subscriptions.find_by_author_id(rawstory.author.id) if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) != nil  %> <%= ' - ' if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) != nil  %>
+
+
+<% else %>
+
+<%= link_to '(sammeln)', :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id if rawstory.author.name != '' %> <%= ' - ' if rawstory.author.name != '' %>
+ 
+<% end %>
 <%= rawstory.source.website %>
-
-
 - 
 <%= 'vor 1 Minute' if ((Time.new - rawstory.created_at).to_i) < 120 %>
 <%= 'vor ' + (((Time.new - rawstory.created_at).to_i)/60).to_s + ' Minuten' if ((Time.new - rawstory.created_at).to_i) > 119 && ((Time.new - rawstory.created_at).to_i) < 3600 %> 

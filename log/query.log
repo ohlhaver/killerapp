@@ -1313,3 +1313,79 @@
 [Sun Sep 14 17:44:21.456 2008] 0.001 sec [ext/0/rel 49 (0,20)] [main delta] regener
 [Sun Sep 14 17:54:22.158 2008] 0.003 sec [ext/0/rel 630 (0,20)] [main delta] d
 [Sun Sep 14 17:54:26.122 2008] 0.007 sec [ext/0/rel 2690 (0,20)] [main delta] f
+[Fri Sep 19 14:21:42.869 2008] 0.038 sec [ext/0/rel 1 (0,20)] [main delta] sd
+[Fri Sep 19 14:21:48.373 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:21:55.423 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:22:04.457 2008] 0.000 sec [ext/0/rel 2 (0,20)] [main delta] dsds
+[Fri Sep 19 14:22:52.663 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] sf
+[Fri Sep 19 14:37:10.511 2008] 0.005 sec [ext/0/rel 3011 (0,20)] [main delta] f
+[Fri Sep 19 14:37:13.847 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] fdfd
+[Fri Sep 19 14:37:16.498 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:37:16.574 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:37:29.265 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] xc
+[Fri Sep 19 14:39:11.942 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] xc
+[Fri Sep 19 14:39:36.880 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] xc
+[Fri Sep 19 14:40:28.786 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] xc
+[Fri Sep 19 14:40:32.497 2008] 0.002 sec [ext/0/rel 648 (0,20)] [main delta] heute
+[Fri Sep 19 14:41:53.927 2008] 0.001 sec [ext/0/rel 405 (0,20)] [main delta] tag
+[Fri Sep 19 14:42:07.991 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:42:08.064 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:42:17.883 2008] 0.001 sec [ext/0/rel 394 (0,20)] [main delta] geld
+[Fri Sep 19 14:42:27.283 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:42:27.356 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:45:08.200 2008] 0.001 sec [ext/0/rel 394 (0,20)] [main delta] geld
+[Fri Sep 19 14:45:55.124 2008] 0.001 sec [ext/0/rel 394 (0,20)] [main delta] geld
+[Fri Sep 19 14:46:10.385 2008] 0.001 sec [ext/0/rel 394 (0,20)] [main delta] geld
+[Fri Sep 19 14:47:51.616 2008] 0.001 sec [ext/0/rel 394 (0,20)] [main delta] geld
+[Fri Sep 19 14:47:53.181 2008] 0.001 sec [ext/0/rel 394 (0,20)] [main delta] geld
+[Fri Sep 19 14:47:58.587 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:47:58.657 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:48:54.421 2008] 0.001 sec [ext/0/rel 394 (0,20)] [main delta] geld
+[Fri Sep 19 14:48:57.509 2008] 0.001 sec [ext/0/rel 394 (0,20)] [main delta] geld
+[Fri Sep 19 14:48:57.662 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:50:11.734 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:50:14.420 2008] 0.001 sec [ext/0/rel 394 (0,20)] [main delta] geld
+[Fri Sep 19 14:50:23.140 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:50:23.212 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:50:43.199 2008] 0.001 sec [ext/0/rel 394 (0,20)] [main delta] geld
+[Fri Sep 19 14:50:52.644 2008] 0.001 sec [ext/0/rel 394 (0,20)] [main delta] geld
+[Fri Sep 19 14:50:52.800 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:53:04.954 2008] 0.001 sec [ext/0/rel 394 (0,20)] [main delta] geld
+[Fri Sep 19 14:53:07.673 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:53:07.747 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:55:12.933 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] gled
+[Fri Sep 19 14:55:17.814 2008] 0.001 sec [ext/0/rel 394 (0,20)] [main delta] geld
+[Fri Sep 19 14:55:20.904 2008] 0.001 sec [ext/0/rel 394 (0,20)] [main delta] geld
+[Fri Sep 19 14:55:28.435 2008] 0.002 sec [ext/0/rel 648 (0,20)] [main delta] heute
+[Fri Sep 19 14:55:33.545 2008] 0.001 sec [ext/0/rel 405 (0,20)] [main delta] tag
+[Fri Sep 19 14:55:39.620 2008] 0.001 sec [ext/0/rel 394 (0,20)] [main delta] geld
+[Fri Sep 19 14:55:43.611 2008] 0.001 sec [ext/0/rel 276 (0,20)] [main delta] spd
+[Fri Sep 19 14:55:50.787 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] wallstreet
+[Fri Sep 19 14:55:55.467 2008] 0.001 sec [ext/0/rel 171 (0,20)] [main delta] lehman
+[Fri Sep 19 14:56:02.053 2008] 0.001 sec [ext/0/rel 171 (0,20)] [main delta] lehman
+[Fri Sep 19 14:56:12.587 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:56:14.828 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:57:47.932 2008] 0.002 sec [scan/0/rel 3426 (0,20)] [main delta] 
+[Fri Sep 19 14:57:55.292 2008] 0.001 sec [ext/0/rel 171 (0,20)] [main delta] lehman
+[Fri Sep 19 14:57:58.557 2008] 0.001 sec [ext/0/rel 171 (0,20)] [main delta] lehman
+[Fri Sep 19 14:58:03.045 2008] 0.001 sec [ext/0/rel 171 (0,20)] [main delta] lehman
+[Fri Sep 19 14:58:04.435 2008] 0.001 sec [ext/0/rel 171 (0,20)] [main delta] lehman
+[Fri Sep 19 14:58:22.030 2008] 0.001 sec [ext/0/rel 171 (0,20)] [main delta] lehman
+[Fri Sep 19 14:58:23.565 2008] 0.001 sec [ext/0/rel 171 (0,20)] [main delta] lehman
+[Fri Sep 19 14:58:24.674 2008] 0.001 sec [ext/0/rel 171 (0,20)] [main delta] lehman
+[Fri Sep 19 14:58:25.792 2008] 0.001 sec [ext/0/rel 171 (0,20)] [main delta] lehman
+[Fri Sep 19 14:58:27.693 2008] 0.001 sec [ext/0/rel 171 (0,20)] [main delta] lehman
+[Fri Sep 19 14:59:38.701 2008] 0.000 sec [ext/0/rel 35 (0,20)] [main delta] hsv
+[Fri Sep 19 15:00:06.675 2008] 0.001 sec [ext/0/rel 351 (0,20)] [main delta] hamburg
+[Fri Sep 19 15:00:11.208 2008] 0.001 sec [ext/0/rel 351 (0,20)] [main delta] hamburg
+[Fri Sep 19 15:00:12.764 2008] 0.001 sec [ext/0/rel 351 (0,20)] [main delta] hamburg
+[Fri Sep 19 15:00:19.805 2008] 0.000 sec [ext/0/rel 10 (0,20)] [main delta] tennis
+[Fri Sep 19 15:00:30.955 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] berbatov
+[Fri Sep 19 15:00:33.786 2008] 0.000 sec [ext/0/rel 4 (0,20)] [main delta] berbatow
+[Fri Sep 19 15:00:41.916 2008] 0.001 sec [ext/0/rel 101 (0,20)] [main delta] beck
+[Fri Sep 19 15:00:48.109 2008] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] münte
+[Fri Sep 19 15:00:50.483 2008] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] münte
+[Fri Sep 19 15:38:33.072 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] hasu
+[Fri Sep 19 15:38:35.557 2008] 0.001 sec [ext/0/rel 349 (0,20)] [main delta] haus
+[Fri Sep 19 15:38:37.549 2008] 0.001 sec [ext/0/rel 349 (0,20)] [main delta] haus
+[Fri Sep 19 15:38:39.389 2008] 0.001 sec [ext/0/rel 349 (0,20)] [main delta] haus

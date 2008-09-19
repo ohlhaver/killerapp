@@ -7,7 +7,7 @@
   <head>
 		<br>
 		<div id="login_logout">
-	        <% if @current_user.login %>
+	        <% if logged_in? %>
 	          Eingeloggt als:
 	          <%= @current_user.login %><em> <%= link_to "(ausloggen)", session_path, :method => :delete %></em>
 	        <% else %>
@@ -15,6 +15,7 @@
 	          <%= link_to 'Einloggen', :controller => 'sessions', :action => 'new' %>
 	        <% end %>
 	      </div>
+		
 	
 			<list id="navigation">
 				<b><%= link_to 'jurnalo', groups_path %>  -
@@ -96,7 +97,8 @@
 	</head>
 <body>
  <div id="content">
-
+	<p style="color: green"><%= flash[:notice] %></p>
+	<p style="color: #990000"><%= flash[:alert] %></p>
 	<%= yield %>
 </body> 
 </html>

@@ -1,33 +1,30 @@
+# This controller handles the login/logout function of the site.  
 class SessionsController < ApplicationController
-  def create 
-    if User.find_by_login_and_password(params[:login], params[:password]) != nil
-     @current_user = User.find_by_login_and_password(params[:login], params[:password])
-    end
-   
 
-      if @current_user.login
-        session[:user_id] = @current_user.id
-        if session[:return_to]
-          redirect_to session[:return_to]
-          session[:return_to] = nil
-        else    
-        redirect_to groups_path
-        end
-      else
-        render :action => 'new'
-      end
+
+  # render new.rhtml
+  def new
   end
 
-  def new
-    unless logged_in?
-      @current_user = User.create
-      session[:user_id] = @current_user.id
-      redirect_to groups_path 
-    end    
+  def create
+    self.current_user = User.authenticate(params[:login], params[:password])
+    if logged_in?
+      if params[:remember_me] == "1"
+        current_user.remember_me unless current_user.remember_token?
+        cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
+      end
+      redirect_back_or_default('/')
+      flash[:notice] = "Erfolgreich eingeloggt"
+    else
+      render :action => 'new'
+    end
   end
 
   def destroy
-    session[:user_id] = @current_user = User.create
+    self.current_user.forget_me if logged_in?
+    cookies.delete :auth_token
+    reset_session
+    flash[:notice] = "Sie haben sich ausgeloggt."
+    redirect_back_or_default('/')
   end
-
 end

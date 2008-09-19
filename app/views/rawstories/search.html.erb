@@ -1,18 +1,18 @@
 <%= stylesheet_link_tag 'style' %>
 
 <div id= "filter">
-<b><%= 'alle Artikel - ' if @current_user.filter != 1 %></b> 
-<%= (link_to 'Meinungen zeigen',  {:controller => 'rawstories', :action => 'filter_by_opinions'}) if @current_user.filter != 1 %>
+<b><%= 'alle Artikel - ' if params[:action] == 'search'%></b> 
+<%= (link_to 'Meinungen zeigen',  {:controller => 'rawstories', :action => 'filter_by_opinions', :q => params[:q]}) if params[:action] == 'search' %>
 
-<%= link_to 'alle Artikel zeigen',  {:controller => 'rawstories', :action => 'show_all'} if @current_user.filter == 1 %>
-<b><%= ' - Meinungen'  if @current_user.filter == 1 %></b>
+<%= link_to 'alle Artikel zeigen',  {:controller => 'rawstories', :action => 'search', :q => params[:q]} if params[:action] == 'filter_by_opinions' %>
+<b><%= ' - Meinungen'  if params[:action] == 'filter_by_opinions' %></b>
 </div>
 
 
 <p>
 
-Suchergebnisse für <b>'<%= @current_user.query %>'</b>
-     
+Suchergebnisse für <b>'<%= params[:q] %>'</b>
+  
 <% unless @rawstories.empty? -%> 
 
 </p>
@@ -25,8 +25,8 @@ Suchergebnisse für <b>'<%= @current_user.query %>'</b>
 </div>
 <br>
 <% else -%>
-  <p><%= 'Keine Artikel gefunden.' if @current_user.filter == 0 %>
-<%= 'Keine <b>Meinungen</b> gefunden.' if @current_user.filter == 1 %>
+  <p><%= 'Keine Artikel gefunden.' if @filter == 0 %>
+<%= 'Keine <b>Meinungen</b> gefunden.' if @filter == 1 %>
 </p>
 <% end -%>
 

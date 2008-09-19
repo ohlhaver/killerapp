@@ -1,3 +1,10 @@
+
+# edit config/environments/production.rb & put these lines at the top
+SITE_NAME = "Jurnalo"
+SITE_URL = "74.63.8.37"
+SITE_EMAIL = SITE_EMAIL = "jurnalo.user.service@googlemail.com"
+
+
 # Settings specified here will take precedence over those in config/environment.rb
 
 # The production environment is meant for finished, "live" apps.
@@ -20,3 +27,4 @@ config.action_view.cache_template_loading            = true
 
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
+

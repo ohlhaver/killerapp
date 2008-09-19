@@ -1,6 +1,6 @@
 class RawstoriesController < ApplicationController
   
-before_filter :login_required
+# before_filter :login_required
   
   def index
 
@@ -9,50 +9,18 @@ before_filter :login_required
   
   def search
     require 'will_paginate'
-    @current_user.query = params[:q] unless params[:q] == nil
-    @current_user.save
-    @search = Ultrasphinx::Search.new(:query => @current_user.query, 
-                                      :weights => { 'title' => 2.0 })
-                                      
-    @rawstories = @search.results
-    
-    @matches = @search.response[:matches]
-    
-    counter = 0
-    @rawstories.each do |story|
-    weight = (@matches[counter])[:weight]  
-    age = ((Time.new - story.created_at)/3600).to_i 
-    age = 1 if age < 1
-    age = (100*(1/(age**(0.33)))).to_i 
-      
-    blub = age*weight/100
-    
-    story.blub = blub    
-    counter = counter + 1
-    end                                            
-  
-    @rawstories = @rawstories.sort_by {|u| - u.blub }  
-    
-    
-    
-    
-    @rawstories = @rawstories.find_all{|v| v.opinion == 1 } if @current_user.filter == 1 
-    
-    @rawstories = @rawstories.paginate  :page => params[:page],
-                                        :per_page => 8
-                                        
-  
+    query = params[:q] unless params[:q] == nil
+    fetch_search_results nil, query
   end 
  
  def filter_by_opinions
-   @current_user.filter = 1
-   @current_user.save
-   redirect_to :action => 'search'
+  query = params[:q]
+   fetch_search_results 1, query
+   render :action => 'search'
  end
    
  def show_all
-   @current_user.filter = 0
-   @current_user.save
+   @filter = 0
    redirect_to :action => 'search'
  end
   
@@ -91,6 +59,36 @@ before_filter :login_required
                                           :per_page => 8
   end
 
+
+  def fetch_search_results conditions, query   
+      @search = Ultrasphinx::Search.new(:query => query, 
+                                        :weights => { 'title' => 2.0 })
+
+      @rawstories = @search.results
+
+      @matches = @search.response[:matches]
+
+      counter = 0
+      @rawstories.each do |story|
+      weight = (@matches[counter])[:weight]  
+      age = ((Time.new - story.created_at)/3600).to_i 
+      age = 1 if age < 1
+      age = (100*(1/(age**(0.33)))).to_i 
+
+      blub = age*weight/100
+
+      story.blub = blub    
+      counter = counter + 1
+      end                                            
+
+      @rawstories = @rawstories.sort_by {|u| - u.blub }  
+
+      @rawstories = @rawstories.find_all{|v| v.opinion == 1 } if conditions != nil 
+
+      @rawstories = @rawstories.paginate  :page => params[:page],
+                                          :per_page => 8
+      
+    end
 
    
  
