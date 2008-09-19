@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     if @user.errors.empty?
       self.current_user = @user
       redirect_back_or_default('/')
-      flash[:notice] = "Danke für die Anmeldung!"
+      flash[:notice] = "Vielen Dank für die Anmeldung! Bitte checken Sie Ihre Email um sich zu authentifizieren."
     else
       render :action => 'new'
     end

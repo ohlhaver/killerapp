@@ -45,7 +45,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :rawstories, :collection => {:filter_by_opinions => :get, :search => :get, :show_all => :get, :sort_by_relevance => :get, :sort_by_time => :get}
   map.resources :authors
   map.resources :subscriptions
-  map.resources :groups, :collection => {:politics => :get, :culture => :get, :science => :get, :business => :get, :sport => :get, :mixed => :get, :humor => :get, :technology => :get}
+  map.resources :groups, :collection => {:opinions => :get, :politics => :get, :culture => :get, :science => :get, :business => :get, :sport => :get, :mixed => :get, :humor => :get, :technology => :get}
   map.resources :users
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

@@ -79,11 +79,16 @@
 		<% end %>
 
 		<% if params[:action] == 'mixed' %> 
-		<b><%= 'Vermischtes'  %></b>
+		<b><%= 'Vermischtes'  %></b> -
 		<% else %> 
-		<%= link_to 'Vermischtes', :controller => 'groups', :action => 'mixed'  %>
+		<%= link_to 'Vermischtes', :controller => 'groups', :action => 'mixed'  %> -
 		<% end %>
 
+		<% if params[:action] == 'opinions' %> 
+		<b><%= 'Kommentare'  %></b>
+		<% else %> 
+		<b><%= link_to 'Kommentare', :controller => 'groups', :action => 'opinions'  %></b>
+		<% end %>
 
 
 

@@ -47,7 +47,10 @@ class GroupsController < ApplicationController
         render :action => 'index'
       end
 
-
+      def opinions
+        fetch_opinions      
+        render :action => 'index'
+      end
 
 
 
@@ -58,10 +61,18 @@ class GroupsController < ApplicationController
         (@haufens = @haufens.find_all {|u| u.topic == conditions }) if conditions != nil
         @haufens = @haufens.sort_by {|u| - u.weight }  
         
-        @haufens = @haufens.first(8) #if conditions == nil
-        
-        
+        @haufens = @haufens.first(8) #if conditions == nil  
       end
-
+      
+      def fetch_opinions
+  #      #require 'will_paginate'
+        
+        @stories = Rawstory.find(:all, :conditions => ['created_at > :date', {:date => Time.now.yesterday}], :order => 'id DESC')       
+        @stories = @stories.find_all {|u| u.author.subscriptions.size > 0 }
+        @stories = @stories.sort_by {|u| - u.author.subscriptions.size}
+        @haufens = @stories.first(8)
+        #@curret_stories = @user_rawstories.paginate :page => params[:page],
+                                         #             :per_page => 8
+    end
   
 end
