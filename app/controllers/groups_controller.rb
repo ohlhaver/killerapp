@@ -59,6 +59,11 @@ class GroupsController < ApplicationController
      def fetch_groups(conditions)
         @haufens = Hsession.find(:last).haufens  
         (@haufens = @haufens.find_all {|u| u.topic == conditions }) if conditions != nil
+        if conditions == nil
+            (@haufens = @haufens.find_all {|u| u.topic != 6 }) 
+            (@haufens = @haufens.find_all {|u| u.topic != 7 })
+        end
+        
         @haufens = @haufens.sort_by {|u| - u.weight }  
         
         @haufens = @haufens.first(8) #if conditions == nil  
