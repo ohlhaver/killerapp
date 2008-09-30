@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   
   #before_filter :login_required
-     
+
       
   def index   
    unless read_fragment :action => 'index'    
@@ -10,9 +10,9 @@ class GroupsController < ApplicationController
   end
   
   def politics
-    unless read_fragment :action => 'politics' 
-    fetch_groups 2
-    end      
+    unless read_fragment :action => 'politics'  
+    fetch_groups 2      
+  end
     render :action => 'index'
   end
   
@@ -72,7 +72,8 @@ class GroupsController < ApplicationController
   def opinions
     unless read_fragment :action => 'opinions' 
     fetch_opinions 
-    end     
+    end 
+        
     render :action => 'index'
   end
 
@@ -80,7 +81,8 @@ class GroupsController < ApplicationController
       
      protected
      def fetch_groups(conditions)
-        @haufens = Hsession.find(:last).haufens  
+        right_session = Hsession.find(:last).id - 1
+        @haufens = Hsession.find(right_session).haufens  
         (@haufens = @haufens.find_all {|u| u.topic == conditions }) if conditions != nil
         if conditions == nil
             (@haufens = @haufens.find_all {|u| u.topic != 6 }) 

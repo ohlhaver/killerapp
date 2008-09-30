@@ -1,6 +1,11 @@
 <%= stylesheet_link_tag 'style' %>
 
 <% div_for(@haufens) do %>
-<%= render :partial => haufen.rawstories.last %>
+
+
+<% @haufen_story = Rawstory.find(haufen.latest) %>
+
+
+<%= render :partial => @haufen_story %>
 
 <% end %>

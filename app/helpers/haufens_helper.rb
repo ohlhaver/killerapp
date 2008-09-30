@@ -1,0 +1,2 @@
+module HaufensHelper
+end

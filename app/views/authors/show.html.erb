@@ -1,4 +1,4 @@
-
+<% cache ({:page => params[:page] || 1}) do %>
 <br>
 
 Artikel von <b><%= @author.name %></b>
@@ -7,3 +7,5 @@ Artikel von <b><%= @author.name %></b>
   <%= render :partial => @rawstories_published %>
 </p>
 <%= will_paginate(@rawstories_published) %>
+
+<% end %>

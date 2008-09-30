@@ -8,6 +8,8 @@ before_filter :login_required
   end
 
 def index
+ 
+  
   require 'will_paginate'
    @authors = @current_user.authors
    @user_rawstories = []
