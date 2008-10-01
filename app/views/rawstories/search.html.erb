@@ -1,17 +1,20 @@
 <%= stylesheet_link_tag 'style' %>
 
 <div id= "filter">
-<b><%= 'alle Artikel - ' if params[:action] == 'search'%></b> 
-<%= (link_to 'Meinungen zeigen',  {:controller => 'rawstories', :action => 'filter_by_opinions', :q => params[:q]}) if params[:action] == 'search' %>
+<b><%= 'alle Artikel - ' if params[:action] == 'search' && @opinion_weight > 0 %></b> 
+<%= (link_to @opinion_weight.to_s + ' Meinungen',  {:controller => 'rawstories', :action => 'filter_by_opinions', :q => params[:q]}) if params[:action] == 'search' && @opinion_weight > 1 %>
+<%= (link_to '1 Meinung',  {:controller => 'rawstories', :action => 'filter_by_opinions', :q => params[:q]}) if params[:action] == 'search' && @opinion_weight == 1 %>
 
-<%= link_to 'alle Artikel zeigen',  {:controller => 'rawstories', :action => 'search', :q => params[:q]} if params[:action] == 'filter_by_opinions' %>
-<b><%= ' - Meinungen'  if params[:action] == 'filter_by_opinions' %></b>
+<%= link_to 'alle Artikel',  {:controller => 'rawstories', :action => 'search', :q => params[:q]} if params[:action] == 'filter_by_opinions' %>
+<b><%= ' - ' + @opinion_weight.to_s + ' Meinungen' if params[:action] == 'filter_by_opinions' && @opinion_weight > 1 %></b>
+<b><%= ' - 1 Meinung' if params[:action] == 'filter_by_opinions' && @opinion_weight == 1 %></b>
 </div>
 
 
 <p>
 
-Suchergebnisse für <b>'<%= params[:q] %>'</b>
+<%= 'Suchergebnisse für ' if params[:action] == 'search' %> <%= ' Meinungen zu ' if params[:action] == 'filter_by_opinions' %> <b> '<%= params[:q] %>'
+</b>
   
 <% unless @rawstories.empty? -%> 
 

@@ -80,11 +80,11 @@ class RawstoriesController < ApplicationController
       story.blub = blub    
       counter = counter + 1
       end                                            
-
+      
       @rawstories = @rawstories.sort_by {|u| - u.blub }  
-
-      @rawstories = @rawstories.find_all{|v| v.opinion == 1 } if conditions != nil 
-
+      opinion_stories = @rawstories.find_all{|v| v.opinion == 1 } 
+      @rawstories = opinion_stories if conditions != nil 
+      @opinion_weight = opinion_stories.size
       @rawstories = @rawstories.paginate  :page => params[:page],
                                           :per_page => 8
       
