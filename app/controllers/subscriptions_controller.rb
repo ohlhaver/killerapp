@@ -9,16 +9,15 @@ before_filter :login_required
 
 def index
  
-  
   require 'will_paginate'
    @authors = @current_user.authors
    @user_rawstories = []
    @authors.each do |a|
-     @user_rawstories = @user_rawstories + a.rawstories
+     @user_rawstories = @user_rawstories + a.rawstories.last(1)
    end
    @user_rawstories = @user_rawstories.sort_by {|u| - u.id }  
    @user_rawstories = @user_rawstories.paginate :page => params[:page],
-                                                :per_page => 8
+                                                :per_page => 8                                             
 end
 
 
