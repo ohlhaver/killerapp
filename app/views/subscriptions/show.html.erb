@@ -1,20 +1,21 @@
-<br>
-<div id= "filter">
-<%= link_to 'Artikel zeigen',  {:controller => 'subscriptions', :action => 'index'} %>
-<b><%= '- Liste der Autoren' %></b> 
+
+
+
+
+
+
+<div class="pagelabel">
+<% unless @subscriptions.empty? -%>
+
+<%= 'Ihre Lieblingsautoren' %><%= link_to ' (Artikel',  {:controller => 'subscriptions', :action => 'index'} %>
+<b><%= '- Liste der Autoren)' %></b>
 
 </div>
 
-
-<% unless @subscriptions.empty? -%>
-
-<%= 'Ihre Lieblingsautoren' %>
-
-<br><br>
+<span class = 'headline'>
 <%= render :partial => @subscriptions %>
-
+</span>
 <% else -%>
   <%= 'Sie haben noch keine Lieblingsautoren.' %>
 
 <% end -%>
-

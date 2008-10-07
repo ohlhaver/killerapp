@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   
-  #before_filter :login_required
+  before_filter :determine_german_date
 
       
   def index   

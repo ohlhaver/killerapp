@@ -15,4 +15,48 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   before_filter :logged_in?
   
+  before_filter :determine_selection
+  
+  #protected
+  
+  def determine_selection
+   @selection = 'Schlagzeilen' if params[:action] == 'index' && params[:controller] == 'groups'
+   @selection = 'Politik' if params[:action] == 'politics'
+   @selection = 'Feuilleton' if params[:action] == 'culture'
+   @selection = 'Wirtschaft' if params[:action] == 'business'
+   @selection = 'Wissen' if params[:action] == 'science'
+   @selection = 'Technik' if params[:action] == 'technology'
+   @selection = 'Vermischtes' if params[:action] == 'mixed'
+   @selection = 'Sport' if params[:action] == 'sport'
+   @selection = 'Meinungen' if params[:action] == 'opinions'
+
+   #@selection = 'Ähnliche Artikel' if params[:controller] == 'haufens' && params[:action] == 'show'
+   #@selection = 'Meinungen' if params[:controller] == 'haufens' && params[:action] == 'filter_haufen_by_opinions'
+   end
+
+   def determine_german_date
+    t = Time.now
+
+    m = t.mon
+
+   month = 'Januar' if m == 1
+   month = 'Februar' if m == 2
+   month = 'März' if m == 3
+   month = 'April' if m == 4
+   month = 'Mai' if m == 5
+   month = 'Juni' if m == 6
+   month = 'Juli' if m == 7
+   month = 'August' if m == 8
+   month = 'September' if m == 9
+   month = 'Oktober' if m == 10
+   month = 'November' if m == 11
+   month = 'Dezember' if m == 12
+
+   #clock = t.strftime('%I:%M Uhr')
+   day = t.mday.to_s
+
+   @date = ' - ' + day +'. ' + month #+ ' ' + clock
+
+   end
+  
 end

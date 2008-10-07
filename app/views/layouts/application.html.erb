@@ -1,112 +1,127 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xml:lang="en" lang="en">
-<%= stylesheet_link_tag 'style' %>
-<title> jurnalo </title>
   <head>
-		<br>
-		<div id="login_logout">
+    <xml:lang="en" lang="en">
+
+
+
+<title>jurnalo</title>
+<%= stylesheet_link_tag 'style' %>
+
+
+
+
+<title> jurnalo </title>
+	</head>
+	<body>
+		
+		
+		<% form_tag search_rawstories_path, :method => :get do -%>
+		<div class ="search">
+
+	        <%= text_field_tag :q, params[:q],  :id => 'searchfield', :class =>"text" %>
+			<%= submit_tag 'Suche', :id => 'searchbutton', :class => 'button' %>
+
+	      </div>
+	    <% end -%>
+		<div class="header">
+		
+		<div class="profile">
+			<%= (link_to 'Meine Autoren' , subscriptions_path) %>&nbsp;&nbsp;-&nbsp;&nbsp;
 	        <% if logged_in? %>
-	          Eingeloggt als:
 	          <%= @current_user.login %><em> <%= link_to "(ausloggen)", session_path, :method => :delete %></em>
 	        <% else %>
-	          <em>Nicht eingeloggt.</em>
 	          <%= link_to 'Einloggen', :controller => 'sessions', :action => 'new' %>
 	        <% end %>
 	      </div>
-		
+		</div>
 	
-			<list id="navigation">
-				<b><%= link_to 'jurnalo', groups_path %>  -
-				<%= (link_to 'Meine Autoren' , subscriptions_path) %>
-			
-				
-				</b>
-				</list>
+			<div class ="logo">
+				<%= link_to image_tag('logo.gif'), groups_path%>
+				</div>
 				
 						
 				
 
-    <% form_tag search_rawstories_path, :method => :get do -%>
-	<div id="search">
-		<br>
-        <%= text_field_tag :q, params[:q], :class => 'text' %>
 
-        <%= submit_tag 'Suche', :class => 'button' %>
-      </div>
-    <% end -%>
-
-		<p>
-		<list id="group_navigation">
-		<% if params[:action] == 'index' %> 
-		<b><%= 'Schlagzeilen'  %></b> -
+		<div class ="navigation">
+			<ul>
+	<li>	<% if params[:action] == 'index' && params[:controller] == 'groups'%> 
+		<span class="selected"><%= 'Schlagzeilen'  %></span> 
 		<% else %> 
-		<%= link_to 'Schlagzeilen', :controller => 'groups', :action => 'index'  %>  -
-		<% end %>
+			<span class="unselected"><%= link_to 'Schlagzeilen', :controller => 'groups', :action => 'index'  %> </span>  
+		<% end %></li>
 
-		<% if params[:action] == 'politics' %> 
-		<b><%= 'Politik'  %></b> -
+	<li>	<% if params[:action] == 'politics' %> 
+		<span class="selected"><%= 'Politik'  %></span> 
 		<% else %> 
-		<%= link_to 'Politik', :controller => 'groups', :action => 'politics'  %>  -
-		<% end %>
+		<span class="unselected"><%= link_to 'Politik', :controller => 'groups', :action => 'politics'  %>  </span>
+		<% end %></li>
 
-		<% if params[:action] == 'business' %> 
-		<b><%= 'Wirtschaft'  %></b> -
+	<li>	<% if params[:action] == 'business' %> 
+		<span class="selected"><%= 'Wirtschaft'  %></span>  
 		<% else %> 
-		<%= link_to 'Wirtschaft', :controller => 'groups', :action => 'business'  %>  -
-		<% end %>
+	<span class="unselected">	<%= link_to 'Wirtschaft', :controller => 'groups', :action => 'business'  %>  </span>
+		<% end %></li>
 
-		<% if params[:action] == 'culture' %> 
-		<b><%= 'Feuilleton'  %></b> -
+	<li>	<% if params[:action] == 'culture' %> 
+		<span class="selected"><%= 'Feuilleton'  %></span> 
 		<% else %> 
-		<%= link_to 'Feuilleton',:controller => 'groups', :action => 'culture'  %>  -
-		<% end %>
+	<span class="unselected">	<%= link_to 'Feuilleton',:controller => 'groups', :action => 'culture'  %>  </span>
+		<% end %></li>
 
-		<% if params[:action] == 'science' %> 
-		<b><%= 'Wissen'  %></b> -
+	<li>	<% if params[:action] == 'science' %> 
+		<span class="selected"><%= 'Wissen'  %></span>  
 		<% else %> 
-		<%= link_to 'Wissen', :controller => 'groups', :action => 'science'  %>  -
-		<% end %>
+	<span class="unselected">	<%= link_to 'Wissen', :controller => 'groups', :action => 'science'  %>  </span>
+		<% end %></li>
 
-		<% if params[:action] == 'technology' %> 
-		<b><%= 'Technik'  %></b> -
+	<li>	<% if params[:action] == 'technology' %> 
+		<span class="selected"><%= 'Technik'  %></span>  
 		<% else %> 
-		<%= link_to 'Technik', :controller => 'groups', :action => 'technology'  %>  -
-		<% end %>
+	<span class="unselected">	<%= link_to 'Technik', :controller => 'groups', :action => 'technology'  %>  </span>
+		<% end %></li>
 
-		<% if params[:action] == 'sport' %> 
-		<b><%= 'Sport'  %></b> -
+	<li>	<% if params[:action] == 'sport' %> 
+		<span class="selected"><%= 'Sport'  %></span>  
 		<% else %> 
-		<%= link_to 'Sport', :controller => 'groups', :action => 'sport'  %> -
-		<% end %>
+	<span class="unselected">	<%= link_to 'Sport', :controller => 'groups', :action => 'sport'  %> </span>
+		<% end %></li>
 
-		<% if params[:action] == 'mixed' %> 
-		<b><%= 'Vermischtes'  %></b> -
+	<li>	<% if params[:action] == 'mixed' %> 
+	<span class="selected"><%= 'Vermischtes'  %></span>  
 		<% else %> 
-		<%= link_to 'Vermischtes', :controller => 'groups', :action => 'mixed'  %> -
-		<% end %>
+	<span class="unselected">	<%= link_to 'Vermischtes', :controller => 'groups', :action => 'mixed'  %> </span>
+		<% end %></li>
 
-		<% if params[:action] == 'opinions' %> 
-		<b><%= 'Meinungen'  %></b>
+	<li>	<% if params[:action] == 'opinions' %> 
+		<span class="selected"><%= 'Meinungen'  %></span> 
 		<% else %> 
-		<b><%= link_to 'Meinungen', :controller => 'groups', :action => 'opinions'  %></b>
-		<% end %>
+	<span class="unselected">	<%= link_to 'Meinungen', :controller => 'groups', :action => 'opinions'  %> </span>
+		<% end %></li>
 
 
 
-
+		</ul>
 
 
 		</list>
+</div>
+	
+</body>
+<div class="headlines">
+  <ul>
+  	<li>
+  	  <div class="pagelabel">
+	<%= @selection %> <%= @date %></div>
+  	</li>
 
-		</p>
 
-	</head>
-<body>
+
  <div id="content">
 	<p style="color: green"><%= flash[:notice] %></p>
 	<p style="color: #990000"><%= flash[:alert] %></p>
 	<%= yield %>
-</body> 
+ 
 </html>

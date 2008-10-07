@@ -1,44 +1,221 @@
+@charset "UTF-8";
+.headline {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 21px;
+	font-style: normal;
+	line-height: 27px;
+	font-weight: normal;
+	color: #333333;
+}
+
+li {
+	list-style-type: none;
+	margin-bottom: 17px;
+}
+.navigation {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333333;
+	margin-left: 10px;
+	margin-bottom: 14px;
+	float: left;
+	margin-top: 1px;
+	position: fixed;
+}
+.navigation li{
+	list-style-type: none;
+	margin: 0px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+.unselected   {
+	color: #333333;
+	background-color: #FFFFFF;
+	padding: 3px;
+}
 
 
 
+.logo {
+	float: left;
+	margin-left: 10px;
+	vertical-align: top;
+	margin-top: 0px;
+	position: fixed;
+	top: 9px;
+}
+a img {
+    border: 0px;
+}
+.header {
+	margin-top: 7px;
+	margin-bottom: 60px;
+	width: 100%;
+	text-align: right;
+}
+.profile {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 17px;
+	color: #333333;
+	display: inline;
+	white-space: nowrap;
+	padding-right: 30px;
+}
+.search {
+	display: block;
+	width: 520px;
+	float: left;
+	text-align: left;
+	margin-left: 140px;
+	vertical-align: top;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 21px;
+	height: 33px;
+}
+.selected {
+	color: #FFFFFF;
+	background-color: #0000C8;
+	padding: 3px;
+}
+.navigation a:hover{
+	color: #FFFFFF;
+	background-color: #0000C8;
+	padding: 3px;
+}
+
+#searchfield {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 21px;
+	line-height: 27px;
+	color: #333333;
+	width: 400px;
+	align: left;
+	border: 1px solid #0000C8;
+	padding: 4px;
+	vertical-align: middle;
+}
+#searchbutton {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 21px;
+	line-height: 27px;
+	color: #FFFFFF;
+	background-color: #0000C8;
+	vertical-align: middle;
+	padding: 4px;
+}
+#searchform .header .search #submit {
+	background-position: center;
+}
+.headlines {
+	margin-left: 140px;
+}
+ul {
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 14px;
+	margin-left: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	list-style-type: none;
+}
+.pagination {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 21px;
+	color: #333333;
+	margin-bottom: 2px;
+	margin-top: 27px;
+	text-transform: uppercase;
+}
+.pagelabel {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 21px;
+	color: #333333;
+	margin-bottom: 27px;
+	text-transform: uppercase;
+}
+.datestamp {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 21px;
+	line-height: 27px;
+	color: #999999;
+}
+.datestamp .source {
+}
+.author {
+	color: #999999;
+}
+
+a:link {
+	color: #333333;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #333333;
+}
+a:hover {
+	text-decoration: none;
+	color: #0000C8;
+}
+a:active {
+	text-decoration: none;
+	color: #0000C8;
+}
+.cluster a:link {
+	color: #999999;
+	text-decoration: none;
+}
+.cluster a:visited {
+	text-decoration: none;
+	color: #999999;
+}
+.cluster a:hover {
+	text-decoration: none;
+	color: #0000C8;
+}
+.cluster a:active {
+	text-decoration: none;
+	color: #0000C8;
+}
 body {
-float: center;	
-  margin: 0px 200px;
-font-family: Arial;
-  	
+	margin-top: 0px;
+	margin-right: 10px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
 }
-
-
-
-#login_logout {
-  float: right;
-  color: #999;
-  font-size: normal;
+.datestamp a:link {
+	color: #999999;
 }
-
-#group_navigation {
-  color: #999;
-  font-size: normal;
+.datestamp a:hover {
+	color: #0000C8;
 }
-
-
-
-
-#main_headline {
-  font-size: large;
+.datestamp a:active {
+	color: #0000C8;
 }
-
-#pagination {
-
-  font-size: large;
+.cluster {
+	color: #999999;
+	padding: 0px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 22px;
+	line-height: 27px;
 }
-
-#filter {
-float: right;
-color: #999;
-  font-size: normal;
+.author a:link {
+	color: #999999;
 }
-
-#heading {
- font-size: large;
+.author a:visited {
+	color: #0000C8;
+}
+.author a:hover {
+	color: #666666;
+}
+.author a:active {
+	color: #666666;
 }

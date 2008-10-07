@@ -1,11 +1,12 @@
 <% cache ({:page => params[:page] || 1}) do %>
-<br>
+
+<div class = 'pagelabel'>
 
 Artikel von <b><%= @author.name %></b>
 
-<p>
+</div>
+
   <%= render :partial => @rawstories_published %>
-</p>
 <%= will_paginate(@rawstories_published) %>
 
 <% end %>

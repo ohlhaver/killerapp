@@ -1,23 +1,18 @@
 <% cache ({:page => params[:page] || 1}) do %>
-<%= stylesheet_link_tag 'style' %>
-<br>
-<div id= "filter">
-<b><%= 'alle Artikel - ' if params[:action] == 'show' && @opinion_weight > 0 %></b> 
-<%= (link_to @opinion_weight.to_s + ' Meinungen',  {:controller => 'haufens', :action => 'filter_haufen_by_opinions', :id => params[:id]}) if params[:action] == 'show' && @opinion_weight > 1  %>
-<%= (link_to '1 Meinung',  {:controller => 'haufens', :action => 'filter_haufen_by_opinions', :id => params[:id]}) if params[:action] == 'show' && @opinion_weight == 1  %>
 
-<%= link_to 'alle Artikel',  { :action => 'show', :id => params[:id]} if params[:action] == 'filter_haufen_by_opinions' %>
-<b><%= ' - ' + @opinion_weight.to_s + ' Meinungen'  if params[:action] == 'filter_haufen_by_opinions' && @opinion_weight > 1  %></b>
-<b><%= ' - 1 Meinung'  if params[:action] == 'filter_haufen_by_opinions' && @opinion_weight == 1 %></b>
+<div class="pagelabel">
+<%= 'Ähnliche Artikel' %> 
+<b><%= ' (alle - ' if params[:action] == 'show' && @opinion_weight > 0 %></b> 
+<%= (link_to @opinion_weight.to_s + ' Meinungen)',  {:controller => 'haufens', :action => 'filter_haufen_by_opinions', :id => params[:id]}) if params[:action] == 'show' && @opinion_weight > 1  %>
+<%= (link_to '1 Meinung)',  {:controller => 'haufens', :action => 'filter_haufen_by_opinions', :id => params[:id]}) if params[:action] == 'show' && @opinion_weight == 1  %>
+
+<%= link_to ' (alle',  { :action => 'show', :id => params[:id]} if params[:action] == 'filter_haufen_by_opinions' %>
+<b><%= ' - ' + @opinion_weight.to_s + ' Meinungen)'  if params[:action] == 'filter_haufen_by_opinions' && @opinion_weight > 1  %></b>
+<b><%= ' - 1 Meinung)'  if params[:action] == 'filter_haufen_by_opinions' && @opinion_weight == 1 %></b>
+
 </div>
-
-
-<b><%='Ähnliche Artikel' if params[:action] == 'show' %> </b>
-<b><%='Meinungen' if params[:action] == 'filter_haufen_by_opinions' %> </b>
-
-<p>
   <%= render :partial => @haufen_stories %>
-</p>
+
 <%= will_paginate(@haufen_stories)  %>
 <br>
 

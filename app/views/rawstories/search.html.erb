@@ -1,35 +1,32 @@
 <%= stylesheet_link_tag 'style' %>
 
-<div id= "filter">
-<b><%= 'alle Artikel - ' if params[:action] == 'search' && @opinion_weight > 0 %></b> 
-<%= (link_to @opinion_weight.to_s + ' Meinungen',  {:controller => 'rawstories', :action => 'filter_by_opinions', :q => params[:q]}) if params[:action] == 'search' && @opinion_weight > 1 %>
-<%= (link_to '1 Meinung',  {:controller => 'rawstories', :action => 'filter_by_opinions', :q => params[:q]}) if params[:action] == 'search' && @opinion_weight == 1 %>
 
-<%= link_to 'alle Artikel',  {:controller => 'rawstories', :action => 'search', :q => params[:q]} if params[:action] == 'filter_by_opinions' %>
-<b><%= ' - ' + @opinion_weight.to_s + ' Meinungen' if params[:action] == 'filter_by_opinions' && @opinion_weight > 1 %></b>
-<b><%= ' - 1 Meinung' if params[:action] == 'filter_by_opinions' && @opinion_weight == 1 %></b>
+<% unless @rawstories.empty? -%> 
+<div class="pagelabel">
+<%= 'Suchergebnisse für ' if params[:action] == 'search' %> <%= ' Meinungen zu ' if params[:action] == 'filter_by_opinions' %> <b> '<%= params[:q] %>'
+</b>
+
+<b><%= ' (alle Artikel - ' if params[:action] == 'search' && @opinion_weight > 0 %></b> 
+<%= (link_to @opinion_weight.to_s + ' Meinungen)',  {:controller => 'rawstories', :action => 'filter_by_opinions', :q => params[:q]}) if params[:action] == 'search' && @opinion_weight > 1 %>
+<%= (link_to '1 Meinung)',  {:controller => 'rawstories', :action => 'filter_by_opinions', :q => params[:q]}) if params[:action] == 'search' && @opinion_weight == 1 %>
+
+<%= link_to ' (alle Artikel',  {:controller => 'rawstories', :action => 'search', :q => params[:q]} if params[:action] == 'filter_by_opinions' %>
+<b><%= ' - ' + @opinion_weight.to_s + ' Meinungen)' if params[:action] == 'filter_by_opinions' && @opinion_weight > 1 %></b>
+<b><%= ' - 1 Meinung)' if params[:action] == 'filter_by_opinions' && @opinion_weight == 1 %></b>
+
+
 </div>
 
 
-<p>
-
-<%= 'Suchergebnisse für ' if params[:action] == 'search' %> <%= ' Meinungen zu ' if params[:action] == 'filter_by_opinions' %> <b> '<%= params[:q] %>'
-</b>
-  
-<% unless @rawstories.empty? -%> 
-
-</p>
-<p>
 
     <%= render :partial => @rawstories %>
-</p>
-<div id= "pagination" > 
+
+<div class= "pagination" > 
 <%= will_paginate(@rawstories) %>
 </div>
 <br>
 <% else -%>
-  <p><%= 'Keine Artikel gefunden.' if @filter == 0 %>
-<%= 'Keine <b>Meinungen</b> gefunden.' if @filter == 1 %>
+  <p> Keine Artikel zu <b>'<%= params[:q]%>' </b> gefunden. 
 </p>
 <% end -%>
 
