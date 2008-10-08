@@ -30,7 +30,7 @@
 		<div class="profile">
 			<%= (link_to 'Meine Autoren' , subscriptions_path) %>&nbsp;&nbsp;-&nbsp;&nbsp;
 	        <% if logged_in? %>
-	          <%= @current_user.login %><em> <%= link_to "(ausloggen)", session_path, :method => :delete %></em>
+	          <%= h(@current_user.login) %><em> <%= link_to "(ausloggen)", session_path, :method => :delete %></em>
 	        <% else %>
 	          <%= link_to 'Einloggen', :controller => 'sessions', :action => 'new' %>
 	        <% end %>

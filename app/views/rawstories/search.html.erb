@@ -3,7 +3,7 @@
 
 <% unless @rawstories.empty? -%> 
 <div class="pagelabel">
-<%= 'Suchergebnisse für ' if params[:action] == 'search' %> <%= ' Meinungen zu ' if params[:action] == 'filter_by_opinions' %> <b> '<%= params[:q] %>'
+<%= 'Suchergebnisse für ' if params[:action] == 'search' %> <%= ' Meinungen zu ' if params[:action] == 'filter_by_opinions' %> <b> '<%= h(params[:q]) %>'
 </b>
 
 <b><%= ' (alle Artikel - ' if params[:action] == 'search' && @opinion_weight > 0 %></b> 
@@ -26,7 +26,7 @@
 </div>
 <br>
 <% else -%>
-  <p> Keine Artikel zu <b>'<%= params[:q]%>' </b> gefunden. 
+  <p> Keine Artikel zu <b>'<%= h(params[:q])%>' </b> gefunden. 
 </p>
 <% end -%>
 
