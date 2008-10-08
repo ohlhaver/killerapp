@@ -25,14 +25,14 @@ end
 
   def remove
    @subscription = Subscription.find(params[:id])
-   Subscription.destroy(@subscription)
+   Subscription.destroy(@subscription) if @subscription.user.id == @current_user.id
    redirect_to :action => 'index'
   end
 
 
     def subscribe
       if @current_user.login
-      @current_user.subscriptions.create(:author_id => params[:id])
+      @current_user.subscriptions.create(:author_id => params[:id]) if Author.find(params[:id])
       end
 
       redirect_to :controller => 'subscriptions', :action => 'index'
