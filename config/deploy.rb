@@ -1,5 +1,5 @@
 set :user, 'justus'
-ssh_options[:port] = 2109
+
 default_run_options[:pty] = true
 set :scm, :git
 set :scm_passphrase, "rosenwel" #This is your custom users password
@@ -9,7 +9,7 @@ set :scm_passphrase, "rosenwel" #This is your custom users password
 #ssh_options[:forward_agent] = true
 #ssh_options[:paranoid] = false
 #ssh_options[:keys] = %w(/Users/ohlhaver/.ssh/id_rsa)
-#ssh_options[:port] = 1600
+#ssh_options[:port] = 2109
 
 set :branch, "master"
 
