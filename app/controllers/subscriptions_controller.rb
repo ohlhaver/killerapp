@@ -14,9 +14,10 @@ def index
    @authors.each do |a|
      @user_rawstories = @user_rawstories + a.rawstories.last(3)
    end
+   @user_rawstories = @user_rawstories.last(12)
    @user_rawstories = @user_rawstories.sort_by {|u| - u.id }  
    @user_rawstories = @user_rawstories.paginate :page => params[:page],
-                                                :per_page => 8                                             
+                                                :per_page => 6                                             
 end
 
 
