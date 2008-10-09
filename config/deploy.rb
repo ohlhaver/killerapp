@@ -22,9 +22,9 @@ set :keep_releases, 3
 
 set :deploy_via, :remote_cache
 
-role :web, '74.63.8.37:2109'
-role :app, '74.63.8.37:2109'
-role :db,  '74.63.8.37:2109', :primary => true
+role :web, '74.63.8.37'
+role :app, '74.63.8.37'
+role :db,  '74.63.8.37', :primary => true
 
 
 set :deploy_to, "/home/justus/#{application}"
