@@ -7,9 +7,9 @@ set :scm_passphrase, "rosenwel" #This is your custom users password
 
 
 #ssh_options[:forward_agent] = true
-ssh_options[:paranoid] = false
+#ssh_options[:paranoid] = false
 #ssh_options[:keys] = %w(/Users/ohlhaver/.ssh/id_rsa)
-ssh_options[:port] = 2109
+#ssh_options[:port] = 2109
 #set :port, 2109
 
 
@@ -22,9 +22,9 @@ set :keep_releases, 3
 
 set :deploy_via, :remote_cache
 
-role :web, '74.63.8.37'
-role :app, '74.63.8.37'
-role :db,  '74.63.8.37', :primary => true
+role :web, '74.63.8.37:2109'
+role :app, '74.63.8.37:2109'
+role :db,  '74.63.8.37:2109', :primary => true
 
 
 set :deploy_to, "/home/justus/#{application}"
