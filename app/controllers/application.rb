@@ -14,10 +14,9 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
   before_filter :logged_in?
-  
   before_filter :determine_selection
+  require 'will_paginate'
   
-  #protected
   
   def determine_selection
    @selection = 'Schlagzeilen' if params[:action] == 'index' && params[:controller] == 'groups'

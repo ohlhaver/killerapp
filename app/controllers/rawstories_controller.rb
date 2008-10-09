@@ -8,7 +8,6 @@ class RawstoriesController < ApplicationController
   
   
   def search
-    require 'will_paginate'
     query = params[:q] unless params[:q] == nil
     fetch_search_results nil, query
   end 
@@ -40,7 +39,6 @@ class RawstoriesController < ApplicationController
 
 
  def show
-   require 'will_paginate'
    fetch_stories nil
  end
  
@@ -86,7 +84,7 @@ class RawstoriesController < ApplicationController
       @rawstories = opinion_stories if conditions != nil 
       @opinion_weight = opinion_stories.size
       @rawstories = @rawstories.paginate  :page => params[:page],
-                                          :per_page => 8
+                                          :per_page => 6
       
     end
 

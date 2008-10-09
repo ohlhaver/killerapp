@@ -4,7 +4,6 @@ class HaufensController < ApplicationController
 
 def show
   unless read_fragment({:id => params[:id], :page => params[:page] || 1}) 
-  require 'will_paginate'
   fetch_stories nil
   end
 end
@@ -31,7 +30,7 @@ def fetch_stories(conditions)
     @haufen_stories = opinion_stories if conditions != nil
     @haufen_stories = @haufen_stories.sort_by {|u| - u.id } 
     @haufen_stories = @haufen_stories.paginate :page => params[:page],
-                                         :per_page => 8
+                                         :per_page => 6
 end
    
    

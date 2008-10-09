@@ -9,7 +9,6 @@ before_filter :login_required
 
 def index
  
-  require 'will_paginate'
    @authors = @current_user.authors
    @user_rawstories = []
    @authors.each do |a|

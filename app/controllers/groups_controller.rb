@@ -1,30 +1,30 @@
 class GroupsController < ApplicationController
   
   before_filter :determine_german_date
-
+ 
       
   def index   
-   unless read_fragment :action => 'index'    
+    unless read_fragment({:action => 'index', :page => params[:page] || 1})   
     fetch_groups nil  
     end
   end
   
   def politics
-    unless read_fragment :action => 'politics'  
+    unless read_fragment({:action => 'politics', :page => params[:page] || 1})   
     fetch_groups 2      
   end
     render :action => 'index'
   end
   
   def culture
-    unless read_fragment :action => 'culture' 
+    unless read_fragment({:action => 'culture', :page => params[:page] || 1}) 
     fetch_groups 3
     end      
     render :action => 'index'
   end
   
   def science
-    unless read_fragment :action => 'science' 
+    unless read_fragment({:action => 'science', :page => params[:page] || 1}) 
     fetch_groups 4  
     end    
     render :action => 'index'
@@ -32,7 +32,7 @@ class GroupsController < ApplicationController
   end
   
   def business
-    unless read_fragment :action => 'business' 
+    unless read_fragment({:action => 'business', :page => params[:page] || 1})  
     fetch_groups 5  
     end    
     render :action => 'index'
@@ -40,7 +40,7 @@ class GroupsController < ApplicationController
   end
 
   def sport
-    unless read_fragment :action => 'sport' 
+    unless read_fragment({:action => 'sport', :page => params[:page] || 1})  
     fetch_groups 6
     end   
     render :action => 'index'
@@ -48,7 +48,7 @@ class GroupsController < ApplicationController
   end
   
   def mixed
-    unless read_fragment :action => 'mixed' 
+    unless read_fragment({:action => 'mixed', :page => params[:page] || 1}) 
     fetch_groups 7  
     end    
     render :action => 'index'
@@ -56,21 +56,21 @@ class GroupsController < ApplicationController
   end
   
   def humor
-    unless read_fragment :action => 'humor' 
+    unless read_fragment({:action => 'humor', :page => params[:page] || 1})  
     fetch_groups 8 
     end     
     render :action => 'index'
   end
   
   def technology
-    unless read_fragment :action => 'technology' 
+    unless read_fragment({:action => 'technology', :page => params[:page] || 1}) 
     fetch_groups 9 
     end     
     render :action => 'index'
   end
 
   def opinions
-    unless read_fragment :action => 'opinions' 
+    unless read_fragment({:action => 'opinions', :page => params[:page] || 1}) 
     fetch_opinions 
     end 
         
@@ -91,19 +91,24 @@ class GroupsController < ApplicationController
         
         @haufens = @haufens.sort_by {|u| - u.weight }  
         
-        @haufens = @haufens.first(8) #if conditions == nil  
+        @haufens = @haufens.first(6) if conditions == nil
+       
+        @haufens = @haufens.paginate :page => params[:page],
+                                     :per_page => 6
+        
+                                   
       end
       
       def fetch_opinions
-        require 'will_paginate'
+        
         
         @stories = Rawstory.find(:all, :conditions => ['created_at > :date', {:date => Time.now.yesterday}], :order => 'id DESC')       
         @stories = @stories.find_all{|v| v.opinion == 1 }
         @stories = @stories.find_all{|v| v.author.name != '' }
         @stories = @stories.sort_by {|u| - u.author.subscriptions.size}
-        @haufens = @stories.first(8)
-        #@haufens = @stories.paginate :page => params[:page],
-        #                             :per_page => 8
+        @haufens = @stories.first(12)
+        @haufens = @stories.paginate :page => params[:page],
+                                     :per_page => 6
                                      
     end
   

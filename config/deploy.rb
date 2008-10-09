@@ -1,5 +1,5 @@
 set :user, 'justus'
-
+ssh_options[:port] = 2109
 default_run_options[:pty] = true
 set :scm, :git
 set :scm_passphrase, "rosenwel" #This is your custom users password
@@ -16,7 +16,7 @@ set :branch, "master"
 set :application, "killerapp"
 set :repository,  "git@github.com:ohlhaver/killerapp.git"
 
-
+set :keep_releases, 3
 
 set :deploy_via, :remote_cache
 
@@ -28,6 +28,7 @@ role :db,  '74.63.8.37', :primary => true
 set :deploy_to, "/home/justus/#{application}"
 set :use_sudo, false
 task :restart, :roles => :app do
+  run "mongrel_rails cluster::restart"
 end
 
 

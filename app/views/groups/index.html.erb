@@ -1,6 +1,6 @@
 
 
-<% cache do %>
+<% cache ({:page => params[:page] || 1}) do %>
 
 
 <ul>
@@ -11,6 +11,9 @@
 
 </ul>
 
+<div class= "pagination" > 
+<%= will_paginate(@haufens) %>
+</div>
+
 <%end%>
 
-</div>
