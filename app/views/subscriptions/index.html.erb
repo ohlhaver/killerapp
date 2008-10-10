@@ -12,7 +12,7 @@
     <%= render :partial => @user_rawstories %>
 
 <div id= "pagination" > 
-<%= will_paginate(@user_rawstories) %>
+<%= will_paginate(@user_rawstories, options = {:prev_label => 'zurück', :next_label => 'vorwärts'}) %>
 </div>
 
 

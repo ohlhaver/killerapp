@@ -7,6 +7,6 @@ Artikel von <b><%= @author.name %></b>
 </div>
 
   <%= render :partial => @rawstories_published %>
-<%= will_paginate(@rawstories_published) %>
+<%= will_paginate(@rawstories_published, options = {:prev_label => 'zurück', :next_label => 'vorwärts'}) %>
 
 <% end %>

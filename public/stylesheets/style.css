@@ -131,6 +131,14 @@ ul {
 	margin-top: 27px;
 	text-transform: uppercase;
 }
+
+.current {
+	color: #FFFFFF;
+	background-color: #0000C8;
+	padding: 3px;
+}
+
+
 .pagelabel {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;

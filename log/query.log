@@ -1533,3 +1533,10 @@
 [Wed Oct  8 11:15:02.103 2008] 0.001 sec [ext/0/rel 0 (0,20)] [main delta] bla' test
 [Wed Oct  8 11:15:18.546 2008] 0.001 sec [ext/0/rel 84 (0,20)] [main delta] ' test
 [Wed Oct  8 11:15:30.667 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] bal test
+[Fri Oct 10 18:58:18.524 2008] 0.026 sec [ext/0/rel 29 (0,20)] [main delta] block
+[Fri Oct 10 18:58:27.559 2008] 0.001 sec [ext/0/rel 29 (0,20)] [main delta] block
+[Fri Oct 10 18:58:29.675 2008] 0.001 sec [ext/0/rel 29 (0,20)] [main delta] block
+[Fri Oct 10 18:58:31.453 2008] 0.001 sec [ext/0/rel 29 (0,20)] [main delta] block
+[Fri Oct 10 18:58:34.877 2008] 0.001 sec [ext/0/rel 29 (0,20)] [main delta] block
+[Fri Oct 10 18:58:36.781 2008] 0.001 sec [ext/0/rel 29 (0,20)] [main delta] block
+[Fri Oct 10 18:58:37.764 2008] 0.001 sec [ext/0/rel 29 (0,20)] [main delta] block

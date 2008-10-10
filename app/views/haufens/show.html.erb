@@ -13,7 +13,7 @@
 </div>
   <%= render :partial => @haufen_stories %>
 
-<%= will_paginate(@haufen_stories)  %>
+<%= will_paginate(@haufen_stories, options = {:prev_label => 'zurück', :next_label => 'vorwärts'})  %>
 <br>
 
 <% end %>

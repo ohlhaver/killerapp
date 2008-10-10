@@ -12,7 +12,7 @@
 </ul>
 
 <div class= "pagination" > 
-<%= will_paginate(@haufens) %>
+<%= will_paginate(@haufens, options = {:prev_label => 'zurück', :next_label => 'vorwärts'}) %>
 </div>
 
 <%end%>
