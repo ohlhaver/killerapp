@@ -31,9 +31,8 @@ end
 
 
     def subscribe
-      if @current_user.login
-      @current_user.subscriptions.create(:author_id => params[:id]) if Author.find(params[:id])
-      end
+      @current_user.subscriptions.create(:author_id => params[:id]) if Author.find(params[:id]) && @current_user.subscriptions.find_by_author_id(params[:id]) == nil 
+      
 
       redirect_to :controller => 'subscriptions', :action => 'index'
     end

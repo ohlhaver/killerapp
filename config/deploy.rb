@@ -43,6 +43,7 @@ end
 
 namespace :deploy do
   task :restart do
+    run "mongrel_rails cluster::configure"
     run "mongrel_rails cluster::restart"
     
     #restart_mongrel_cluster
