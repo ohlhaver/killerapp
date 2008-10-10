@@ -26,6 +26,9 @@ role :db,  '74.63.8.37', :primary => true
 
 set :deploy_to, "/home/justus/#{application}"
 set :use_sudo, false
+
+set :mongrel_conf, "#{deploy_to}/current/config/mongrel_cluster.yml"
+
 task :restart, :roles => :app do
 end
 
@@ -37,3 +40,14 @@ end
 task :after_deploy, :roles => [:web] do
     run "sed -e \"s/^# ENV/ENV/\" -i #{release_path}/config/environment.rb"
 end
+
+namespace :deploy do
+  task :restart do
+    run "mongrel_rails cluster::restart"
+    
+    #restart_mongrel_cluster
+  end
+end
+
+
+

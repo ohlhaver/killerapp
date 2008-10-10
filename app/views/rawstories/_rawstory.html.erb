@@ -8,9 +8,7 @@
 <span class="author"><%= link_to rawstory.author.name, rawstory.author %> 
 
 <% if logged_in? %>
-<%= link_to '[+]', :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) == nil  %> <%= ' - ' if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) == nil%> 
-
-<%= link_to '[-]', :controller => 'subscriptions', :action => 'remove', :id => @current_user.subscriptions.find_by_author_id(rawstory.author.id) if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) != nil  %> <%= ' - ' if rawstory.author.name != '' && @current_user.subscriptions.find_by_author_id(rawstory.author.id) != nil  %>
+<%= link_to '[+]', :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id if rawstory.author.name != ''  <%= ' - ' if rawstory.author.name != '' 
 
 
 <% else %>
