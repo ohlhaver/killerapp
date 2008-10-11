@@ -21,7 +21,7 @@
 <% end %>
 
 
-<span class="source"><%= rawstory.source.website %></span>&nbsp;&nbsp;-&nbsp;&nbsp;<%= 'vor 1 Minute' if ((Time.new - rawstory.created_at).to_i) < 120 %>
+<span class="source"><%= rawstory.source.website %></span> - <%= 'vor 1 Minute' if ((Time.new - rawstory.created_at).to_i) < 120 %>
 <%= 'vor ' + (((Time.new - rawstory.created_at).to_i)/60).to_s + ' Minuten' if ((Time.new - rawstory.created_at).to_i) > 119 && ((Time.new - rawstory.created_at).to_i) < 3600 %> 
 <%= 'vor 1 Stunde' if ((Time.new - rawstory.created_at).to_i) > 3599 && ((Time.new - rawstory.created_at).to_i) < 7200 %> 
 <%= 'vor ' + (((Time.new - rawstory.created_at).to_i)/3600).to_s + ' Stunden' if ((Time.new - rawstory.created_at).to_i) > 7199 && ((Time.new - rawstory.created_at).to_i) < 86400 %> 

@@ -1,3 +1,15 @@
+
+
+
+
+
+
+
+
+
+
+
+
 @charset "UTF-8";
 .headline {
 	font-family: Georgia, "Times New Roman", Times, serif;
@@ -33,9 +45,11 @@ li {
 	background-color: #FFFFFF;
 	padding: 3px;
 }
-
-
-
+.navigation a:hover{
+	color: #FFFFFF;
+	background-color: #0000C8;
+	padding: 3px;
+}
 .logo {
 	float: left;
 	margin-left: 10px;
@@ -44,9 +58,11 @@ li {
 	position: fixed;
 	top: 9px;
 }
+
 a img {
     border: 0px;
 }
+
 .header {
 	margin-top: 7px;
 	margin-bottom: 60px;
@@ -79,12 +95,6 @@ a img {
 	background-color: #0000C8;
 	padding: 3px;
 }
-.navigation a:hover{
-	color: #FFFFFF;
-	background-color: #0000C8;
-	padding: 3px;
-}
-
 #searchfield {
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 21px;
@@ -131,14 +141,6 @@ ul {
 	margin-top: 27px;
 	text-transform: uppercase;
 }
-
-.current {
-	color: #FFFFFF;
-	background-color: #0000C8;
-	padding: 3px;
-}
-
-
 .pagelabel {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
@@ -154,9 +156,6 @@ ul {
 	color: #999999;
 }
 .datestamp .source {
-}
-.author {
-	color: #999999;
 }
 
 a:link {
@@ -175,29 +174,11 @@ a:active {
 	text-decoration: none;
 	color: #0000C8;
 }
-.cluster a:link {
-	color: #999999;
-	text-decoration: none;
-}
-.cluster a:visited {
-	text-decoration: none;
-	color: #999999;
-}
-.cluster a:hover {
-	text-decoration: none;
-	color: #0000C8;
-}
-.cluster a:active {
-	text-decoration: none;
-	color: #0000C8;
-}
 body {
 	margin-top: 0px;
 	margin-right: 10px;
 	margin-bottom: 0px;
 	margin-left: 0px;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 18px;
 }
 .datestamp a:link {
 	color: #999999;
@@ -208,6 +189,55 @@ body {
 .datestamp a:active {
 	color: #0000C8;
 }
+.author {
+	color: #666666;
+}
+.author a:link {
+	color: #999999;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #0000C8;
+}
+.author a:visited {
+	color: #999999;
+}
+.author a:hover {
+	color: #0000C8;
+}
+.author a:active {
+	color: #0000C8;
+}
+.add {
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: #999999;
+}
+.add a:link {
+	color: #FFFFFF;
+	background-color: #999999;
+	padding-top: 0px;
+	padding-right: 2px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+.add a:visited {
+	color: #FFFFFF;
+	background-color: #999999;
+	padding-top: 1px;
+	padding-right: 2px;
+	padding-bottom: 1px;
+	padding-left: 2px;
+}
+.add a:hover {
+	color: #FFFFFF;
+	background-color: #0000C8;
+}
+.add a:active {
+	color: #FFFFFF;
+	background-color: #0000C8;
+}
 .cluster {
 	color: #999999;
 	padding: 0px;
@@ -215,15 +245,33 @@ body {
 	font-size: 22px;
 	line-height: 27px;
 }
-.author a:link {
+.cluster a:link {
+	color: #999999;
+	text-decoration: none;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #0000C8;
+}
+.cluster a:visited {
+	text-decoration: none;
+	color: #999999;
+}
+.cluster a:active {
+	text-decoration: none;
 	color: #0000C8;
 }
-.author a:visited {
+.cluster a:hover {
+	text-decoration: none;
 	color: #0000C8;
 }
-.author a:hover {
-	color: #666666;
+
+
+.current {
+	color: #FFFFFF;
+	background-color: #0000C8;
+	padding: 3px;
 }
-.author a:active {
-	color: #666666;
-}
+
+
+
+

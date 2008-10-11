@@ -425,3 +425,5 @@
 [Fri Oct 10 18:58:08.365 2008] [  696] accepting connections
 [Sat Oct 11 00:14:07.533 2008] [  696] caught SIGTERM, shutting down
 [Sat Oct 11 00:14:07.534 2008] [  696] shutdown complete
+[Sat Oct 11 20:09:48.609 2008] [  799] creating server socket on 0.0.0.0:3313
+[Sat Oct 11 20:09:48.609 2008] [  799] accepting connections

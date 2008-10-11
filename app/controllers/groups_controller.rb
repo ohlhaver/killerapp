@@ -92,7 +92,7 @@ class GroupsController < ApplicationController
         @haufens = @haufens.sort_by {|u| - u.weight }  
         
         @haufens = @haufens.first(6) if conditions == nil
-        @haufens = @haufens.first(12)
+        @haufens = @haufens.first(18)
        
         @haufens = @haufens.paginate :page => params[:page],
                                      :per_page => 6
@@ -107,7 +107,7 @@ class GroupsController < ApplicationController
         @stories = @stories.find_all{|v| v.opinion == 1 }
         @stories = @stories.find_all{|v| v.author.name != '' }
         @stories = @stories.sort_by {|u| - u.author.subscriptions.size}
-        @stories = @stories.first(12)
+        @stories = @stories.first(18)
         @haufens = @stories.paginate :page => params[:page],
                                      :per_page => 6
                                      

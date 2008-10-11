@@ -1540,3 +1540,5 @@
 [Fri Oct 10 18:58:34.877 2008] 0.001 sec [ext/0/rel 29 (0,20)] [main delta] block
 [Fri Oct 10 18:58:36.781 2008] 0.001 sec [ext/0/rel 29 (0,20)] [main delta] block
 [Fri Oct 10 18:58:37.764 2008] 0.001 sec [ext/0/rel 29 (0,20)] [main delta] block
+[Sat Oct 11 20:09:59.151 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] lj
+[Sat Oct 11 20:10:04.402 2008] 0.081 sec [ext/0/rel 264 (0,20)] [main delta] obama
