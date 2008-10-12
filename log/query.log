@@ -1542,3 +1542,8 @@
 [Fri Oct 10 18:58:37.764 2008] 0.001 sec [ext/0/rel 29 (0,20)] [main delta] block
 [Sat Oct 11 20:09:59.151 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] lj
 [Sat Oct 11 20:10:04.402 2008] 0.081 sec [ext/0/rel 264 (0,20)] [main delta] obama
+[Sun Oct 12 11:24:37.393 2008] 0.017 sec [ext/0/rel 22 (0,20)] [main delta] hallo
+[Sun Oct 12 11:24:42.880 2008] 0.000 sec [ext/0/rel 22 (0,20)] [main delta] hallos
+[Sun Oct 12 11:24:48.368 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] halloss
+[Sun Oct 12 11:54:45.459 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] fdf
+[Sun Oct 12 11:55:30.985 2008] 0.001 sec [ext/0/rel 18 (0,20)] [main delta] tennis

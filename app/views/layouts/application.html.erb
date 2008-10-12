@@ -109,19 +109,25 @@
 		</list>
 </div>
 	
-</body>
+
 <div class="headlines">
   <ul>
-  	<li>
-  	  <div class="pagelabel">
-	<%= @selection %> <%= @date %></div>
+  	
+
+	<li>
+  	  <div class="pagelabel"><%= @selection %> <%= @date %></div>
   	</li>
 
-
-
  <div id="content">
+	<div class = 'message'>
 	<p style="color: green"><%= flash[:notice] %></p>
 	<p style="color: #990000"><%= flash[:alert] %></p>
 	<%= yield %>
- 
+ </div>
+</ul>
+</div>
+<div id="footer">
+	©2008 - <%= link_to 'Impressum', :controller => 'about', :action => 'imprint'  %> - <%= link_to 'Datenschutz', :controller => 'about', :action => 'privacy'  %>
+	</div>
+</body>
 </html>

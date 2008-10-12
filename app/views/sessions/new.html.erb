@@ -1,3 +1,4 @@
+<div class = 'message'>
 <% form_tag session_path do -%>
 <p><label for="login">Login</label><br/>
 <%= text_field_tag 'login' %></p>
@@ -9,6 +10,7 @@
 <p><label for="remember_me">Auf diesem Computer merken:</label>
 <%= check_box_tag 'remember_me' %></p>
 
-<p><%= submit_tag 'Einloggen' %></p>
+<p><%= submit_tag 'Einloggen', :id => 'loginbutton', :class => 'button' %></p>
 <% end -%>
 <p><%= link_to 'Als neuer Benutzer anmelden', new_user_path %></p>
+</div>
