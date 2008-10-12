@@ -431,3 +431,5 @@
 [Sun Oct 12 03:34:26.565 2008] [  799] shutdown complete
 [Sun Oct 12 11:24:24.336 2008] [  392] creating server socket on 0.0.0.0:3313
 [Sun Oct 12 11:24:24.347 2008] [  392] accepting connections
+[Sun Oct 12 15:21:50.444 2008] [  392] caught SIGTERM, shutting down
+[Sun Oct 12 15:21:50.445 2008] [  392] shutdown complete
