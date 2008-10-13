@@ -7,35 +7,55 @@ before_filter :login_required
       @subscriptions = @subscriptions.sort_by {|s| s.author.name }
   end
 
-def index
- 
-   @authors = @current_user.authors
-   @user_rawstories = []
-   @authors.each do |a|
-     @user_rawstories = @user_rawstories + a.rawstories.last(3)
-   end
-   @user_rawstories = @user_rawstories.last(12)
-   @user_rawstories = @user_rawstories.sort_by {|u| - u.id }  
-   @user_rawstories = @user_rawstories.paginate :page => params[:page],
+  def index
+    
+   @user_stories =[]
+    story_array = @current_user.stories.split(/\ /)
+    story_array.each do |story|
+       @user_stories += Rawstory.find(story).to_a
+    end
+  
+   @user_stories = @user_stories.last(12)
+   @user_stories = @user_stories.sort_by {|u| - u.id }  
+   @user_stories = @user_stories.paginate :page => params[:page],
                                                 :per_page => 6                                             
-end
-
+  end
 
 
 
   def remove
    @subscription = Subscription.find(params[:id])
-   Subscription.destroy(@subscription) if @subscription.user.id == @current_user.id
-   redirect_to :action => 'index'
+   if @subscription.user.id == @current_user.id
+     
+     author_stories = @subscription.author.rawstories.last(3)
+     user_stories = ''
+     author_stories.each do |story|
+         user_stories += story.id.to_s + ' '
+     end
+     @current_user.stories = @current_user.stories.sub(user_stories,'')
+     @current_user.save 
+     Subscription.destroy(@subscription) 
+     
+     redirect_to :action => 'index'
+   end
   end
 
 
-    def subscribe
-      @current_user.subscriptions.create(:author_id => params[:id]) if Author.find(params[:id]) && @current_user.subscriptions.find_by_author_id(params[:id]) == nil 
+  def subscribe
+    if Author.find(params[:id]) && @current_user.subscriptions.find_by_author_id(params[:id]) == nil 
+      @current_user.subscriptions.create(:author_id => params[:id]) 
       
-
+      author_stories = Author.find(params[:id]).rawstories.last(3)
+      user_stories = ''
+      author_stories.each do |story|
+          user_stories += story.id.to_s + ' '
+      end
+      @current_user.stories += user_stories
+      @current_user.save   
       redirect_to :controller => 'subscriptions', :action => 'index'
     end
+          
+  end
   
   
   

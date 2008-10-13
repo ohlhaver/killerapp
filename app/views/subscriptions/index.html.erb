@@ -1,6 +1,6 @@
 
 
-<% unless @user_rawstories.empty? -%> 
+<% unless @user_stories.empty? -%> 
 
 
 
@@ -9,10 +9,10 @@
 <%= link_to 'Liste der Autoren)',  {:controller => 'subscriptions', :action => 'list'} %>
 </div>
 
-    <%= render :partial => @user_rawstories %>
+    <%= render :partial => @user_stories %>
 
 <div id= "pagination" > 
-<%= will_paginate(@user_rawstories, options = {:prev_label => 'zurück &nbsp - &nbsp ', :next_label => ' &nbsp - &nbsp vorwärts'}) %>
+<%= will_paginate(@user_stories, options = {:prev_label => 'zurück &nbsp - &nbsp ', :next_label => ' &nbsp - &nbsp vorwärts'}) %>
 </div>
 
 
