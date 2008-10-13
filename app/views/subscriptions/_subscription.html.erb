@@ -1,6 +1,6 @@
 <% div_for(subscription) do %>
 
-<b><%= link_to subscription.author.name, subscription.author %> </b><%= ' - ' %>
-<%= link_to 'entfernen', :controller => 'subscriptions', :action => 'remove', :id => subscription.id %>
+<b><%= link_to subscription.author.name, subscription.author %> </b>&nbsp;&nbsp;
+<%= link_to ' [entfernen]', :controller => 'subscriptions', :action => 'remove', :id => subscription.id %>
 <br><br>
 <% end %>

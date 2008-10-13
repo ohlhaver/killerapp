@@ -1547,3 +1547,8 @@
 [Sun Oct 12 11:24:48.368 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] halloss
 [Sun Oct 12 11:54:45.459 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] fdf
 [Sun Oct 12 11:55:30.985 2008] 0.001 sec [ext/0/rel 18 (0,20)] [main delta] tennis
+[Mon Oct 13 22:10:06.803 2008] 0.052 sec [ext/0/rel 1 (0,20)] [main delta] jk
+[Mon Oct 13 22:10:13.074 2008] 0.059 sec [ext/0/rel 264 (0,20)] [main delta] obama
+[Mon Oct 13 22:10:23.775 2008] 0.036 sec [ext/0/rel 266 (0,20)] [main delta] merkel
+[Mon Oct 13 22:10:26.821 2008] 0.001 sec [ext/0/rel 266 (0,20)] [main delta] merkel
+[Mon Oct 13 22:10:28.523 2008] 0.001 sec [ext/0/rel 266 (0,20)] [main delta] merkel

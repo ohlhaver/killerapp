@@ -8,15 +8,14 @@
 <% unless @subscriptions.empty? -%>
 
 <%= 'Ihre Lieblingsautoren' %><%= link_to ' (Artikel',  {:controller => 'subscriptions', :action => 'index'} %>
-<b><%= '- Liste der Autoren)' %></b>
+<%= '- Liste der Autoren)' %>
 
 </div>
 
-<span class = 'headline'>
+<span class = 'message'>
 <%= render :partial => @subscriptions %>
 </span>
 <% else -%>
-<div class = 'message'>
   <%= 'Sie haben noch keine Lieblingsautoren.' %>
 </div>
 <% end -%>
