@@ -1,0 +1,22 @@
+<div class = 'pagelabel'>
+
+Feedback
+
+</div>
+<div class = 'message'>
+Bitte nennen Sie uns Ihre Fragen, Vorschläge und Ideen!
+
+<% form_tag feedback_about_path, :method => :get do -%>
+
+<p>
+    <%= text_area :feedback, params[:feedback], :id => 'feedbackfield', :class =>"text" %><br>
+</p>
+<p>
+	<%= submit_tag 'Absenden', :id => 'loginbutton', :class => 'button' %>
+</p>
+<% end -%>
+
+
+
+
+</div>

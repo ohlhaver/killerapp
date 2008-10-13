@@ -28,6 +28,8 @@
 		<div class="header">
 		
 		<div class="profile">
+			<% if logged_in? %>
+			<%= (link_to 'Feedback [+]' , :controller => 'about', :action => 'feedback') %>&nbsp;&nbsp;-&nbsp;&nbsp; <% end %>
 			<%= (link_to 'Meine Autoren' , subscriptions_path) %>&nbsp;&nbsp;-&nbsp;&nbsp;
 	        <% if logged_in? %>
 	          <%= h(@current_user.login) %><em> <%= link_to "(ausloggen)", session_path, :method => :delete %></em>

@@ -13,6 +13,18 @@ class UserMailer < ActionMailer::Base
     @body[:url]  = "http://#{SITE_URL}/"
   end
   
+  def feedback_mail(user, feedback)
+    @recipients  = "#{SITE_EMAIL}"
+    @from = "#{SITE_EMAIL}"
+    @subject = "Feedback for Jurnalo"
+    @sent_on     = Time.now
+    @body[:user] = user
+    @body[:text] = feedback
+  
+  end
+  
+  
+  
   protected
     def setup_email(user)
       @recipients  = "#{user.email}"
