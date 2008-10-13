@@ -1,14 +1,11 @@
-
-
 <% cache ({:page => params[:page] || 1}) do %>
 
+<li>
+  <div class="pagelabel"><%= @selection %> <%= @date %></div>
+</li>
 
 <ul>
-
-
-
 <%= render :partial => @haufens %>
-
 </ul>
 
 <div class= "pagination" > 

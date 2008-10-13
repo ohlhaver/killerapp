@@ -190,6 +190,15 @@ ul {
 	margin-bottom: 27px;
 	text-transform: uppercase;
 }
+
+
+.pagelabel a:link {
+	color: #999999;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #0000C8;
+}
+
 .datestamp {
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 21px;

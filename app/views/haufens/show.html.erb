@@ -2,13 +2,13 @@
 
 <div class="pagelabel">
 <%= 'Ähnliche Artikel' %> 
-<b><%= ' (alle - ' if params[:action] == 'show' && @opinion_weight > 0 %></b> 
+<%= ' (alle - ' if params[:action] == 'show' && @opinion_weight > 0 %> 
 <%= (link_to @opinion_weight.to_s + ' Meinungen)',  {:controller => 'haufens', :action => 'filter_haufen_by_opinions', :id => params[:id]}) if params[:action] == 'show' && @opinion_weight > 1  %>
 <%= (link_to '1 Meinung)',  {:controller => 'haufens', :action => 'filter_haufen_by_opinions', :id => params[:id]}) if params[:action] == 'show' && @opinion_weight == 1  %>
 
 <%= link_to ' (alle',  { :action => 'show', :id => params[:id]} if params[:action] == 'filter_haufen_by_opinions' %>
 <b><%= ' - ' + @opinion_weight.to_s + ' Meinungen)'  if params[:action] == 'filter_haufen_by_opinions' && @opinion_weight > 1  %></b>
-<b><%= ' - 1 Meinung)'  if params[:action] == 'filter_haufen_by_opinions' && @opinion_weight == 1 %></b>
+<%= ' - 1 Meinung)'  if params[:action] == 'filter_haufen_by_opinions' && @opinion_weight == 1 %>
 
 </div>
   <%= render :partial => @haufen_stories %>
