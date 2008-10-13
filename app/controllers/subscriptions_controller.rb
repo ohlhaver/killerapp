@@ -15,8 +15,9 @@ before_filter :login_required
        @user_stories += Rawstory.find(story).to_a
     end
   
-   @user_stories = @user_stories.last(12)
+   
    @user_stories = @user_stories.sort_by {|u| - u.id }  
+   @user_stories = @user_stories.first(12)
    @user_stories = @user_stories.paginate :page => params[:page],
                                                 :per_page => 6                                             
   end
