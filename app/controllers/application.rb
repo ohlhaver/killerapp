@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
-  
+  include ExceptionNotifiable
   include AuthenticatedSystem
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
   before_filter :logged_in?
   before_filter :determine_selection
   require 'will_paginate'
-  
   
   def determine_selection
    @selection = 'Schlagzeilen' if params[:action] == 'index' && params[:controller] == 'groups'
