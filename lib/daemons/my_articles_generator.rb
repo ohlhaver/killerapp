@@ -4,7 +4,7 @@
 #ENV["RAILS_ENV"] ||= "production"
 
 require File.dirname(__FILE__) + "/../../config/environment"
-
+include ExceptionNotifiable
 $running = true
 Signal.trap("TERM") do 
   $running = false
