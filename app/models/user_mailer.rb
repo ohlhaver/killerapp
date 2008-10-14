@@ -14,7 +14,7 @@ class UserMailer < ActionMailer::Base
   end
   
   def feedback_mail(user, feedback)
-    @recipients  = "#{SITE_EMAIL}"
+    @recipients  = "ohlhaver@gmail.com"
     @from = "#{SITE_EMAIL}"
     @subject = "Feedback for Jurnalo"
     @sent_on     = Time.now
