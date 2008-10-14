@@ -11,7 +11,8 @@ Signal.trap("TERM") do
 end
 
 while($running) do
-
+  Eintrag.create(:name => 'my articles generating started')   
+  starting_time = Time.new
   
   all_users = User.find(:all)
   all_users.each do |user|
@@ -25,8 +26,11 @@ while($running) do
       end
       user.stories = user_stories
       user.save
+      finishing_time = Time.new
+      duration = (finishing_time - starting_time)
+      Eintrag.create(:name => 'my articles generating completed', :duration => duration)
   end
 
   
-  sleep 900
+  sleep 600
 end
