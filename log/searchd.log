@@ -435,3 +435,21 @@
 [Sun Oct 12 15:21:50.445 2008] [  392] shutdown complete
 [Mon Oct 13 22:09:34.552 2008] [ 2489] creating server socket on 0.0.0.0:3313
 [Mon Oct 13 22:09:34.563 2008] [ 2489] accepting connections
+[Tue Oct 14 16:11:55.214 2008] [  358] creating server socket on 0.0.0.0:3313
+[Tue Oct 14 16:11:55.280 2008] [  358] accepting connections
+[Tue Oct 14 16:56:20.336 2008] [  358] rotating indices (seamless=1)
+[Tue Oct 14 16:56:20.344 2008] [  358] rotating index 'delta': success
+[Tue Oct 14 16:56:20.409 2008] [  358] rotating index 'main': success
+[Tue Oct 14 16:56:20.410 2008] [  358] rotating finished
+[Tue Oct 14 16:56:25.320 2008] [  358] caught SIGTERM, shutting down
+[Tue Oct 14 16:56:25.321 2008] [  358] shutdown complete
+[Tue Oct 14 16:56:29.359 2008] [  518] creating server socket on 0.0.0.0:3313
+[Tue Oct 14 16:56:29.359 2008] [  518] accepting connections
+[Tue Oct 14 17:16:44.553 2008] [  518] rotating indices (seamless=1)
+[Tue Oct 14 17:16:44.561 2008] [  518] rotating index 'delta': success
+[Tue Oct 14 17:16:44.727 2008] [  518] rotating index 'main': success
+[Tue Oct 14 17:16:44.727 2008] [  518] rotating finished
+[Tue Oct 14 17:16:49.513 2008] [  518] caught SIGTERM, shutting down
+[Tue Oct 14 17:16:49.513 2008] [  518] shutdown complete
+[Tue Oct 14 17:16:53.593 2008] [  653] creating server socket on 0.0.0.0:3313
+[Tue Oct 14 17:16:53.593 2008] [  653] accepting connections
