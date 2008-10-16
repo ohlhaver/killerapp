@@ -89,7 +89,7 @@ class GroupsController < ApplicationController
             (@haufens = @haufens.find_all {|u| u.topic != 7 })
         end
         
-        @haufens = @haufens.sort_by {|u| - u.weight }  
+        @haufens = @haufens.sort_by {|u| - u.broadness }  
         
         @haufens = @haufens.first(6) if conditions == nil
         @haufens = @haufens.first(18)
