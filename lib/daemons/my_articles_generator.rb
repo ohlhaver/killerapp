@@ -26,10 +26,10 @@ while($running) do
       end
       user.stories = user_stories
       user.save
-      finishing_time = Time.new
-      duration = (finishing_time - starting_time)
-      Eintrag.create(:name => 'my articles generating completed', :duration => duration)
   end
+  finishing_time = Time.new
+  duration = (finishing_time - starting_time)
+  Eintrag.create(:name => 'my articles generating completed', :duration => duration)
 
   
   sleep 600

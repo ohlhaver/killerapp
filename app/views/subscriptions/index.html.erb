@@ -5,7 +5,7 @@
 
 
 <div class = 'pagelabel'>
-<%='Artikel Ihrer Lieblingsautoren' if @current_user.login %><%= ' (Artikel - ' %> 
+<%='Meine Autoren' if @current_user.login %><%= ' (Artikel - ' %> 
 <%= link_to 'Liste der Autoren)',  {:controller => 'subscriptions', :action => 'list'} %>
 </div>
 
