@@ -1,4 +1,4 @@
-	<% cache ({:page => params[:page] || 1}) do %>
+<% cache ({:page => params[:page] || 1}) do %>
 
 		<li>
   			<div class="pagelabel"><%= link_to @selection, :action => params[:action]  %> <%= @date %></div>
@@ -10,11 +10,10 @@
 		<div class= "pagination" > 
 			<%= will_paginate(@haufens, options = {:prev_label => 'zurück &nbsp - &nbsp ', :next_label => ' &nbsp - &nbsp vorwärts'}) %>
 		</div>
-	<% end %>
+	
 
-<% if params[:action] == 'index' %>
+	<% if params[:action] == 'index' %>
 
-	<% cache ({:label => 'homepage'}) do %>
 
 		<br>
 		<li>
@@ -102,11 +101,12 @@
 
 
 
+	<% end %>	
 		
-
 	<% end %>
 
-
+	<% if params[:action] == 'index' %>
+	
 		<% if @top_my_authors.size > 0 %>
 			<br>
 			<li>
@@ -116,7 +116,9 @@
 				<%= render :partial => @top_my_authors %>
 			</ul>
 		<% end %>
+		
+	<% end %>
 
 
-<% end %>
+
 

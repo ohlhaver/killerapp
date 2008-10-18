@@ -6,9 +6,6 @@ class GroupsController < ApplicationController
   def index   
     unless read_fragment({:action => 'index', :page => params[:page] || 1})   
     @haufens = fetch_groups nil, nil
-    end
-    
-    unless read_fragment({:label => 'homepage'}) 
     @top_politics_haufens = fetch_groups 2, 1
     @top_business_haufens = fetch_groups 5, 1
     @top_culture_haufens = fetch_groups 3, 1
