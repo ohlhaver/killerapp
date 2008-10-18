@@ -1,16 +1,122 @@
-<% cache ({:page => params[:page] || 1}) do %>
+	<% cache ({:page => params[:page] || 1}) do %>
 
-<li>
-  <div class="pagelabel"><%= @selection %> <%= @date %></div>
-</li>
+		<li>
+  			<div class="pagelabel"><%= link_to @selection, :action => params[:action]  %> <%= @date %></div>
+		</li>
 
-<ul>
-<%= render :partial => @haufens %>
-</ul>
+		<ul>
+			<%= render :partial => @haufens %>
+		</ul>
+		<div class= "pagination" > 
+			<%= will_paginate(@haufens, options = {:prev_label => 'zurück &nbsp - &nbsp ', :next_label => ' &nbsp - &nbsp vorwärts'}) %>
+		</div>
+	<% end %>
 
-<div class= "pagination" > 
-<%= will_paginate(@haufens, options = {:prev_label => 'zurück &nbsp - &nbsp ', :next_label => ' &nbsp - &nbsp vorwärts'}) %>
-</div>
+<% if params[:action] == 'index' %>
 
-<%end%>
+	<% cache ({:label => 'homepage'}) do %>
+
+		<br>
+		<li>
+  			<div class="pagelabel"> <%= link_to 'POLITIK', :action => 'politics'  %> </div>
+		</li>
+		<ul>
+			<%= render :partial => @top_politics_haufens %>
+		</ul>
+
+		
+		
+		<br>
+		<li>
+  			<div class="pagelabel"><%= link_to 'WIRTSCHAFT', :action => 'business'  %> </div>
+		</li>
+		<ul>
+			<%= render :partial => @top_business_haufens %>
+		</ul>
+
+		
+		
+		<% if @top_culture_haufens.size > 0 %>
+		<br>
+		<li>
+  		<div class="pagelabel"> <%= link_to 'Feuilleton', :action => 'culture'  %> </div>
+		</li>
+		<ul>
+		<%= render :partial => @top_culture_haufens %>
+		</ul>
+		<% end %>
+
+
+
+		<% if @top_science_haufens.size > 0 %>
+		<br>
+		<li>
+  		<div class="pagelabel"> <%= link_to 'WISSEN', :action => 'science'  %> </div>
+		</li>
+		<ul>
+		<%= render :partial => @top_science_haufens %>
+		</ul>
+		<% end %>
+
+		
+		
+		<% if @top_technology_haufens.size > 0 %>
+		<br>
+		<li>
+  		<div class="pagelabel"> <%= link_to 'TECHNIK', :action => 'technology'  %> </div>
+		</li>
+		<ul>
+		<%= render :partial => @top_technology_haufens %>
+		</ul>
+		<% end %>
+
+
+
+		<br>
+		<li>
+  		<div class="pagelabel"> <%= link_to 'SPORT', :action => 'sport'  %> </div>
+		</li>
+		<ul>
+			<%= render :partial => @top_sport_haufens %>
+		</ul>
+
+
+
+		<br>
+		<li>
+  		<div class="pagelabel"> <%= link_to 'Vermischtes', :action => 'mixed'  %> </div>
+		</li>
+		<ul>
+			<%= render :partial => @top_mixed_haufens %>
+		</ul>
+
+
+
+		<br>
+		<li>
+  			<div class="pagelabel"> <%= link_to 'Meinungen', :action => 'opinions'  %> </div>
+		</li>
+		<ul>
+			<%= render :partial => @top_opinions_haufens %>
+		</ul>
+
+
+
+		
+
+	<% end %>
+
+
+		<% if @top_my_authors.size > 0 %>
+			<br>
+			<li>
+  			<div class="pagelabel"> <%= link_to 'MEINE AUTOREN', subscriptions_path  %> </div>
+			</li>
+			<ul>
+				<%= render :partial => @top_my_authors %>
+			</ul>
+		<% end %>
+
+
+<% end %>
 
