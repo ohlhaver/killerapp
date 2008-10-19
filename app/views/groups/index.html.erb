@@ -14,7 +14,7 @@
 
 	<% if params[:action] == 'index' %>
 
-
+		<% if @top_politics_haufens.size > 0 %>
 		<br>
 		<li>
   			<div class="pagelabel"> <%= link_to 'POLITIK', :action => 'politics'  %> </div>
@@ -22,9 +22,10 @@
 		<ul>
 			<%= render :partial => @top_politics_haufens %>
 		</ul>
+		<% end %>
 
 		
-		
+		<% if @top_business_haufens.size > 0 %>
 		<br>
 		<li>
   			<div class="pagelabel"><%= link_to 'WIRTSCHAFT', :action => 'business'  %> </div>
@@ -32,6 +33,7 @@
 		<ul>
 			<%= render :partial => @top_business_haufens %>
 		</ul>
+		<% end %>
 
 		
 		
@@ -70,7 +72,7 @@
 		<% end %>
 
 
-
+		<% if @top_sport_haufens.size > 0 %>
 		<br>
 		<li>
   		<div class="pagelabel"> <%= link_to 'SPORT', :action => 'sport'  %> </div>
@@ -78,9 +80,10 @@
 		<ul>
 			<%= render :partial => @top_sport_haufens %>
 		</ul>
+		<% end %>
 
 
-
+		<% if @top_mixed_haufens.size > 0 %>
 		<br>
 		<li>
   		<div class="pagelabel"> <%= link_to 'Vermischtes', :action => 'mixed'  %> </div>
@@ -88,9 +91,10 @@
 		<ul>
 			<%= render :partial => @top_mixed_haufens %>
 		</ul>
+		<% end %>
 
 
-
+		<% if @top_opinions_haufens.size > 0 %>
 		<br>
 		<li>
   			<div class="pagelabel"> <%= link_to 'Meinungen', :action => 'opinions'  %> </div>
@@ -98,7 +102,7 @@
 		<ul>
 			<%= render :partial => @top_opinions_haufens %>
 		</ul>
-
+		<% end %>
 
 
 	<% end %>	
