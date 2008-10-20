@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   
   # render new.rhtml
   def new
+     if @language == 2
+        render :action => 'new_d'
+      else
+        render :action => 'new_e'
+      end
   end
 
   def create
@@ -14,10 +19,20 @@ class UsersController < ApplicationController
     @user.save
     if @user.errors.empty?
       self.current_user = @user
-      redirect_back_or_default('/')
-      flash[:notice] = "Vielen Dank für die Anmeldung! Bitte checken Sie Ihre Email um sich zu authentifizieren."
+      #redirect_back_or_default('/')
+      redirect_to :controller => 'groups', :action => 'index', :l => @l
+      if @language == 2
+          flash[:notice] = "Vielen Dank für die Anmeldung! Bitte checken Sie Ihre Email um sich zu authentifizieren."
+        else
+          flash[:notice] = "Thanks for signing up! Please check your email to authenticate yourself."
+        end
+    
     else
-      render :action => 'new'
+      if @language == 2
+          render :action => 'new_d'
+        else
+          render :action => 'new_e'
+        end
     end
   end
 
@@ -27,7 +42,8 @@ class UsersController < ApplicationController
       current_user.activate
       flash[:notice] = "Anmeldung fertig!"
     end
-    redirect_back_or_default('/')
+    #redirect_back_or_default('/')
+    redirect_to :controller => 'groups', :action => 'index', :l => @l
   end
 
 end

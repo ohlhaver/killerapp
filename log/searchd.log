@@ -455,3 +455,5 @@
 [Tue Oct 14 17:16:53.593 2008] [  653] accepting connections
 [Wed Oct 15 01:35:25.122 2008] [  653] caught SIGTERM, shutting down
 [Wed Oct 15 01:35:25.197 2008] [  653] shutdown complete
+[Mon Oct 20 14:32:18.873 2008] [  545] creating server socket on 0.0.0.0:3313
+[Mon Oct 20 14:32:18.886 2008] [  545] accepting connections

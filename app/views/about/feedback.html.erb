@@ -4,15 +4,15 @@ Feedback
 
 </div>
 <div class = 'message'>
-Bitte nennen Sie uns Ihre Fragen, Vorschläge und Ideen!
+<%= feedback_question %>
 
-<% form_tag feedback_about_path, :method => :get do -%>
+<% form_tag :controller=> 'about', :action => 'feedback', :l => @l, :method => :get do -%>
 
 <p>
     <%= text_area :feedback, params[:feedback], :id => 'feedbackfield', :class =>"text" %><br>
 </p>
 <p>
-	<%= submit_tag 'Absenden', :id => 'loginbutton', :class => 'button' %>
+	<%= submit_tag feedback_button, :id => 'loginbutton', :class => 'button' %>
 </p>
 <% end -%>
 

@@ -10,11 +10,12 @@ before_filter :login_required
   def index
     
    @user_stories =[]
+   if @current_user.stories
     story_array = @current_user.stories.split(/\ /)
     story_array.each do |story|
        @user_stories += Rawstory.find(story).to_a
     end
-  
+  end  
    
    @user_stories = @user_stories.sort_by {|u| - u.id }  
    @user_stories = @user_stories.first(12)
@@ -37,7 +38,7 @@ before_filter :login_required
      @current_user.save 
      Subscription.destroy(@subscription) 
      
-     redirect_to :action => 'index'
+     redirect_to :action => 'index', :l => @l
    end
   end
 
@@ -55,12 +56,16 @@ before_filter :login_required
       user_stories = ''
       author_stories.each do |story|
           user_stories += story.id.to_s + ' '
-      end
+      end 
+      if @current_user.stories
       @current_user.stories += user_stories
+      else
+      @current_user.stories = user_stories
+      end  
       @current_user.save   
       
     end
-    redirect_to :controller => 'subscriptions', :action => 'index'      
+    redirect_to :controller => 'subscriptions', :action => 'index', :l => @l      
   end
   
   

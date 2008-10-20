@@ -1557,3 +1557,171 @@
 [Tue Oct 14 17:16:19.048 2008] 0.073 sec [ext/0/rel 234 (0,20)] [main delta] obama
 [Tue Oct 14 17:17:09.333 2008] 0.001 sec [ext/0/rel 236 (0,20)] [main delta] obama
 [Tue Oct 14 17:17:21.495 2008] 0.002 sec [ext/0/rel 236 (0,20)] [main delta] obama
+[Mon Oct 20 14:32:32.042 2008] 0.032 sec [ext/0/rel 8 (0,20)] [main delta] dsd
+[Mon Oct 20 14:32:42.716 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 14:32:48.803 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 14:32:55.448 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 14:36:46.396 2008] 0.001 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 19:56:43.661 2008] 0.043 sec [ext/0/rel 13 (0,20)] [main delta] schach
+[Mon Oct 20 19:57:01.179 2008] 0.000 sec [ext/0/rel 13 (0,20)] [main delta] schach
+[Mon Oct 20 20:22:39.157 2008] 0.047 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 20:22:44.570 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 20:22:47.268 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 20:22:53.792 2008] 0.001 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 20:22:56.429 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 20:23:00.485 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 20:23:02.241 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 20:23:09.748 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 20:23:15.727 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 20:23:18.669 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 20:23:20.792 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 20:23:22.284 2008] 0.001 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 20:23:26.833 2008] 0.497 sec [ext/0/rel 183 (0,20)] [main delta] merkel
+[Mon Oct 20 20:23:30.264 2008] 0.051 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 20:23:40.250 2008] 0.294 sec [ext/0/rel 76 (0,20)] [main delta] zdf
+[Mon Oct 20 20:23:47.497 2008] 0.485 sec [ext/0/rel 4 (0,20)] [main delta] ranicki
+[Mon Oct 20 20:23:57.135 2008] 0.396 sec [ext/0/rel 3 (0,20)] [main delta] harz
+[Mon Oct 20 20:24:04.842 2008] 0.052 sec [ext/0/rel 510 (0,20)] [main delta] krise
+[Mon Oct 20 20:24:11.521 2008] 0.004 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:24:25.535 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:24:29.246 2008] 0.003 sec [ext/0/rel 510 (0,20)] [main delta] krise
+[Mon Oct 20 20:24:33.202 2008] 0.004 sec [ext/0/rel 510 (0,20)] [main delta] krise
+[Mon Oct 20 20:24:36.712 2008] 0.002 sec [ext/0/rel 510 (0,20)] [main delta] krise
+[Mon Oct 20 20:24:41.879 2008] 0.002 sec [ext/0/rel 510 (0,20)] [main delta] krise
+[Mon Oct 20 20:24:46.370 2008] 0.002 sec [ext/0/rel 510 (0,20)] [main delta] krise
+[Mon Oct 20 20:24:48.941 2008] 0.002 sec [ext/0/rel 510 (0,20)] [main delta] krise
+[Mon Oct 20 20:24:56.635 2008] 0.003 sec [ext/0/rel 510 (0,20)] [main delta] krise
+[Mon Oct 20 20:25:00.846 2008] 0.083 sec [ext/0/rel 533 (0,20)] [main delta] haus
+[Mon Oct 20 20:25:06.154 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:25:08.685 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:25:11.318 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:25:16.397 2008] 0.002 sec [ext/0/rel 533 (0,20)] [main delta] haus
+[Mon Oct 20 20:25:23.890 2008] 0.003 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:25:30.661 2008] 0.004 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:25:35.196 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 20:25:43.018 2008] 0.003 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:28:09.776 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 20:28:17.785 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:28:20.372 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:28:35.250 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 20:28:44.266 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:32:30.646 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 20:33:06.919 2008] 0.003 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:33:12.349 2008] 0.003 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:33:18.917 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:33:20.519 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:33:37.924 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 20:33:46.416 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:34:36.437 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] Obama
+[Mon Oct 20 20:40:31.885 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] Obama
+[Mon Oct 20 20:43:22.415 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] Obama
+[Mon Oct 20 20:43:26.563 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] Obama
+[Mon Oct 20 20:43:36.792 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] Obama
+[Mon Oct 20 20:43:49.198 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] Obama
+[Mon Oct 20 20:44:35.747 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] Obama
+[Mon Oct 20 20:47:00.826 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] Obama
+[Mon Oct 20 20:47:08.333 2008] 0.002 sec [ext/0/rel 195 (0,20)] [main delta] Obama
+[Mon Oct 20 20:47:12.733 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] Obama
+[Mon Oct 20 20:47:15.456 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] Obama
+[Mon Oct 20 20:47:27.001 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] Obama
+[Mon Oct 20 20:47:36.812 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] Obama
+[Mon Oct 20 20:47:44.500 2008] 0.003 sec [ext/0/rel 533 (0,20)] [main delta] haus
+[Mon Oct 20 20:47:51.622 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:47:55.263 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:47:57.417 2008] 0.003 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:48:00.772 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:48:19.793 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 20:49:00.397 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 20:49:05.750 2008] 0.025 sec [ext/0/rel 67 (0,20)] [main delta] regen
+[Mon Oct 20 20:49:21.141 2008] 0.003 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:49:24.109 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:49:25.606 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:49:25.872 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:49:26.022 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:54:47.513 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 20:54:54.767 2008] 0.003 sec [ext/0/rel 533 (0,20)] [main delta] haus
+[Mon Oct 20 20:58:50.260 2008] 0.002 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 20:59:11.647 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 21:00:26.997 2008] 0.002 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 21:00:56.350 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] q
+[Mon Oct 20 21:02:38.437 2008] 0.037 sec [ext/0/rel 11 (0,20)] [main delta] tennis
+[Mon Oct 20 21:03:44.669 2008] 0.000 sec [ext/0/rel 11 (0,20)] [main delta] tennis
+[Mon Oct 20 21:03:52.362 2008] 0.003 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 21:04:05.703 2008] 0.000 sec [ext/0/rel 11 (0,20)] [main delta] tennis
+[Mon Oct 20 21:07:23.937 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] text_field_tag
+[Mon Oct 20 21:07:58.131 2008] 0.002 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 21:09:17.127 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 21:09:24.983 2008] 0.004 sec [scan/0/rel 4682 (0,20)] [main delta] 
+[Mon Oct 20 21:09:32.495 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] fd
+[Mon Oct 20 21:09:46.225 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 21:11:19.494 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 21:11:52.273 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 21:12:03.691 2008] 0.002 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 21:24:31.033 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 21:39:15.975 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] fdf
+[Mon Oct 20 21:39:34.663 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] fdf
+[Mon Oct 20 21:39:36.422 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] fdf
+[Mon Oct 20 21:39:37.797 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] fdf
+[Mon Oct 20 21:39:41.909 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] fdf
+[Mon Oct 20 21:40:20.848 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] fdf
+[Mon Oct 20 21:40:22.136 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] fdf
+[Mon Oct 20 21:40:23.188 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] fdf
+[Mon Oct 20 21:40:24.542 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] fdf
+[Mon Oct 20 21:40:27.519 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] fdf
+[Mon Oct 20 21:40:29.189 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] fdf
+[Mon Oct 20 21:40:33.689 2008] 0.003 sec [ext/0/rel 533 (0,20)] [main delta] haus
+[Mon Oct 20 21:40:35.798 2008] 0.002 sec [ext/0/rel 533 (0,20)] [main delta] haus
+[Mon Oct 20 21:40:37.786 2008] 0.002 sec [ext/0/rel 533 (0,20)] [main delta] haus
+[Mon Oct 20 21:40:39.017 2008] 0.002 sec [ext/0/rel 533 (0,20)] [main delta] haus
+[Mon Oct 20 21:41:08.581 2008] 0.003 sec [ext/0/rel 533 (0,20)] [main delta] haus
+[Mon Oct 20 21:46:59.997 2008] 0.002 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 21:47:08.649 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 21:57:09.906 2008] 0.387 sec [ext/0/rel 2 (0,20)] [main delta] sd
+[Mon Oct 20 21:57:35.288 2008] 0.050 sec [ext/0/rel 77 (0,20)] [main delta] ?l=d
+[Mon Oct 20 22:05:33.742 2008] 0.001 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 22:05:58.946 2008] 0.001 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 22:08:25.179 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 22:08:26.287 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 22:08:28.325 2008] 0.001 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 22:09:35.829 2008] 0.512 sec [ext/0/rel 135 (0,20)] [main delta] suchen
+[Mon Oct 20 22:09:50.382 2008] 0.042 sec [ext/0/rel 328 (0,20)] [main delta] finden
+[Mon Oct 20 22:10:35.833 2008] 0.048 sec [ext/0/rel 37 (0,20)] [main delta] boot
+[Mon Oct 20 22:10:45.593 2008] 0.000 sec [ext/0/rel 37 (0,20)] [main delta] boot
+[Mon Oct 20 22:17:08.557 2008] 0.057 sec [ext/0/rel 8 (0,20)] [main delta] dsd
+[Mon Oct 20 22:17:26.208 2008] 0.000 sec [ext/0/rel 8 (0,20)] [main delta] dsd
+[Mon Oct 20 22:17:32.968 2008] 0.001 sec [ext/0/rel 8 (0,20)] [main delta] dsd
+[Mon Oct 20 22:17:36.853 2008] 0.001 sec [ext/0/rel 8 (0,20)] [main delta] dsd
+[Mon Oct 20 22:17:42.586 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 22:17:51.383 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 22:17:53.959 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 22:17:57.484 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 22:18:01.200 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 22:18:58.897 2008] 0.055 sec [ext/0/rel 1 (0,20)] [main delta] gurke
+[Mon Oct 20 22:22:35.806 2008] 0.000 sec [ext/0/rel 37 (0,20)] [main delta] boot
+[Mon Oct 20 22:22:45.216 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 22:22:48.358 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 22:22:50.968 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 22:22:53.379 2008] 0.000 sec [ext/0/rel 34 (0,20)] [main delta] putin
+[Mon Oct 20 22:46:17.634 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 22:46:25.557 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 22:46:27.051 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 22:47:10.475 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 22:47:11.808 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 22:47:12.389 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 22:47:13.092 2008] 0.001 sec [ext/0/rel 195 (0,20)] [main delta] obama
+[Mon Oct 20 22:47:20.882 2008] 0.002 sec [ext/0/rel 533 (0,20)] [main delta] haus
+[Mon Oct 20 22:47:26.818 2008] 0.002 sec [ext/0/rel 533 (0,20)] [main delta] haus
+[Mon Oct 20 22:48:23.083 2008] 0.002 sec [ext/0/rel 533 (0,20)] [main delta] haus
+[Mon Oct 20 22:48:30.475 2008] 0.002 sec [ext/0/rel 533 (0,20)] [main delta] haus
+[Mon Oct 20 22:48:37.427 2008] 0.002 sec [ext/0/rel 533 (0,20)] [main delta] haus
+[Mon Oct 20 22:52:35.838 2008] 0.048 sec [ext/0/rel 729 (0,20)] [main delta] geld
+[Mon Oct 20 22:52:53.874 2008] 0.002 sec [ext/0/rel 729 (0,20)] [main delta] geld
+[Mon Oct 20 22:52:59.593 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] gelddfd
+[Mon Oct 20 22:53:28.276 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] gelddfd
+[Mon Oct 20 22:54:04.455 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] gelddfd
+[Mon Oct 20 22:54:25.763 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] gelddfd
+[Mon Oct 20 22:55:18.040 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] hkh
+[Mon Oct 20 22:55:30.612 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] putinesque
+[Mon Oct 20 22:55:55.977 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] putinesque
+[Tue Oct 21 00:18:28.596 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] fdsf
+[Tue Oct 21 00:58:15.591 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] dsfsf

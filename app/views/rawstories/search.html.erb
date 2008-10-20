@@ -3,17 +3,19 @@
 
 <% unless @rawstories.empty? -%> 
 <div class="pagelabel">
-<%= 'Suchergebnisse für ' if params[:action] == 'search' %> <%= ' Meinungen zu ' if params[:action] == 'filter_by_opinions' %> <b> '<%= h(params[:q]) %>'
+<%= search_results if params[:action] == 'search' %> <%= opinion_results if params[:action] == 'filter_by_opinions' %> <b> '<%= h(params[:q]) %>'
 </b>
+<% if @opinion_weight > 0 %> 
+<% if params[:action] == 'search' %>
 
-<%= ' (alle Artikel - ' if params[:action] == 'search' && @opinion_weight > 0 %> 
-<%= (link_to @opinion_weight.to_s + ' Meinungen)',  {:controller => 'rawstories', :action => 'filter_by_opinions', :q => params[:q]}) if params[:action] == 'search' && @opinion_weight > 1 %>
-<%= (link_to '1 Meinung)',  {:controller => 'rawstories', :action => 'filter_by_opinions', :q => params[:q]}) if params[:action] == 'search' && @opinion_weight == 1 %>
-
-<%= link_to ' (alle Artikel',  {:controller => 'rawstories', :action => 'search', :q => params[:q]} if params[:action] == 'filter_by_opinions' %>
-<%= ' - ' + @opinion_weight.to_s + ' Meinungen)' if params[:action] == 'filter_by_opinions' && @opinion_weight > 1 %>
-<%= ' - 1 Meinung)' if params[:action] == 'filter_by_opinions' && @opinion_weight == 1 %>
-
+<%= ' ('+ show_all_label + ' - '  %> 
+<%= (link_to show_opinions_label(@opinion_weight) + ')',  {:controller => 'rawstories', :action => 'filter_by_opinions', :q => params[:q], :l => @l}) %>
+<% end %>
+<% if params[:action] == 'filter_by_opinions' %>
+<%= link_to ' ('+ show_all_label,  {:controller => 'rawstories', :action => 'search', :q => params[:q], :l => @l} %>
+<%= ' - ' + show_opinions_label(@opinion_weight) + ')' %>
+<% end %>
+<% end %>
 
 </div>
 
@@ -27,7 +29,11 @@
 <br>
 <% else -%>
 <div class = 'message'>
-  <p> Keine Artikel zu <b>'<%= h(params[:q])%>' </b> gefunden. 
+<% if @language == 2 %>
+<p> Keine Artikel zu <b>'<%= h(params[:q])%>' </b> gefunden. 
+<% else %>
+<p> No articles found for <b>'<%= h(params[:q])%>' </b>. 
+<% end %>
 </p>
 </div>
 <% end -%>

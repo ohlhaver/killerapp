@@ -1,8 +1,8 @@
-<% cache ({:page => params[:page] || 1}) do %>
+<% cache ({:l => @l, :page => params[:page] || 1}) do %>
 
 <div class = 'pagelabel'>
 
-Artikel von <b><%= @author.name %></b>
+<%= articles_by_label @author %> <b><%= @author.name %></b>
 
 </div>
 

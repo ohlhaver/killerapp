@@ -6,7 +6,7 @@
 
 <div class = 'pagelabel'>
 <%='Meine Autoren' if @current_user.login %><%= ' (Artikel - ' %> 
-<%= link_to 'Liste der Autoren)',  {:controller => 'subscriptions', :action => 'list'} %>
+<%= link_to 'Liste der Autoren)',  {:controller => 'subscriptions', :action => 'list', :l => @l} %>
 </div>
 
     <%= render :partial => @user_stories %>

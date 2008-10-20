@@ -1,15 +1,14 @@
-<% cache ({:page => params[:page] || 1}) do %>
+<% cache ({:l => @l, :page => params[:page] || 1}) do %>
 
 <div class="pagelabel">
-<%= 'Ähnliche Artikel' %> 
-<%= ' (alle - ' if params[:action] == 'show' && @opinion_weight > 0 %> 
-<%= (link_to @opinion_weight.to_s + ' Meinungen)',  {:controller => 'haufens', :action => 'filter_haufen_by_opinions', :id => params[:id]}) if params[:action] == 'show' && @opinion_weight > 1  %>
-<%= (link_to '1 Meinung)',  {:controller => 'haufens', :action => 'filter_haufen_by_opinions', :id => params[:id]}) if params[:action] == 'show' && @opinion_weight == 1  %>
+<%= haufens_label %> 
+<% if @opinion_weight > 0 %>
+<%= '(' + show_all_label + ' - ' if params[:action] == 'show' && @opinion_weight > 0 %> 
+<%= (link_to show_opinions_label(@opinion_weight) + ')',  {:controller => 'haufens', :action => 'filter_haufen_by_opinions', :id => params[:id], :l => @l}) if params[:action] == 'show'  %>
 
-<%= link_to ' (alle',  { :action => 'show', :id => params[:id]} if params[:action] == 'filter_haufen_by_opinions' %>
-<b><%= ' - ' + @opinion_weight.to_s + ' Meinungen)'  if params[:action] == 'filter_haufen_by_opinions' && @opinion_weight > 1  %></b>
-<%= ' - 1 Meinung)'  if params[:action] == 'filter_haufen_by_opinions' && @opinion_weight == 1 %>
-
+<%= link_to '(' + show_all_label,  { :action => 'show', :id => params[:id], :l => @l} if params[:action] == 'filter_haufen_by_opinions' %>
+<%= ' - ' + show_opinions_label(@opinion_weight) +')'  if params[:action] == 'filter_haufen_by_opinions' %>
+<% end %>
 </div>
   <%= render :partial => @haufen_stories %>
 

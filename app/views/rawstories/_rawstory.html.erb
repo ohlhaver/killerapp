@@ -5,41 +5,36 @@
 
 <% if rawstory.author.name != '' %>
 
-<span class="author"><%= link_to rawstory.author.name, rawstory.author %> 
+<span class="author"><%= link_to rawstory.author.name, :controller => 'authors', :action => 'show', :id => rawstory.author, :l => @l %> 
 
 <% if logged_in? %>
-<%= link_to '[+]', :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id if rawstory.author.name != '' && params[:controller] != 'subscriptions'  %> 
+<%= link_to '[+]', :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id, :l => @l if rawstory.author.name != '' && params[:controller] != 'subscriptions'  %> 
 
-<%= link_to '[-]', :controller => 'subscriptions', :action => 'remove', :id => @current_user.subscriptions.find_by_author_id(rawstory.author.id) if rawstory.author.name != '' && params[:controller] == 'subscriptions'  %> <%= ' - ' if rawstory.author.name != '' %>
+<%= link_to '[-]', :controller => 'subscriptions', :action => 'remove', :id => @current_user.subscriptions.find_by_author_id(rawstory.author.id), :l => @l if rawstory.author.name != '' && params[:controller] == 'subscriptions'  %> <%= ' - ' if rawstory.author.name != '' %>
 
 
 <% else %>
 
-<%= link_to '[+]', :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id if rawstory.author.name != '' %> <%= ' - ' if rawstory.author.name != '' %>
+<%= link_to '[+]', :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id, :l => @l if rawstory.author.name != '' %> <%= ' - ' if rawstory.author.name != '' %>
 </span> 
 <% end %>
 <% end %>
 
 
-<span class="source"><%= rawstory.source.website %></span> - <%= 'vor 1 Minute' if ((Time.new - rawstory.created_at).to_i) < 120 %>
-<%= 'vor ' + (((Time.new - rawstory.created_at).to_i)/60).to_s + ' Minuten' if ((Time.new - rawstory.created_at).to_i) > 119 && ((Time.new - rawstory.created_at).to_i) < 3600 %> 
-<%= 'vor 1 Stunde' if ((Time.new - rawstory.created_at).to_i) > 3599 && ((Time.new - rawstory.created_at).to_i) < 7200 %> 
-<%= 'vor ' + (((Time.new - rawstory.created_at).to_i)/3600).to_s + ' Stunden' if ((Time.new - rawstory.created_at).to_i) > 7199 && ((Time.new - rawstory.created_at).to_i) < 86400 %> 
+<span class="source"><%= rawstory.source.website %></span> - 
+<%= peterson rawstory %>
 
-<%= 'vor 1 Tag' if ((Time.new - rawstory.created_at).to_i) > 86399 && ((Time.new - rawstory.created_at).to_i) < 172800 %> 
-<%= 'vor ' + (((Time.new - rawstory.created_at).to_i)/86400).to_s + ' Tagen' if ((Time.new - rawstory.created_at).to_i) > 172799 && ((Time.new - rawstory.created_at).to_i) < 864000 %>
-<%= rawstory.created_at.to_s(:long) if ((Time.new - rawstory.created_at).to_i) > 863999 %>
 </div>
 
 <div class="headline">
 
- <%= link_to rawstory.title, rawstory.link %><font color =#999><%= ' (Meinung)' if rawstory.opinion == 1 %></font>
+ <%= link_to rawstory.title, rawstory.link %><font color =#999> <%= ' ' + opinion_label if rawstory.opinion == 1 %></font>
 
 <span class="cluster">
 
 
 <%= ' - ' if rawstory.haufen && rawstory.haufen.weight > 1 && params[:controller] != 'haufens' %>
-<%= link_to 'alle ' + rawstory.haufen.weight.to_s + ' Artikel', rawstory.haufen if rawstory.haufen && rawstory.haufen.weight > 1 && params[:controller] != 'haufens' %>
+<%= link_to haufen_label(rawstory), :controller => 'haufens', :action => 'show', :id => rawstory.haufen, :l => @l if rawstory.haufen && rawstory.haufen.weight > 1 && params[:controller] != 'haufens' %>
 
 </span>
 </div>

@@ -3,13 +3,13 @@ class HaufensController < ApplicationController
 
 
 def show
-  unless read_fragment({:id => params[:id], :page => params[:page] || 1}) 
+  unless read_fragment({:l => @l, :id => params[:id], :page => params[:page] || 1}) 
   fetch_stories nil
   end
 end
 
 def filter_haufen_by_opinions
-  unless read_fragment({:id => params[:id], :page => params[:page] || 1})
+  unless read_fragment({:l => @l, :id => params[:id], :page => params[:page] || 1})
   fetch_stories 1 
   end     
   render :action => 'show'

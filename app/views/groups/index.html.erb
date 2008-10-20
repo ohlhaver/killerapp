@@ -1,7 +1,7 @@
-<% cache ({:page => params[:page] || 1}) do %>
+<% cache ( {:l => @l, :page => params[:page] || 1}) do %>
 
 		<li>
-  			<div class="pagelabel"><%= link_to @selection, :action => params[:action]  %> <%= @date %></div>
+  			<div class="pagelabel"><%= link_to selection, :action => params[:action], :l => @l  %> <%= date %></div>
 		</li>
 
 		<ul>
@@ -17,7 +17,7 @@
 		<% if @top_politics_haufens.size > 0 %>
 		<br>
 		<li>
-  			<div class="pagelabel"> <%= link_to 'POLITIK', :action => 'politics'  %> </div>
+  			<div class="pagelabel"> <%= link_to politics_label, :action => 'politics', :l => @l  %> </div>
 		</li>
 		<ul>
 			<%= render :partial => @top_politics_haufens %>
@@ -28,7 +28,7 @@
 		<% if @top_business_haufens.size > 0 %>
 		<br>
 		<li>
-  			<div class="pagelabel"><%= link_to 'WIRTSCHAFT', :action => 'business'  %> </div>
+  			<div class="pagelabel"><%= link_to business_label, :action => 'business', :l => @l  %> </div>
 		</li>
 		<ul>
 			<%= render :partial => @top_business_haufens %>
@@ -40,7 +40,7 @@
 		<% if @top_culture_haufens.size > 0 %>
 		<br>
 		<li>
-  		<div class="pagelabel"> <%= link_to 'Feuilleton', :action => 'culture'  %> </div>
+  		<div class="pagelabel"> <%= link_to culture_label, :action => 'culture', :l => @l  %> </div>
 		</li>
 		<ul>
 		<%= render :partial => @top_culture_haufens %>
@@ -52,7 +52,7 @@
 		<% if @top_science_haufens.size > 0 %>
 		<br>
 		<li>
-  		<div class="pagelabel"> <%= link_to 'WISSEN', :action => 'science'  %> </div>
+  		<div class="pagelabel"> <%= link_to science_label, :action => 'science', :l => @l  %> </div>
 		</li>
 		<ul>
 		<%= render :partial => @top_science_haufens %>
@@ -64,7 +64,7 @@
 		<% if @top_technology_haufens.size > 0 %>
 		<br>
 		<li>
-  		<div class="pagelabel"> <%= link_to 'TECHNIK', :action => 'technology'  %> </div>
+  		<div class="pagelabel"> <%= link_to technology_label, :action => 'technology', :l => @l  %> </div>
 		</li>
 		<ul>
 		<%= render :partial => @top_technology_haufens %>
@@ -75,7 +75,7 @@
 		<% if @top_sport_haufens.size > 0 %>
 		<br>
 		<li>
-  		<div class="pagelabel"> <%= link_to 'SPORT', :action => 'sport'  %> </div>
+  		<div class="pagelabel"> <%= link_to sport_label, :action => 'sport', :l => @l  %> </div>
 		</li>
 		<ul>
 			<%= render :partial => @top_sport_haufens %>
@@ -86,7 +86,7 @@
 		<% if @top_mixed_haufens.size > 0 %>
 		<br>
 		<li>
-  		<div class="pagelabel"> <%= link_to 'Vermischtes', :action => 'mixed'  %> </div>
+  		<div class="pagelabel"> <%= link_to mixed_label, :action => 'mixed', :l => @l  %> </div>
 		</li>
 		<ul>
 			<%= render :partial => @top_mixed_haufens %>
@@ -97,7 +97,7 @@
 		<% if @top_opinions_haufens.size > 0 %>
 		<br>
 		<li>
-  			<div class="pagelabel"> <%= link_to 'Meinungen', :action => 'opinions'  %> </div>
+  			<div class="pagelabel"> <%= link_to opinions_label, :action => 'opinions', :l => @l  %> </div>
 		</li>
 		<ul>
 			<%= render :partial => @top_opinions_haufens %>
@@ -114,7 +114,7 @@
 		<% if @top_my_authors.size > 0 %>
 			<br>
 			<li>
-  			<div class="pagelabel"> <%= link_to 'MEINE AUTOREN', subscriptions_path  %> </div>
+  			<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </div>
 			</li>
 			<ul>
 				<%= render :partial => @top_my_authors %>

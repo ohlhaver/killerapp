@@ -17,11 +17,11 @@
 	<body>
 		
 		
-		<% form_tag search_rawstories_path, :method => :get do -%>
+		<% form_tag search_rawstories_path(:l => @l), :method => :get do -%>
 		<div class ="search">
 
 	        <%= text_field_tag :q, params[:q],  :id => 'searchfield', :class =>"text" %>
-			<%= submit_tag 'Suche', :id => 'searchbutton', :class => 'button' %>
+			<%= submit_tag search_label, :id => 'searchbutton', :class => 'button', :name => nil %>
 
 	      </div>
 	    <% end -%>
@@ -29,22 +29,22 @@
 		
 		<div class="profile">
 			<% if logged_in? %>
-			<%= (link_to 'Feedback [+]' , :controller => 'about', :action => 'feedback') %>&nbsp;&nbsp;-&nbsp;&nbsp; <% end %>
+			<%= (link_to 'Feedback [+]' , :controller => 'about', :action => 'feedback', :l => @l) %>&nbsp;&nbsp;-&nbsp;&nbsp; <% end %>
 			<% if params[:controller] == 'subscriptions'  %> 
-				<span class="selected"><%= 'Meine Autoren'  %></span> 
+				<span class="selected"><%= my_authors  %></span> 
 				<% else %> 
-				<%= link_to 'Meine Autoren', subscriptions_path  %> 
+				<%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> 
 				<% end %>&nbsp;&nbsp;-&nbsp;&nbsp;
 	        <% if logged_in? %>
-	          <%= h(@current_user.login) %><em> <%= link_to "(ausloggen)", session_path, :method => :delete %></em>
+	          <%= h(@current_user.login) %><em> <%= link_to logout_label, session_path(:l => @l), :method => :delete %></em>
 	        <% else %>
-	          <%= link_to 'Einloggen', :controller => 'sessions', :action => 'new' %>
+	          <%= link_to login_label, :controller => 'sessions', :action => 'new', :l=>@l %>
 	        <% end %>
 	      </div>
 		</div>
 	
 			<div class ="logo">
-				<%= link_to image_tag('logo.gif'), groups_path%>
+				<%= link_to image_tag('logo.gif'), :controller => 'groups', :l => @l%>
 				</div>
 				
 						
@@ -54,57 +54,57 @@
 		<div class ="navigation">
 			<ul>
 	<li>	<% if params[:action] == 'index' && params[:controller] == 'groups'%> 
-		<span class="selected"><%= 'Schlagzeilen'  %></span> 
+		<span class="selected"><%= topstories_label  %></span> 
 		<% else %> 
-			<%= link_to 'Schlagzeilen', :controller => 'groups', :action => 'index'  %> 
+			<%= link_to topstories_label, :controller => 'groups', :action => 'index', :l => @l  %> 
 		<% end %></li>
 
 	<li>	<% if params[:action] == 'politics' %> 
-		<span class="selected"><%= 'Politik'  %></span> 
+		<span class="selected"><%= politics_label  %></span> 
 		<% else %> 
-		<%= link_to 'Politik', :controller => 'groups', :action => 'politics'  %>  
+		<%= link_to politics_label, :controller => 'groups', :action => 'politics', :l => @l %>  
 		<% end %></li>
 
 	<li>	<% if params[:action] == 'business' %> 
-		<span class="selected"><%= 'Wirtschaft'  %></span>  
+		<span class="selected"><%= business_label  %></span>  
 		<% else %> 
-		<%= link_to 'Wirtschaft', :controller => 'groups', :action => 'business'  %>  
+		<%= link_to business_label, :controller => 'groups', :action => 'business', :l => @l  %>  
 		<% end %></li>
 
 	<li>	<% if params[:action] == 'culture' %> 
-		<span class="selected"><%= 'Feuilleton'  %></span> 
+		<span class="selected"><%= culture_label  %></span> 
 		<% else %> 
-		<%= link_to 'Feuilleton',:controller => 'groups', :action => 'culture'  %>  
+		<%= link_to culture_label,:controller => 'groups', :action => 'culture', :l => @l  %>  
 		<% end %></li>
 
 	<li>	<% if params[:action] == 'science' %> 
-		<span class="selected"><%= 'Wissen'  %></span>  
+		<span class="selected"><%= science_label  %></span>  
 		<% else %> 
-	<%= link_to 'Wissen', :controller => 'groups', :action => 'science'  %>  
+	<%= link_to science_label, :controller => 'groups', :action => 'science', :l => @l  %>  
 		<% end %></li>
 
 	<li>	<% if params[:action] == 'technology' %> 
-		<span class="selected"><%= 'Technik'  %></span>  
+		<span class="selected"><%= technology_label  %></span>  
 		<% else %> 
-		<%= link_to 'Technik', :controller => 'groups', :action => 'technology'  %>  
+		<%= link_to technology_label, :controller => 'groups', :action => 'technology', :l => @l %>  
 		<% end %></li>
 
 	<li>	<% if params[:action] == 'sport' %> 
-		<span class="selected"><%= 'Sport'  %></span>  
+		<span class="selected"><%= sport_label  %></span>  
 		<% else %> 
-	<%= link_to 'Sport', :controller => 'groups', :action => 'sport'  %> 
+	<%= link_to sport_label, :controller => 'groups', :action => 'sport', :l => @l  %> 
 		<% end %></li>
 
 	<li>	<% if params[:action] == 'mixed' %> 
-	<span class="selected"><%= 'Vermischtes'  %></span>  
+	<span class="selected"><%= mixed_label  %></span>  
 		<% else %> 
-		<%= link_to 'Vermischtes', :controller => 'groups', :action => 'mixed'  %> 
+		<%= link_to mixed_label, :controller => 'groups', :action => 'mixed', :l => @l  %> 
 		<% end %></li>
 
 	<li>	<% if params[:action] == 'opinions' %> 
-		<span class="selected"><%= 'Meinungen'  %></span> 
+		<span class="selected"><%= opinions_label  %></span> 
 		<% else %> 
-		<%= link_to 'Meinungen', :controller => 'groups', :action => 'opinions'  %> 
+		<%= link_to opinions_label, :controller => 'groups', :action => 'opinions', :l => @l  %> 
 		<% end %></li>
 
 
@@ -127,7 +127,7 @@
 </ul>
 </div>
 <div id="footer">
-	©2008 - <%= link_to 'Impressum', :controller => 'about', :action => 'imprint'  %> - <%= link_to 'Datenschutz', :controller => 'about', :action => 'privacy'  %>
+	©2008 - <%= link_to imprint_label, :controller => 'about', :action => 'imprint'  %> - <%= link_to privacy_label, :controller => 'about', :action => 'privacy'  %>
 	</div>
 </body>
 </html>
