@@ -24,7 +24,7 @@
     <%= render :partial => @rawstories %>
 
 <div class= "pagination" > 
-<%= will_paginate(@rawstories, options = {:prev_label => 'zurück &nbsp - &nbsp ', :next_label => ' &nbsp - &nbsp vorwärts'}) %>
+<%= will_paginate(@rawstories, options = {:prev_label => previous_label + ' &nbsp - &nbsp ', :next_label => ' &nbsp - &nbsp ' + next_label}) %>
 </div>
 <br>
 <% else -%>

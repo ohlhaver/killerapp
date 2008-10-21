@@ -8,7 +8,7 @@
 			<%= render :partial => @haufens %>
 		</ul>
 		<div class= "pagination" > 
-			<%= will_paginate(@haufens, options = {:prev_label => 'zurück &nbsp - &nbsp ', :next_label => ' &nbsp - &nbsp vorwärts'}) %>
+			<%= will_paginate(@haufens, options = {:prev_label => previous_label + ' &nbsp - &nbsp ', :next_label => ' &nbsp - &nbsp ' + next_label}) %>
 		</div>
 	
 

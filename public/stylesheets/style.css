@@ -44,14 +44,23 @@ a img {
 }
 
 
-
-
 .about {
 font-family: Arial, Helvetica, sans-serif;
 font-size: 12px;
 line-height: 17px;
 color: #333333;
 }
+
+.pagelabel a:link {
+	color: #999999;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #0000C8;
+}
+
+
+
+#beginning of christians styleshheet {}
 
 
 .headline {
@@ -101,9 +110,6 @@ li {
 	position: fixed;
 	top: 9px;
 }
-
-
-
 .header {
 	margin-top: 7px;
 	margin-bottom: 60px;
@@ -121,7 +127,7 @@ li {
 }
 .search {
 	display: block;
-	width: 600px;
+	width: 520px;
 	float: left;
 	text-align: left;
 	margin-left: 140px;
@@ -190,15 +196,6 @@ ul {
 	margin-bottom: 27px;
 	text-transform: uppercase;
 }
-
-
-.pagelabel a:link {
-	color: #999999;
-	border-bottom-width: 1px;
-	border-bottom-style: dashed;
-	border-bottom-color: #0000C8;
-}
-
 .datestamp {
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 21px;
@@ -230,7 +227,6 @@ body {
 	margin-bottom: 0px;
 	margin-left: 0px;
 }
-
 .datestamp a:link {
 	color: #999999;
 }
@@ -251,6 +247,9 @@ body {
 }
 .author a:visited {
 	color: #999999;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #0000C8;
 }
 .author a:hover {
 	color: #0000C8;
@@ -306,6 +305,9 @@ body {
 .cluster a:visited {
 	text-decoration: none;
 	color: #999999;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #0000C8;
 }
 .cluster a:active {
 	text-decoration: none;
@@ -315,10 +317,3 @@ body {
 	text-decoration: none;
 	color: #0000C8;
 }
-
-
-
-
-
-
-

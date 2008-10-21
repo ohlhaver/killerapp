@@ -5,18 +5,18 @@
 
 <% if rawstory.author.name != '' %>
 
-<span class="author"><%= link_to rawstory.author.name, :controller => 'authors', :action => 'show', :id => rawstory.author, :l => @l %> 
+<span class="author"><%= link_to rawstory.author.name, :controller => 'authors', :action => 'show', :id => rawstory.author, :l => @l %> </span> 
 
 <% if logged_in? %>
-<%= link_to '[+]', :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id, :l => @l if rawstory.author.name != '' && params[:controller] != 'subscriptions'  %> 
+<%= link_to image_tag('add.gif'), :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id, :l => @l if rawstory.author.name != '' && params[:controller] != 'subscriptions'  %> 
 
 <%= link_to '[-]', :controller => 'subscriptions', :action => 'remove', :id => @current_user.subscriptions.find_by_author_id(rawstory.author.id), :l => @l if rawstory.author.name != '' && params[:controller] == 'subscriptions'  %> <%= ' - ' if rawstory.author.name != '' %>
 
 
 <% else %>
 
-<%= link_to '[+]', :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id, :l => @l if rawstory.author.name != '' %> <%= ' - ' if rawstory.author.name != '' %>
-</span> 
+<%= link_to image_tag('add.gif'), :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id, :l => @l if rawstory.author.name != '' %> <%= ' - ' if rawstory.author.name != '' %>
+
 <% end %>
 <% end %>
 

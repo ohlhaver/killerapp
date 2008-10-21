@@ -6,13 +6,34 @@ module ApplicationHelper
    def search_label
      
       if @language ==2
-      label = 'Suche'
+      label = 'suche'
       else
       label = 'search' 
       end
     
     return label
   end
+  
+  def previous_label
+    if @language ==2
+    label = 'zurück'
+    else
+    label = 'previous' 
+    end
+    
+    return label
+  end
+  
+  def next_label
+    if @language ==2
+    label = 'vorwärts'
+    else
+    label = 'next' 
+    end
+    
+    return label
+  end
+  
   
   def my_authors
     if @language ==2
@@ -104,7 +125,7 @@ module ApplicationHelper
     if @language ==2
       label = 'Impressum'
     else
-      label = 'Contact'
+      label = 'About'
     end
   end
   
