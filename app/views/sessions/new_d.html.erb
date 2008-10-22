@@ -1,10 +1,11 @@
-<div class = 'message'>
-<% form_tag :controller => 'sessions', :action => 'create', :l => @l do -%>
-<p><label for="login">Login</label><br/>
-<%= text_field_tag 'login' %></p>
 
-<p><label for="password">Passwort</label><br/>
-<%= password_field_tag 'password' %></p>
+<div class = 'default'>
+<% form_tag :controller => 'sessions', :action => 'create', :l => @l do -%>
+<p><label for="login">Login</label><br>
+<%= text_field_tag 'login', params[:login], :class => 'textfield' %></p>
+
+<p><label for="password">Passwort</label><br>
+<%= password_field_tag 'password', params[:password], :class => 'textfield' %></p>
 
 
 <p><label for="remember_me">Auf diesem Computer merken:</label>

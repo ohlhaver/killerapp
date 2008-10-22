@@ -7,8 +7,8 @@
 <div class="pagelabel">
 <% unless @subscriptions.empty? -%>
 
-<%= 'Meine Autoren' %><%= link_to ' (Artikel',  {:controller => 'subscriptions', :action => 'index', :l => @l} %>
-<%= '- Liste der Autoren)' %>
+<%= 'Meine Autoren' %><%= link_to ' (' + articles_list_label,  {:controller => 'subscriptions', :action => 'index', :l => @l} %>
+<%= ' - ' + authors_list_label+ ')' %>
 
 </div>
 

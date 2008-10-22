@@ -9,30 +9,23 @@ a img {
 	padding: 3px;
 }
 
-.message {
-	
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 16px;
-	font-style: normal;
-}
-
 #loginbutton {
-	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size: 16px;
-	line-height: 27px;
-	color: #FFFFFF;
-	background-color: #0000C8;
-	vertical-align: middle;
-	padding: 4px;
+       font-family: Arial, Helvetica, sans-serif;
+       font-size: 16px;
+       line-height: 21px;
+       color: #FFFFFF;
+       background-color: #0000C8;
+       vertical-align: middle;
+       padding: 4px;
 }
 
 #footer {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 10px;
-		margin-left: 140px;
-	line-height: 21px;
-	color: #333333;
-	margin-bottom: 2px;
+	font-size: 12px;
+	line-height: 19px;
+	margin-left: 140px;
+	color: #999999;
+	margin-bottom: 10px;
 	margin-top: 27px;
 }
 
@@ -43,19 +36,37 @@ a img {
 
 }
 
-
 .about {
 font-family: Arial, Helvetica, sans-serif;
 font-size: 12px;
 line-height: 17px;
 color: #333333;
+
 }
 
-.pagelabel a:link {
+.pagelabel {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 21px;
 	color: #999999;
-	border-bottom-width: 1px;
-	border-bottom-style: dashed;
-	border-bottom-color: #0000C8;
+	margin-bottom: 27px;
+	text-transform: uppercase;
+}
+.pagelabel a:link {
+	color: #333333;
+	text-decoration: none;
+}
+.pagelabel a:visited {
+	color: #333333;
+	text-decoration: none;
+}
+.pagelabel a:hover {
+	color: #0000CC;
+	text-decoration: none;
+}
+.pagelabel a:active {
+	color: #0000CC;
+	text-decoration: none;
 }
 
 
@@ -80,7 +91,7 @@ li {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	color: #333333;
-	margin-left: 10px;
+	margin-left: 7px;
 	margin-bottom: 14px;
 	float: left;
 	margin-top: 1px;
@@ -120,10 +131,16 @@ li {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	line-height: 17px;
-	color: #333333;
+	color: #999999;
 	display: inline;
 	white-space: nowrap;
 	padding-right: 30px;
+}
+.default {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 17px;
+	color: #333333;
 }
 .search {
 	display: block;
@@ -142,6 +159,18 @@ li {
 	background-color: #0000C8;
 	padding: 3px;
 }
+.textfield {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	line-height: 21px;
+	color: #333333;
+	width: 200px;
+	align: left;
+	border: 1px solid #0000C8;
+	padding: 4px;
+	margin-top: 7px;
+	vertical-align: middle;
+}
 #searchfield {
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 21px;
@@ -154,13 +183,13 @@ li {
 	vertical-align: middle;
 }
 #searchbutton {
-	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size: 21px;
-	line-height: 27px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 21px;
 	color: #FFFFFF;
 	background-color: #0000C8;
 	vertical-align: middle;
-	padding: 4px;
+	padding: 6px;
 }
 #searchform .header .search #submit {
 	background-position: center;
@@ -183,18 +212,18 @@ ul {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
 	line-height: 21px;
-	color: #333333;
+	color: #999999;
 	margin-bottom: 2px;
 	margin-top: 27px;
 	text-transform: uppercase;
 }
-.pagelabel {
+
+.message {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
 	line-height: 21px;
-	color: #333333;
+	color: #0000CC;
 	margin-bottom: 27px;
-	text-transform: uppercase;
 }
 .datestamp {
 	font-family: Georgia, "Times New Roman", Times, serif;
@@ -208,10 +237,14 @@ ul {
 a:link {
 	color: #333333;
 	text-decoration: none;
+	border: none;
+	background-image: none;
 }
 a:visited {
 	text-decoration: none;
 	color: #333333;
+	border: none;
+	background-image: none;
 }
 a:hover {
 	text-decoration: none;
@@ -240,53 +273,16 @@ body {
 	color: #666666;
 }
 .author a:link {
-	color: #999999;
-	border-bottom-width: 1px;
-	border-bottom-style: dashed;
-	border-bottom-color: #0000C8;
+	color: #333333;
 }
 .author a:visited {
-	color: #999999;
-	border-bottom-width: 1px;
-	border-bottom-style: dashed;
-	border-bottom-color: #0000C8;
+	color: #333333;
 }
 .author a:hover {
 	color: #0000C8;
 }
 .author a:active {
 	color: #0000C8;
-}
-.add {
-	color: #FFFFFF;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 16px;
-	font-weight: bold;
-	background-color: #999999;
-}
-.add a:link {
-	color: #FFFFFF;
-	background-color: #999999;
-	padding-top: 0px;
-	padding-right: 2px;
-	padding-bottom: 0px;
-	padding-left: 0px;
-}
-.add a:visited {
-	color: #FFFFFF;
-	background-color: #999999;
-	padding-top: 1px;
-	padding-right: 2px;
-	padding-bottom: 1px;
-	padding-left: 2px;
-}
-.add a:hover {
-	color: #FFFFFF;
-	background-color: #0000C8;
-}
-.add a:active {
-	color: #FFFFFF;
-	background-color: #0000C8;
 }
 .cluster {
 	color: #999999;
@@ -296,18 +292,12 @@ body {
 	line-height: 27px;
 }
 .cluster a:link {
-	color: #999999;
+	color: #333333;
 	text-decoration: none;
-	border-bottom-width: 1px;
-	border-bottom-style: dashed;
-	border-bottom-color: #0000C8;
 }
 .cluster a:visited {
 	text-decoration: none;
-	color: #999999;
-	border-bottom-width: 1px;
-	border-bottom-style: dashed;
-	border-bottom-color: #0000C8;
+	color: #333333;
 }
 .cluster a:active {
 	text-decoration: none;

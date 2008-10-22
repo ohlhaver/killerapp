@@ -5,21 +5,26 @@
 
 
 <div class = 'pagelabel'>
-<%='Meine Autoren' if @current_user.login %><%= ' (Artikel - ' %> 
-<%= link_to 'Liste der Autoren)',  {:controller => 'subscriptions', :action => 'list', :l => @l} %>
+<%=my_authors if @current_user.login %><%= ' (' + articles_list_label + ' - ' %> 
+<%= link_to authors_list_label,  {:controller => 'subscriptions', :action => 'list', :l => @l} %><%= ')' %>
 </div>
 
     <%= render :partial => @user_stories %>
 
 <div id= "pagination" > 
-<%= will_paginate(@user_stories, options = {:prev_label => previous_label + ' &nbsp - &nbsp ', :next_label => ' &nbsp - &nbsp ' + next_label}) %>
+<%= will_paginate(@user_stories, options = {:prev_label => previous_label + '&nbsp -&nbsp', :next_label => ' &nbsp;-&nbsp; ' + next_label}) %>
 </div>
 
 
 <% else -%>
 <div class = 'message'>
+<% if @language == 2 %>
   <%= 'Sie haben noch keine Lieblingsautoren.' %> <br> <br>
-<%= 'Klicken Sie einfach auf <b>[+]</b> neben dem Namen eines Autors, um diesen zu einem Ihrer <b>Lieblingsautoren</b> zu machen. '  %>
+<%= 'Klicken Sie einfach auf das ' + image_tag('plus.gif') + ' Symbol neben dem Namen eines Autors, um diesen zu der Liste Ihrer Lieblingsautoren hinzuzufügen. '  %>
+<% else %>
+ <%= 'You don\'t have any favorite authors yet.' %> <br> <br>
+<%= 'Simply click the ' + image_tag('plus.gif') + ' symbol next to an author\'s name to add that author to your list of favorite authors.'  %>
+<% end %>
 </div>
 <% end -%>
 

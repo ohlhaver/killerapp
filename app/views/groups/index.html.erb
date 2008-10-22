@@ -1,14 +1,14 @@
 <% cache ( {:l => @l, :page => params[:page] || 1}) do %>
 
 		<li>
-  			<div class="pagelabel"><%= link_to selection, :action => params[:action], :l => @l  %> <%= date %></div>
+  			<div class="pagelabel"><%= selection %> <%= date %></div>
 		</li>
 
 		<ul>
 			<%= render :partial => @haufens %>
 		</ul>
 		<div class= "pagination" > 
-			<%= will_paginate(@haufens, options = {:prev_label => previous_label + ' &nbsp - &nbsp ', :next_label => ' &nbsp - &nbsp ' + next_label}) %>
+			<%= will_paginate(@haufens, options = {:prev_label => previous_label + '&nbsp -&nbsp', :next_label => ' &nbsp;-&nbsp; ' + next_label}) %>
 		</div>
 	
 

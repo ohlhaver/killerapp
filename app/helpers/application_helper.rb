@@ -6,7 +6,7 @@ module ApplicationHelper
    def search_label
      
       if @language ==2
-      label = 'suche'
+      label = 'Suche'
       else
       label = 'search' 
       end
