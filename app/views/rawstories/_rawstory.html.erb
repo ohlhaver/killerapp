@@ -4,7 +4,7 @@
 <div class="datestamp">
 
 <% if rawstory.author.name != '' %>
-
+<% unless params[:controller] == 'authors' %>
 <span class="author"><%= link_to rawstory.author.name, :controller => 'authors', :action => 'show', :id => rawstory.author, :l => @l %> </span> 
 
 <% if logged_in? %>
@@ -19,7 +19,7 @@
 
 <% end %>
 <% end %>
-
+<% end %>
 
 <span class="source"><%= rawstory.source.website %></span> - 
 <%= peterson rawstory %>

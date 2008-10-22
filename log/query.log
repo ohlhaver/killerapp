@@ -1765,3 +1765,11 @@
 [Wed Oct 22 00:34:49.744 2008] 0.001 sec [ext/0/rel 10 (0,20)] [main delta] booten
 [Wed Oct 22 00:35:13.946 2008] 0.000 sec [ext/0/rel 10 (0,20)] [main delta] booten
 [Wed Oct 22 00:37:03.186 2008] 0.000 sec [ext/0/rel 10 (0,20)] [main delta] booten
+[Wed Oct 22 16:18:00.877 2008] 0.033 sec [ext/0/rel 34 (0,20)] [main delta] dossier
+[Wed Oct 22 16:18:50.883 2008] 0.001 sec [ext/0/rel 34 (0,20)] [main delta] dossier
+[Wed Oct 22 16:20:47.173 2008] 0.001 sec [ext/0/rel 34 (0,20)] [main delta] dossier
+[Wed Oct 22 16:21:13.228 2008] 0.001 sec [ext/0/rel 34 (0,20)] [main delta] dossier
+[Wed Oct 22 16:46:00.605 2008] 0.000 sec [ext/0/rel 4 (0,20)] [main delta] ds
+[Wed Oct 22 16:46:03.369 2008] 0.014 sec [ext/0/rel 5274 (0,20)] [main delta] der
+[Wed Oct 22 16:59:07.348 2008] 0.014 sec [ext/0/rel 5274 (0,20)] [main delta] der
+[Wed Oct 22 17:09:01.093 2008] 0.001 sec [ext/0/rel 216 (0,20)] [main delta] obama

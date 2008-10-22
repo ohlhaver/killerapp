@@ -85,7 +85,7 @@ class RawstoriesController < ApplicationController
       @rawstories = opinion_stories if conditions != nil 
       @opinion_weight = opinion_stories.size
       @rawstories = @rawstories.paginate  :page => params[:page],
-                                          :per_page => 6
+                                          :per_page => 12
       
     end
 

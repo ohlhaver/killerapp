@@ -12,7 +12,7 @@ module AboutHelper
     if @language == 2
       label = 'Absenden'
     else
-      label = 'Send'
+      label = 'send'
     end
   end
 

@@ -30,7 +30,7 @@ def fetch_stories(conditions)
     @haufen_stories = opinion_stories if conditions != nil
     @haufen_stories = @haufen_stories.sort_by {|u| - u.id } 
     @haufen_stories = @haufen_stories.paginate :page => params[:page],
-                                         :per_page => 6
+                                         :per_page => 12
 end
    
    
