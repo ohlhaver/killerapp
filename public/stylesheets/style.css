@@ -103,6 +103,11 @@ li {
 	padding-top: 3px;
 	padding-bottom: 3px;
 }
+.selected {
+	color: #FFFFFF;
+	background-color: #0000C8;
+	padding: 3px;
+}
 .unselected   {
 	color: #333333;
 	background-color: #FFFFFF;
@@ -112,6 +117,10 @@ li {
 	color: #FFFFFF;
 	background-color: #0000C8;
 	padding: 3px;
+	margin-left: -3px;
+
+	
+	
 }
 .logo {
 	float: left;
@@ -154,11 +163,7 @@ li {
 	line-height: 21px;
 	height: 33px;
 }
-.selected {
-	color: #FFFFFF;
-	background-color: #0000C8;
-	padding: 3px;
-}
+
 .textfield {
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 16px;

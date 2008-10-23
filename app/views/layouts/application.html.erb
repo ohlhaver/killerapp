@@ -56,55 +56,64 @@
 	<li>	<% if params[:action] == 'index' && params[:controller] == 'groups'%> 
 		<span class="selected"><%= topstories_label  %></span> 
 		<% else %> 
-			<%= link_to topstories_label, :controller => 'groups', :action => 'index', :l => @l  %> 
+		<span class="unselected">
+			<%= link_to topstories_label, :controller => 'groups', :action => 'index', :l => @l  %> </span>
 		<% end %></li>
 
 	<li>	<% if params[:action] == 'politics' %> 
 		<span class="selected"><%= politics_label  %></span> 
 		<% else %> 
-		<%= link_to politics_label, :controller => 'groups', :action => 'politics', :l => @l %>  
+		<span class="unselected">
+		<%= link_to politics_label, :controller => 'groups', :action => 'politics', :l => @l %>  </span>
 		<% end %></li>
 
 	<li>	<% if params[:action] == 'business' %> 
 		<span class="selected"><%= business_label  %></span>  
 		<% else %> 
-		<%= link_to business_label, :controller => 'groups', :action => 'business', :l => @l  %>  
+		<span class="unselected">
+		<%= link_to business_label, :controller => 'groups', :action => 'business', :l => @l  %>  </span>
 		<% end %></li>
 
 	<li>	<% if params[:action] == 'culture' %> 
 		<span class="selected"><%= culture_label  %></span> 
 		<% else %> 
-		<%= link_to culture_label,:controller => 'groups', :action => 'culture', :l => @l  %>  
+		<span class="unselected">
+		<%= link_to culture_label,:controller => 'groups', :action => 'culture', :l => @l  %>  </span>
 		<% end %></li>
 
 	<li>	<% if params[:action] == 'science' %> 
 		<span class="selected"><%= science_label  %></span>  
 		<% else %> 
-	<%= link_to science_label, :controller => 'groups', :action => 'science', :l => @l  %>  
+		<span class="unselected">
+	<%= link_to science_label, :controller => 'groups', :action => 'science', :l => @l  %>  </span>
 		<% end %></li>
 
 	<li>	<% if params[:action] == 'technology' %> 
 		<span class="selected"><%= technology_label  %></span>  
 		<% else %> 
-		<%= link_to technology_label, :controller => 'groups', :action => 'technology', :l => @l %>  
+		<span class="unselected">
+		<%= link_to technology_label, :controller => 'groups', :action => 'technology', :l => @l %>  </span>
 		<% end %></li>
 
 	<li>	<% if params[:action] == 'sport' %> 
 		<span class="selected"><%= sport_label  %></span>  
 		<% else %> 
-	<%= link_to sport_label, :controller => 'groups', :action => 'sport', :l => @l  %> 
+		<span class="unselected">
+	<%= link_to sport_label, :controller => 'groups', :action => 'sport', :l => @l  %> </span>
 		<% end %></li>
 
 	<li>	<% if params[:action] == 'mixed' %> 
 	<span class="selected"><%= mixed_label  %></span>  
 		<% else %> 
-		<%= link_to mixed_label, :controller => 'groups', :action => 'mixed', :l => @l  %> 
+		<span class="unselected">
+		<%= link_to mixed_label, :controller => 'groups', :action => 'mixed', :l => @l  %> </span>
 		<% end %></li>
 
 	<li>	<% if params[:action] == 'opinions' %> 
 		<span class="selected"><%= opinions_label  %></span> 
 		<% else %> 
-		<%= link_to opinions_label, :controller => 'groups', :action => 'opinions', :l => @l  %> 
+		<span class="unselected">
+		<%= link_to opinions_label, :controller => 'groups', :action => 'opinions', :l => @l  %> </span>
 		<% end %></li>
 
 
