@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     @user.save
     if @user.errors.empty?
       self.current_user = @user
+      self.current_user = nil
       #redirect_back_or_default('/')
       redirect_to :controller => 'groups', :action => 'index', :l => @l
       if @language == 2
