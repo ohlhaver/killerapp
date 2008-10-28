@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081013080037) do
+ActiveRecord::Schema.define(:version => 20081028165253) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20081013080037) do
     t.integer  "pilot",       :limit => 11
     t.integer  "topic",       :limit => 11
     t.integer  "gsession_id", :limit => 11
+    t.integer  "broadness",   :limit => 11
   end
 
   create_table "gsessions", :force => true do |t|
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20081013080037) do
     t.datetime "updated_at"
     t.string   "members"
     t.integer  "latest",      :limit => 11
+    t.integer  "broadness",   :limit => 11
   end
 
   create_table "hsessions", :force => true do |t|
@@ -111,7 +113,7 @@ ActiveRecord::Schema.define(:version => 20081013080037) do
     t.datetime "remember_token_expires_at"
     t.string   "activation_code",           :limit => 40
     t.datetime "activated_at"
-    t.string   "stories"
+    t.text     "stories"
   end
 
 end
