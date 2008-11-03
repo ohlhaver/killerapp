@@ -92,10 +92,13 @@ class GroupsController < ApplicationController
      def fetch_groups(conditions, home)
         right_session = Hsession.find(:last).id - 1
         haufens = Hsession.find(right_session).haufens  
+        if @language == 2
+          haufens = haufens.find_all{|v| v.language == 2 }
+        else 
+          haufens = haufens.find_all{|v| v.language == 1 }
+        end
         (haufens = haufens.find_all {|u| u.topic == conditions }) if conditions != nil
         if conditions == nil
-          
-          
             (haufens = haufens.find_all {|u| u.topic != 6 }) 
             (haufens = haufens.find_all {|u| u.topic != 7 })
         end
@@ -116,7 +119,12 @@ class GroupsController < ApplicationController
       def fetch_opinions(home)
         
         
-        @stories = Rawstory.find(:all, :conditions => ['created_at > :date', {:date => Time.now.yesterday}], :order => 'id DESC')       
+        @stories = Rawstory.find(:all, :conditions => ['created_at > :date', {:date => Time.now.yesterday}], :order => 'id DESC')   
+        if @language == 2
+        @stories = @stories.find_all{|v| v.language == 2 }
+        else 
+        @stories = @stories.find_all{|v| v.language == 1 }
+        end    
         @stories = @stories.find_all{|v| v.opinion == 1 }
         @stories = @stories.find_all{|v| v.author.name != '' }
         @stories = @stories.sort_by {|u| - u.author.subscriptions.size}
