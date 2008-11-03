@@ -61,7 +61,7 @@ module ApplicationHelper
     if @language ==2
       label = 'Schlagzeilen'
     else
-      label = 'Top stories'
+      label = 'Topstories'
     end
   end
   def politics_label
