@@ -105,13 +105,13 @@ class GroupsController < ApplicationController
         
         haufens = haufens.sort_by {|u| - u.broadness }  
         
-        haufens = haufens.first(5) if conditions == nil
+        haufens = haufens.first(6) if conditions == nil
         haufens -= @haufens if home == 1
         haufens = haufens.first(2) if home == 1
         haufens = haufens.first(36)
        
         haufens = haufens.paginate :page => params[:page],
-                                     :per_page => 12
+                                     :per_page => 6
         
                                    
       end
@@ -131,7 +131,7 @@ class GroupsController < ApplicationController
         @stories = @stories.first(36)
         @stories = @stories.first(2) if home == 1
         haufens = @stories.paginate :page => params[:page],
-                                     :per_page => 12
+                                     :per_page => 6
                                      
     end
     
