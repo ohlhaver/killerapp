@@ -12,6 +12,11 @@
 		</div>
 	
 	
+
+		
+
+	<% if params[:action] == 'index' %>
+	
 		<% if @top_opinions_haufens.size > 0 %>
 		<br>
 		<li>
@@ -21,9 +26,6 @@
 			<%= render :partial => @top_opinions_haufens %>
 		</ul>
 		<% end %>
-		
-
-	<% if params[:action] == 'index' %>
 
 		<% if @top_politics_haufens.size > 0 %>
 		<br>
