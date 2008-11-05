@@ -108,7 +108,7 @@ class GroupsController < ApplicationController
         haufens = haufens.first(6) if conditions == nil
         haufens -= @haufens if home == 1
         haufens = haufens.first(2) if home == 1
-        haufens = haufens.first(36)
+        #haufens = haufens.first(36)
        
         haufens = haufens.paginate :page => params[:page],
                                      :per_page => 6
@@ -128,7 +128,7 @@ class GroupsController < ApplicationController
         @stories = @stories.find_all{|v| v.opinion == 1 }
         @stories = @stories.find_all{|v| v.author.name != '' }
         @stories = @stories.sort_by {|u| - u.author.subscriptions.size}
-        @stories = @stories.first(36)
+        #@stories = @stories.first(36)
         @stories = @stories.first(2) if home == 1
         haufens = @stories.paginate :page => params[:page],
                                      :per_page => 6
