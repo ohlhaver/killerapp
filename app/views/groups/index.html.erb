@@ -11,6 +11,17 @@
 			<%= will_paginate(@haufens, options = {:prev_label => previous_label + '&nbsp -&nbsp', :next_label => ' &nbsp;-&nbsp; ' + next_label}) %>
 		</div>
 	
+	
+		<% if @top_opinions_haufens.size > 0 %>
+		<br>
+		<li>
+  			<div class="pagelabel"> <%= link_to opinions_label, :action => 'opinions', :l => @l  %> </div>
+		</li>
+		<ul>
+			<%= render :partial => @top_opinions_haufens %>
+		</ul>
+		<% end %>
+		
 
 	<% if params[:action] == 'index' %>
 
@@ -94,15 +105,7 @@
 		<% end %>
 
 
-		<% if @top_opinions_haufens.size > 0 %>
-		<br>
-		<li>
-  			<div class="pagelabel"> <%= link_to opinions_label, :action => 'opinions', :l => @l  %> </div>
-		</li>
-		<ul>
-			<%= render :partial => @top_opinions_haufens %>
-		</ul>
-		<% end %>
+
 
 
 	<% end %>	
