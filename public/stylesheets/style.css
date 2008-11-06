@@ -80,7 +80,6 @@ color: #333333;
 
 #beginning of christians styleshheet {}
 
-
 .headline {
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 21px;
@@ -102,7 +101,7 @@ li {
 	margin-bottom: 14px;
 	margin-top: 1px;
 	position: fixed;
-	top: 100px;
+	top: 116px;
 }
 .navigation li{
 	list-style-type: none;
