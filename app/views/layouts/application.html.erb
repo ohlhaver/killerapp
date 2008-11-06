@@ -38,12 +38,7 @@
 			<%= link_to topstories_label, :controller => 'groups', :action => 'index', :l => @l  %> </span>
 		<% end %></li>
 		
-		<li>	<% if params[:action] == 'opinions' %> 
-			<span class="selected"><%= opinions_label  %></span> 
-			<% else %> 
-			<span class="unselected">
-			<%= link_to opinions_label, :controller => 'groups', :action => 'opinions', :l => @l  %> </span>
-			<% end %></li>
+	
 
 	<li>	<% if params[:action] == 'politics' %> 
 		<span class="selected"><%= politics_label  %></span> 
@@ -94,7 +89,12 @@
 		<%= link_to mixed_label, :controller => 'groups', :action => 'mixed', :l => @l  %> </span>
 		<% end %></li>
 
-
+			<li>	<% if params[:action] == 'opinions' %> 
+				<span class="selected"><%= opinions_label  %></span> 
+				<% else %> 
+				<span class="unselected">
+				<%= link_to opinions_label, :controller => 'groups', :action => 'opinions', :l => @l  %> </span>
+				<% end %></li>
 
 
 

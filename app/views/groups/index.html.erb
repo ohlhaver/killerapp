@@ -17,15 +17,6 @@
 
 	<% if params[:action] == 'index' %>
 	
-		<% if @top_opinions_haufens.size > 0 %>
-		<br>
-		<li>
-  			<div class="pagelabel"> <%= link_to opinions_label, :action => 'opinions', :l => @l  %> </div>
-		</li>
-		<ul>
-			<%= render :partial => @top_opinions_haufens %>
-		</ul>
-		<% end %>
 
 		<% if @top_politics_haufens.size > 0 %>
 		<br>
@@ -106,7 +97,15 @@
 		</ul>
 		<% end %>
 
-
+		<% if @top_opinions_haufens.size > 0 %>
+		<br>
+		<li>
+  			<div class="pagelabel"> <%= link_to opinions_label, :action => 'opinions', :l => @l  %> </div>
+		</li>
+		<ul>
+			<%= render :partial => @top_opinions_haufens %>
+		</ul>
+		<% end %>
 
 
 
