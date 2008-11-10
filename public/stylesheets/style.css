@@ -3,6 +3,14 @@
 a img {
     border: 0px;
 }
+
+#google_ad_bottom_left {
+	margin-left: -5px;
+	margin-top: 45px;
+	margin-bottom: 30px;
+	
+}
+
 .current {
 	color: #FFFFFF;
 	background-color: #0000C8;

@@ -143,8 +143,27 @@
  </div>
 </ul>
 </div>
+
+
 <div id="footer">
+	<div id="google_ad_bottom_left">
+	<script type="text/javascript"><!--
+	google_ad_client = "pub-0643230471169917";
+	/* 336x280, created 11/10/08 */
+	google_ad_slot = "4569391655";
+	google_ad_width = 336;
+	google_ad_height = 280;
+	//-->
+	</script>
+	<script type="text/javascript"
+	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+	</div>
+
+	
+	
 	©2008 - <%= link_to imprint_label, :controller => 'about', :action => 'imprint', :l => @l  %> - <%= link_to privacy_label, :controller => 'about', :action => 'privacy', :l => @l  %> - <%= link_to 'zur englischen Ausgabe', :controller => 'groups', :l => 'e' if @language == 2  %><%= link_to 'go to German edition', :controller => 'groups', :l => 'd' if @language != 2  %>
+	
 	</div>
 </body>
 </html>
