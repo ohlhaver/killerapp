@@ -32,16 +32,31 @@
 			<% else %>
 
 			<div class = 'message'>
+		<% if logged_in? %>
+		
 			<% if @language == 2 %>
 			  <%= 'Sie haben noch keine Lieblingsautoren.' %> <br> <br>
-			<%= 'Loggen Sie sich ein und klicken Sie einfach auf das ' + image_tag('plus.gif') + ' Symbol neben dem Namen Ihrer Lieblingsautoren. '  %>
+			<%= 'Klicken Sie einfach auf das ' + image_tag('plus.gif') + ' Symbol neben dem Namen Ihrer Lieblingsautoren. '  %>
 			<% else %>
 			 <%= 'You don\'t have any favorite authors yet.' %> <br> <br>
-			<%= 'Login and simply click the ' + image_tag('plus.gif') + ' symbol next to the name of your favorite authors.'  %>
+			<%= 'Simply click the ' + image_tag('plus.gif') + ' symbol next to the name of your favorite authors.'  %>
+			<% end %>
+		
+		<%else%>
+		
+		
+		
+			<% if @language == 2 %>
+			  <%= 'Sie haben noch keine Lieblingsautoren.' %> <br> <br>
+			<%= link_to 'Loggen Sie sich ein', :controller => 'sessions', :action => 'new', :l=>@l %>  <%= ' und klicken Sie einfach auf das ' + image_tag('plus.gif') + ' Symbol neben dem Namen Ihrer Lieblingsautoren. '  %>
+			<% else %>
+			 <%= 'You don\'t have any favorite authors yet.' %> <br> <br>
+			<%= link_to 'Login', :controller => 'sessions', :action => 'new', :l=>@l %>  <%= ' and simply click the ' + image_tag('plus.gif') + ' symbol next to the name of your favorite authors.'  %>
+			<% end %>
 			<% end %>
 			</div>
-	<% end %>
-
+	
+<% end %>
 
 		<% end %>	
 		
