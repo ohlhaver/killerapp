@@ -105,7 +105,7 @@ class GroupsController < ApplicationController
         
         haufens = haufens.sort_by {|u| - u.broadness }  
         
-        haufens = haufens.first(6) if conditions == nil
+        haufens = haufens.first(3) if conditions == nil
         haufens -= @haufens if home == 1
         haufens = haufens.first(2) if home == 1
         #haufens = haufens.first(36)
