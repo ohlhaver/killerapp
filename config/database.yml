@@ -23,6 +23,6 @@ production:
     database: crawler_prod
     username: killerapp_prod
     password: sokratisrosenwel
-    host: 74.63.8.23
+    host: 75.126.145.240
     socket: /var/lib/mysql/mysql.sock
 
