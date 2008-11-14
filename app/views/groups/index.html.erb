@@ -57,10 +57,101 @@
 			</div>
 	
 <% end %>
+		
+	<% cache ( {:part => 'bottom', :l => @l, :page => params[:page] || 1}) do %>	
+		
+		<% if @top_politics_haufens.size > 0 %>
+		<br>
+		<li>
+  			<div class="pagelabel"> <%= link_to politics_label, :action => 'politics', :l => @l  %> </div>
+		</li>
+		<ul>
+			<%= render :partial => @top_politics_haufens %>
+		</ul>
+		<% end %>
+
+		
+		<% if @top_business_haufens.size > 0 %>
+		<br>
+		<li>
+  			<div class="pagelabel"><%= link_to business_label, :action => 'business', :l => @l  %> </div>
+		</li>
+		<ul>
+			<%= render :partial => @top_business_haufens %>
+		</ul>
+		<% end %>
+
+		
+		
+		<% if @top_culture_haufens.size > 0 %>
+		<br>
+		<li>
+  		<div class="pagelabel"> <%= link_to culture_label, :action => 'culture', :l => @l  %> </div>
+		</li>
+		<ul>
+		<%= render :partial => @top_culture_haufens %>
+		</ul>
+		<% end %>
+
+
+
+		<% if @top_science_haufens.size > 0 %>
+		<br>
+		<li>
+  		<div class="pagelabel"> <%= link_to science_label, :action => 'science', :l => @l  %> </div>
+		</li>
+		<ul>
+		<%= render :partial => @top_science_haufens %>
+		</ul>
+		<% end %>
+
+		
+		
+		<% if @top_technology_haufens.size > 0 %>
+		<br>
+		<li>
+  		<div class="pagelabel"> <%= link_to technology_label, :action => 'technology', :l => @l  %> </div>
+		</li>
+		<ul>
+		<%= render :partial => @top_technology_haufens %>
+		</ul>
+		<% end %>
+
+
+		<% if @top_sport_haufens.size > 0 %>
+		<br>
+		<li>
+  		<div class="pagelabel"> <%= link_to sport_label, :action => 'sport', :l => @l  %> </div>
+		</li>
+		<ul>
+			<%= render :partial => @top_sport_haufens %>
+		</ul>
+		<% end %>
+
+
+		<% if @top_mixed_haufens.size > 0 %>
+		<br>
+		<li>
+  		<div class="pagelabel"> <%= link_to mixed_label, :action => 'mixed', :l => @l  %> </div>
+		</li>
+		<ul>
+			<%= render :partial => @top_mixed_haufens %>
+		</ul>
+		<% end %>
+
+		<% if @top_opinions_haufens.size > 0 %>
+		<br>
+		<li>
+  			<div class="pagelabel"> <%= link_to opinions_label, :action => 'opinions', :l => @l  %> </div>
+		</li>
+		<ul>
+			<%= render :partial => @top_opinions_haufens %>
+		</ul>
+		<% end %>
 
 		<% end %>	
 		
-
+		<% end %>
 
 
 
