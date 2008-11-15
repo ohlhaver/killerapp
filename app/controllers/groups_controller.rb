@@ -110,7 +110,7 @@ class GroupsController < ApplicationController
         haufens = haufens.sort_by {|u| - u.broadness }  
         
         haufens = haufens.first(3) if conditions == nil
-        haufens -= @haufens if home == 1
+        haufens -= @haufens if home == 1 && @haufens != nil
         haufens = haufens.first(2) if home == 1
         #haufens = haufens.first(36)
        
@@ -122,17 +122,28 @@ class GroupsController < ApplicationController
       
       def fetch_opinions(home)
         
-        
-        @stories = Rawstory.find(:all, :conditions => ['created_at > :date', {:date => Time.now.yesterday}], :order => 'id DESC')   
+        list = Olist.find(:last) 
+        @stories =[]
+       
         if @language == 2
-        @stories = @stories.find_all{|v| v.language == 2 }
-        else 
-        @stories = @stories.find_all{|v| v.language == 1 }
-        end    
-        @stories = @stories.find_all{|v| v.opinion == 1 }
-        @stories = @stories.find_all{|v| v.author.name != '' }
-        @stories = @stories.sort_by {|u| - u.author.subscriptions.size}
-        #@stories = @stories.first(36)
+            
+          if list.de
+             story_array = list.de.split(/\ /) 
+             story_array.each do |story|
+               @stories += Rawstory.find(story).to_a
+             end
+          end
+         
+         else
+       
+          if list.en
+           story_array = list.en.split(/\ /) 
+           story_array.each do |story|
+             @stories += Rawstory.find(story).to_a
+           end
+          end
+        end
+        @stories = @stories.first(24)
         @stories = @stories.first(2) if home == 1
         haufens = @stories.paginate :page => params[:page],
                                      :per_page => 6
