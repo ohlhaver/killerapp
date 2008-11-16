@@ -21,17 +21,15 @@ class ApplicationController < ActionController::Base
   protected
 
   def language?
-    if request.url.match('.de')
+    @adresse = request.url
+    
+    redirect_to 'http://www.jurnalo.com' if @adresse.match('journalo.com')
+    redirect_to 'http://www.jurnalo.de' if @adresse.match('journalo.de')
+    
+    if @adresse.match('.de') or params[:l] == 'd'
       @language = 2
       @l='d'
-    end
-    
-    if params[:l] == 'd'
-      @language = 2
-      @l='d'
-    end
-    
-    if params[:l] == 'e'
+    else  
       @language = 1
       @l='e'
     end
