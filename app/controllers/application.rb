@@ -21,10 +21,17 @@ class ApplicationController < ActionController::Base
   protected
 
   def language?
+    if request.url.match('.de')
+      @language = 2
+      @l='d'
+    end
+    
     if params[:l] == 'd'
       @language = 2
       @l='d'
-    else
+    end
+    
+    if params[:l] == 'e'
       @language = 1
       @l='e'
     end
