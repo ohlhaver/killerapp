@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     redirect_to 'http://www.jurnalo.com' if @adresse.match('//jurnalo.com')
     redirect_to 'http://www.jurnalo.de' if @adresse.match('//jurnalo.de')
     
-    if @adresse.match('.de') or params[:l] == 'd'
+    if @adresse.match('lo.de') or params[:l] == 'd'
       @language = 2
       @l='d'
     else  
