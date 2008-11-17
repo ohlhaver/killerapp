@@ -36,10 +36,10 @@
 		
 			<% if @language == 2 %>
 			  <%= 'Sie haben noch keine Lieblingsautoren.' %> <br> <br>
-			<%= 'Klicken Sie einfach auf das ' + image_tag('plus.gif') + ' Symbol neben dem Namen Ihrer Lieblingsautoren. '  %>
+			<%= 'Klicken Sie einfach auf das ' + image_tag('plus.gif') + ' Symbol neben dem Namen Ihrer Lieblingsautoren um Autoren hinzuzufügen. '  %>
 			<% else %>
 			 <%= 'You don\'t have any favorite authors yet.' %> <br> <br>
-			<%= 'Simply click the ' + image_tag('plus.gif') + ' symbol next to the name of your favorite authors.'  %>
+			<%= 'To add authors simply click the ' + image_tag('plus.gif') + ' symbol next to the name of any author.'  %>
 			<% end %>
 		
 		<%else%>
@@ -47,11 +47,11 @@
 		
 		
 			<% if @language == 2 %>
-			  <%= 'Sie haben noch keine Lieblingsautoren.' %> <br> <br>
-			<%= link_to 'Loggen Sie sich ein', :controller => 'sessions', :action => 'new', :l=>@l %>  <%= ' und klicken Sie einfach auf das ' + image_tag('plus.gif') + ' Symbol neben dem Namen Ihrer Lieblingsautoren. '  %>
+			  <%= 'Erhalten Sie alle Artikel Ihrer Lieblingsautoren! ' %> <br><br>
+			<%= link_to 'Loggen Sie sich ein', :controller => 'sessions', :action => 'new', :l=>@l %>  <%= ' um Autoren zu Ihrer Liste hinzuzufügen.'  %>
 			<% else %>
-			 <%= 'You don\'t have any favorite authors yet.' %> <br> <br>
-			<%= link_to 'Login', :controller => 'sessions', :action => 'new', :l=>@l %>  <%= ' and simply click the ' + image_tag('plus.gif') + ' symbol next to the name of your favorite authors.'  %>
+			 <%= 'View all articles by your favorite authors!' %> <br><br> <%='Simply '%>
+			<%= link_to 'login', :controller => 'sessions', :action => 'new', :l=>@l %>  <%= ' to start adding authors to your list.'  %>
 			<% end %>
 			<% end %>
 			</div>
