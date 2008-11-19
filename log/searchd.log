@@ -483,3 +483,13 @@
 [Fri Nov 14 17:21:55.181 2008] [ 1080] accepting connections
 [Fri Nov 14 19:07:23.713 2008] [ 1080] caught SIGTERM, shutting down
 [Fri Nov 14 19:07:23.714 2008] [ 1080] shutdown complete
+[Wed Nov 19 16:19:23.907 2008] [ 1173] creating server socket on 0.0.0.0:3313
+[Wed Nov 19 16:19:23.933 2008] [ 1173] accepting connections
+[Wed Nov 19 16:38:57.146 2008] [ 1173] rotating indices (seamless=1)
+[Wed Nov 19 16:38:57.218 2008] [ 1173] rotating index 'delta': success
+[Wed Nov 19 16:38:57.224 2008] [ 1173] rotating index 'main': success
+[Wed Nov 19 16:38:57.224 2008] [ 1173] rotating finished
+[Wed Nov 19 16:39:01.285 2008] [ 1173] caught SIGTERM, shutting down
+[Wed Nov 19 16:39:01.286 2008] [ 1173] shutdown complete
+[Wed Nov 19 16:39:05.336 2008] [ 1474] creating server socket on 0.0.0.0:3313
+[Wed Nov 19 16:39:05.336 2008] [ 1474] accepting connections

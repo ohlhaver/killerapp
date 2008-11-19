@@ -16,6 +16,15 @@ def filter_haufen_by_opinions
   
 end
 
+def filter_haufen_by_videos
+  unless read_fragment({:l => @l, :id => params[:id], :page => params[:page] || 1})
+  fetch_stories 2 
+  end     
+  render :action => 'show'
+  
+end
+
+
 protected
 def fetch_stories(conditions)   
    @haufen = Haufen.find(params[:id])
@@ -27,7 +36,12 @@ def fetch_stories(conditions)
 
       opinion_stories = @haufen_stories.find_all {|u| u.opinion == 1 }
       @opinion_weight = opinion_stories.size
-    @haufen_stories = opinion_stories if conditions != nil
+      
+      videos = @haufen_stories.find_all {|u| u.video == true }
+      @videos_weight = videos.size
+      
+    @haufen_stories = opinion_stories if conditions == 1
+    @haufen_stories = videos if conditions == 2
     @haufen_stories = @haufen_stories.sort_by {|u| - u.id } 
     @haufen_stories = @haufen_stories.paginate :page => params[:page],
                                          :per_page => 6
