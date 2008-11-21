@@ -36,7 +36,7 @@
 <% if rawstory.haufen && rawstory.haufen.weight > 1 && params[:controller] != 'haufens' %>
 - <%= link_to haufen_label(rawstory), :controller => 'haufens', :action => 'show', :id => rawstory.haufen, :l => @l %>
 
-	<% if rawstory.haufen.videos > 0 %>
+	<% if rawstory.haufen.videos != nil %>
 		| <%= link_to video_label(rawstory), :controller => 'haufens', :action => 'filter_haufen_by_videos', :id => rawstory.haufen, :l => @l %>
 	<% end %>
 	
