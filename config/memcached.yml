@@ -1,5 +1,5 @@
 defaults:
-  ttl: 600
+  ttl: 6
   readonly: false
   urlencode: false
   c_threshold: 10000

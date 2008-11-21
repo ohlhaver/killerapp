@@ -18,6 +18,13 @@ class RawstoriesController < ApplicationController
    fetch_search_results 1, query
    render :action => 'search'
  end
+ 
+ def filter_by_videos
+  query = params[:q]
+   fetch_search_results 2, query
+   render :action => 'search'
+ end
+ 
    
  def show_all
    @filter = 0
@@ -88,8 +95,12 @@ class RawstoriesController < ApplicationController
       
       @rawstories = @rawstories.sort_by {|u| - u.blub }  
       opinion_stories = @rawstories.find_all{|v| v.opinion == 1 } 
-      @rawstories = opinion_stories if conditions != nil 
+      @rawstories = opinion_stories if conditions == 1 
       @opinion_weight = opinion_stories.size
+      video_stories = @rawstories.find_all{|v| v.video == true } 
+      @rawstories = video_stories if conditions == 2
+      @videos_weight = video_stories.size
+      
       @rawstories = @rawstories.paginate  :page => params[:page],
                                           :per_page => 6
       
