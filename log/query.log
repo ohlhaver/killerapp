@@ -1839,3 +1839,7 @@
 [Wed Nov 19 16:37:41.010 2008] 0.000 sec [ext/0/rel 4 (0,20)] [main delta] fda
 [Wed Nov 19 16:37:47.946 2008] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] FDA
 [Wed Nov 19 16:39:16.533 2008] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] FDA
+[Fri Nov 21 10:33:41.071 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] search
+[Fri Nov 21 10:33:44.572 2008] 0.140 sec [ext/0/rel 5 (0,20)] [main delta] cnn
+[Fri Nov 21 10:39:48.486 2008] 0.000 sec [ext/0/rel 10 (0,20)] [main delta] obama
+[Fri Nov 21 10:39:58.522 2008] 0.000 sec [ext/0/rel 10 (0,20)] [main delta] obama
