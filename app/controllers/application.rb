@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   def language?
     @adresse = request.url
-    redirect_to 'http://www.jurnalo.com' if @adresse.match('74.63.8.37')
+    #redirect_to 'http://www.jurnalo.com' if @adresse.match('74.63.8.37')
     redirect_to 'http://www.jurnalo.com' if @adresse.match('journalo.com')
     redirect_to 'http://www.jurnalo.de' if @adresse.match('journalo.de')
     redirect_to 'http://www.jurnalo.com' if @adresse.match('//jurnalo.com')
