@@ -7,8 +7,8 @@ class GroupsController < ApplicationController
     unless read_fragment({:action => 'index', :l => @l, :page => params[:page] || 1})   
     @haufens = fetch_groups nil, nil
 
-    end
-    unless read_fragment({:part => 'bottom', :action => 'index', :l => @l, :page => params[:page] || 1}) 
+    #end
+    #unless read_fragment({:part => 'bottom', :action => 'index', :l => @l, :page => params[:page] || 1}) 
     @top_politics_haufens = fetch_groups 2, 1
     @top_business_haufens = fetch_groups 5, 1
     @top_culture_haufens = fetch_groups 3, 1
@@ -110,7 +110,7 @@ class GroupsController < ApplicationController
         haufens = haufens.sort_by {|u| - u.broadness }  
         
         haufens = haufens.first(3) if conditions == nil
-        haufens -= @haufens if home == 1 && @haufens != nil
+        haufens -= @haufens if home == 1 #&& @haufens != nil
         haufens = haufens.first(2) if home == 1
         #haufens = haufens.first(36)
        

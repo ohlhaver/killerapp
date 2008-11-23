@@ -505,3 +505,5 @@
 [Fri Nov 21 10:39:40.759 2008] [  494] shutdown complete
 [Fri Nov 21 10:39:44.806 2008] [  613] creating server socket on 0.0.0.0:3313
 [Fri Nov 21 10:39:44.806 2008] [  613] accepting connections
+[Fri Nov 21 19:10:26.560 2008] [  613] caught SIGTERM, shutting down
+[Fri Nov 21 19:10:26.574 2008] [  613] shutdown complete
