@@ -70,9 +70,9 @@ module GroupsHelper
 
    def slogan
      if @language == 2
-        slogan = ' - automatisch generiert aus allen Zeitungen'
+        slogan = ' - automatisch generiert'
      else
-       slogan = ' - automatically generated from all newspapers'
+       slogan = ' - automatically generated'
      end
    end
      
