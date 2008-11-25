@@ -67,4 +67,15 @@ module GroupsHelper
           date = ' - ' + month + ' ' + day
         end
    end
+
+   def slogan
+     if @language == 2
+        slogan = ' - automatisch generiert aus allen Zeitungen'
+     else
+       slogan = ' - automatically generated from all newspapers'
+     end
+   end
+     
+
+
 end
