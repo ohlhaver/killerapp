@@ -32,7 +32,7 @@
 		<% end %>
 		</div>
 	<%end%>
-
+<br>
 <% end %>
 
 
@@ -40,7 +40,7 @@
 
 
 <% cache ( {:l => @l, :page => params[:page] || 1}) do %>
-<br>
+
 		<li>
   			<div class="pagelabel"><%= selection %><%= slogan if params[:action] == 'index'%><%= date %></div>
 		</li>
