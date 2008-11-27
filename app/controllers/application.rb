@@ -3,6 +3,7 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
+  helper_method :iphone_user_agent?
   include ExceptionNotifiable
   include AuthenticatedSystem
   # See ActionController::RequestForgeryProtection for details
@@ -13,8 +14,11 @@ class ApplicationController < ActionController::Base
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
+  before_filter :adjust_format_for_iphone  
   before_filter :language?
   before_filter :logged_in?
+ 
+  
  
   require 'will_paginate'
   
@@ -35,6 +39,20 @@ class ApplicationController < ActionController::Base
       @language = 1
       @l='e'
     end
+  end
+  
+  def adjust_format_for_iphone
+    request.format = :iphone if iphone_user_agent?
+  end
+  
+  def iphone_user_agent?
+    #
+    #return (params[:format] == "iphone")
+  return request.env["HTTP_USER_AGENT"][/(Mobile\/.+Safari)/]
+  end
+  
+  def iphone_subdomain?
+    return request.subdomains.first == "iphone"
   end
   
 end

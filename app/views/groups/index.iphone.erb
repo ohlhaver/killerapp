@@ -1,0 +1,20 @@
+<% cache ( {:l => @l, :page => params[:page] || 1}) do %>
+
+		<li>
+  			<div class="pagelabel"><%= selection %><%= slogan if params[:action] == 'index'%><%= date %></div>
+		</li>
+
+		<ul>
+			<%= render :partial => @haufens %>
+		</ul>
+		<div class= "pagination" > 
+			<%= will_paginate(@haufens, options = {:prev_label => previous_label + '&nbsp -&nbsp', :next_label => ' &nbsp;-&nbsp; ' + next_label}) %>
+		</div>
+		
+
+<% end %>
+
+
+
+
+
