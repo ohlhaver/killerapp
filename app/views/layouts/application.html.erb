@@ -95,7 +95,12 @@
 		<%= link_to mixed_label, :controller => 'groups', :action => 'mixed', :l => @l  %> </span>
 		<% end %></li>
 
-
+	<li>	<% if params[:controller] == 'subscriptions' %> 
+	<span class="selected"><%= my_authors  %></span>  
+		<% else %> 
+		<span class="unselected">
+		<%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </span>
+		<% end %></li>
 
 
 
