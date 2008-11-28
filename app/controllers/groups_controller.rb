@@ -22,10 +22,11 @@ class GroupsController < ApplicationController
     @top_my_authors = fetch_my_authors 
     
     
-      respond_to do |format|
-          format.iphone
-          format.html
-      end
+     
+     # respond_to do |format|
+    #      format.iphone
+    #      format.html
+    #  end
   end
   
   def politics
