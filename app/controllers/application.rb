@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   before_filter :language?
   before_filter :logged_in?
  
-  
+
  
   require 'will_paginate'
   
@@ -48,7 +48,8 @@ class ApplicationController < ActionController::Base
   def iphone_user_agent?
     #
     #return (params[:format] == "iphone")
-  return request.env["HTTP_USER_AGENT"][/(Mobile\/.+Safari)/]
+  request.env["HTTP_USER_AGENT"] && request.env["HTTP_USER_AGENT"][/(Mobile\/.+Safari)/]
+  #return true
   end
   
   def iphone_subdomain?

@@ -1,0 +1,6 @@
+<% div_for(subscription) do %>
+
+<b><%= link_to subscription.author.name, :controller => 'authors', :action => 'show', :id => subscription.author, :l => @l %> </b>&nbsp;&nbsp;
+<%= link_to image_tag('minus.gif'), :controller => 'subscriptions', :action => 'remove', :id => subscription.id, :l => @l %>
+<br><br>
+<% end %>

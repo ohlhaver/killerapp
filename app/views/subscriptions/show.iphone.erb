@@ -1,0 +1,21 @@
+
+
+
+
+
+
+<div class="pagelabel">
+<% unless @subscriptions.empty? -%>
+
+<%= 'Meine Autoren' %><%= link_to ' (' + articles_list_label,  {:controller => 'subscriptions', :action => 'index', :l => @l} %>
+<%= ' - ' + authors_list_label+ ')' %>
+
+</div>
+
+<span class = 'headlines'>
+<%= render :partial => @subscriptions %>
+</span>
+<% else -%>
+  <%= 'Sie haben noch keine Lieblingsautoren.' %>
+</div>
+<% end -%>

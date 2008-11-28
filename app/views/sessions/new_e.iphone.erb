@@ -1,0 +1,17 @@
+
+<div class = 'default'>
+<% form_tag :controller => 'sessions', :action => 'create', :l => @l do -%>
+<p><label for="login">Login</label><br/>
+<%= text_field_tag 'login', params[:login], :class => 'textfield'  %></p>
+
+<p><label for="password">Password</label><br/>
+<%= password_field_tag 'password', params[:password], :class => 'textfield'  %></p>
+
+
+<p><label for="remember_me">Remember me:</label>
+<%= check_box_tag 'remember_me' %></p>
+
+<p><%= submit_tag 'login', :id => 'loginbutton', :class => 'button' %></p>
+<% end -%>
+<p><%= link_to 'Sign up as a new user', new_user_path %></p>
+</div>

@@ -1,0 +1,12 @@
+<% cache ({:l => @l, :page => params[:page] || 1}) do %>
+
+<div class = 'pagelabel'>
+
+<%= articles_by_label @author %> <b><%= @author.name %></b>&nbsp; <%= link_to image_tag('plus.gif'), :controller => 'subscriptions', :action => 'subscribe', :id => @author.id, :l => @l %>
+
+</div>
+
+  <%= render :partial => @rawstories_published %>
+<%= will_paginate(@rawstories_published, options = {:prev_label => previous_label + '&nbsp -&nbsp', :next_label => ' &nbsp;-&nbsp; ' + next_label}) %>
+
+<% end %>

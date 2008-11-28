@@ -1,7 +1,7 @@
 <% cache ( {:l => @l, :page => params[:page] || 1}) do %>
 
 		<li>
-  			<div class="pagelabel"><%= selection %><%= slogan if params[:action] == 'index'%><%= date %></div>
+  			<div class="pagelabel"><%= selection %><%= date %></div>
 		</li>
 
 		<ul>
@@ -11,7 +11,137 @@
 			<%= will_paginate(@haufens, options = {:prev_label => previous_label + '&nbsp -&nbsp', :next_label => ' &nbsp;-&nbsp; ' + next_label}) %>
 		</div>
 		
+	<% if params[:action] == 'index' %>
+		
+		<% if @top_opinions_haufens.size > 0 %>
+		<br>
+		<li>
+  			<div class="pagelabel"> <%= link_to opinions_label, :action => 'opinions', :l => @l  %> </div>
+		</li>
+		<ul>
+			<%= render :partial => @top_opinions_haufens %>
+		</ul>
+		<% end %>
+		
+		<% if @top_politics_haufens.size > 0 %>
+		<br>
+		<li>
+  			<div class="pagelabel"> <%= link_to politics_label, :action => 'politics', :l => @l  %> </div>
+		</li>
+		<ul>
+			<%= render :partial => @top_politics_haufens %>
+		</ul>
+		<% end %>
 
+		
+		<% if @top_business_haufens.size > 0 %>
+		<br>
+		<li>
+  			<div class="pagelabel"><%= link_to business_label, :action => 'business', :l => @l  %> </div>
+		</li>
+		<ul>
+			<%= render :partial => @top_business_haufens %>
+		</ul>
+		<% end %>
+
+		
+		
+		<% if @top_culture_haufens.size > 0 %>
+		<br>
+		<li>
+  		<div class="pagelabel"> <%= link_to culture_label, :action => 'culture', :l => @l  %> </div>
+		</li>
+		<ul>
+		<%= render :partial => @top_culture_haufens %>
+		</ul>
+		<% end %>
+
+
+
+		<% if @top_science_haufens.size > 0 %>
+		<br>
+		<li>
+  		<div class="pagelabel"> <%= link_to science_label, :action => 'science', :l => @l  %> </div>
+		</li>
+		<ul>
+		<%= render :partial => @top_science_haufens %>
+		</ul>
+		<% end %>
+
+		
+		
+		<% if @top_technology_haufens.size > 0 %>
+		<br>
+		<li>
+  		<div class="pagelabel"> <%= link_to technology_label, :action => 'technology', :l => @l  %> </div>
+		</li>
+		<ul>
+		<%= render :partial => @top_technology_haufens %>
+		</ul>
+		<% end %>
+
+
+		<% if @top_sport_haufens.size > 0 %>
+		<br>
+		<li>
+  		<div class="pagelabel"> <%= link_to sport_label, :action => 'sport', :l => @l  %> </div>
+		</li>
+		<ul>
+			<%= render :partial => @top_sport_haufens %>
+		</ul>
+		<% end %>
+
+
+		<% if @top_mixed_haufens.size > 0 %>
+		<br>
+		<li>
+  		<div class="pagelabel"> <%= link_to mixed_label, :action => 'mixed', :l => @l  %> </div>
+		</li>
+		<ul>
+			<%= render :partial => @top_mixed_haufens %>
+		</ul>
+		<% end %>
+
+		
+	<% end %>
+
+<% end %>
+
+<% if params[:action] == 'index' %>
+			<br>
+			<li>
+			<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </div>
+			</li>
+	<% if @top_my_authors.size > 0 %>
+			<ul>
+				<%= render :partial => @top_my_authors %>
+			</ul>
+	<% else %>
+
+		<div class = 'message'>
+		<% if logged_in? %>
+	
+			<% if @language == 2 %>
+		  		<%= 'Sie haben noch keine Lieblingsautoren.' %> <br> <br>
+				<%= 'Klicken Sie einfach auf das ' + image_tag('plus.gif') + ' Symbol neben dem Namen Ihrer Lieblingsautoren um Autoren hinzuzufügen. '  %>
+			<% else %>
+		 		<%= 'You don\'t have any favorite authors yet.' %> <br> <br>
+				<%= 'To add authors simply click the ' + image_tag('plus.gif') + ' symbol next to the name of any author.'  %>
+			<% end %>
+	
+		<%else%>
+	
+			<% if @language == 2 %>
+		  		<%= 'Sie haben noch keine Lieblingsautoren.' %> <br><br>
+				<%= link_to 'Loggen Sie sich ein', :controller => 'sessions', :action => 'new', :l=>@l %>  <%= ' um Ihre Lieblingsautoren zu sammeln.'  %>
+			<% else %>
+		 		<%= 'You don\'t have any favorite authors yet.' %> <br><br> <%='Simply '%>
+				<%= link_to 'login', :controller => 'sessions', :action => 'new', :l=>@l %>  <%= ' to start collecting your favorite authors.'  %>
+			<% end %>
+		<% end %>
+		</div>
+	<%end%>
+<br>
 <% end %>
 
 

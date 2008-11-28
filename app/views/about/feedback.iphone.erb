@@ -1,0 +1,22 @@
+<div class = 'pagelabel'>
+
+Feedback
+
+</div>
+<div class = 'message'>
+<%= feedback_question %>
+
+<% form_tag :controller=> 'about', :action => 'feedback', :l => @l, :method => :get do -%>
+
+<p>
+    <%= text_area :feedback, params[:feedback], :id => 'feedbackfield', :class =>"text" %><br>
+</p>
+<p>
+	<%= submit_tag feedback_button, :id => 'loginbutton', :class => 'button' %>
+</p>
+<% end -%>
+
+
+
+
+</div>
