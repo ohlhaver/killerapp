@@ -17,4 +17,19 @@ module SubscriptionsHelper
     
     return label
   end
+  
+  def subscribe_label
+
+    label = 'subscribe to emails' 
+
+    
+    return label
+  end
+  
+  def unsubscribe_label
+    
+    label = 'unsubscribe from emails' 
+
+    return label
+  end
 end

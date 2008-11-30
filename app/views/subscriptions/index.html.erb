@@ -9,13 +9,10 @@
 <%= link_to authors_list_label,  {:controller => 'subscriptions', :action => 'list', :l => @l} %>
 
 <% if @current_user.alerts == true %>
-		- <%= link_to 'emails: unsubscribe', {:controller => 'subscriptions', :action => 'stop_alerts', :l => @l} %>
+		- <%= link_to unsubscribe_label, {:controller => 'subscriptions', :action => 'stop_alerts', :l => @l}%>
 <%else%>
-		- <%= link_to 'emails: subscribe', {:controller => 'subscriptions', :action => 'get_alerts', :l => @l} %>
-<%end%>
-
-
-<%= ')' %>
+		- <%= link_to subscribe_label, {:controller => 'subscriptions', :action => 'get_alerts', :l => @l}%>
+<%end%><%=')' %>
  
 </div>
 

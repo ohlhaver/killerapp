@@ -1,7 +1,7 @@
 
 # edit config/environments/production.rb & put these lines at the top
 SITE_NAME = "Jurnalo"
-SITE_URL = "74.63.8.37"
+SITE_URL = "www.jurnalo.com"
 SITE_EMAIL = SITE_EMAIL = "jurnalo.user.service@googlemail.com"
 
 
