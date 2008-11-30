@@ -8,7 +8,15 @@
 <% unless @subscriptions.empty? -%>
 
 <%= 'Meine Autoren' %><%= link_to ' (' + articles_list_label,  {:controller => 'subscriptions', :action => 'index', :l => @l} %>
-<%= ' - ' + authors_list_label+ ')' %>
+<%= ' - ' + authors_list_label %> 
+
+<% if @current_user.alerts == true %>
+		- <%= link_to 'emails: unsubscribe', {:controller => 'subscriptions', :action => 'stop_alerts', :l => @l} %>
+<%else%>
+		- <%= link_to 'emails: subscribe', {:controller => 'subscriptions', :action => 'get_alerts', :l => @l} %>
+<%end%>
+
+<%= ')' %>
 
 </div>
 

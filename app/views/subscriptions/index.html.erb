@@ -6,7 +6,17 @@
 
 <div class = 'pagelabel'>
 <%=my_authors if @current_user.login %><%= ' (' + articles_list_label + ' - ' %> 
-<%= link_to authors_list_label,  {:controller => 'subscriptions', :action => 'list', :l => @l} %><%= ')' %>
+<%= link_to authors_list_label,  {:controller => 'subscriptions', :action => 'list', :l => @l} %>
+
+<% if @current_user.alerts == true %>
+		- <%= link_to 'emails: unsubscribe', {:controller => 'subscriptions', :action => 'stop_alerts', :l => @l} %>
+<%else%>
+		- <%= link_to 'emails: subscribe', {:controller => 'subscriptions', :action => 'get_alerts', :l => @l} %>
+<%end%>
+
+
+<%= ')' %>
+ 
 </div>
 
     <%= render :partial => @user_stories %>

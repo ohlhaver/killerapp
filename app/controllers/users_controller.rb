@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     # uncomment at your own risk
     # reset_session
     @user = User.new(params[:user])
+    @user.alerts = true
     @user.save
     if @user.errors.empty?
       self.current_user = @user
@@ -41,7 +42,11 @@ class UsersController < ApplicationController
     self.current_user = params[:activation_code].blank? ? false : User.find_by_activation_code(params[:activation_code])
     if logged_in? && !current_user.active?
       current_user.activate
+      if @language == 2
       flash[:notice] = "Anmeldung fertig!"
+      else
+      flash[:notice] = "Signup complete!"
+    end
     end
     #redirect_back_or_default('/')
     redirect_to :controller => 'groups', :action => 'index', :l => @l

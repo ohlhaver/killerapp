@@ -1,0 +1,18 @@
+Dear <%= @user.login %>, 
+
+You have got new articles by your favorite authors:
+<% @user_new_stories.each do |story| %>
+<%= story.author.name %>
+<%= story.title %>
+<%= story.link %>
+
+<% end %>
+Find all articles by your favorite authors here: <%= @my_authors_link  %> 
+
+If you don't want to receive any further emails, please click 'UNSUBSCRIBE' on this page: <%= @my_authors_link  %> 
+
+In case you experience any difficulties, please send us an email to: <%= @from %>
+
+Best regards,
+<%= @url %>
+

@@ -44,7 +44,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :sources
   map.resources :rawstories, :collection => {:filter_by_opinions => :get,:filter_by_videos => :get, :search => :get, :show_all => :get, :sort_by_relevance => :get, :sort_by_time => :get}
   map.resources :authors
-  map.resources :subscriptions
+  map.resources :subscriptions, :collection => {:get_alerts => :get, :stop_alerts => :get}
   map.resources :groups, :collection => {:opinions => :get, :politics => :get, :culture => :get, :science => :get, :business => :get, :sport => :get, :mixed => :get, :humor => :get, :technology => :get}
   map.resources :users
   map.resources :haufens

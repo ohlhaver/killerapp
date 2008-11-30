@@ -18,15 +18,21 @@ while($running) do
   
   all_users = User.find(:all)
   all_users.each do |user|
+      old_user_stories = user.stories
       user_stories = ''
+      new_user_stories = ''
       authors = user.authors
       authors.each do |author|
           author_stories = author.rawstories.last(3)
           author_stories.each do |story|
-              user_stories += story.id.to_s + ' '
+              story_id = story.id.to_s
+              new_user_stories += story_id + ' ' unless old_user_stories.match(story_id)
+              user_stories += story_id + ' '
+              
           end
       end
       user.stories = user_stories
+      user.new_stories = new_user_stories
       user.save
   end
   finishing_time = Time.new
@@ -37,5 +43,5 @@ while($running) do
 
 
   
-  sleep 1800
+  sleep 900
 end

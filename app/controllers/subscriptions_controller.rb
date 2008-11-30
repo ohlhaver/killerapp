@@ -38,7 +38,7 @@ before_filter :login_required
      @current_user.save 
      Subscription.destroy(@subscription) 
      
-     redirect_to :action => 'index', :l => @l
+     redirect_to :back
    end
   end
 
@@ -65,9 +65,20 @@ before_filter :login_required
       @current_user.save   
       
     end
-    redirect_to :controller => 'subscriptions', :action => 'index', :l => @l      
+    redirect_to :back  
   end
   
+  def get_alerts
+    @current_user.alerts = true
+    @current_user.save
+  redirect_to :back
+  end
+  
+  def stop_alerts
+    @current_user.alerts = false
+    @current_user.save
+    redirect_to :back
+  end
   
   
 end

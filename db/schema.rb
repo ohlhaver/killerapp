@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081105113047) do
+ActiveRecord::Schema.define(:version => 20081130150416) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(:version => 20081105113047) do
     t.datetime "updated_at"
     t.integer  "opinionated", :limit => 11
   end
+
+  add_index "authors", ["name"], :name => "index_authors_on_name"
 
   create_table "eintrags", :force => true do |t|
     t.string   "name"
@@ -38,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20081105113047) do
     t.integer  "opinionated",   :limit => 11
     t.integer  "language",      :limit => 11
     t.integer  "topic",         :limit => 11
+    t.boolean  "video"
   end
 
   create_table "groups", :force => true do |t|
@@ -67,9 +70,17 @@ ActiveRecord::Schema.define(:version => 20081105113047) do
     t.integer  "latest",      :limit => 11
     t.integer  "broadness",   :limit => 11
     t.integer  "language",    :limit => 11
+    t.integer  "videos",      :limit => 11
   end
 
   create_table "hsessions", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "olists", :force => true do |t|
+    t.text     "en"
+    t.text     "de"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,7 +99,13 @@ ActiveRecord::Schema.define(:version => 20081105113047) do
     t.integer  "group_id",    :limit => 11
     t.integer  "haufen_id",   :limit => 11
     t.string   "keywords"
+    t.integer  "titlehash",   :limit => 11
+    t.integer  "linkhash",    :limit => 11
+    t.boolean  "video"
   end
+
+  add_index "rawstories", ["title"], :name => "index_rawstories_on_title", :unique => true
+  add_index "rawstories", ["link"], :name => "index_rawstories_on_link", :unique => true
 
   create_table "sources", :force => true do |t|
     t.string   "name"
@@ -116,6 +133,8 @@ ActiveRecord::Schema.define(:version => 20081105113047) do
     t.string   "activation_code",           :limit => 40
     t.datetime "activated_at"
     t.text     "stories"
+    t.text     "new_stories"
+    t.boolean  "alerts"
   end
 
 end

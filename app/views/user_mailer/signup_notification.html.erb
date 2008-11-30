@@ -1,8 +1,13 @@
-Ihr Zugang ist erstellt worden.
+Dear <%= @user.login %>, 
 
-  Benutzername: <%= @user.login %>
-  Passwort: <%= @user.password %>
+Your account has been created. 
 
-Besuchen Sie diese Adresse um Ihren Zugang zu aktivieren:
+Username: <%= @user.login %>
+Password: <%= @user.password %>
+
+To activate your account please visit this address:
 
   <%= @url %>
+
+Sincerely,
+Jurnalo
