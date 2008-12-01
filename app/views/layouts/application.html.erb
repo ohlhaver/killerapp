@@ -130,6 +130,15 @@
 		<%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> 
 		<% end %>&nbsp;-&nbsp;
     <% if logged_in? %>
+		<% if params[:controller] == 'subscriptions'  %> 
+			 <%='Email alerts'%>
+			<% if @current_user.alerts == true %>
+			<em><%= link_to unsubscribe_label, {:controller => 'subscriptions', :action => 'stop_alerts', :l => @l}%></em> &nbsp;-&nbsp;
+			<%else%>
+			<%= link_to subscribe_label, {:controller => 'subscriptions', :action => 'get_alerts', :l => @l}%> &nbsp;-&nbsp;
+			<%end%>
+		<%end%>
+
       <%= h(@current_user.login) %><em> <%= link_to logout_label, session_path(:l => @l), :method => :delete %></em>
     <% else %>
       <%= link_to login_label, :controller => 'sessions', :action => 'new', :l=>@l %>

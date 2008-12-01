@@ -137,6 +137,21 @@ module ApplicationHelper
     end
   end
   
+  def subscribe_label
+    if @language ==2
+      label = '(anmelden)'
+    else
+      label = '(subscribe)'
+    end
+  end
+  
+  def unsubscribe_label
+    if @language ==2
+      label = '(abmelden)'
+    else
+      label = '(unsubscribe)'
+    end
+  end
   
   
  

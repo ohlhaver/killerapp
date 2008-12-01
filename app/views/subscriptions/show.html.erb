@@ -10,11 +10,7 @@
 <%= 'Meine Autoren' %><%= link_to ' (' + articles_list_label,  {:controller => 'subscriptions', :action => 'index', :l => @l} %>
 <%= ' - ' + authors_list_label %> 
 
-<% if @current_user.alerts == true %>
-		- <%= link_to unsubscribe_label, {:controller => 'subscriptions', :action => 'stop_alerts', :l => @l} %>
-<%else%>
-		- <%= link_to subscribe_label, {:controller => 'subscriptions', :action => 'get_alerts', :l => @l} %>
-<%end%>
+
 
 <%= ')' %>
 

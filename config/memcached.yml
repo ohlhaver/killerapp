@@ -2,7 +2,7 @@ defaults:
   ttl: 600
   readonly: false
   urlencode: false
-  c_threshold: 10000
+  c_threshold: 1000
   compression: true
   debug: false
   namespace: app

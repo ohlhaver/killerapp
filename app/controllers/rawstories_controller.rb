@@ -95,12 +95,11 @@ class RawstoriesController < ApplicationController
       
       @rawstories = @rawstories.sort_by {|u| - u.blub }  
       opinion_stories = @rawstories.find_all{|v| v.opinion == 1 } 
-      @rawstories = opinion_stories if conditions == 1 
       @opinion_weight = opinion_stories.size
-      video_stories = @rawstories.find_all{|v| v.video == true } 
-      @rawstories = video_stories if conditions == 2
+      video_stories = @rawstories.find_all{|v| v.video == true }   
       @videos_weight = video_stories.size
-      
+      @rawstories = opinion_stories if conditions == 1
+      @rawstories = video_stories if conditions == 2
       @rawstories = @rawstories.paginate  :page => params[:page],
                                           :per_page => 6
       

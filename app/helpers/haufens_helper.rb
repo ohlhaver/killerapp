@@ -22,15 +22,15 @@ module HaufensHelper
   def show_opinions_label opinion_weight
       if @language == 2
         if opinion_weight == 1
-        label = ' | 1 Meinung'
+        label = '1 Meinung'
         else
-        label = ' | ' + opinion_weight.to_s + ' Meinungen'
+        label = opinion_weight.to_s + ' Meinungen'
         end
       else
         if opinion_weight == 1
-        label = ' | 1 opinion'
+        label = '1 opinion'
         else
-        label = ' | ' + opinion_weight.to_s + ' opinions'
+        label = opinion_weight.to_s + ' opinions'
         end
       end
       return label
@@ -40,15 +40,15 @@ module HaufensHelper
   def show_videos_label videos_weight
       if @language == 2
         if videos_weight == 1
-        label = ' | 1 Video'
+        label = '1 Video'
         else
-        label = ' | ' + videos_weight.to_s + ' Videos'
+        label = videos_weight.to_s + ' Videos'
         end
       else
         if videos_weight == 1
-        label = ' | 1 video'
+        label = '1 video'
         else
-        label = ' | ' + videos_weight.to_s + ' videos'
+        label = videos_weight.to_s + ' videos'
         end
       end
       return label

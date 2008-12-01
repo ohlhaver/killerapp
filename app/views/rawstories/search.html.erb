@@ -1,6 +1,3 @@
-<%= stylesheet_link_tag 'style' %>
-
-
 <% unless @rawstories.empty? -%> 
 	<div class="pagelabel">
 	<%= search_results if params[:action] == 'search' %> <%= opinion_results if params[:action] == 'filter_by_opinions' %> <%= video_results if params[:action] == 'filter_by_videos' %> <b> '<%= h(params[:q]) %>'
@@ -8,22 +5,31 @@
 <%  if params[:action] == 'search' %>
 	<% if @opinion_weight > 1 or @videos_weight > 1  %>
 
-	 ( <%= show_all_label %>	
-	 <%= link_to show_opinions_label(@opinion_weight),  {:controller => 'rawstories', :action => 'filter_by_opinions', :q => params[:q], :l => @l} if @opinion_weight > 0 %>
-		<%= link_to show_videos_label(@videos_weight),  {:controller => 'rawstories', :action => 'filter_by_videos', :q => params[:q], :l => @l} if @videos_weight > 0%> ) 	
+	 ( <%= show_all_label %> 	
+	
+	<% if @opinion_weight > 0 %>
+		 - <%= link_to show_opinions_label(@opinion_weight),  {:controller => 'rawstories', :action => 'filter_by_opinions', :q => params[:q], :l => @l} %>
+	<%end%>
+	<% if @videos_weight > 0 %>
+		- <%= link_to show_videos_label(@videos_weight),  {:controller => 'rawstories', :action => 'filter_by_videos', :q => params[:q], :l => @l} if @videos_weight > 0%> ) 
+	<%end%>	
 	<% end %>		
 <% end %>
 
 <%  if params[:action] == 'filter_by_opinions' %>
 		 ( <%= link_to show_all_label,  {:controller => 'rawstories', :action => 'search', :q => params[:q], :l => @l} %> 
-		<%= show_opinions_label(@opinion_weight) %>
-		 <%= link_to show_videos_label(@videos_weight),  {:controller => 'rawstories', :action => 'filter_by_videos', :q => params[:q], :l => @l} if @videos_weight > 0 %> )
+		- <%= show_opinions_label(@opinion_weight) %>
+		<% if @videos_weight > 0 %>
+		- <%= link_to show_videos_label(@videos_weight),  {:controller => 'rawstories', :action => 'filter_by_videos', :q => params[:q], :l => @l}%> 
+		<%end%> )
 <% end %>
 
 <%  if params[:action] == 'filter_by_videos' %>
  ( <%= link_to show_all_label,  {:controller => 'rawstories', :action => 'search', :q => params[:q], :l => @l} %>
- <%= link_to show_opinions_label(@opinion_weight), {:controller => 'rawstories', :action => 'filter_by_opinions', :q => params[:q], :l => @l} if @opinion_weight > 0 %> 
- <%=  show_videos_label(@videos_weight) %>
+<%if @opinion_weight > 0%>
+ - <%= link_to show_opinions_label(@opinion_weight), {:controller => 'rawstories', :action => 'filter_by_opinions', :q => params[:q], :l => @l} %> 
+<%end%>
+- <%=  show_videos_label(@videos_weight) %>
  )
 <% end %>
 
