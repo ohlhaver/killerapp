@@ -19,7 +19,9 @@ class GroupsController < ApplicationController
     
     
     end
-    @top_my_searchterms = fetch_my_searchterms
+    unless read_fragment({:f => iphone_user_agent?, :part => 'topic', :s => @searchterms, :f => iphone_user_agent?, :action => 'index', :l => @l, :page => params[:page] || 1})  
+        @top_my_searchterms = fetch_my_searchterms
+    end
     @top_my_authors = fetch_my_authors 
     
     

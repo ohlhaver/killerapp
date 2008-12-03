@@ -37,8 +37,27 @@
 
 
 <div class="profile">
-	<% if logged_in? %>
-	<%= (link_to 'Feedback [+]' , :controller => 'about', :action => 'feedback', :l => @l) %>&nbsp;-&nbsp; <% end %>
+	
+	<% if @searchterms %>
+		<% if params[:m] == 'topic' %> 
+	<span class="selected"><%= h(@searchterms)  %></span>&nbsp;&nbsp;<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :l => @l  %>  
+		<% else %> 
+		<span class="unselected">
+		<%= link_to h(@searchterms) , search_rawstories_path(:l => @l, :q => @searchterms, :m => 'topic')  %>&nbsp;&nbsp;<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :l => @l  %></span>
+		<% end %>
+	<%end%>
+	
+	
+	<% if @searchterms == nil %>
+		<% if params[:action] == 'create_topic' %> 
+	<span class="selected"><%= create_topic  %></span>  
+		<% else %> 
+		<span class="unselected">
+		<%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %> </span>
+		<% end %>
+	<%end%>
+	 &nbsp;-&nbsp;
+	
 	<% if params[:controller] == 'subscriptions'  %> 
 		<span class="selected"><%= my_authors  %></span> 
 		<% else %> 
@@ -59,6 +78,9 @@
     <% else %>
       <%= link_to login_label, :controller => 'sessions', :action => 'new', :l=>@l %>
     <% end %>
+	<% if logged_in? %>
+	&nbsp;-&nbsp; 
+	<%= (link_to 'Feedback [+]' , :controller => 'about', :action => 'feedback', :l => @l) %><% end %>
   </div>
   </div>
 

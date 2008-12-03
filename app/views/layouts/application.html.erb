@@ -138,8 +138,7 @@
 
 
 <div class="profile">
-	<% if logged_in? %>
-	<%= (link_to 'Feedback [+]' , :controller => 'about', :action => 'feedback', :l => @l) %>&nbsp;-&nbsp; <% end %>
+	
 	<% if params[:controller] == 'subscriptions'  %> 
 		<span class="selected"><%= my_authors  %></span> 
 		<% else %> 
@@ -159,6 +158,8 @@
     <% else %>
       <%= link_to login_label, :controller => 'sessions', :action => 'new', :l=>@l %>
     <% end %>
+	<% if logged_in? %>
+	&nbsp;-&nbsp;<%= (link_to 'Feedback [+]' , :controller => 'about', :action => 'feedback', :l => @l) %><% end %>
   </div>
   </div>
 

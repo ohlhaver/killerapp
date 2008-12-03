@@ -110,7 +110,7 @@
 
 <% if params[:action] == 'index' %>
 			
-			
+<% cache ( {:part => 'topic', :s => @searchterms, :l => @l, :page => params[:page] || 1}) do %>			
 			<% if @top_my_searchterms.size > 0 %>
 			<% if @searchterms != nil %>
 			<br>
@@ -122,7 +122,7 @@
 			</ul>
 			<% end %>
 			<% end %>
-			
+<% end %>		
 			
 			<li>
 			<br>
