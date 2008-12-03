@@ -1,0 +1,15 @@
+<li>
+ 	  <div class="message"><%=create_topic_slogan%></div>
+
+ 	</li>
+
+
+
+	<div class = 'default'>
+	<% form_tag :controller => 'topics', :action => 'create', :l => @l do -%>
+	<p><label for="Search term"><%=search_term_label%></label><br>
+	<%= text_field_tag :searchterms, params[:searchterms], :class => 'textfield' %></p>
+
+	<p><%= submit_tag create_topic_label, :id => 'loginbutton', :class => 'button' %></p>
+	<% end -%>
+	</div>

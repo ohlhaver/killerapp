@@ -1928,3 +1928,161 @@
 [Mon Dec  1 12:43:32.676 2008] 0.001 sec [ext/0/rel 17 (0,20)] [main delta] clinton
 [Mon Dec  1 12:43:36.647 2008] 0.001 sec [ext/0/rel 17 (0,20)] [main delta] clinton
 [Mon Dec  1 12:43:38.835 2008] 0.001 sec [ext/0/rel 17 (0,20)] [main delta] clinton
+[Wed Dec  3 02:03:06.090 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] dsd
+[Wed Dec  3 02:03:10.453 2008] 0.004 sec [ext/0/rel 190 (0,20)] [main delta] obama
+[Wed Dec  3 02:03:31.381 2008] 0.001 sec [ext/0/rel 1 (0,20)] [main delta] knut
+[Wed Dec  3 02:03:43.627 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] madird
+[Wed Dec  3 02:03:47.334 2008] 0.001 sec [ext/0/rel 17 (0,20)] [main delta] madrid
+[Wed Dec  3 02:05:25.577 2008] 0.001 sec [ext/0/rel 17 (0,20)] [main delta] madrid
+[Wed Dec  3 02:06:22.582 2008] 0.002 sec [ext/0/rel 190 (0,20)] [main delta] obama
+[Wed Dec  3 02:06:38.224 2008] 0.002 sec [ext/0/rel 190 (0,20)] [main delta] obama
+[Wed Dec  3 02:06:38.550 2008] 0.001 sec [ext/0/rel 190 (0,20)] [main delta] obama
+[Wed Dec  3 12:57:09.500 2008] 0.002 sec [ext/0/rel 42 (0,20)] [main delta] Google
+[Wed Dec  3 12:57:45.256 2008] 0.001 sec [ext/0/rel 42 (0,20)] [main delta] Google
+[Wed Dec  3 12:58:17.983 2008] 0.001 sec [ext/0/rel 42 (0,20)] [main delta] Google
+[Wed Dec  3 12:59:13.918 2008] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] HSV
+[Wed Dec  3 12:59:17.869 2008] 0.000 sec [ext/0/rel 4 (0,20)] [main delta] HSV
+[Wed Dec  3 13:00:16.994 2008] 0.004 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 13:03:58.266 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 13:04:15.272 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 13:05:10.947 2008] 0.001 sec [ext/0/rel 185 (0,20)] [main delta] i
+[Wed Dec  3 13:05:44.500 2008] 0.001 sec [ext/0/rel 0 (0,20)] [main delta] Diana Magnay
+[Wed Dec  3 13:06:01.420 2008] 0.001 sec [ext/0/rel 15 (0,20)] [main delta] CNN
+[Wed Dec  3 13:06:33.755 2008] 0.001 sec [ext/0/rel 2 (0,20)] [main delta] Boris Becker
+[Wed Dec  3 13:08:15.431 2008] 0.001 sec [ext/0/rel 2 (0,20)] [main delta] Boris Becker
+[Wed Dec  3 13:08:17.818 2008] 0.001 sec [ext/0/rel 2 (0,20)] [main delta] Boris Becker
+[Wed Dec  3 13:08:23.568 2008] 0.001 sec [ext/0/rel 42 (0,20)] [main delta] Google
+[Wed Dec  3 13:08:56.220 2008] 0.001 sec [ext/0/rel 42 (0,20)] [main delta] Google
+[Wed Dec  3 13:13:17.291 2008] 0.001 sec [ext/0/rel 42 (0,20)] [main delta] Google
+[Wed Dec  3 13:13:22.444 2008] 0.001 sec [ext/0/rel 42 (0,20)] [main delta] Google
+[Wed Dec  3 13:17:47.930 2008] 0.001 sec [ext/0/rel 42 (0,20)] [main delta] Google
+[Wed Dec  3 13:20:33.179 2008] 0.001 sec [ext/0/rel 42 (0,20)] [main delta] Google
+[Wed Dec  3 13:25:33.758 2008] 0.001 sec [ext/0/rel 42 (0,20)] [main delta] google
+[Wed Dec  3 13:26:59.599 2008] 0.001 sec [ext/0/rel 42 (0,20)] [main delta] Google
+[Wed Dec  3 13:27:05.110 2008] 0.001 sec [ext/0/rel 42 (0,20)] [main delta] Google
+[Wed Dec  3 13:27:17.531 2008] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] hsv
+[Wed Dec  3 13:27:21.796 2008] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] hsv
+[Wed Dec  3 13:29:41.265 2008] 0.000 sec [ext/0/rel 4 (0,20)] [main delta] hsv
+[Wed Dec  3 13:30:22.614 2008] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] hsv
+[Wed Dec  3 13:30:47.259 2008] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] hsv
+[Wed Dec  3 13:33:27.115 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 13:40:22.347 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 13:42:12.024 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 14:19:19.306 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 14:19:32.154 2008] 0.002 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 14:19:39.222 2008] 0.002 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 14:29:01.081 2008] 0.001 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 14:29:16.986 2008] 0.001 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 14:29:38.677 2008] 0.001 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 14:29:53.343 2008] 0.003 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 14:30:39.386 2008] 0.001 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 14:37:15.264 2008] 0.001 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 14:37:30.652 2008] 0.001 sec [ext/0/rel 69 (0,20)] [main delta] Peter
+[Wed Dec  3 14:38:07.372 2008] 0.001 sec [ext/0/rel 69 (0,20)] [main delta] Peter
+[Wed Dec  3 14:38:51.201 2008] 0.001 sec [ext/0/rel 69 (0,20)] [main delta] Peter
+[Wed Dec  3 14:39:04.728 2008] 0.001 sec [ext/0/rel 69 (0,20)] [main delta] Peter
+[Wed Dec  3 14:39:35.213 2008] 0.001 sec [ext/0/rel 2 (0,20)] [main delta] Gangster
+[Wed Dec  3 14:39:47.077 2008] 0.001 sec [ext/0/rel 2 (0,20)] [main delta] Gangster
+[Wed Dec  3 14:39:52.916 2008] 0.001 sec [ext/0/rel 2 (0,20)] [main delta] Gangster
+[Wed Dec  3 14:40:00.703 2008] 0.001 sec [ext/0/rel 2 (0,20)] [main delta] Gangster
+[Wed Dec  3 14:40:23.898 2008] 0.001 sec [ext/0/rel 3 (0,20)] [main delta] Ungarn
+[Wed Dec  3 14:40:59.826 2008] 0.001 sec [ext/0/rel 3 (0,20)] [main delta] Ungarn
+[Wed Dec  3 14:41:21.495 2008] 0.001 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 14:41:24.709 2008] 0.001 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 14:42:13.436 2008] 0.001 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 14:42:15.941 2008] 0.001 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 14:42:36.979 2008] 0.002 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 14:42:42.651 2008] 0.001 sec [ext/0/rel 1 (0,20)] [main delta] Knut
+[Wed Dec  3 14:42:50.885 2008] 0.001 sec [ext/0/rel 1 (0,20)] [main delta] Knut
+[Wed Dec  3 14:42:53.857 2008] 0.000 sec [ext/0/rel 1 (0,20)] [main delta] Knut
+[Wed Dec  3 14:42:58.301 2008] 0.001 sec [ext/0/rel 1 (0,20)] [main delta] Knut
+[Wed Dec  3 14:43:06.502 2008] 0.001 sec [ext/0/rel 1 (0,20)] [main delta] Knut
+[Wed Dec  3 14:47:26.968 2008] 0.000 sec [ext/0/rel 1 (0,20)] [main delta] Knut
+[Wed Dec  3 14:48:49.387 2008] 0.001 sec [ext/0/rel 1 (0,20)] [main delta] Knut
+[Wed Dec  3 14:49:34.199 2008] 0.000 sec [ext/0/rel 1 (0,20)] [main delta] Knut
+[Wed Dec  3 14:49:55.878 2008] 0.000 sec [ext/0/rel 1 (0,20)] [main delta] Knut
+[Wed Dec  3 14:50:06.339 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 14:50:37.031 2008] 0.001 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 14:51:47.859 2008] 0.001 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 14:51:53.350 2008] 0.001 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 14:52:44.391 2008] 0.001 sec [ext/0/rel 8 (0,20)] [main delta] Spencer
+[Wed Dec  3 14:52:52.169 2008] 0.001 sec [ext/0/rel 8 (0,20)] [main delta] Spencer
+[Wed Dec  3 14:53:03.753 2008] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Facebook
+[Wed Dec  3 14:53:57.305 2008] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Facebook
+[Wed Dec  3 14:57:38.092 2008] 0.004 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 14:57:46.679 2008] 0.001 sec [ext/0/rel 38 (0,20)] [main delta] Merkel
+[Wed Dec  3 14:57:53.715 2008] 0.001 sec [ext/0/rel 38 (0,20)] [main delta] Merkel
+[Wed Dec  3 14:58:01.631 2008] 0.001 sec [ext/0/rel 38 (0,20)] [main delta] Merkel
+[Wed Dec  3 14:58:10.674 2008] 0.001 sec [ext/0/rel 38 (0,20)] [main delta] Merkel
+[Wed Dec  3 14:58:17.915 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:00:15.395 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:00:23.860 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:00:45.358 2008] 0.004 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:01:00.293 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:11:07.130 2008] 0.004 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:11:10.031 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:11:18.820 2008] 0.001 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 15:13:31.951 2008] 0.001 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 15:13:34.625 2008] 0.001 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 15:13:41.971 2008] 0.001 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 15:14:13.277 2008] 0.002 sec [ext/0/rel 190 (0,20)] [main delta] Obama
+[Wed Dec  3 15:14:25.927 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:14:31.916 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:14:39.820 2008] 0.004 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:17:07.252 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:19:09.629 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:19:12.817 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:19:27.567 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:20:15.445 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:29:19.158 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:29:23.800 2008] 0.001 sec [ext/0/rel 1 (0,20)] [main delta] ds
+[Wed Dec  3 15:29:26.439 2008] 0.000 sec [ext/0/rel 1 (0,20)] [main delta] ds
+[Wed Dec  3 15:29:43.748 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:34:38.316 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:34:51.943 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:35:04.841 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:35:06.992 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:35:47.918 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:35:58.291 2008] 0.001 sec [ext/0/rel 2 (0,20)] [main delta] Pen
+[Wed Dec  3 15:36:01.624 2008] 0.001 sec [ext/0/rel 2 (0,20)] [main delta] Pen
+[Wed Dec  3 15:36:05.888 2008] 0.001 sec [ext/0/rel 2 (0,20)] [main delta] Pen
+[Wed Dec  3 15:36:31.523 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:37:12.452 2008] 0.001 sec [ext/0/rel 57 (0,20)] [main delta] Haus
+[Wed Dec  3 15:37:21.645 2008] 0.001 sec [ext/0/rel 57 (0,20)] [main delta] Haus
+[Wed Dec  3 15:38:09.044 2008] 0.001 sec [ext/0/rel 57 (0,20)] [main delta] Haus
+[Wed Dec  3 15:45:58.862 2008] 0.001 sec [ext/0/rel 57 (0,20)] [main delta] Haus
+[Wed Dec  3 15:46:01.657 2008] 0.001 sec [ext/0/rel 57 (0,20)] [main delta] Haus
+[Wed Dec  3 15:46:56.404 2008] 0.001 sec [ext/0/rel 57 (0,20)] [main delta] Haus
+[Wed Dec  3 15:47:16.783 2008] 0.001 sec [ext/0/rel 57 (0,20)] [main delta] Haus
+[Wed Dec  3 15:47:24.702 2008] 0.001 sec [ext/0/rel 57 (0,20)] [main delta] Haus
+[Wed Dec  3 15:47:43.925 2008] 0.001 sec [ext/0/rel 57 (0,20)] [main delta] Haus
+[Wed Dec  3 15:48:58.083 2008] 0.004 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:50:23.045 2008] 0.004 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:50:30.066 2008] 0.001 sec [ext/0/rel 6 (0,20)] [main delta] Becker
+[Wed Dec  3 15:51:46.889 2008] 0.001 sec [ext/0/rel 6 (0,20)] [main delta] Becker
+[Wed Dec  3 15:51:54.033 2008] 0.000 sec [ext/0/rel 6 (0,20)] [main delta] Becker
+[Wed Dec  3 15:51:57.736 2008] 0.001 sec [ext/0/rel 6 (0,20)] [main delta] Becker
+[Wed Dec  3 15:53:37.118 2008] 0.001 sec [ext/0/rel 6 (0,20)] [main delta] Becker
+[Wed Dec  3 15:53:39.287 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:58:02.999 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:58:09.510 2008] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] HSV
+[Wed Dec  3 15:58:20.299 2008] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] HSV
+[Wed Dec  3 15:58:25.777 2008] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] HSV
+[Wed Dec  3 15:58:37.811 2008] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] HSV
+[Wed Dec  3 15:58:43.373 2008] 0.000 sec [ext/0/rel 4 (0,20)] [main delta] HSV
+[Wed Dec  3 15:58:50.806 2008] 0.002 sec [ext/0/rel 0 (0,20)] [main delta] pohiohj asfaufaouw acsfüü yx
+[Wed Dec  3 15:58:53.554 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] pohiohj asfaufaouw acsfüü yx
+[Wed Dec  3 15:58:58.923 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 
+[Wed Dec  3 15:59:16.629 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] ccccccccccccccccccccccc
+[Wed Dec  3 15:59:29.037 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] ccccccccccccccccccccccc
+[Wed Dec  3 15:59:39.869 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] asdfghjklqwertz
+[Wed Dec  3 15:59:48.749 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] asdfghjklqwertz
+[Wed Dec  3 16:00:02.847 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] 12345678901234567890
+[Wed Dec  3 16:00:09.278 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] 12345678901234567890
+[Wed Dec  3 16:00:21.044 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] 123456789012345
+[Wed Dec  3 16:00:59.966 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] 123456789012345
+[Wed Dec  3 16:01:04.607 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] dsfdsfs
+[Wed Dec  3 16:01:07.356 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] dsfdsfs
+[Wed Dec  3 16:01:34.042 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] sffdsgfhfhgjhf
+[Wed Dec  3 16:01:41.744 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] sffdsgfhfhgjhf
+[Wed Dec  3 16:01:44.445 2008] 0.003 sec [scan/0/rel 2589 (0,20)] [main delta] 

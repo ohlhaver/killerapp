@@ -521,3 +521,11 @@
 [Sun Nov 30 21:34:44.737 2008] [  801] shutdown complete
 [Mon Dec  1 12:03:13.735 2008] [ 2365] creating server socket on 0.0.0.0:3313
 [Mon Dec  1 12:03:13.764 2008] [ 2365] accepting connections
+[Mon Dec  1 13:54:05.593 2008] [ 2365] caught SIGTERM, shutting down
+[Mon Dec  1 13:54:05.595 2008] [ 2365] shutdown complete
+[Wed Dec  3 02:02:55.739 2008] [  456] creating server socket on 0.0.0.0:3313
+[Wed Dec  3 02:02:55.763 2008] [  456] accepting connections
+[Wed Dec  3 11:21:42.499 2008] [  456] caught SIGTERM, shutting down
+[Wed Dec  3 11:21:42.500 2008] [  456] shutdown complete
+[Wed Dec  3 12:56:54.454 2008] [  418] creating server socket on 0.0.0.0:3313
+[Wed Dec  3 12:56:54.469 2008] [  418] accepting connections

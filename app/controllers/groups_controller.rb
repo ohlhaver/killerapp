@@ -19,6 +19,7 @@ class GroupsController < ApplicationController
     
     
     end
+    @top_my_searchterms = fetch_my_searchterms
     @top_my_authors = fetch_my_authors 
     
     
@@ -178,5 +179,42 @@ class GroupsController < ApplicationController
     end
   end
     
+  def fetch_my_searchterms
+    if logged_in?
+      @search = Ultrasphinx::Search.new(:query => @searchterms, 
+                                        :weights => { 'title' => 2.0 })
+
+      @rawstories = @search.results
+      
+      if @language == 2
+      @rawstories = @rawstories.find_all{|v| v.language == 2 }
+      else 
+      @rawstories = @rawstories.find_all{|v| v.language == 1 }
+      end
+
+      @matches = @search.response[:matches]
+
+      counter = 0
+      @rawstories.each do |story|
+      weight = (@matches[counter])[:weight]  
+      age = ((Time.new - story.created_at)/3600).to_i 
+      age = 1 if age < 1
+      age = (100*(1/(age**(0.33)))).to_i 
+
+      blub = age*weight/100
+
+      story.blub = blub    
+      counter = counter + 1
+      end                                            
+      
+      @rawstories = @rawstories.sort_by {|u| - u.blub }  
+      
+      haufens = @rawstories.first(2)
+  
+    else
+      haufens = []                                              
+    end
+  
+  end
   
 end

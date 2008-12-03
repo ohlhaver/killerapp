@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
   before_filter :adjust_format_for_iphone  
   before_filter :language?
   before_filter :logged_in?
+  before_filter :fetch_searchterms
  
 
  
@@ -55,5 +56,14 @@ class ApplicationController < ActionController::Base
   def iphone_subdomain?
     return request.subdomains.first == "iphone"
   end
+  
+  def fetch_searchterms
+    if logged_in?
+    @searchterms = @current_user.searchterms
+    else
+    @searchterms = nil
+    end
+  end
+  
   
 end

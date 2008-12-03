@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081130150416) do
+ActiveRecord::Schema.define(:version => 20081203112219) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(:version => 20081130150416) do
     t.integer  "titlehash",   :limit => 11
     t.integer  "linkhash",    :limit => 11
     t.boolean  "video"
+    t.integer  "hscore",      :limit => 11
   end
 
   add_index "rawstories", ["title"], :name => "index_rawstories_on_title", :unique => true
@@ -135,6 +136,7 @@ ActiveRecord::Schema.define(:version => 20081130150416) do
     t.text     "stories"
     t.text     "new_stories"
     t.boolean  "alerts"
+    t.string   "searchterms"
   end
 
 end

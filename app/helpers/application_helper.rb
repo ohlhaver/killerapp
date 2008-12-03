@@ -153,6 +153,14 @@ module ApplicationHelper
     end
   end
   
+  def create_topic
+    if @language ==2
+      label = 'Thema [+]'
+    else
+      label = 'Topic [+]'
+    end
+  end
+  
   
  
 end

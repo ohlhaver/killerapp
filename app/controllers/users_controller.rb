@@ -52,4 +52,5 @@ class UsersController < ApplicationController
     redirect_to :controller => 'groups', :action => 'index', :l => @l
   end
 
+
 end
