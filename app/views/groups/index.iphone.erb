@@ -1,3 +1,32 @@
+<% if params[:action] == 'index' %>
+	
+  <% if logged_in? %>
+	<% if @top_my_authors.size > 0 %>
+		<li>
+	
+		<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </div>
+		</li>
+
+		<ul>
+			<%= render :partial => @top_my_authors %>
+		</ul>
+		<br>
+	<% end %>
+  <%else%>
+	<div class = 'message'>
+
+		<% if @language == 2 %>
+	  		<%= 'Finden Sie alle Artikel Ihrer Lieblingsautoren.' %>
+			<%= link_to 'Loggen Sie sich einfach ein', :controller => 'sessions', :action => 'new', :l=>@l %>  <%= ' um Autoren zu sammeln.'  %>
+		<% else %>
+	 		<%= 'Find all articles by your favourite authors.' %>
+			<%= link_to 'Simply login', :controller => 'sessions', :action => 'new', :l=>@l %>  <%= ' to start collecting authors.'  %>		
+		<% end %>
+		</div>
+  <% end %>
+	
+<%end%>
+
 <% cache ( {:f => iphone_user_agent?, :l => @l, :page => params[:page] || 1}) do %>
 
 		<li>
@@ -123,40 +152,6 @@
 			<% end %>
 <% end %>
 
-			
-			<li>
-			<br>
-			<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </div>
-			</li>
-	<% if @top_my_authors.size > 0 %>
-			<ul>
-				<%= render :partial => @top_my_authors %>
-			</ul>
-	<% else %>
-
-		<div class = 'message'>
-		<% if logged_in? %>
-	
-			<% if @language == 2 %>
-		  		<%= 'Sie haben noch keine Lieblingsautoren.' %> <br> <br>
-				<%= 'Klicken Sie einfach auf das ' + image_tag('plus.gif') + ' Symbol neben dem Namen Ihrer Lieblingsautoren um Autoren hinzuzufügen. '  %>
-			<% else %>
-		 		<%= 'You don\'t have any favorite authors yet.' %> <br> <br>
-				<%= 'To add authors simply click the ' + image_tag('plus.gif') + ' symbol next to the name of any author.'  %>
-			<% end %>
-	
-		<%else%>
-	
-			<% if @language == 2 %>
-		  		<%= 'Sie haben noch keine Lieblingsautoren.' %> <br><br>
-				<%= link_to 'Loggen Sie sich ein', :controller => 'sessions', :action => 'new', :l=>@l %>  <%= ' um Ihre Lieblingsautoren zu sammeln.'  %>
-			<% else %>
-		 		<%= 'You don\'t have any favorite authors yet.' %> <br><br> <%='Simply '%>
-				<%= link_to 'login', :controller => 'sessions', :action => 'new', :l=>@l %>  <%= ' to start collecting your favorite authors.'  %>
-			<% end %>
-		<% end %>
-		</div>
-	<%end%>
 <% end %>
 
 
