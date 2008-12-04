@@ -16,11 +16,11 @@
 	<div class = 'message'>
 
 		<% if @language == 2 %>
-	  		<%= 'Finden Sie alle Artikel Ihrer Lieblingsautoren.' %>
-			<%= link_to 'Loggen Sie sich einfach ein', :controller => 'sessions', :action => 'new', :l=>@l %>  <%= ' um Autoren zu sammeln.'  %>
+	  		<%= 'Finden Sie alle Artikel Ihrer Lieblingsautoren!' %><br>
+			<%= link_to 'Loggen Sie sich einfach ein', :controller => 'sessions', :action => 'new', :l=>@l %> <%= ' oder ' %><%= link_to 'melden Sie sich an', :controller => 'users', :action => 'new', :l=>@l %><%= ' um Autoren zu sammeln.'  %>
 		<% else %>
-	 		<%= 'Find all articles by your favourite authors.' %>
-			<%= link_to 'Simply login', :controller => 'sessions', :action => 'new', :l=>@l %>  <%= ' to start collecting authors.'  %>		
+	 		<%= 'Find all articles by your favourite authors!' %><br>
+			<%= link_to 'Simply login', :controller => 'sessions', :action => 'new', :l=>@l %><%= ' or ' %><%= link_to 'sign up ', :controller => 'users', :action => 'new', :l=>@l %>  <%= ' to start collecting authors.'  %>		
 		<% end %>
 		</div>
   <% end %>

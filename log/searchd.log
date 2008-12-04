@@ -537,3 +537,11 @@
 [Thu Dec  4 10:26:48.437 2008] [  883] shutdown complete
 [Thu Dec  4 11:27:10.946 2008] [  282] creating server socket on 0.0.0.0:3313
 [Thu Dec  4 11:27:10.970 2008] [  282] accepting connections
+[Thu Dec  4 15:05:31.473 2008] [  282] rotating indices (seamless=1)
+[Thu Dec  4 15:05:31.476 2008] [  282] WARNING: rotating index 'delta': cur to old rename failed: rename ultrasphinx//sphinx_index_delta.spa to ultrasphinx//sphinx_index_delta.old.spa failed: No such file or directory
+[Thu Dec  4 15:05:31.479 2008] [  282] WARNING: rotating index 'main': cur to old rename failed: rename ultrasphinx//sphinx_index_main.spa to ultrasphinx//sphinx_index_main.old.spa failed: No such file or directory
+[Thu Dec  4 15:05:31.479 2008] [  282] rotating finished
+[Thu Dec  4 15:05:35.617 2008] [  282] caught SIGTERM, shutting down
+[Thu Dec  4 15:05:35.618 2008] [  282] shutdown complete
+[Thu Dec  4 15:06:47.341 2008] [  897] creating server socket on 0.0.0.0:3313
+[Thu Dec  4 15:06:47.341 2008] [  897] accepting connections
