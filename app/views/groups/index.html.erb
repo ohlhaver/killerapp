@@ -1,32 +1,3 @@
-<% if params[:action] == 'index' %>
-	
-  <% if logged_in? %>
-	<% if @top_my_authors.size > 0 %>
-		<li>
-	
-		<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </div>
-		</li>
-
-		<ul>
-			<%= render :partial => @top_my_authors %>
-		</ul>
-		<br>
-	<% end %>
-  <%else%>
-	<div class = 'message'>
-
-		<% if @language == 2 %>
-	  		<%= 'Finden Sie alle Artikel Ihrer Lieblingsautoren!' %><br>
-			<%= link_to 'Loggen Sie sich einfach ein', :controller => 'sessions', :action => 'new', :l=>@l %> <%= ' oder ' %><%= link_to 'melden Sie sich an', :controller => 'users', :action => 'new', :l=>@l %><%= ' um Autoren zu sammeln.'  %>
-		<% else %>
-	 		<%= 'Find all articles by your favourite authors!' %><br>
-			<%= link_to 'Simply login', :controller => 'sessions', :action => 'new', :l=>@l %><%= ' or ' %><%= link_to 'sign up ', :controller => 'users', :action => 'new', :l=>@l %>  <%= ' to start collecting authors.'  %>		
-		<% end %>
-		</div>
-  <% end %>
-	
-<%end%>
-
 <% cache ( {:l => @l, :page => params[:page] || 1}) do %>
 
 		<li>
@@ -36,12 +7,69 @@
 		<ul>
 			<%= render :partial => @haufens %>
 		</ul>
+		<% if params[:action] != 'index' %>
 		<div class= "pagination" > 
-			<%= will_paginate(@haufens, options = {:prev_label => previous_label + '&nbsp -&nbsp', :next_label => ' &nbsp;-&nbsp; ' + next_label}) %>
-			
+			<%= will_paginate(@haufens, options = {:prev_label => previous_label + '&nbsp -&nbsp', :next_label => ' &nbsp;-&nbsp; ' + next_label}) %>		
 		</div>
+		<% end %>
 		
-	<% if params[:action] == 'index' %>
+<% end %>
+
+<% if params[:action] == 'index' %>
+<br>
+<li>
+<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </div>
+</li>	
+  <% if logged_in? %>
+	<% if @top_my_authors.size > 0 %>
+		<ul>
+			<%= render :partial => @top_my_authors %>
+		</ul>
+	<% end %>
+	
+ <%else%>
+	
+	<div class = 'message'>
+		<% if @language == 2 %>
+	  		<%= 'Finden Sie alle Artikel Ihrer Lieblingsautoren!' %><br>
+			<%= link_to 'Loggen Sie sich einfach ein', :controller => 'sessions', :action => 'new', :l=>@l %> <%= ' oder ' %>
+			<%= link_to 'melden Sie sich an', :controller => 'users', :action => 'new', :l=>@l %><%= ' um Autoren zu sammeln.'  %>
+		<% else %>
+	 		<%= 'Find all articles by your favourite authors!' %><br>
+			<%= link_to 'Simply login', :controller => 'sessions', :action => 'new', :l=>@l %><%= ' or ' %>
+			<%= link_to 'sign up ', :controller => 'users', :action => 'new', :l=>@l %>  <%= ' to start collecting authors.'  %>		
+		<% end %>
+		</div>
+    <% end %>
+				
+	<% if @searchterms %>			
+		<% @searchterms.each do |s| %>
+			
+			<% cache ( {:part => 'topic', :s => s, :l => @l, :page => params[:page] || 1}) do %>			
+				<% if @top_my_searchterms[s].size > 0 %>
+					<% if s != nil %>
+					<br>
+					<li>
+	  				<div class="pagelabel"> <%= link_to h(s), search_rawstories_path(:l => @l, :q => s)  %> </div>
+					</li>
+					<ul>
+					<%= render :partial => @top_my_searchterms[s] %>
+					</ul>
+					<% end %>
+				<% end %>
+			<% end %>		
+			
+		<% end %>
+	<% end %>
+<% end %>
+
+
+
+		
+<% if params[:action] == 'index' %>
+
+	<% cache ( {:l => @l, :part => 'bottom', :page => params[:page] || 1}) do %>
+	
 		
 		<% if @top_opinions_haufens.size > 0 %>
 		<br>
@@ -137,28 +165,7 @@
 
 <% end %>
 
-<% if params[:action] == 'index' %>
-			
-	<% if @searchterms %>			
-		<% @searchterms.each do |s| %>
-			
-			<% cache ( {:part => 'topic', :s => s, :l => @l, :page => params[:page] || 1}) do %>			
-				<% if @top_my_searchterms[s].size > 0 %>
-					<% if s != nil %>
-					<br>
-					<li>
-	  				<div class="pagelabel"> <%= link_to h(s), search_rawstories_path(:l => @l, :q => s)  %> </div>
-					</li>
-					<ul>
-					<%= render :partial => @top_my_searchterms[s] %>
-					</ul>
-					<% end %>
-				<% end %>
-			<% end %>		
-			
-		<% end %>
-	<% end %>
-<% end %>
+
 
 
 

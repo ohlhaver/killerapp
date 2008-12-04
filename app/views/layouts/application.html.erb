@@ -38,6 +38,23 @@
 			<%= link_to topstories_label, :controller => 'groups', :action => 'index', :l => @l  %> </span>
 		<% end %></li>
 		
+		<% if @searchterms %>
+			<% if @searchterms.size > 0 %>
+			<br>
+			<% @searchterms.each do |s| %>
+				<li>	<% if params[:q] == s %> 
+					<span class="selected"><%= h(s)  %></span>&nbsp;&nbsp;<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %>  
+					<% else %> 
+					<span class="unselected">
+						<%= link_to h(s) , search_rawstories_path(:l => @l, :q => s, :m => 'topic')  %>&nbsp;&nbsp;
+						<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %></span>
+					<% end %></li>
+
+			<%end%>
+			<br>
+			<%end%>
+		<%end%>
+		
 		<li>	<% if params[:action] == 'opinions' %> 
 			<span class="selected"><%= opinions_label  %></span> 
 			<% else %> 
@@ -94,23 +111,6 @@
 		<span class="unselected">
 		<%= link_to mixed_label, :controller => 'groups', :action => 'mixed', :l => @l  %> </span>
 		<% end %></li>
-
-
-	<% if @searchterms %>
-		<% if @searchterms.size > 0 %>
-		<br>
-		<% @searchterms.each do |s| %>
-			<li>	<% if params[:q] == s %> 
-				<span class="selected"><%= h(s)  %></span>&nbsp;&nbsp;<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %>  
-				<% else %> 
-				<span class="unselected">
-					<%= link_to h(s) , search_rawstories_path(:l => @l, :q => s, :m => 'topic')  %>&nbsp;&nbsp;
-					<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %></span>
-				<% end %></li>
-					
-		<%end%>
-		<%end%>
-	<%end%>
 	
 	</ul>
 	</list>
