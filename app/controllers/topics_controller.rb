@@ -12,7 +12,11 @@ class TopicsController < ApplicationController
     else  
       @current_user.searchterms += params[:searchterms] + ',' if params[:searchterms] != '' && params[:searchterms].size < 16
     end
-    @current_user.save if @searchterms.size < 10
+    if @searchterms == nil
+      @current_user.save 
+    else
+      @current_user.save if @searchterms.size < 10
+    end
     
     if params[:searchterms] != '' && params[:searchterms].size < 16
       
