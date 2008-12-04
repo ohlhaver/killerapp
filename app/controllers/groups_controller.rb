@@ -19,8 +19,13 @@ class GroupsController < ApplicationController
     
     
     end
-    unless read_fragment({:f => iphone_user_agent?, :part => 'topic', :s => @searchterms, :f => iphone_user_agent?, :action => 'index', :l => @l, :page => params[:page] || 1})  
-        @top_my_searchterms = fetch_my_searchterms
+    @top_my_searchterms={}
+    if @searchterms
+      @searchterms.each do |s|
+        unless read_fragment({:f => iphone_user_agent?, :part => 'topic', :s => s, :f => iphone_user_agent?, :action => 'index', :l => @l, :page => params[:page] || 1})  
+          @top_my_searchterms[s] = fetch_my_searchterms s
+        end
+      end
     end
     @top_my_authors = fetch_my_authors 
     
@@ -183,9 +188,9 @@ class GroupsController < ApplicationController
     end
   end
     
-  def fetch_my_searchterms
+  def fetch_my_searchterms s
     if logged_in?
-      @search = Ultrasphinx::Search.new(:query => @searchterms, 
+      @search = Ultrasphinx::Search.new(:query => s, 
                                         :weights => { 'title' => 2.0 })
 
       @rawstories = @search.results

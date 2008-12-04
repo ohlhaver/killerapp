@@ -94,38 +94,28 @@
 		<span class="unselected">
 		<%= link_to mixed_label, :controller => 'groups', :action => 'mixed', :l => @l  %> </span>
 		<% end %></li>
-<br>
 
 
 	<% if @searchterms %>
-	<li>	<% if params[:m] == 'topic' %> 
-	<span class="selected"><%= h(@searchterms)  %></span>&nbsp;&nbsp;<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :l => @l  %>  
-		<% else %> 
-		<span class="unselected">
-		<%= link_to h(@searchterms) , search_rawstories_path(:l => @l, :q => @searchterms, :m => 'topic')  %>&nbsp;&nbsp;<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :l => @l  %></span>
-		<% end %></li>
+		<% if @searchterms.size > 0 %>
 		<br>
+		<% @searchterms.each do |s| %>
+			<li>	<% if params[:q] == s %> 
+				<span class="selected"><%= h(s)  %></span>&nbsp;&nbsp;<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %>  
+				<% else %> 
+				<span class="unselected">
+					<%= link_to h(s) , search_rawstories_path(:l => @l, :q => s, :m => 'topic')  %>&nbsp;&nbsp;
+					<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %></span>
+				<% end %></li>
+					
+		<%end%>
+		<%end%>
 	<%end%>
 	
-	
-	<% if @searchterms == nil %>
-	<li>	<% if params[:action] == 'create_topic' %> 
-	<span class="selected"><%= create_topic  %></span>  
-		<% else %> 
-		<span class="unselected">
-		<%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %> </span>
-		<% end %></li>
-	<%end%>
-	
-	
-
-
-		</ul>
-
-
-		</list>
-</div>
-</div>	
+	</ul>
+	</list>
+	</div>
+	</div>	
 
 <% form_tag search_rawstories_path(:l => @l), :method => :get do -%>
 <div class ="search">
@@ -139,29 +129,43 @@
 
 <div class="profile">
 	
+	
 	<% if params[:controller] == 'subscriptions'  %> 
 		<span class="selected"><%= my_authors  %></span> 
 		<% else %> 
 		<%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> 
 		<% end %>&nbsp;-&nbsp;
     <% if logged_in? %>
-		<% if params[:controller] == 'subscriptions'  %> 
-			 <%='Email alerts'%>
-			<% if @current_user.alerts == true %>
-			<em><%= link_to unsubscribe_label, {:controller => 'subscriptions', :action => 'stop_alerts', :l => @l}%></em> &nbsp;-&nbsp;
-			<%else%>
-			<%= link_to subscribe_label, {:controller => 'subscriptions', :action => 'get_alerts', :l => @l}%> &nbsp;-&nbsp;
-			<%end%>
-		<%end%>
 
+	<% if params[:controller] == 'subscriptions'  %> 
+		 <%='Email alerts'%>
+		<% if @current_user.alerts == true %>
+		<em><%= link_to unsubscribe_label, {:controller => 'subscriptions', :action => 'stop_alerts', :l => @l}%></em> &nbsp;-&nbsp;
+		<%else%>
+		<%= link_to subscribe_label, {:controller => 'subscriptions', :action => 'get_alerts', :l => @l}%> &nbsp;-&nbsp;
+		<%end%>
+	<%end%>
+	<%end%>
+	
+	<% if params[:action] == 'create_topic' %> 
+		<span class="selected"><%= create_topic  %></span>  
+	<% else %> 
+		<span class="unselected">
+		<%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %> </span>
+	<% end %>
+		
+	&nbsp;-&nbsp; 
+	<% if logged_in? %>
+	<%= (link_to 'Feedback [+]' , :controller => 'about', :action => 'feedback', :l => @l) %>	&nbsp;-&nbsp; 
       <%= h(@current_user.login) %><em> <%= link_to logout_label, session_path(:l => @l), :method => :delete %></em>
     <% else %>
       <%= link_to login_label, :controller => 'sessions', :action => 'new', :l=>@l %>
     <% end %>
-	<% if logged_in? %>
-	&nbsp;-&nbsp;<%= (link_to 'Feedback [+]' , :controller => 'about', :action => 'feedback', :l => @l) %><% end %>
+	
+	
   </div>
   </div>
+
 
 
 <div class="headlines">

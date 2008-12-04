@@ -137,24 +137,25 @@
 <% end %>
 
 <% if params[:action] == 'index' %>
-
-<% cache ( {:f => iphone_user_agent?, :part => 'topic', :s => @searchterms, :l => @l, :page => params[:page] || 1}) do %>			
-			<% if @top_my_searchterms.size > 0 %>
-			<% if @searchterms != nil %>
-			<br>
-			<li>
-	  		<div class="pagelabel"> <%= link_to h(@searchterms), search_rawstories_path(:l => @l, :q => @searchterms)  %> </div>
-			</li>
-			<ul>
-				<%= render :partial => @top_my_searchterms %>
-			</ul>
-			<% end %>
-			<% end %>
+			
+	<% if @searchterms %>			
+		<% @searchterms.each do |s| %>
+			
+			<% cache ( {:f => iphone_user_agent?, :part => 'topic', :s => s, :l => @l, :page => params[:page] || 1}) do %>			
+				<% if @top_my_searchterms[s].size > 0 %>
+					<% if s != nil %>
+					<br>
+					<li>
+	  				<div class="pagelabel"> <%= link_to h(s), search_rawstories_path(:l => @l, :q => s)  %> </div>
+					</li>
+					<ul>
+					<%= render :partial => @top_my_searchterms[s] %>
+					</ul>
+					<% end %>
+				<% end %>
+			<% end %>		
+			
+		<% end %>
+	<% end %>
 <% end %>
-
-<% end %>
-
-
-
-
 
