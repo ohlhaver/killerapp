@@ -165,10 +165,12 @@ class GroupsController < ApplicationController
      @user_stories =[]
      if @current_user.stories
       story_array = @current_user.stories.split(/\ /) if @current_user.stories
+      date = Time.now.yesterday
       story_array.each do |story|
         #rawstory = Rawstory.find(story)
         # @user_stories += rawstory.to_a if rawstory.created_at > Time.now.yesterday 
-        @user_stories += Rawstory.find(story).to_a
+        story = Rawstory.find(story)
+        @user_stories += story.to_a if story.created_at > date
       end
      end
 
