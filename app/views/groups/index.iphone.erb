@@ -16,31 +16,54 @@
 <% end %>
 
 <% if params[:action] == 'index' %>
-<br>
-<li>
-<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </div>
-</li>	
-  <% if logged_in? %>
+
+ <% if logged_in? %>
+	
 	<% if @top_my_authors.size > 0 %>
+	<br>
+	<li>
+	<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </div>
+	</li>
 		<ul>
 			<%= render :partial => @top_my_authors %>
 		</ul>
-	<% end %>
+	<%end%>
 	
- <%else%>
-	
+	<% if @current_user.subscriptions.size == 0 %>
+	<br>
+	<li>
+	<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </div>
+	</li>
+	<div class = 'message'>
+		<% if @language == 2 %>
+	  		<%= 'Sie haben noch keine Lieblingsautoren.' %><br>
+			<%= 'Klicken Sie einfach ' + image_tag('plus.gif') + ' neben dem Namen Ihrer Lieblingsautoren um diese zu Ihrer Liste hinzuzufügen.'  %>
+		<% else %>
+	 		<%= 'You don\'t have any favourite authors yet.' %><br>
+			<%= 'Simply click ' + image_tag('plus.gif') + ' next to the names of your favourite authors to add them to your list.'  %>		
+		<% end %>
+		</div>
+   <% end %>
+			
+<%else%>
+	<br>
+	<li>
+	<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </div>
+	</li>
 	<div class = 'message'>
 		<% if @language == 2 %>
 	  		<%= 'Finden Sie alle Artikel Ihrer Lieblingsautoren!' %><br>
-			<%= link_to 'Loggen Sie sich einfach ein', :controller => 'sessions', :action => 'new', :l=>@l %> <%= ' oder ' %>
-			<%= link_to 'melden Sie sich an', :controller => 'users', :action => 'new', :l=>@l %><%= ' um Autoren zu sammeln.'  %>
+			<%= 'Um anzufangen Autoren zu sammeln '  %>
+			<%= link_to 'loggen Sie sich einfach ein', :controller => 'sessions', :action => 'new', :l=>@l %> <%= ' oder ' %>
+			<%= link_to 'melden Sie sich an', :controller => 'users', :action => 'new', :l=>@l %>.
 		<% else %>
 	 		<%= 'Find all articles by your favourite authors!' %><br>
-			<%= link_to 'Simply login', :controller => 'sessions', :action => 'new', :l=>@l %><%= ' or ' %>
-			<%= link_to 'sign up ', :controller => 'users', :action => 'new', :l=>@l %>  <%= ' to start collecting authors.'  %>		
+			<%= 'To start collecting authors '  %>
+			<%= link_to 'simply login', :controller => 'sessions', :action => 'new', :l=>@l %><%= ' or ' %>
+			<%= link_to 'sign up', :controller => 'users', :action => 'new', :l=>@l %>.  		
 		<% end %>
 		</div>
-    <% end %>
+ <% end %>
 				
 	<% if @searchterms %>			
 		<% @searchterms.each do |s| %>
