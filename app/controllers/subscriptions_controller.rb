@@ -46,12 +46,7 @@ before_filter :login_required
   def subscribe
     author = Author.find(params[:id])
     if  author && @current_user.subscriptions.find_by_author_id(params[:id]) == nil 
-      if author.opinionated = 0
-        author.opinionated = 1
-        author.save
-      end
-      @current_user.subscriptions.create(:author_id => params[:id]) 
-      
+      @current_user.subscriptions.create(:author_id => params[:id])       
       author_stories = Author.find(params[:id]).rawstories.last(3)
       user_stories = ''
       author_stories.each do |story|
