@@ -41,7 +41,9 @@ class UserMailer < ActionMailer::Base
     @body[:user_new_stories] = @user_new_stories
     @body[:my_authors_link] = "http://#{SITE_URL}/subscriptions"
     @body[:from] = "#{SITE_EMAIL}"
-      
+    
+    user.new_stories = nil
+    user.save  
   
   end
   
