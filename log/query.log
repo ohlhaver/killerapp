@@ -2350,3 +2350,15 @@
 [Thu Dec  4 19:18:44.775 2008] 0.001 sec [ext/0/rel 254 (0,20)] [main delta] Obama
 [Thu Dec  4 19:19:22.498 2008] 0.000 sec [ext/0/rel 3 (0,20)] [main delta] Regen
 [Thu Dec  4 19:19:25.849 2008] 0.001 sec [ext/0/rel 3 (0,20)] [main delta] Regen
+[Thu Dec  4 19:30:26.213 2008] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] HSV
+[Thu Dec  4 19:30:26.237 2008] 0.001 sec [ext/0/rel 254 (0,20)] [main delta] Obama
+[Thu Dec  4 19:30:26.248 2008] 0.000 sec [ext/0/rel 3 (0,20)] [main delta] Regen
+[Thu Dec  4 19:50:37.328 2008] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] HSV
+[Thu Dec  4 19:50:37.339 2008] 0.001 sec [ext/0/rel 254 (0,20)] [main delta] Obama
+[Thu Dec  4 19:50:37.350 2008] 0.000 sec [ext/0/rel 3 (0,20)] [main delta] Regen
+[Fri Dec  5 11:20:31.298 2008] 0.002 sec [ext/0/rel 9 (0,20)] [main delta] HSV
+[Fri Dec  5 11:20:31.332 2008] 0.001 sec [ext/0/rel 292 (0,20)] [main delta] Obama
+[Fri Dec  5 11:20:31.344 2008] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] Regen
+[Fri Dec  5 11:21:35.668 2008] 0.001 sec [ext/0/rel 9 (0,20)] [main delta] HSV
+[Fri Dec  5 11:21:35.690 2008] 0.001 sec [ext/0/rel 292 (0,20)] [main delta] Obama
+[Fri Dec  5 11:21:35.780 2008] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] Regen
