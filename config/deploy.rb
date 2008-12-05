@@ -38,7 +38,7 @@ end
 
 task :after_deploy, :roles => [:web] do
     run "sed -e \"s/^# ENV/ENV/\" -i #{release_path}/config/environment.rb"
-    run "cd /home/justus/#{application}/current; RAILS_ENV=production rake ultrasphinx:bootstrap; RAILS_ENV=production rake ultrasphinx:daemon:start; mongrel_rails cluster::restart"
+    run "cd /home/justus/#{application}/current; RAILS_ENV=production rake ultrasphinx:bootstrap; RAILS_ENV=production rake ultrasphinx:bootstrap; mongrel_rails cluster::restart"
 
 end
 
