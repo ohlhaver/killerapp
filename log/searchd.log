@@ -561,3 +561,11 @@
 [Fri Dec  5 14:34:00.273 2008] [  314] shutdown complete
 [Fri Dec  5 14:34:04.332 2008] [  963] creating server socket on 0.0.0.0:3313
 [Fri Dec  5 14:34:04.332 2008] [  963] accepting connections
+[Fri Dec  5 15:27:50.358 2008] [  963] rotating indices (seamless=1)
+[Fri Dec  5 15:27:50.365 2008] [  963] rotating index 'delta': success
+[Fri Dec  5 15:27:50.372 2008] [  963] rotating index 'main': success
+[Fri Dec  5 15:27:50.372 2008] [  963] rotating finished
+[Fri Dec  5 15:27:54.451 2008] [  963] caught SIGTERM, shutting down
+[Fri Dec  5 15:27:54.452 2008] [  963] shutdown complete
+[Fri Dec  5 15:27:58.572 2008] [ 1520] creating server socket on 0.0.0.0:3313
+[Fri Dec  5 15:27:58.572 2008] [ 1520] accepting connections

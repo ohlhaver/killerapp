@@ -36,11 +36,11 @@ task :after_update_code, :roles => [:web, :db, :app] do
   run "chmod 755 #{release_path}/public -R" 
 end
 
-#task :after_deploy, :roles => [:web] do
-#    run "sed -e \"s/^# ENV/ENV/\" -i #{release_path}/config/environment.rb"
-#    run "cd /home/justus/#{application}/current; RAILS_ENV=production rake ultrasphinx:bootstrap; RAILS_ENV=production rake ultrasphinx:index; mongrel_rails cluster::restart"
+task :after_deploy, :roles => [:web] do
+    run "sed -e \"s/^# ENV/ENV/\" -i #{release_path}/config/environment.rb"
+    run "cd /home/justus/#{application}/current; RAILS_ENV=production rake ultrasphinx:bootstrap; RAILS_ENV=production rake ultrasphinx:daemon:start; mongrel_rails cluster::restart"
 
-#end
+end
 
 after "deploy", "deploy:cleanup"
 
