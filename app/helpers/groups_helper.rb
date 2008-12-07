@@ -70,10 +70,40 @@ module GroupsHelper
 
    def slogan
      if @language == 2
-        slogan = ' - automatisch generiert'
+        slogan = ' - automatisch generiert ' + ago
      else
-       slogan = ' - automatically generated'
+       slogan = ' - automatically generated ' + ago
      end
+   end
+   
+   def ago
+     last_update = Eintrag.find(:last).created_at
+     if @language == 2
+
+     label = 'vor 1 Minute' if ((Time.new - last_update).to_i) < 120
+     label = 'vor ' + (((Time.new - last_update).to_i)/60).to_s + ' Minuten' if ((Time.new - last_update).to_i) > 119 && ((Time.new - last_update).to_i) < 3600 
+     label = 'vor 1 Stunde' if ((Time.new - last_update).to_i) > 3599 && ((Time.new - last_update).to_i) < 7200
+     label = 'vor ' + (((Time.new - last_update).to_i)/3600).to_s + ' Stunden' if ((Time.new - last_update).to_i) > 7199 && ((Time.new - last_update).to_i) < 86400 
+
+     label = 'vor 1 Tag' if ((Time.new - last_update).to_i) > 86399 && ((Time.new - last_update).to_i) < 172800
+     label = 'vor ' + (((Time.new - last_update).to_i)/86400).to_s + ' Tagen' if ((Time.new - last_update).to_i) > 172799 && ((Time.new - last_update).to_i) < 864000
+     label = last_update.to_s(:long) if ((Time.new - last_update).to_i) > 863999
+
+      else
+
+        label = '1 minute ago' if ((Time.new - last_update).to_i) < 120
+        label = (((Time.new - last_update).to_i)/60).to_s + ' minutes ago' if ((Time.new - last_update).to_i) > 119 && ((Time.new - last_update).to_i) < 3600 
+        label = '1 hour ago' if ((Time.new - last_update).to_i) > 3599 && ((Time.new - last_update).to_i) < 7200
+        label = (((Time.new - last_update).to_i)/3600).to_s + ' hours ago' if ((Time.new - last_update).to_i) > 7199 && ((Time.new - last_update).to_i) < 86400 
+
+        label = '1 day ago' if ((Time.new - last_update).to_i) > 86399 && ((Time.new - last_update).to_i) < 172800
+        label = (((Time.new - last_update).to_i)/86400).to_s + ' days ago' if ((Time.new - last_update).to_i) > 172799 && ((Time.new - last_update).to_i) < 864000
+        label = last_update.to_s(:long) if ((Time.new - last_update).to_i) > 863999
+     end
+
+
+
+     return label
    end
      
 
