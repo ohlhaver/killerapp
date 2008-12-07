@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081203112219) do
+ActiveRecord::Schema.define(:version => 20081207185715) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -137,6 +137,8 @@ ActiveRecord::Schema.define(:version => 20081203112219) do
     t.text     "new_stories"
     t.boolean  "alerts"
     t.string   "searchterms"
+    t.boolean  "full"
+    t.integer  "language",                  :limit => 11
   end
 
 end

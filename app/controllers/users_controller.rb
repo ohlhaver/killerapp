@@ -17,6 +17,13 @@ class UsersController < ApplicationController
     # reset_session
     @user = User.new(params[:user])
     @user.alerts = true
+    
+    if @language == 2
+        @user.language = 2
+    else
+        @user.language = 1
+    end
+    
     @user.save
     if @user.errors.empty?
       self.current_user = @user

@@ -1,3 +1,23 @@
+<% if @user.language == 2 %
+Liebe(r) <%= @user.login %>, 
+
+Es gibt neue Artikel von Ihren Lieblingsautoren:
+<% @user_new_stories.each do |story| %>
+<%= story.author.name %>
+<%= story.title %>
+<%= story.link %>
+
+<% end %>
+Eine Übersicht aller Artikel Ihrer Lieblingsautoren finden Sie hier: <%= @my_authors_link  %> 
+
+Wenn Sie keine weiteren Emails erhalten wollen, clicken Sie bitte 'ABMELDEN' auf dieser Seite: <%= @my_authors_link  %> 
+
+Falls Sie Schwierigkeiten haben sollten, senden Sie uns bitte eine Email an folgende Adresse: <%= @from %>
+
+Viele Grüße,
+www.jurnalo.de
+
+<%else%>
 Dear <%= @user.login %>, 
 
 You have got new articles by your favorite authors:
@@ -15,4 +35,6 @@ In case you experience any difficulties, please send us an email to: <%= @from %
 
 Best regards,
 <%= @url %>
+<%end%>
+
 

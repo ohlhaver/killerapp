@@ -569,3 +569,7 @@
 [Fri Dec  5 15:27:54.452 2008] [  963] shutdown complete
 [Fri Dec  5 15:27:58.572 2008] [ 1520] creating server socket on 0.0.0.0:3313
 [Fri Dec  5 15:27:58.572 2008] [ 1520] accepting connections
+[Fri Dec  5 19:11:13.501 2008] [ 1520] caught SIGTERM, shutting down
+[Fri Dec  5 19:11:13.502 2008] [ 1520] shutdown complete
+[Sun Dec  7 20:27:10.213 2008] [  881] creating server socket on 0.0.0.0:3313
+[Sun Dec  7 20:27:10.232 2008] [  881] accepting connections

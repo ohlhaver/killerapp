@@ -1,3 +1,19 @@
+<%if @user.language == 2%>
+Liebe(r) <%= @user.login %>, 
+
+Ihr Jurnalo Zugang ist erstellt worden. 
+
+Benutzername: <%= @user.login %>
+Passwort: <%= @user.password %>
+
+Um Ihren Zugang zu aktivieren, besuchen Sie bitte folgende Adresse:
+
+  <%= @url %>
+
+Viele Grüße,
+Jurnalo
+
+<%else%>
 Dear <%= @user.login %>, 
 
 Your account has been created. 
@@ -11,3 +27,5 @@ To activate your account please visit this address:
 
 Sincerely,
 Jurnalo
+
+<%end%>
