@@ -215,7 +215,8 @@ class GroupsController < ApplicationController
       story.blub = blub    
       counter = counter + 1
       end                                            
-      
+      date = Time.now.yesterday
+      @rawstories = @rawstories.find_all {|u| u.created_at > date }  
       @rawstories = @rawstories.sort_by {|u| - u.blub }  
       
       haufens = @rawstories.first(2)

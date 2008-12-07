@@ -37,6 +37,8 @@ class TopicsController < ApplicationController
     redirect_to :back
     flash[:notice] = "Sie haben das alte Thema gelöscht." if @language == 2
     flash[:notice] = "You have deleted the old topic." if @language == 1
-  end    
+  end
+  
+      
   
 end

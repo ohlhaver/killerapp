@@ -19,8 +19,8 @@
 		 ( <%= link_to show_all_label,  { :action => 'show', :id => params[:id], :l => @l} %> 
 		- <%= show_opinions_label(@opinion_weight) %>
 		<% if @videos_weight > 0 %>
-		- <%= link_to show_videos_label(@videos_weight),  {:controller => 'haufens', :action => 'filter_haufen_by_videos', :id => params[:id], :l => @l}  %> )
-		<% end %>
+		- <%= link_to show_videos_label(@videos_weight),  {:controller => 'haufens', :action => 'filter_haufen_by_videos', :id => params[:id], :l => @l}  %>
+		<% end %> )
 <% end %>
 
 <%  if params[:action] == 'filter_haufen_by_videos' %>
