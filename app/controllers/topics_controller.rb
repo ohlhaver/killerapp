@@ -12,6 +12,11 @@ class TopicsController < ApplicationController
     else  
       @current_user.searchterms += params[:searchterms] + ',' if params[:searchterms] != '' && params[:searchterms].size < 16
     end
+    if params[:search_language] == '1'
+      @current_user.language = 3
+    else
+      @current_user.language = @language
+    end
     if @searchterms == nil
       @current_user.save 
     else

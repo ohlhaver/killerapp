@@ -194,13 +194,14 @@ class GroupsController < ApplicationController
                                         :weights => { 'title' => 2.0 })
 
       @rawstories = @search.results
-      
-      if @language == 2
-      @rawstories = @rawstories.find_all{|v| v.language == 2 }
-      else 
-      @rawstories = @rawstories.find_all{|v| v.language == 1 }
+      unless @current_user.language == 3
+        if @language == 2
+          @rawstories = @rawstories.find_all{|v| v.language == 2 }
+        else 
+          @rawstories = @rawstories.find_all{|v| v.language == 1 }
+        end
       end
-
+      
       @matches = @search.response[:matches]
 
       counter = 0

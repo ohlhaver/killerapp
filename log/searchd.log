@@ -575,3 +575,5 @@
 [Sun Dec  7 20:27:10.232 2008] [  881] accepting connections
 [Mon Dec  8 01:17:03.726 2008] [  881] caught SIGTERM, shutting down
 [Mon Dec  8 01:17:03.727 2008] [  881] shutdown complete
+[Mon Dec  8 12:55:36.359 2008] [  321] creating server socket on 0.0.0.0:3313
+[Mon Dec  8 12:55:36.376 2008] [  321] accepting connections
