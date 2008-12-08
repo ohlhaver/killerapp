@@ -71,7 +71,15 @@ class RawstoriesController < ApplicationController
                                         :weights => { 'title' => 2.0 })
 
       @rawstories = @search.results
-      unless @current_user.language == 3
+      if logged_in?
+        if @current_user.language == 3
+          all_languages = true
+        else
+          all_languages = false
+        end
+      end
+        
+      unless all_languages == true
         if @language == 2
           @rawstories = @rawstories.find_all{|v| v.language == 2 }
         else 
