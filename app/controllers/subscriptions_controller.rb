@@ -36,6 +36,8 @@ before_filter :login_required
      end
      @current_user.stories = @current_user.stories.sub(user_stories,'')
      @current_user.save 
+     flash[:notice] = "Sie haben " + @subscription.author.name + " von der Liste Ihrer Lieblingsautoren entfernt." if @language == 2
+      flash[:notice] = "You have removed " + @subscription.author.name + " from your list of favourite authors." if @language == 1
      Subscription.destroy(@subscription) 
      
      redirect_to :back
@@ -58,7 +60,8 @@ before_filter :login_required
       @current_user.stories = user_stories
       end  
       @current_user.save   
-      
+      flash[:notice] = "Sie haben " + author.name + " zur Liste Ihrer Lieblingsautoren hinzugefügt." if @language == 2
+      flash[:notice] = "You have added " + author.name + " to your list of favourite authors." if @language == 1
     end
     redirect_to :back  
   end

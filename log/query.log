@@ -2623,3 +2623,10 @@
 [Thu Dec 11 12:35:16.765 2008] 0.001 sec [ext/0/rel 165 (0,20)] [main delta] Week
 [Thu Dec 11 12:35:18.801 2008] 0.001 sec [ext/0/rel 165 (0,20)] [main delta] Week
 [Thu Dec 11 12:35:21.288 2008] 0.005 sec [ext/0/rel 165 (0,20)] [main delta] Week
+[Thu Dec 11 14:54:30.589 2008] 0.001 sec [ext/0/rel 106 (0,20)] [main delta] Heute
+[Thu Dec 11 14:57:00.366 2008] 0.001 sec [ext/0/rel 106 (0,20)] [main delta] Heute
+[Thu Dec 11 14:57:01.792 2008] 0.001 sec [ext/0/rel 106 (0,20)] [main delta] Heute
+[Thu Dec 11 14:58:09.808 2008] 0.001 sec [ext/0/rel 0 (0,20)] [main delta] <script> alert
+[Thu Dec 11 15:14:36.084 2008] 0.001 sec [ext/0/rel 0 (0,20)] [main delta] <script>alert
+[Thu Dec 11 15:14:36.088 2008] 0.001 sec [ext/0/rel 0 (0,20)] [main delta] <script> alert
+[Thu Dec 11 15:14:46.535 2008] 0.001 sec [ext/0/rel 0 (0,20)] [main delta] <script> alert
