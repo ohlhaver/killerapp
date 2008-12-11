@@ -39,8 +39,10 @@
 		<% end %></li>
 		
 		<% if @searchterms %>
+
 			<% if @searchterms.size > 0 %>
 			<br>
+			
 			<% @searchterms.each do |s| %>
 				<li>	<% if params[:q] == s %> 
 					<span class="selected"><%= h(s)  %></span>&nbsp;&nbsp;<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %>  
@@ -51,9 +53,16 @@
 					<% end %></li>
 
 			<%end%>
-			<br>
 			<%end%>
 		<%end%>
+		<br>
+		<li><% if params[:action] == 'create_topic' %> 
+			<span class="selected"><%= create_topic  %></span>  
+		<% else %> 
+			<span class="unselected">
+			<%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %> </span>
+		<% end %></li>
+		<br>
 		
 		<li>	<% if params[:action] == 'opinions' %> 
 			<span class="selected"><%= opinions_label  %></span> 
@@ -147,14 +156,6 @@
 	<%end%>
 	<%end%>
 	
-	<% if params[:action] == 'create_topic' %> 
-		<span class="selected"><%= create_topic  %></span>  
-	<% else %> 
-		<span class="unselected">
-		<%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %> </span>
-	<% end %>
-		
-	&nbsp;-&nbsp; 
 	<% if logged_in? %>
       <%= h(@current_user.login) %><em> <%= link_to logout_label, session_path(:l => @l), :method => :delete %></em>
     <% else %>

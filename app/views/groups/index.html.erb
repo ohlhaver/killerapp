@@ -1,7 +1,20 @@
+<% if logged_in? == false %>
+<div class = 'message'>
+	<% if @language == 2 %>
+ 
+		<%= link_to 'Melden Sie sich einfach an', :controller => 'users', :action => 'new', :l=>@l %> <%= ' um alle Artikel Ihrer Lieblingsautoren zu erhalten und Ihre eigenen Themen zu erstellen.'  %>
+	<% else %>
+
+		<%= link_to 'Simply sign up', :controller => 'users', :action => 'new', :l=>@l %> <%= ' to get all articles by your favorite authors and to create your own topics.'  %>		
+	<% end %>
+	</div>
+<% end %>
+
+
 <% cache ( {:l => @l, :page => params[:page] || 1}) do %>
 
 		<li>
-  			<div class="pagelabel"><%= selection %><%= date %><%= slogan if params[:action] == 'index'%></div>
+  			<div class="pagelabel"><%= selection %><% if params[:action] == 'index'%> &nbsp;-&nbsp;<%= slogan %>&nbsp;-&nbsp;<%= ago %><%end%></div>
 		</li>
 
 		<ul>
@@ -37,32 +50,17 @@
 	</li>
 	<div class = 'message'>
 		<% if @language == 2 %>
-	  		<%= 'Sie haben noch keine Autoren.' %>
-			<%= 'Klicken Sie einfach auf ' + image_tag('plus.gif') + ' neben den Namen Ihrer Lieblingsautoren.'  %>
+	  		<%= 'Sie haben noch keine Lieblingsautoren.' %>
+			<%= 'Klicken Sie einfach auf das ' + image_tag('plus.gif') + ' neben dem Namen um einen Autoren zu Ihrer Liste hinzuzufügen.'  %>
 		<% else %>
-	 		<%= 'You don\'t have any authors yet.' %>
-			<%= 'Simply click ' + image_tag('plus.gif') + ' next to the names of your favourite authors.'  %>		
+	 		<%= 'You don\'t have any favourite authors yet.' %>
+			<%= 'Simply click the ' + image_tag('plus.gif') + ' next to a name to add an author to your list.'  %>		
 		<% end %>
 		</div>
     <% end %>			
-  <% else %>
-	<br>
-	<li>
-	<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </div>
-	</li>
-	<div class = 'message'>
-		<% if @language == 2 %>
-	  		<%= 'Erhalten Sie alle Artikel Ihrer Lieblingsautoren!' %> 
+  <% end %>
 
-			<%= link_to 'Melden Sie sich einfach an', :controller => 'users', :action => 'new', :l=>@l %> <%= ' um Autoren zu sammeln.'  %>
-		<% else %>
-	 		<%= 'Get all articles by your favourite authors!' %> 
-
-			<%= link_to 'Simply sign up', :controller => 'users', :action => 'new', :l=>@l %> <%= 'to start collecting authors.'  %>		
-		<% end %>
-		</div>
-	<% end %>
-				
+  				
 	<% if @searchterms %>			
 		<% @searchterms.each do |s| %>
 			
