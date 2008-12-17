@@ -1,12 +1,12 @@
 <% if logged_in? == false %>
 <div class = 'message'>
-	<% if @language == 2 %>
- 
-		<%= link_to 'Melden Sie sich einfach an', :controller => 'users', :action => 'new', :l=>@l %> <%= ' um alle Artikel Ihrer Lieblingsautoren zu erhalten und Ihre eigenen Themen zu erstellen.'  %>
-	<% else %>
+		<% if @language == 2 %>
 
-		<%= link_to 'Simply sign up', :controller => 'users', :action => 'new', :l=>@l %> <%= ' to get all articles by your favorite authors and to create your own topics.'  %>		
-	<% end %>
+			<%= link_to 'Anmelden für eigene Autoren und Themen', :controller => 'users', :action => 'new', :l=>@l %>  
+		<% else %>
+
+			<%= link_to 'Sign up for your own authors and topics', :controller => 'users', :action => 'new', :l=>@l %>		
+		<% end %>
 	</div>
 <% end %>
 
@@ -49,10 +49,10 @@
 	<div class = 'message'>
 		<% if @language == 2 %>
 	  		<%= 'Sie haben noch keine Lieblingsautoren.' %>
-			<%= 'Klicken Sie einfach auf das ' + image_tag('plus.gif') + ' neben dem Namen um einen Autoren zu Ihrer Liste hinzuzufügen.'  %>
+			<%= 'Klicken Sie auf das ' + image_tag('plus.gif') + ' neben dem Namen um einen Autoren hinzuzufügen.'  %>
 		<% else %>
 	 		<%= 'You don\'t have any favourite authors yet.' %>
-			<%= 'Simply click the ' + image_tag('plus.gif') + ' next to a name to add an author to your list.'  %>		
+			<%= 'Click the ' + image_tag('plus.gif') + ' next to the name to add an author.'  %>		
 		<% end %>
 		</div>
    <% end %>			

@@ -38,6 +38,13 @@
 			<%= link_to topstories_label, :controller => 'groups', :action => 'index', :l => @l  %> </span>
 		<% end %></li>
 		
+		<br>  <li>	<% if params[:controller] == 'subscriptions'  %> 
+			<span class="selected"><%= my_authors  %></span> 
+			<% else %> 
+			<span class="unselected">
+			<%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </span>
+			<% end %></li>
+		
 		<% if @searchterms %>
 
 			<% if @searchterms.size > 0 %>
@@ -138,12 +145,17 @@
 
 <div class="profile">
 	
-	
-	<% if params[:controller] == 'subscriptions'  %> 
-		<span class="selected"><%= my_authors  %></span> 
-		<% else %> 
-		<%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> 
-		<% end %>&nbsp;-&nbsp;
+	<% if logged_in? == false %>
+		<% if @language == 2 %>
+
+			<%= link_to 'Anmelden für eigene Autoren und Themen', :controller => 'users', :action => 'new', :l=>@l %>  
+		<% else %>
+
+			<%= link_to 'Sign up for your own authors and topics', :controller => 'users', :action => 'new', :l=>@l %>		
+		<% end %>
+		&nbsp;-&nbsp;
+	<% end %>
+
     <% if logged_in? %>
 
 	<% if params[:controller] == 'subscriptions'  %> 

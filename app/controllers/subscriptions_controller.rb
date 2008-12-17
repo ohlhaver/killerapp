@@ -20,7 +20,7 @@ before_filter :login_required
    @user_stories = @user_stories.sort_by {|u| - u.id }  
    @user_stories = @user_stories.first(36)
    @user_stories = @user_stories.paginate :page => params[:page],
-                                                :per_page => 12                                             
+                                                :per_page => 6                                             
   end
 
 

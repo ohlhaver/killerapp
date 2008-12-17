@@ -591,3 +591,5 @@
 [Thu Dec 11 12:24:15.701 2008] [  523] accepting connections
 [Thu Dec 11 17:09:53.419 2008] [  523] caught SIGTERM, shutting down
 [Thu Dec 11 17:09:53.420 2008] [  523] shutdown complete
+[Wed Dec 17 12:48:27.643 2008] [  940] creating server socket on 0.0.0.0:3313
+[Wed Dec 17 12:48:27.660 2008] [  940] accepting connections

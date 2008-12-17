@@ -1,8 +1,27 @@
 <li>
 <% div_for(rawstory) do %>
 
-<div class="datestamp">
+<div class="headline">
 
+
+<%= image_tag('opinion.gif') if rawstory.opinion == 1 %> <%= image_tag('video.gif') + ' ' if rawstory.video == true %> <%= link_to rawstory.title, rawstory.link %>
+
+<span class="cluster">
+<% if rawstory.haufen && rawstory.haufen.weight > 1 && params[:controller] != 'haufens' %>
+- <%= link_to haufen_label(rawstory), :controller => 'haufens', :action => 'show', :id => rawstory.haufen, :l => @l %> 
+<% unless rawstory.haufen.videos == nil %>
+	<% if rawstory.haufen.videos > 0 %>
+- 	<%= link_to video_label(rawstory), :controller => 'haufens', :action => 'filter_haufen_by_videos', :id => rawstory.haufen, :l => @l %> 	
+	<% end %>
+  <%end%>	
+<% end %>
+</span>
+
+</div>
+
+
+<div class="datestamp">
+<span class="source"><%= rawstory.source.website %></span> - 
 <% if rawstory.author.name != '' %>
 <% unless params[:controller] == 'authors' %>
 <span class="author"><%= link_to rawstory.author.name, :controller => 'authors', :action => 'show', :id => rawstory.author, :l => @l %> </span> 
@@ -21,35 +40,12 @@
 <% end %>
 <% end %>
 
-<span class="source"><%= rawstory.source.website %></span> - 
+
 <%= peterson rawstory %>
 
 </div>
 
-<div class="headline">
 
-<%= image_tag('opinion.gif') if rawstory.opinion == 1 %> <%= image_tag('video.gif') + ' ' if rawstory.video == true %> <%= link_to rawstory.title, rawstory.link %>
-
-<span class="cluster">
-
-
-<% if rawstory.haufen && rawstory.haufen.weight > 1 && params[:controller] != 'haufens' %>
-- <%= link_to haufen_label(rawstory), :controller => 'haufens', :action => 'show', :id => rawstory.haufen, :l => @l %> 
-<% unless rawstory.haufen.videos == nil %>
-	<% if rawstory.haufen.videos > 0 %>
-- 	<%= link_to video_label(rawstory), :controller => 'haufens', :action => 'filter_haufen_by_videos', :id => rawstory.haufen, :l => @l %> 	
-	<% end %>
-  <%end%>
-
-
-	
-<% end %>
-
-
-
-
-</span>
-</div>
 
 <% end %>
 </li>

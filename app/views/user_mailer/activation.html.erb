@@ -1,9 +1,14 @@
 <% if @user.language == 2 %>
 Liebe(r) <%= @user.login %>, 
 
-Ihr Jurnalo Zugang ist aktiviert worden. Sie können ab sofort alle guten Zeitungen auf einmal lesen:
+Ihr Jurnalo Zugang ist aktiviert worden. Sie können ab sofort den besten Journalismus der Welt geniessen:
 
   <%= @url %>
+
+Um eigene Themen zu erstellen, klicken Sie bitte 'Neues Thema [+]' in der linken Navigationsleiste.
+
+Um Autoren zu Ihren Lieblingsautoren zu machen, klicken Sie bitte auf das Plus Symbol neben dem Namen eines Autors.
+
 
 Viele Grüße,
 Jurnalo
@@ -15,6 +20,10 @@ Dear <%= @user.login %>,
 Your account has been activated. You can now start enjoying the world's best journalism:
 
   <%= @url %>
+
+To create your own topics, please click the 'New topic [+]' link in the left navigation bar.
+
+To create your favourite authors, please, click the plus symbol next to the name of an author.
 
 Regards,
 Jurnalo

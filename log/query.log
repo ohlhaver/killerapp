@@ -2631,3 +2631,26 @@
 [Thu Dec 11 15:14:36.088 2008] 0.001 sec [ext/0/rel 0 (0,20)] [main delta] <script> alert
 [Thu Dec 11 15:14:46.535 2008] 0.001 sec [ext/0/rel 0 (0,20)] [main delta] <script> alert
 [Thu Dec 11 15:43:09.354 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] jurnalo
+[Wed Dec 17 12:50:29.465 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] hasu
+[Wed Dec 17 12:50:40.529 2008] 0.037 sec [ext/0/rel 73 (0,20)] [main delta] haus
+[Wed Dec 17 12:51:39.767 2008] 0.001 sec [ext/0/rel 255 (0,20)] [main delta] Obama
+[Wed Dec 17 12:51:44.506 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] hasu
+[Wed Dec 17 12:51:44.511 2008] 0.001 sec [ext/0/rel 255 (0,20)] [main delta] Obama
+[Wed Dec 17 12:51:54.298 2008] 0.001 sec [ext/0/rel 255 (0,20)] [main delta] Obama
+[Wed Dec 17 12:52:11.471 2008] 0.001 sec [ext/0/rel 2 (0,20)] [main delta] Fruit
+[Wed Dec 17 12:52:33.737 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] hasu
+[Wed Dec 17 12:52:33.742 2008] 0.001 sec [ext/0/rel 255 (0,20)] [main delta] Obama
+[Wed Dec 17 12:52:33.757 2008] 0.000 sec [ext/0/rel 2 (0,20)] [main delta] Fruit
+[Wed Dec 17 12:54:32.851 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] hasu
+[Wed Dec 17 12:54:32.856 2008] 0.001 sec [ext/0/rel 255 (0,20)] [main delta] Obama
+[Wed Dec 17 12:54:32.870 2008] 0.000 sec [ext/0/rel 2 (0,20)] [main delta] Fruit
+[Wed Dec 17 14:44:25.919 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] hasu
+[Wed Dec 17 14:44:25.925 2008] 0.001 sec [ext/0/rel 255 (0,20)] [main delta] Obama
+[Wed Dec 17 14:44:25.939 2008] 0.000 sec [ext/0/rel 2 (0,20)] [main delta] Fruit
+[Wed Dec 17 14:45:43.100 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] hasu
+[Wed Dec 17 14:45:43.105 2008] 0.001 sec [ext/0/rel 255 (0,20)] [main delta] Obama
+[Wed Dec 17 14:45:43.120 2008] 0.000 sec [ext/0/rel 2 (0,20)] [main delta] Fruit
+[Wed Dec 17 14:45:47.075 2008] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] hasu
+[Wed Dec 17 14:45:47.080 2008] 0.001 sec [ext/0/rel 255 (0,20)] [main delta] Obama
+[Wed Dec 17 14:45:47.095 2008] 0.000 sec [ext/0/rel 2 (0,20)] [main delta] Fruit
+[Wed Dec 17 15:12:53.851 2008] 0.001 sec [ext/0/rel 255 (0,20)] [main delta] Obama

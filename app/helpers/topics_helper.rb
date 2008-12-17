@@ -2,17 +2,17 @@ module TopicsHelper
   
   def create_topic_slogan
     if @language ==2
-      label = 'Bitte geben Sie einen Suchbegriff ein. Ihr neues Thema wird die neuesten Nachrichten zu diesem Suchbegriff anzeigen.'
+      label = 'Ihr neues Thema wird die neuesten Nachrichten zu Ihrem Suchbegriff anzeigen.'
     else
-      label = 'Please enter a search term. Your new topic will show the latest news for this search term.'
+      label = 'Your new topic will show the latest news for your search term.'
     end  
   end
   
   def search_term_label
     if @language ==2
-      label = 'Suchbegriff'
+      label = 'Suchbegriff eingeben'
     else
-      label = 'Search term'
+      label = 'Enter search term'
     end  
   end
   
