@@ -2,11 +2,13 @@
 Liebe(r) <%= @user.login %>, 
 
 Es gibt neue Artikel von Ihren Lieblingsautoren:
+<% if @user_new_stories %>
 <% @user_new_stories.each do |story| %>
 <%= story.author.name %>
 <%= story.title %>
 <%= story.link %>
 
+<% end %>
 <% end %>
 Eine Übersicht aller Artikel Ihrer Lieblingsautoren finden Sie hier: 
 <%= @my_authors_link  %> 
@@ -24,11 +26,13 @@ www.jurnalo.de
 Dear <%= @user.login %>, 
 
 You have got new articles by your favorite authors:
+<% if @user_new_stories %>
 <% @user_new_stories.each do |story| %>
 <%= story.author.name %>
 <%= story.title %>
 <%= story.link %>
 
+<% end %>
 <% end %>
 To find all articles by your favorite authors, follow the link below: 
 <%= @my_authors_link  %> 
