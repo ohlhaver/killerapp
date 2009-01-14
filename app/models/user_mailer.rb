@@ -34,6 +34,18 @@ class UserMailer < ActionMailer::Base
   
   
   def change_alert(user)
+    
+      @user_new_stories =[]
+       if user.new_stories
+        story_array = user.new_stories.split(/\ /)
+        story_array.each do |story|
+           @user_new_stories += Rawstory.find(story).to_a
+        end
+      end
+      
+    user.new_stories = nil
+    user.save
+    
      setup_email(user)
      if user.language == 2
        @subject    = 'Neue Artikel von Ihren Lieblingsautoren'
@@ -50,16 +62,7 @@ class UserMailer < ActionMailer::Base
        
      end
          
-      @user_new_stories =[]
-       if user.new_stories
-        story_array = user.new_stories.split(/\ /)
-        story_array.each do |story|
-           @user_new_stories += Rawstory.find(story).to_a
-        end
-      end
-      
-    user.new_stories = nil
-    user.save  
+
   
   end
   
