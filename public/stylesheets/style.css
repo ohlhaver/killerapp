@@ -11,6 +11,17 @@ a img {
 	
 }
 
+#google_ad_right {
+
+	margin-right: 10px;
+	vertical-align: top;
+	right: 0;
+	margin-top: 0px;
+	position: fixed;
+	top: 9px;
+	
+}
+
 .current {
 	color: #FFFFFF;
 	background-color: #0000C8;
@@ -34,7 +45,7 @@ a img {
 	margin-left: 140px;
 	color: #999999;
 	margin-bottom: 10px;
-	margin-top: 27px;
+	margin-top: 50px;
 }
 
 #feedbackfield {
@@ -273,7 +284,7 @@ a:active {
 }
 body {
 	margin-top: 0px;
-	margin-right: 10px;
+	margin-right: 170px;
 	margin-bottom: 0px;
 	margin-left: 0px;
 }

@@ -597,3 +597,7 @@
 [Wed Dec 17 16:16:05.523 2008] [  940] shutdown complete
 [Wed Jan 14 10:43:04.888 2009] [  280] creating server socket on 0.0.0.0:3313
 [Wed Jan 14 10:43:04.905 2009] [  280] accepting connections
+[Thu Jan 15 00:12:32.659 2009] [  280] caught SIGTERM, shutting down
+[Thu Jan 15 00:12:32.660 2009] [  280] shutdown complete
+[Mon Jan 19 17:36:36.762 2009] [  744] creating server socket on 0.0.0.0:3313
+[Mon Jan 19 17:36:36.779 2009] [  744] accepting connections

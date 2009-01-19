@@ -132,6 +132,20 @@
 	</list>
 	</div>
 	</div>	
+	
+		<div id="google_ad_right">
+	<script type="text/javascript"><!--
+	google_ad_client = "pub-0643230471169917";
+	/* 160x600, created 1/19/09 */
+	google_ad_slot = "3347941602";
+	google_ad_width = 160;
+	google_ad_height = 600;
+	//-->
+	</script>
+	<script type="text/javascript"
+	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+	  </div>
 
 <% form_tag search_rawstories_path(:l => @l), :method => :get do -%>
 <div class ="search">
@@ -179,7 +193,6 @@
   </div>
 
 
-
 <div class="headlines">
   <ul>
  <div id="content">
@@ -193,20 +206,6 @@
 
 
 <div id="footer">
-	<div id="google_ad_bottom_left">
-		<script type="text/javascript"><!--
-		google_ad_client = "pub-0643230471169917";
-		/* 728x90, created 12/2/08 */
-		google_ad_slot = "1444495826";
-		google_ad_width = 728;
-		google_ad_height = 90;
-		//-->
-		</script>
-		<script type="text/javascript"
-		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-		</script>
-	</div>
-
 	
 	
 	©2008 - <%= link_to imprint_label, :controller => 'about', :action => 'imprint', :l => @l  %> - <%= link_to privacy_label, :controller => 'about', :action => 'privacy', :l => @l  %> <% if @language == 2  %> - <%= link_to 'English edition', 'http://www.jurnalo.com' %> <%end%> 
