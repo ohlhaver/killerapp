@@ -12,12 +12,12 @@ a img {
 }
 
 #google_ad_right {
-
+	position: absolute;
 	margin-right: 10px;
 	vertical-align: top;
-	right: 0;
+    right: 0px;
 	margin-top: 0px;
-	position: fixed;
+
 	top: 9px;
 	
 }
@@ -227,7 +227,7 @@ li {
 }
 ul {
 	margin-top: 0px;
-	margin-right: 0px;
+	margin-right: 20px;
 	margin-bottom: 14px;
 	margin-left: 0px;
 	padding-top: 0px;
