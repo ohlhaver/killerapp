@@ -224,10 +224,11 @@ li {
 }
 .headlines {
 	margin-left: 140px;
+	margin-right: 20px;
 }
+
 ul {
 	margin-top: 0px;
-	margin-right: 20px;
 	margin-bottom: 14px;
 	margin-left: 0px;
 	padding-top: 0px;

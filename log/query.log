@@ -2701,3 +2701,12 @@
 [Mon Jan 19 18:30:40.978 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] Würmerchen
 [Mon Jan 19 18:34:32.472 2009] 0.001 sec [ext/0/rel 422 (0,20)] [main delta] Obama
 [Mon Jan 19 18:34:32.488 2009] 0.001 sec [ext/0/rel 62 (0,20)] [main delta] Google
+[Tue Jan 20 16:12:52.847 2009] 0.039 sec [ext/0/rel 422 (0,20)] [main delta] Obama
+[Tue Jan 20 16:12:52.877 2009] 0.001 sec [ext/0/rel 62 (0,20)] [main delta] Google
+[Tue Jan 20 16:13:07.070 2009] 0.000 sec [ext/0/rel 2 (0,20)] [main delta] Google News
+[Tue Jan 20 16:13:22.377 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Tue Jan 20 16:13:39.247 2009] 0.001 sec [ext/0/rel 8 (0,20)] [main delta] Hamburger SV
+[Tue Jan 20 16:13:50.521 2009] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] Venture Capital
+[Tue Jan 20 16:14:36.453 2009] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] Venture Capital
+[Tue Jan 20 16:14:52.332 2009] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] Venture Capital
+[Tue Jan 20 16:15:31.341 2009] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] Venture Capital

@@ -603,3 +603,5 @@
 [Mon Jan 19 17:36:36.779 2009] [  744] accepting connections
 [Tue Jan 20 00:10:40.583 2009] [  744] caught SIGTERM, shutting down
 [Tue Jan 20 00:10:40.584 2009] [  744] shutdown complete
+[Tue Jan 20 16:12:42.511 2009] [  574] creating server socket on 0.0.0.0:3313
+[Tue Jan 20 16:12:42.512 2009] [  574] accepting connections
