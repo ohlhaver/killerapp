@@ -139,10 +139,10 @@ li {
 	position: fixed;
 }
 .logo {
-	margin-left: 10px;
+	margin-left: 140px;
 	vertical-align: top;
 	margin-top: 0px;
-	position: fixed;
+	position: absolute;
 	top: 9px;
 }
 .header {
@@ -170,7 +170,7 @@ li {
 .search {
 	display: block;
 	text-align: left;
-	margin-left: 140px;
+	margin-left: 318px;
 	vertical-align: top;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;

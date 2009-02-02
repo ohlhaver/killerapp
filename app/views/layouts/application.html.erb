@@ -19,7 +19,7 @@
 		
 
 	
-		<div class="sidebar">
+
 	
 			<div class ="logo">
 				<%= link_to image_tag('logo.gif'), :controller => 'groups', :l => @l%>
@@ -29,114 +29,7 @@
 				
 
 
-		<div class ="navigation">
-			<ul>
-	<li>	<% if params[:action] == 'index' && params[:controller] == 'groups'%> 
-		<span class="selected"><%= topstories_label  %></span> 
-		<% else %> 
-		<span class="unselected">
-			<%= link_to topstories_label, :controller => 'groups', :action => 'index', :l => @l  %> </span>
-		<% end %></li>
-		
-		
 
-		<br>
-		
-	
-
-	<li>	<% if params[:action] == 'politics' %> 
-		<span class="selected"><%= politics_label  %></span> 
-		<% else %> 
-		<span class="unselected">
-		<%= link_to politics_label, :controller => 'groups', :action => 'politics', :l => @l %>  </span>
-		<% end %></li>
-
-	<li>	<% if params[:action] == 'business' %> 
-		<span class="selected"><%= business_label  %></span>  
-		<% else %> 
-		<span class="unselected">
-		<%= link_to business_label, :controller => 'groups', :action => 'business', :l => @l  %>  </span>
-		<% end %></li>
-
-	<li>	<% if params[:action] == 'culture' %> 
-		<span class="selected"><%= culture_label  %></span> 
-		<% else %> 
-		<span class="unselected">
-		<%= link_to culture_label,:controller => 'groups', :action => 'culture', :l => @l  %>  </span>
-		<% end %></li>
-
-	<li>	<% if params[:action] == 'science' %> 
-		<span class="selected"><%= science_label  %></span>  
-		<% else %> 
-		<span class="unselected">
-	<%= link_to science_label, :controller => 'groups', :action => 'science', :l => @l  %>  </span>
-		<% end %></li>
-
-	<li>	<% if params[:action] == 'technology' %> 
-		<span class="selected"><%= technology_label  %></span>  
-		<% else %> 
-		<span class="unselected">
-		<%= link_to technology_label, :controller => 'groups', :action => 'technology', :l => @l %>  </span>
-		<% end %></li>
-
-	<li>	<% if params[:action] == 'sport' %> 
-		<span class="selected"><%= sport_label  %></span>  
-		<% else %> 
-		<span class="unselected">
-	<%= link_to sport_label, :controller => 'groups', :action => 'sport', :l => @l  %> </span>
-		<% end %></li>
-
-	<li>	<% if params[:action] == 'mixed' %> 
-	<span class="selected"><%= mixed_label  %></span>  
-		<% else %> 
-		<span class="unselected">
-		<%= link_to mixed_label, :controller => 'groups', :action => 'mixed', :l => @l  %> </span>
-		<% end %></li>
-		<br>
-		<li>	<% if params[:action] == 'opinions' %> 
-			<span class="selected"><%= opinions_label  %></span> 
-			<% else %> 
-			<span class="unselected">
-			<%= link_to opinions_label, :controller => 'groups', :action => 'opinions', :l => @l  %> </span>
-			<% end %></li>
-			
-			<br>  <li>	<% if params[:controller] == 'subscriptions'  %> 
-				<span class="selected"><%= my_authors  %></span> 
-				<% else %> 
-				<span class="unselected">
-				<%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </span>
-				<% end %></li>
-		
-		<% if @searchterms %>
-
-			<% if @searchterms.size > 0 %>
-			<br>
-			
-			<% @searchterms.each do |s| %>
-				<li>	<% if params[:q] == s %> 
-					<span class="selected"><%= h(s)  %></span>&nbsp;&nbsp;<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %>  
-					<% else %> 
-					<span class="unselected">
-						<%= link_to h(s) , search_rawstories_path(:l => @l, :q => s, :m => 'topic')  %>&nbsp;&nbsp;
-						<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %></span>
-					<% end %></li>
-
-			<%end%>
-			<%end%>
-		<%end%>
-		<br>
-		<li><% if params[:action] == 'create_topic' %> 
-			<span class="selected"><%= create_topic  %></span>  
-		<% else %> 
-			<span class="unselected">
-			<%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %> </span>
-		<% end %></li>
-		
-	
-	</ul>
-	</list>
-	</div>
-	</div>	
 	
 
 <% form_tag search_rawstories_path(:l => @l), :method => :get do -%>
