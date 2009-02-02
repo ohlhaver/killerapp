@@ -175,7 +175,8 @@
 	
  </div>
 
-  <div id="my_topics">			
+  <div id="my_topics">
+			
 	<% if @searchterms %>			
 		<% @searchterms.each do |s| %>
 			
@@ -184,7 +185,8 @@
 					<% if s != nil %>
 					<br>
 					<li>
-	  				<div class="pagelabel"> <%= link_to h(s), search_rawstories_path(:l => @l, :q => s)  %> </div>
+	  				<div class="pagelabel"> <%= link_to h(s), search_rawstories_path(:l => @l, :q => s)  %> &nbsp;&nbsp;
+					<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %></div>
 					</li>
 					<ul>
 					<%= render :partial => @top_my_searchterms[s] %>
@@ -194,7 +196,30 @@
 			<% end %>		
 			
 		<% end %>
-	<% end %>
+		<br><br>
+		<li>
+		<div class="pagelabel"> <%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %> </div>
+		</li>
+			<% if @language == 2 %>
+			<%= link_to 'Neues Thema hinzufügen!', :controller => 'topics', :action => 'new', :l => @l  %>
+			<%else%>
+			<%= link_to 'Add a new topic!', :controller => 'topics', :action => 'new', :l => @l  %>
+			<%end%>
+	<% else %>
+	<li>
+	<div class="pagelabel"> <%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %> </div>
+	</li>
+	<% if @language == 2 %>
+		<%= 'Erstellen Sie Ihre eigenen Themen!' %><br><%= link_to 'Anmelden', :controller => 'users', :action => 'new', :l=>@l %> &nbsp;-&nbsp; <%= link_to 'Login', :controller => 'sessions', :action => 'new', :l=>@l %> 
+	
+		<% else %>
+			<%= 'Create your own topics!' %><br><%= link_to 'Sign up', :controller => 'users', :action => 'new', :l=>@l %> &nbsp;-&nbsp; <%= link_to 'Login', :controller => 'sessions', :action => 'new', :l=>@l %> 
+			
+		
+		<%end%>
+		
+	
+	<%end%>
 	</div>
 <% end %>
 

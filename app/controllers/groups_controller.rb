@@ -171,12 +171,12 @@ class GroupsController < ApplicationController
      @user_stories =[]
      if @current_user.stories
       story_array = @current_user.stories.split(/\ /) if @current_user.stories
-      date = Time.now.yesterday
+      #date = Time.now.yesterday
       story_array.each do |story|
         #rawstory = Rawstory.find(story)
         # @user_stories += rawstory.to_a if rawstory.created_at > Time.now.yesterday 
         story = Rawstory.find(story)
-        @user_stories += story.to_a if story.created_at > date
+        @user_stories += story.to_a #if story.created_at > date
       end
      end
 
@@ -217,8 +217,8 @@ class GroupsController < ApplicationController
       story.blub = blub    
       counter = counter + 1
       end                                            
-      date = Time.now.yesterday
-      @rawstories = @rawstories.find_all {|u| u.created_at > date }  
+      #date = Time.now.yesterday
+      #@rawstories = @rawstories.find_all {|u| u.created_at > date }  
       @rawstories = @rawstories.sort_by {|u| - u.blub }  
       
       haufens = @rawstories.first(2)

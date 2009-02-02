@@ -355,7 +355,7 @@ body {
 #my_authors {
 	position: absolute;
 	float: none;
-	top: 360px;
+	top: 340px;
 	left: 700px;
 	width: 500px;
 }
@@ -366,4 +366,5 @@ body {
 	top: 620px;
 	left: 700px;
 	width: 500px;	
+	padding-bottom: 40px;
 }

@@ -41,6 +41,7 @@
 		
 
 		<br>
+		
 	
 
 	<li>	<% if params[:action] == 'politics' %> 
@@ -91,6 +92,20 @@
 		<span class="unselected">
 		<%= link_to mixed_label, :controller => 'groups', :action => 'mixed', :l => @l  %> </span>
 		<% end %></li>
+		<br>
+		<li>	<% if params[:action] == 'opinions' %> 
+			<span class="selected"><%= opinions_label  %></span> 
+			<% else %> 
+			<span class="unselected">
+			<%= link_to opinions_label, :controller => 'groups', :action => 'opinions', :l => @l  %> </span>
+			<% end %></li>
+			
+			<br>  <li>	<% if params[:controller] == 'subscriptions'  %> 
+				<span class="selected"><%= my_authors  %></span> 
+				<% else %> 
+				<span class="unselected">
+				<%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </span>
+				<% end %></li>
 		
 		<% if @searchterms %>
 
