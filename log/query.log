@@ -2710,3 +2710,297 @@
 [Tue Jan 20 16:14:36.453 2009] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] Venture Capital
 [Tue Jan 20 16:14:52.332 2009] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] Venture Capital
 [Tue Jan 20 16:15:31.341 2009] 0.001 sec [ext/0/rel 4 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 12:40:16.109 2009] 0.026 sec [ext/0/rel 422 (0,20)] [main delta] Obama
+[Mon Feb  2 12:40:16.294 2009] 0.001 sec [ext/0/rel 62 (0,20)] [main delta] Google
+[Mon Feb  2 12:40:16.305 2009] 0.000 sec [ext/0/rel 2 (0,20)] [main delta] Google News
+[Mon Feb  2 12:40:16.311 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 12:40:16.316 2009] 0.000 sec [ext/0/rel 8 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 12:40:16.324 2009] 0.000 sec [ext/0/rel 4 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 12:45:48.805 2009] 0.001 sec [ext/0/rel 422 (0,20)] [main delta] Obama
+[Mon Feb  2 12:45:48.829 2009] 0.000 sec [ext/0/rel 62 (0,20)] [main delta] Google
+[Mon Feb  2 12:45:48.839 2009] 0.000 sec [ext/0/rel 2 (0,20)] [main delta] Google News
+[Mon Feb  2 12:45:48.847 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 12:45:48.851 2009] 0.000 sec [ext/0/rel 8 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 12:45:48.860 2009] 0.000 sec [ext/0/rel 4 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 12:45:54.073 2009] 0.001 sec [ext/0/rel 422 (0,20)] [main delta] Obama
+[Mon Feb  2 12:45:54.098 2009] 0.000 sec [ext/0/rel 62 (0,20)] [main delta] Google
+[Mon Feb  2 12:45:54.108 2009] 0.000 sec [ext/0/rel 2 (0,20)] [main delta] Google News
+[Mon Feb  2 12:45:54.200 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 12:45:54.205 2009] 0.000 sec [ext/0/rel 8 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 12:45:54.213 2009] 0.000 sec [ext/0/rel 4 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 12:58:24.292 2009] 0.002 sec [ext/0/rel 422 (0,20)] [main delta] Obama
+[Mon Feb  2 12:58:24.310 2009] 0.000 sec [ext/0/rel 62 (0,20)] [main delta] Google
+[Mon Feb  2 12:58:24.320 2009] 0.000 sec [ext/0/rel 2 (0,20)] [main delta] Google News
+[Mon Feb  2 12:58:24.327 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 12:58:24.331 2009] 0.000 sec [ext/0/rel 8 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 12:58:24.340 2009] 0.000 sec [ext/0/rel 4 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 12:59:56.066 2009] 0.001 sec [ext/0/rel 422 (0,20)] [main delta] Obama
+[Mon Feb  2 12:59:56.086 2009] 0.001 sec [ext/0/rel 62 (0,20)] [main delta] Google
+[Mon Feb  2 12:59:56.099 2009] 0.000 sec [ext/0/rel 2 (0,20)] [main delta] Google News
+[Mon Feb  2 12:59:56.106 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 12:59:56.111 2009] 0.000 sec [ext/0/rel 8 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 12:59:56.120 2009] 0.000 sec [ext/0/rel 4 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 13:01:34.854 2009] 0.001 sec [ext/0/rel 422 (0,20)] [main delta] Obama
+[Mon Feb  2 13:02:20.959 2009] 0.003 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 13:02:25.364 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 13:02:34.788 2009] 0.003 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 13:02:37.287 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 13:02:39.621 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 13:02:51.365 2009] 0.001 sec [ext/0/rel 6 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 13:04:17.705 2009] 0.002 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 13:04:17.725 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 13:04:17.736 2009] 0.001 sec [ext/0/rel 3 (0,20)] [main delta] Google News
+[Mon Feb  2 13:04:17.744 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 13:04:17.749 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 13:04:17.759 2009] 0.001 sec [ext/0/rel 6 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 13:04:26.333 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 13:16:59.325 2009] 0.003 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 13:16:59.348 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 13:16:59.358 2009] 0.001 sec [ext/0/rel 3 (0,20)] [main delta] Google News
+[Mon Feb  2 13:16:59.365 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 13:16:59.370 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 13:16:59.379 2009] 0.001 sec [ext/0/rel 6 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 13:24:35.262 2009] 0.003 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 13:24:35.288 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 13:24:35.298 2009] 0.001 sec [ext/0/rel 3 (0,20)] [main delta] Google News
+[Mon Feb  2 13:24:35.305 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 13:24:35.310 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 13:24:35.425 2009] 0.001 sec [ext/0/rel 6 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 13:30:40.656 2009] 0.002 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 13:30:40.673 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 13:30:40.686 2009] 0.001 sec [ext/0/rel 3 (0,20)] [main delta] Google News
+[Mon Feb  2 13:30:40.692 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 13:30:40.697 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 13:30:40.707 2009] 0.001 sec [ext/0/rel 6 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 13:49:26.268 2009] 0.003 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 13:49:26.286 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 13:49:26.298 2009] 0.001 sec [ext/0/rel 3 (0,20)] [main delta] Google News
+[Mon Feb  2 13:49:26.305 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 13:49:26.310 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 13:49:26.319 2009] 0.001 sec [ext/0/rel 6 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 13:55:46.069 2009] 0.003 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 13:55:46.100 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 13:55:46.110 2009] 0.001 sec [ext/0/rel 3 (0,20)] [main delta] Google News
+[Mon Feb  2 13:55:46.118 2009] 0.001 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 13:55:46.125 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 13:55:46.137 2009] 0.001 sec [ext/0/rel 6 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 14:43:09.389 2009] 0.003 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 14:43:09.407 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 14:43:09.417 2009] 0.001 sec [ext/0/rel 3 (0,20)] [main delta] Google News
+[Mon Feb  2 14:43:09.424 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 14:43:09.428 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 14:43:09.438 2009] 0.001 sec [ext/0/rel 6 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 14:49:54.710 2009] 0.002 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 14:49:54.853 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 14:49:54.864 2009] 0.001 sec [ext/0/rel 3 (0,20)] [main delta] Google News
+[Mon Feb  2 14:49:54.871 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 14:49:54.876 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 14:49:54.886 2009] 0.001 sec [ext/0/rel 6 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 14:50:55.903 2009] 0.003 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 14:50:55.927 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 14:50:55.938 2009] 0.001 sec [ext/0/rel 3 (0,20)] [main delta] Google News
+[Mon Feb  2 14:50:55.945 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 14:50:55.951 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 14:50:55.960 2009] 0.001 sec [ext/0/rel 6 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 14:57:05.949 2009] 0.003 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 14:57:05.967 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 14:57:05.978 2009] 0.001 sec [ext/0/rel 3 (0,20)] [main delta] Google News
+[Mon Feb  2 14:57:05.985 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 14:57:05.989 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 14:57:05.999 2009] 0.001 sec [ext/0/rel 6 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 14:58:05.148 2009] 0.002 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 14:58:05.166 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 14:58:05.181 2009] 0.001 sec [ext/0/rel 3 (0,20)] [main delta] Google News
+[Mon Feb  2 14:58:05.187 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 14:58:05.192 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 14:58:05.202 2009] 0.001 sec [ext/0/rel 6 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 15:02:48.879 2009] 0.002 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 15:02:48.899 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 15:02:49.044 2009] 0.001 sec [ext/0/rel 3 (0,20)] [main delta] Google News
+[Mon Feb  2 15:02:49.051 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] "Larry Page"
+[Mon Feb  2 15:02:49.056 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] Hamburger SV
+[Mon Feb  2 15:02:49.066 2009] 0.001 sec [ext/0/rel 6 (0,20)] [main delta] Venture Capital
+[Mon Feb  2 15:05:05.104 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 15:05:12.319 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 15:05:24.733 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 15:05:33.985 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 15:05:34.010 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 15:07:12.046 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 15:07:12.060 2009] 0.002 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 15:07:12.073 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 15:09:16.225 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 15:11:20.609 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 15:11:20.631 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 15:16:42.700 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 15:16:42.719 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 15:16:42.729 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 15:20:40.994 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 15:20:41.010 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 15:20:41.023 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 15:37:56.326 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 15:37:56.343 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 15:37:56.355 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 15:41:51.869 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 15:41:51.890 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 15:41:51.900 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 15:45:34.340 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 15:45:34.352 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 15:45:34.365 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 15:52:06.560 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 15:52:06.578 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 15:52:06.589 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 15:53:49.703 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 15:53:49.719 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 15:53:49.729 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 15:57:30.563 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 15:57:30.576 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 15:57:30.590 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 16:01:48.125 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 16:01:48.141 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 16:01:48.152 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 16:13:09.619 2009] 0.002 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 16:13:09.636 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 16:13:09.645 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 16:23:08.868 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 16:23:08.884 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 16:23:08.895 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 16:24:40.189 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 16:24:40.203 2009] 0.002 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 16:24:40.367 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 16:30:42.898 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 16:30:43.075 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 16:30:43.086 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 16:45:40.932 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 16:45:40.951 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 16:45:40.963 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 16:46:14.489 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 16:46:14.507 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 16:46:14.518 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 16:53:31.958 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 16:53:40.960 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 16:53:56.147 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 16:53:56.165 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 16:53:56.174 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 16:55:57.544 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 16:55:57.559 2009] 0.002 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 16:55:57.574 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 17:00:52.344 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 17:00:52.361 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 17:00:52.371 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 17:31:15.461 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 17:31:15.479 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 17:31:15.488 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 17:33:43.138 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 17:33:43.153 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 17:33:43.164 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 17:36:43.081 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 17:36:43.096 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 17:36:43.107 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 17:37:15.468 2009] 0.002 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 17:37:15.489 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 17:37:15.499 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 17:58:16.227 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 17:58:16.241 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 17:58:16.251 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 17:58:21.113 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 17:58:21.127 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 17:58:21.136 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 17:58:40.980 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 17:58:40.994 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 17:58:41.003 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 18:00:18.284 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:00:18.298 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:00:18.307 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 18:05:13.872 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:05:13.887 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:05:13.896 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 18:06:40.047 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:06:40.061 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:06:40.071 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 18:08:25.947 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:08:25.959 2009] 0.001 sec [ext/0/rel 5 (0,20)] [main delta] Krugman
+[Mon Feb  2 18:38:12.919 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:38:20.802 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:38:23.616 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:38:23.628 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:41:27.436 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:41:27.458 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:41:34.578 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:41:34.591 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:42:21.111 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:42:21.125 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:42:40.616 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:42:40.629 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:42:45.157 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:42:45.170 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:43:07.729 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:43:07.741 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:43:16.080 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:43:16.093 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:43:32.925 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:43:32.941 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:44:01.200 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:44:01.215 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:44:18.456 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:44:18.470 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:44:44.005 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:44:44.018 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:45:38.740 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:45:38.752 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:45:47.297 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:45:47.311 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:45:55.507 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:45:55.522 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:46:08.444 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:46:08.456 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:47:08.710 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:47:08.723 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:47:53.468 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:47:53.483 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:50:01.600 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:50:01.612 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:50:50.296 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:50:50.309 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 18:51:51.203 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 18:51:51.216 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:02:45.148 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:02:45.160 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:03:16.760 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:03:16.774 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:03:29.405 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:03:29.419 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:03:57.032 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:03:57.045 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:05:11.602 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:05:11.614 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:05:41.959 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:05:41.972 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:06:10.337 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:06:10.351 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:06:27.596 2009] 0.003 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 19:06:31.040 2009] 0.002 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 19:06:33.005 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:06:33.019 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:07:00.324 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:07:04.274 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:07:04.286 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:07:08.257 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:07:08.272 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:07:11.603 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:07:11.616 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:07:58.798 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:07:58.813 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:11:14.093 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:11:14.106 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:11:43.504 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:11:43.516 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:11:46.734 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:11:46.748 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:12:20.280 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:12:20.454 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:12:34.368 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:12:34.381 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google
+[Mon Feb  2 19:12:49.372 2009] 0.002 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 19:12:53.009 2009] 0.002 sec [ext/0/rel 618 (0,20)] [main delta] Obama
+[Mon Feb  2 19:12:55.494 2009] 0.001 sec [ext/0/rel 13 (0,20)] [main delta] HSV
+[Mon Feb  2 19:12:55.510 2009] 0.001 sec [ext/0/rel 75 (0,20)] [main delta] Google

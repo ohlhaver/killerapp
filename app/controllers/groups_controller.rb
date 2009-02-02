@@ -7,9 +7,9 @@ class GroupsController < ApplicationController
     #unless read_fragment({:f => iphone_user_agent?, :part => 'bottom', :action => 'index', :l => @l, :page => params[:page] || 1}) 
     unless read_fragment({:f => iphone_user_agent?, :action => 'index', :l => @l, :page => params[:page] || 1})   
     @haufens = fetch_groups nil, nil   
-    end
+    #end
     
-    unless read_fragment({:f => iphone_user_agent?, :part => 'bottom', :action => 'index', :l => @l, :page => params[:page] || 1}) 
+    #unless read_fragment({:f => iphone_user_agent?, :part => 'bottom', :action => 'index', :l => @l, :page => params[:page] || 1}) 
     @top_opinions_haufens = fetch_opinions 1
     @top_politics_haufens = fetch_groups 2, 1
     @top_business_haufens = fetch_groups 5, 1

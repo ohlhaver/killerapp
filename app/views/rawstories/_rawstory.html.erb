@@ -6,16 +6,6 @@
 
 <%= image_tag('opinion.gif') if rawstory.opinion == 1 %> <%= image_tag('video.gif') + ' ' if rawstory.video == true %> <%= link_to rawstory.title, rawstory.link, { :popup => 'new_tab' } %>
 
-<span class="cluster">
-<% if rawstory.haufen && rawstory.haufen.weight > 1 && params[:controller] != 'haufens' %>
-- <%= link_to haufen_label(rawstory), :controller => 'haufens', :action => 'show', :id => rawstory.haufen, :l => @l %> 
-<% unless rawstory.haufen.videos == nil %>
-	<% if rawstory.haufen.videos > 0 %>
-- 	<%= link_to video_label(rawstory), :controller => 'haufens', :action => 'filter_haufen_by_videos', :id => rawstory.haufen, :l => @l %> 	
-	<% end %>
-  <%end%>	
-<% end %>
-</span>
 
 </div>
 
@@ -42,6 +32,18 @@
 
 
 <%= peterson rawstory %>
+<br>
+
+<% if rawstory.haufen && rawstory.haufen.weight > 1 && params[:controller] != 'haufens' %>
+<%= link_to haufen_label(rawstory), :controller => 'haufens', :action => 'show', :id => rawstory.haufen, :l => @l %> 
+<% unless rawstory.haufen.videos == nil %>
+	<% if rawstory.haufen.videos > 0 %>
+- 	<%= link_to video_label(rawstory), :controller => 'haufens', :action => 'filter_haufen_by_videos', :id => rawstory.haufen, :l => @l %> 	
+	<% end %>
+  <%end%>	
+<% end %>
+
+
 
 </div>
 

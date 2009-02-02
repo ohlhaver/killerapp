@@ -1,7 +1,7 @@
 module GroupsHelper
   def selection
     if @language == 2
-        selection = 'Schlagzeilen des Tages' if params[:action] == 'index' && params[:controller] == 'groups'
+        selection = 'Schlagzeilen' if params[:action] == 'index' && params[:controller] == 'groups'
         selection = 'Politik' if params[:action] == 'politics'
         selection = 'Feuilleton' if params[:action] == 'culture'
         selection = 'Wirtschaft' if params[:action] == 'business'
@@ -9,9 +9,9 @@ module GroupsHelper
         selection = 'Technik' if params[:action] == 'technology'
         selection = 'Vermischtes' if params[:action] == 'mixed'
         selection = 'Sport' if params[:action] == 'sport'
-        selection = 'Meinungen' if params[:action] == 'opinions'
+        selection = 'Top Autoren' if params[:action] == 'opinions'
     else
-        selection = 'Today\'s Top stories' if params[:action] == 'index' && params[:controller] == 'groups'
+        selection = 'Top stories' if params[:action] == 'index' && params[:controller] == 'groups'
         selection = 'Politics' if params[:action] == 'politics'
         selection = 'Culture' if params[:action] == 'culture'
         selection = 'Business' if params[:action] == 'business'
@@ -19,7 +19,7 @@ module GroupsHelper
         selection = 'Technology' if params[:action] == 'technology'
         selection = 'Mixed' if params[:action] == 'mixed'
         selection = 'Sport' if params[:action] == 'sport'
-        selection = 'Opinions' if params[:action] == 'opinions'
+        selection = 'Top authors' if params[:action] == 'opinions'
    end
    #@selection = 'Ähnliche Artikel' if params[:controller] == 'haufens' && params[:action] == 'show'
    #@selection = 'Meinungen' if params[:controller] == 'haufens' && params[:action] == 'filter_haufen_by_opinions'

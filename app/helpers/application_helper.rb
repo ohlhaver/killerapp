@@ -121,6 +121,15 @@ module ApplicationHelper
     end
   end 
   
+  def topics_label
+    if @language ==2
+      label = 'Meine Themen'
+    else
+      label = 'My topics'
+    end
+  end
+  
+  
   def imprint_label
     if @language ==2
       label = 'Impressum'

@@ -38,45 +38,9 @@
 			<%= link_to topstories_label, :controller => 'groups', :action => 'index', :l => @l  %> </span>
 		<% end %></li>
 		
-		<br>  <li>	<% if params[:controller] == 'subscriptions'  %> 
-			<span class="selected"><%= my_authors  %></span> 
-			<% else %> 
-			<span class="unselected">
-			<%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </span>
-			<% end %></li>
 		
-		<% if @searchterms %>
 
-			<% if @searchterms.size > 0 %>
-			<br>
-			
-			<% @searchterms.each do |s| %>
-				<li>	<% if params[:q] == s %> 
-					<span class="selected"><%= h(s)  %></span>&nbsp;&nbsp;<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %>  
-					<% else %> 
-					<span class="unselected">
-						<%= link_to h(s) , search_rawstories_path(:l => @l, :q => s, :m => 'topic')  %>&nbsp;&nbsp;
-						<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %></span>
-					<% end %></li>
-
-			<%end%>
-			<%end%>
-		<%end%>
 		<br>
-		<li><% if params[:action] == 'create_topic' %> 
-			<span class="selected"><%= create_topic  %></span>  
-		<% else %> 
-			<span class="unselected">
-			<%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %> </span>
-		<% end %></li>
-		<br>
-		
-		<li>	<% if params[:action] == 'opinions' %> 
-			<span class="selected"><%= opinions_label  %></span> 
-			<% else %> 
-			<span class="unselected">
-			<%= link_to opinions_label, :controller => 'groups', :action => 'opinions', :l => @l  %> </span>
-			<% end %></li>
 	
 
 	<li>	<% if params[:action] == 'politics' %> 
@@ -127,25 +91,38 @@
 		<span class="unselected">
 		<%= link_to mixed_label, :controller => 'groups', :action => 'mixed', :l => @l  %> </span>
 		<% end %></li>
+		
+		<% if @searchterms %>
+
+			<% if @searchterms.size > 0 %>
+			<br>
+			
+			<% @searchterms.each do |s| %>
+				<li>	<% if params[:q] == s %> 
+					<span class="selected"><%= h(s)  %></span>&nbsp;&nbsp;<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %>  
+					<% else %> 
+					<span class="unselected">
+						<%= link_to h(s) , search_rawstories_path(:l => @l, :q => s, :m => 'topic')  %>&nbsp;&nbsp;
+						<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %></span>
+					<% end %></li>
+
+			<%end%>
+			<%end%>
+		<%end%>
+		<br>
+		<li><% if params[:action] == 'create_topic' %> 
+			<span class="selected"><%= create_topic  %></span>  
+		<% else %> 
+			<span class="unselected">
+			<%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %> </span>
+		<% end %></li>
+		
 	
 	</ul>
 	</list>
 	</div>
 	</div>	
 	
-		<div id="google_ad_right">
-	<script type="text/javascript"><!--
-	google_ad_client = "pub-0643230471169917";
-	/* 160x600, created 1/19/09 */
-	google_ad_slot = "3347941602";
-	google_ad_width = 160;
-	google_ad_height = 600;
-	//-->
-	</script>
-	<script type="text/javascript"
-	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-	</script>
-	  </div>
 
 <% form_tag search_rawstories_path(:l => @l), :method => :get do -%>
 <div class ="search">
