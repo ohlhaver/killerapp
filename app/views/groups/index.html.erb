@@ -1,6 +1,8 @@
+<div class="left_column">
+
 <% cache ( {:l => @l, :page => params[:page] || 1}) do %>
 	
-	 <div id="top_headlines">
+	 
 		
 		<li>
   			<div class="pagelabel"><%= selection %></div>
@@ -15,13 +17,11 @@
 		</div>
 		<% end %>		
 	
-	</div>
 
 		
 	<% if params[:action] == 'index' %>
 	
 
-	 <div id="sections_top_headlines">
 		
 		<% if @top_politics_haufens.size > 0 %>
 		<br>
@@ -101,10 +101,15 @@
 			<%= render :partial => @top_mixed_haufens %>
 		</ul>
 		<% end %>
+
+
+</div>
+
+<div class="right_column">
 		
 		<% if @top_opinions_haufens.size > 0 %>
 
-		<div id="top_authors">
+		
 		<br>
 		<li>
 			<div class="pagelabel"> <%= link_to opinions_label, :action => 'opinions', :l => @l  %> </div>
@@ -112,10 +117,9 @@
 		<ul>
 			<%= render :partial => @top_opinions_haufens %>
 		</ul>
-		</div>
+		
 		<% end %>
 	
-	</div>
 	
 	
 
@@ -129,7 +133,7 @@
 
 <% if params[:action] == 'index' %>
 
- <div id="my_authors">
+
   <% if logged_in? %>
 	
 	<% if @top_my_authors.size > 0 %>
@@ -149,12 +153,13 @@
 	</li>
 	<div class = 'message'>
 		<% if @language == 2 %>
-	  		<%= 'Sie haben noch keine Lieblingsautoren.' %><br>
+	  		<%= 'Sie haben noch keine Lieblingsautoren.' %><br><br>
 			<%= 'Klicken Sie auf das ' + image_tag('plus.gif') + ' neben dem Namen um einen Autoren hinzuzufügen.'  %>
 		<% else %>
-	 		<%= 'You don\'t have any favourite authors yet.' %> <br>
+	 		<%= 'You don\'t have any favourite authors yet.' %> <br><br>
 			<%= 'Click the ' + image_tag('plus.gif') + ' next to the name to add an author.'  %>		
 		<% end %>
+		<br>
 		</div>
     <% end %>			
   <% else %>
@@ -169,13 +174,11 @@
 	 
 			<%= 'Start adding your favorite authors!'  %> <br> <%= link_to 'Sign up', :controller => 'users', :action => 'new', :l=>@l %> &nbsp;-&nbsp; <%= link_to 'Login', :controller => 'sessions', :action => 'new', :l=>@l %> 	
 		<% end %>
+		<br>	<br>
 		</div>
 		
 	<%end%>
 	
- </div>
-
-  <div id="my_topics">
 			
 	<% if @searchterms %>			
 		<% @searchterms.each do |s| %>
@@ -205,6 +208,7 @@
 			<%else%>
 			<%= link_to 'Add a new topic!', :controller => 'topics', :action => 'new', :l => @l  %>
 			<%end%>
+		
 	<% else %>
 	<li>
 	<div class="pagelabel"> <%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %> </div>
@@ -217,13 +221,12 @@
 			
 		
 		<%end%>
-		
+	
 	
 	<%end%>
-	</div>
 <% end %>
 
-
+</div>
 
 
 

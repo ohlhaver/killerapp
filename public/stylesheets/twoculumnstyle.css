@@ -1,5 +1,3 @@
-/* @override http://localhost:3000/stylesheets/style.css?1233612722 */
-
 @charset "UTF-8";
 
 
@@ -226,7 +224,7 @@ li {
 .headlines {
 	font-size: 10px;
 	margin-left: 140px;
-	margin-right: 140px;
+	margin-right: 0;
 }
 
 ul {
@@ -369,17 +367,4 @@ body {
 	left: 700px;
 	width: 500px;	
 	padding-bottom: 40px;
-}
-
-.left_column {
-	width: 400px;
-}
-
-.right_column {
-	width: 400px;
-	float: none;
-	clear: none;
-	top: 97px;
-	position: absolute;
-	left: 700px;
 }

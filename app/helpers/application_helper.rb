@@ -115,9 +115,9 @@ module ApplicationHelper
   end
   def opinions_label
     if @language ==2
-      label = 'Meinungen'
+      label = 'meinungen'
     else
-      label = 'Opinions'
+      label = 'opinions'
     end
   end 
   

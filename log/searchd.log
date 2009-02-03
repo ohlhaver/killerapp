@@ -615,3 +615,7 @@
 [Mon Feb  2 13:01:59.474 2009] [  301] shutdown complete
 [Mon Feb  2 13:02:03.505 2009] [  745] creating server socket on 0.0.0.0:3313
 [Mon Feb  2 13:02:03.505 2009] [  745] accepting connections
+[Tue Feb  3 03:02:20.759 2009] [  745] caught SIGTERM, shutting down
+[Tue Feb  3 03:02:20.853 2009] [  745] shutdown complete
+[Tue Feb  3 11:16:25.642 2009] [  267] creating server socket on 0.0.0.0:3313
+[Tue Feb  3 11:16:25.661 2009] [  267] accepting connections
