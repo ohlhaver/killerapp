@@ -619,3 +619,11 @@
 [Tue Feb  3 03:02:20.853 2009] [  745] shutdown complete
 [Tue Feb  3 11:16:25.642 2009] [  267] creating server socket on 0.0.0.0:3313
 [Tue Feb  3 11:16:25.661 2009] [  267] accepting connections
+[Tue Feb  3 16:43:02.485 2009] [  267] rotating indices (seamless=1)
+[Tue Feb  3 16:43:02.491 2009] [  267] rotating index 'delta': success
+[Tue Feb  3 16:43:02.498 2009] [  267] rotating index 'main': success
+[Tue Feb  3 16:43:02.498 2009] [  267] rotating finished
+[Tue Feb  3 16:43:06.613 2009] [  267] caught SIGTERM, shutting down
+[Tue Feb  3 16:43:06.614 2009] [  267] shutdown complete
+[Tue Feb  3 16:43:10.658 2009] [ 1236] creating server socket on 0.0.0.0:3313
+[Tue Feb  3 16:43:10.658 2009] [ 1236] accepting connections

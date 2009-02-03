@@ -227,6 +227,7 @@ li {
 	font-size: 10px;
 	margin-left: 140px;
 	margin-right: 140px;
+	width: 400px;
 }
 
 ul {
@@ -384,3 +385,25 @@ body {
 	left: 700px;
 	padding-bottom: 40px;
 }
+
+#lrec_top {
+	width: 400px;
+	float: none;
+	clear: none;
+	top: 122px;
+	position: absolute;
+	left: 700px;
+	padding-bottom: 40px;
+}
+
+#lrec_bottom {
+	width: 400px;
+	float: none;
+	clear: none;
+	top: 372px;
+	position: absolute;
+	left: 700px;
+	padding-bottom: 40px;
+}
+
+
