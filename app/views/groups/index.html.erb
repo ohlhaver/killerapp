@@ -135,12 +135,12 @@
 
 
   <% if logged_in? %>
-	
-	<% if @top_my_authors.size > 0 %>
 	<br>
 	<li>
 	<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </div>
 	</li>
+	<% if @top_my_authors.size > 0 %>
+
 		<ul>
 			<%= render :partial => @top_my_authors %>
 		</ul>
@@ -183,14 +183,15 @@
 	<% if @searchterms %>			
 		<% @searchterms.each do |s| %>
 			
-			<% cache ( {:part => 'topic', :s => s, :l => @l, :page => params[:page] || 1}) do %>			
+			<% cache ( {:part => 'topic', :s => s, :l => @l, :page => params[:page] || 1}) do %>
+			<br>
+			<li>
+			<div class="pagelabel"> <%= link_to h(s), search_rawstories_path(:l => @l, :q => s)  %> &nbsp;&nbsp;
+			<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %></div>
+			</li>			
 				<% if @top_my_searchterms[s].size > 0 %>
 					<% if s != nil %>
-					<br>
-					<li>
-	  				<div class="pagelabel"> <%= link_to h(s), search_rawstories_path(:l => @l, :q => s)  %> &nbsp;&nbsp;
-					<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %></div>
-					</li>
+
 					<ul>
 					<%= render :partial => @top_my_searchterms[s] %>
 					</ul>
