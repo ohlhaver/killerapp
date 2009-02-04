@@ -3,7 +3,7 @@
 	<%= search_results if params[:action] == 'search' %> <%= opinion_results if params[:action] == 'filter_by_opinions' %> <%= video_results if params[:action] == 'filter_by_videos' %> <b> '<%= h(params[:q]) %>'
 </b>
 <%  if params[:action] == 'search' %>
-	<% if @opinion_weight > 1 or @videos_weight > 1  %>
+	<% if @opinion_weight > 0 or @videos_weight > 0  %>
 
 	 ( <%= show_all_label %> 	
 	

@@ -47,10 +47,10 @@
 	<% if logged_in? == false %>
 		<% if @language == 2 %>
 
-			<%= link_to 'Anmelden für eigene Autoren und Themen', :controller => 'users', :action => 'new', :l=>@l %>  
+			<%= link_to 'Registrieren', :controller => 'users', :action => 'new', :l=>@l %>  
 		<% else %>
 
-			<%= link_to 'Sign up for your own authors and topics', :controller => 'users', :action => 'new', :l=>@l %>		
+			<%= link_to 'Sign up', :controller => 'users', :action => 'new', :l=>@l %>		
 		<% end %>
 		&nbsp;-&nbsp;
 	<% end %>
@@ -102,19 +102,7 @@
 	<script type="text/javascript"
 	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 	</script>
-</div>
-<div id="lrec_bottom">
-	<script type="text/javascript"><!--
-	google_ad_client = "pub-0643230471169917";
-	/* 300x250, created 2/3/09 */
-	google_ad_slot = "4121292033";
-	google_ad_width = 300;
-	google_ad_height = 250;
-	//-->
-	</script>
-	<script type="text/javascript"
-	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-	</script>
+
 </div>
 <%end%>
 

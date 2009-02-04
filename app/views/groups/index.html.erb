@@ -1,4 +1,7 @@
+
 <div class="left_column">
+
+
 
 <% cache ( {:l => @l, :page => params[:page] || 1}) do %>
 	
@@ -169,7 +172,7 @@
 	</li>
 	<div class = 'message'>
 		<% if @language == 2 %>
-			<%= 'Sammeln Sie Ihre Lieblingsautoren!'  %> <br><%= link_to 'Anmelden', :controller => 'users', :action => 'new', :l=>@l %> &nbsp;-&nbsp; <%= link_to 'Login', :controller => 'sessions', :action => 'new', :l=>@l %> 
+			<%= 'Sammeln Sie Ihre Lieblingsautoren!'  %> <br><%= link_to 'Registrieren', :controller => 'users', :action => 'new', :l=>@l %> &nbsp;-&nbsp; <%= link_to 'Einloggen', :controller => 'sessions', :action => 'new', :l=>@l %> 
 		<% else %>
 	 
 			<%= 'Start adding your favorite authors!'  %> <br> <%= link_to 'Sign up', :controller => 'users', :action => 'new', :l=>@l %> &nbsp;-&nbsp; <%= link_to 'Login', :controller => 'sessions', :action => 'new', :l=>@l %> 	
@@ -215,7 +218,7 @@
 	<div class="pagelabel"> <%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %> </div>
 	</li>
 	<% if @language == 2 %>
-		<%= 'Erstellen Sie Ihre eigenen Themen!' %><br><%= link_to 'Anmelden', :controller => 'users', :action => 'new', :l=>@l %> &nbsp;-&nbsp; <%= link_to 'Login', :controller => 'sessions', :action => 'new', :l=>@l %> 
+		<%= 'Erstellen Sie Ihre eigenen Themen!' %><br><%= link_to 'Registrieren', :controller => 'users', :action => 'new', :l=>@l %> &nbsp;-&nbsp; <%= link_to 'Einloggen', :controller => 'sessions', :action => 'new', :l=>@l %> 
 	
 		<% else %>
 			<%= 'Create your own topics!' %><br><%= link_to 'Sign up', :controller => 'users', :action => 'new', :l=>@l %> &nbsp;-&nbsp; <%= link_to 'Login', :controller => 'sessions', :action => 'new', :l=>@l %> 
