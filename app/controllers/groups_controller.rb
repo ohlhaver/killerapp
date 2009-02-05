@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
       
   def index   
     #unless read_fragment({:f => iphone_user_agent?, :part => 'bottom', :action => 'index', :l => @l, :page => params[:page] || 1}) 
-    unless read_fragment({:f => iphone_user_agent?, :action => 'index', :l => @l, :page => params[:page] || 1})   
+    unless read_fragment({:f => iphone_user_agent?, :action => 'index', :i => @i, :l => @l, :page => params[:page] || 1})   
     @haufens = fetch_groups nil, nil   
     #end
     
@@ -39,21 +39,21 @@ class GroupsController < ApplicationController
   end
   
   def politics
-    unless read_fragment({:action => 'politics', :l => @l, :page => params[:page] || 1})   
+    unless read_fragment({:action => 'politics', :l => @l,:i => @i, :page => params[:page] || 1})   
     @haufens = fetch_groups 2, 0      
   end
     render :action => 'index'
   end
   
   def culture
-    unless read_fragment({:action => 'culture', :l => @l, :page => params[:page] || 1}) 
+    unless read_fragment({:action => 'culture', :l => @l,:i => @i, :page => params[:page] || 1}) 
     @haufens = fetch_groups 3, 0
     end      
     render :action => 'index'
   end
   
   def science
-    unless read_fragment({:action => 'science', :l => @l, :page => params[:page] || 1}) 
+    unless read_fragment({:action => 'science', :l => @l,:i => @i, :page => params[:page] || 1}) 
     @haufens = fetch_groups 4, 0  
     end    
     render :action => 'index'
@@ -61,7 +61,7 @@ class GroupsController < ApplicationController
   end
   
   def business
-    unless read_fragment({:action => 'business', :l => @l, :page => params[:page] || 1})  
+    unless read_fragment({:action => 'business', :l => @l,:i => @i, :page => params[:page] || 1})  
     @haufens = fetch_groups 5, 0
     end    
     render :action => 'index'
@@ -69,7 +69,7 @@ class GroupsController < ApplicationController
   end
 
   def sport
-    unless read_fragment({:action => 'sport', :l => @l, :page => params[:page] || 1})  
+    unless read_fragment({:action => 'sport', :l => @l,:i => @i, :page => params[:page] || 1})  
     @haufens = fetch_groups 6, 0
     end   
     render :action => 'index'
@@ -77,7 +77,7 @@ class GroupsController < ApplicationController
   end
   
   def mixed
-    unless read_fragment({:action => 'mixed', :l => @l, :page => params[:page] || 1}) 
+    unless read_fragment({:action => 'mixed', :l => @l,:i => @i, :page => params[:page] || 1}) 
     @haufens = fetch_groups 7, 0  
     end    
     render :action => 'index'
@@ -85,21 +85,21 @@ class GroupsController < ApplicationController
   end
   
   def humor
-    unless read_fragment({:action => 'humor', :l => @l, :page => params[:page] || 1})  
+    unless read_fragment({:action => 'humor', :l => @l,:i => @i, :page => params[:page] || 1})  
     @haufens = fetch_groups 8, 0
     end     
     render :action => 'index'
   end
   
   def technology
-    unless read_fragment({:action => 'technology', :l => @l, :page => params[:page] || 1}) 
+    unless read_fragment({:action => 'technology', :l => @l,:i => @i, :page => params[:page] || 1}) 
     @haufens = fetch_groups 9, 0 
     end     
     render :action => 'index'
   end
 
   def opinions
-    unless read_fragment({:action => 'opinions', :l => @l, :page => params[:page] || 1}) 
+    unless read_fragment({:action => 'opinions', :l => @l, :i => @i, :page => params[:page] || 1}) 
     @haufens = fetch_opinions 0
     end 
         
@@ -141,24 +141,39 @@ class GroupsController < ApplicationController
         list = Olist.find(:last) 
         @stories =[]
        
-        if @language == 2
-            
-          if list.de
-             story_array = list.de.split(/\ /) 
-             story_array.each do |story|
-               @stories += Rawstory.find(story).to_a
-             end
+      if @i==1
+
+          if list.all
+              story_array = list.all.split(/\ /) 
+              story_array.each do |story|
+                  @stories += Rawstory.find(story).to_a
+              end
           end
-         
-         else
+  
        
-          if list.en
-           story_array = list.en.split(/\ /) 
-           story_array.each do |story|
-             @stories += Rawstory.find(story).to_a
-           end
+      else
+       
+          if @language == 2
+            
+              if list.de
+                  story_array = list.de.split(/\ /) 
+                  story_array.each do |story|
+                      @stories += Rawstory.find(story).to_a
+                  end
+              end
+         
+          else
+       
+              if list.en
+                  story_array = list.en.split(/\ /) 
+                  story_array.each do |story|
+                      @stories += Rawstory.find(story).to_a
+                  end
+              end
           end
-        end
+        
+      end
+        
         @stories = @stories.first(24)
         @stories = @stories.first(2) if home == 1
         haufens = @stories.paginate :page => params[:page],
@@ -173,8 +188,7 @@ class GroupsController < ApplicationController
       story_array = @current_user.stories.split(/\ /) if @current_user.stories
       date = Time.now.yesterday
       story_array.each do |story|
-        #rawstory = Rawstory.find(story)
-        # @user_stories += rawstory.to_a if rawstory.created_at > Time.now.yesterday 
+
         story = Rawstory.find(story)
         @user_stories += story.to_a if story.created_at > date
       end
@@ -195,7 +209,7 @@ class GroupsController < ApplicationController
                                         :weights => { 'title' => 2.0 })
 
       @rawstories = @search.results
-      unless @current_user.language == 3
+      unless @i == 1
         if @language == 2
           @rawstories = @rawstories.find_all{|v| v.language == 2 }
         else 

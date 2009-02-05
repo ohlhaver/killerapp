@@ -115,9 +115,9 @@ module ApplicationHelper
   end
   def opinions_label
     if @language ==2
-      label = 'meinungen'
+      label = 'beliebteste autoren'
     else
-      label = 'opinions'
+      label = 'most popular authors'
     end
   end 
   

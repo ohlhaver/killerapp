@@ -14,9 +14,9 @@ class ApplicationController < ActionController::Base
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
+  before_filter :logged_in?
   before_filter :adjust_format_for_iphone  
   before_filter :language?
-  before_filter :logged_in?
   before_filter :fetch_searchterms
  
 
@@ -40,6 +40,13 @@ class ApplicationController < ActionController::Base
       @language = 1
       @l='e'
     end
+    
+    if logged_in?
+      if @current_user.language == 3
+        @i=1  
+      end
+    end
+    
   end
   
   def adjust_format_for_iphone

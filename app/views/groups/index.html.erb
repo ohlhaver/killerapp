@@ -3,7 +3,7 @@
 
 
 
-<% cache ( {:l => @l, :page => params[:page] || 1}) do %>
+<% cache ( {:l => @l, :i=> @i, :page => params[:page] || 1}) do %>
 	
 	 
 		
@@ -207,11 +207,13 @@
 		<li>
 		<div class="pagelabel"> <%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %> </div>
 		</li>
+		  <% if @searchterms.size == 0 %>
 			<% if @language == 2 %>
-			<%= link_to 'Neues Thema hinzufügen!', :controller => 'topics', :action => 'new', :l => @l  %>
+			<%= link_to 'Eigene Themen erstellen!', :controller => 'topics', :action => 'new', :l => @l  %>
 			<%else%>
-			<%= link_to 'Add a new topic!', :controller => 'topics', :action => 'new', :l => @l  %>
+			<%= link_to 'Create your own topics!', :controller => 'topics', :action => 'new', :l => @l  %>
 			<%end%>
+		  <%end%>
 		
 	<% else %>
 	<li>
