@@ -3676,3 +3676,6 @@
 [Thu Feb  5 21:48:02.742 2009] 0.001 sec [ext/0/rel 33 (0,20)] [main delta] Schiff
 [Thu Feb  5 21:52:54.246 2009] 0.001 sec [ext/0/rel 125 (0,20)] [main delta] Thema
 [Thu Feb  5 21:53:00.025 2009] 0.002 sec [ext/0/rel 722 (0,20)] [main delta] Obama
+[Fri Feb  6 00:12:50.528 2009] 0.003 sec [ext/0/rel 798 (0,20)] [main delta] obama
+[Fri Feb  6 00:16:38.890 2009] 0.003 sec [ext/0/rel 798 (0,20)] [main delta] obama
+[Fri Feb  6 00:16:45.834 2009] 0.001 sec [ext/0/rel 22 (0,20)] [main delta] rain
