@@ -3679,3 +3679,11 @@
 [Fri Feb  6 00:12:50.528 2009] 0.003 sec [ext/0/rel 798 (0,20)] [main delta] obama
 [Fri Feb  6 00:16:38.890 2009] 0.003 sec [ext/0/rel 798 (0,20)] [main delta] obama
 [Fri Feb  6 00:16:45.834 2009] 0.001 sec [ext/0/rel 22 (0,20)] [main delta] rain
+[Sun Feb  8 15:59:22.674 2009] 0.028 sec [ext/0/rel 798 (0,20)] [main delta] Obama
+[Sun Feb  8 15:59:40.620 2009] 0.001 sec [ext/0/rel 247 (0,20)] [main delta] USA
+[Sun Feb  8 16:28:04.368 2009] 0.002 sec [ext/0/rel 566 (0,20)] [main delta] house
+[Sun Feb  8 16:28:26.572 2009] 0.002 sec [ext/0/rel 566 (0,20)] [main delta] house
+[Sun Feb  8 16:57:06.134 2009] 0.002 sec [ext/0/rel 798 (0,20)] [main delta] Obama
+[Sun Feb  8 16:57:12.958 2009] 0.000 sec [ext/0/rel 0 (0,20)] [main delta] Obamasi
+[Sun Feb  8 16:57:44.498 2009] 0.002 sec [ext/0/rel 798 (0,20)] [main delta] Obamas
+[Sun Feb  8 16:59:24.027 2009] 0.000 sec [ext/0/rel 22 (0,20)] [main delta] Rain

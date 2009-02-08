@@ -86,10 +86,26 @@
 	<p style="color: #0000C8"><%= flash[:alert] %></p>
 	<%= yield %>	
  	</div>
+
+	
+	<div id= "lrec_left">
+	<script type="text/javascript"><!--
+	google_ad_client = "pub-0643230471169917";
+	/* 336x280, created 2/8/09 */
+	google_ad_slot = "3664513059";
+	google_ad_width = 336;
+	google_ad_height = 280;
+	//-->
+	</script>
+	<script type="text/javascript"
+	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+	</div>
+
 </ul>
 </div>
 
-<% if params[:action] != 'index' && params[:action] != 'new' && params[:controller] != 'about' %>
+<% unless params[:action] == 'index' && params[:controller] != 'subscriptions' %>
 <div id="lrec_top">
 	<script type="text/javascript"><!--
 	google_ad_client = "pub-0643230471169917";
