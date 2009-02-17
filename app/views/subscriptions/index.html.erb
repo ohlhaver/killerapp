@@ -1,14 +1,17 @@
-
+<div class = 'pagelabel'>
+<%=my_authors if @current_user.login %>
+<% unless @user_stories.empty? %>
+<%= ' (' + articles_list_label + ' - ' %> 
+<%= link_to authors_list_label,  {:controller => 'subscriptions', :action => 'list', :l => @l} %>
+<%= ')' %> 
+<% end %>
+</div>
 
 <% unless @user_stories.empty? -%> 
 
 
 
-<div class = 'pagelabel'>
-<%=my_authors if @current_user.login %><%= ' (' + articles_list_label + ' - ' %> 
-<%= link_to authors_list_label,  {:controller => 'subscriptions', :action => 'list', :l => @l} %>
-<%= ')' %> 
-</div>
+
 
     <%= render :partial => @user_stories %>
 

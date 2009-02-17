@@ -1,32 +1,8 @@
-/* @override http://localhost:3000/stylesheets/style.css?1233612722 */
-
 @charset "UTF-8";
-
-
-
 
 a img {
     border: 0px;
 }
-
-#google_ad_bottom_left {
-
-	margin-top: 50px;
-	margin-bottom: 30px;
-	
-}
-
-#google_ad_right {
-	position: absolute;
-	margin-right: 10px;
-	vertical-align: top;
-    right: 0px;
-	margin-top: 0px;
-
-	top: 9px;
-	
-}
-
 .current {
 	color: #FFFFFF;
 	background-color: #0000C8;
@@ -47,10 +23,12 @@ a img {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	line-height: 19px;
-	margin-left: 80px;
+	margin-left: 140px;
 	color: #999999;
 	margin-bottom: 10px;
-	margin-top: 50px;
+	margin-top: 20px;
+	float: left;
+	clear: both;
 }
 
 #feedbackfield {
@@ -72,10 +50,9 @@ color: #333333;
 .pagelabel {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
-	width: 568px;
 	line-height: 21px;
 	color: #999999;
-	margin-bottom: 27px;
+	margin-bottom: 20px;
 	text-transform: uppercase;
 }
 .pagelabel a:link {
@@ -95,21 +72,37 @@ color: #333333;
 	text-decoration: none;
 }
 
-.navigation a:hover{
-	color: #FFFFFF;
-	background-color: #0000C8;
-	padding: 3px;
-	margin: -3px;
-	white-space: nowrap;
-}
 
 
 #beginning of christians styleshheet {}
 
+
 .headline {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 19px;
+	font-style: normal;
+	line-height: 27px;
+	font-weight: normal;
 	color: #333333;
-	font: normal normal 18px/24px Georgia, "Times New Roman", Times, serif;
 }
+.headline a:link {
+	color: #333333;
+	text-decoration: none;
+}
+.headline a:visited {
+	text-decoration: none;
+	color: #333333;
+}
+.headline a:active {
+	text-decoration: none;
+	color: #0000C8;
+}
+.headline a:hover {
+	text-decoration: none;
+	color: #0000C8;
+}
+
+
 
 li {
 	list-style-type: none;
@@ -123,8 +116,7 @@ li {
 	margin-bottom: 14px;
 	margin-top: 1px;
 	position: fixed;
-	top: 116px;
-	width: 140px;
+	top: 100px;
 }
 .navigation li{
 	list-style-type: none;
@@ -137,15 +129,21 @@ li {
 	background-color: #FFFFFF;
 	padding: 3px;
 }
-
+.navigation a:hover{
+	color: #FFFFFF;
+	background-color: #0000C8;
+	padding: 3px;
+	margin: -3px;
+	white-space: nowrap;
+}
 .sidebar{
 	position: fixed;
 }
 .logo {
-	margin-left: 80px;
+	margin-left: 10px;
 	vertical-align: top;
 	margin-top: 0px;
-	position: absolute;
+	position: fixed;
 	top: 9px;
 }
 .header {
@@ -158,13 +156,13 @@ li {
 	font-size: 12px;
 	line-height: 17px;
 	color: #999999;
-	display: inline;
-	white-space: nowrap;
-	padding-right: 30px;
-	padding-bottom: 30px;
 	padding-top: 7px;
+	position: absolute;
+	width: 300px;
+	left: 560px;
+	top: 0px;
 }
-.default {
+.defagt {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	line-height: 17px;
@@ -173,7 +171,7 @@ li {
 .search {
 	display: block;
 	text-align: left;
-	margin-left: 346px;
+	margin-left: 140px;
 	vertical-align: top;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
@@ -200,13 +198,13 @@ li {
 }
 #searchfield {
 	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size: 21px;
+	font-size: 19px;
 	line-height: 27px;
 	color: #333333;
-	width: 370px;
+	width: 290px;
 	align: left;
 	border: 1px solid #0000C8;
-	padding: 4px;
+	padding: 5px;
 	vertical-align: middle;
 	margin-bottom: 6px;
 }
@@ -225,14 +223,11 @@ li {
 	background-position: center;
 }
 .headlines {
-	font-size: 10px;
-	margin-left: 80px;
-	margin-right: 80px;
-	width: 568px;
+	margin-left: 140px;
 }
-
 ul {
 	margin-top: 0px;
+	margin-right: 0px;
 	margin-bottom: 14px;
 	margin-left: 0px;
 	padding-top: 0px;
@@ -253,15 +248,16 @@ ul {
 
 .message {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 18px;
-	line-height: 21px;
+	font-size: 16px;
+	line-height: 24px;
 	color: #0000CC;
-	margin-bottom: 27px;
-	margin-right: 20px;
+	margin-bottom: 20px;
 }
 .datestamp {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 19px;
+	line-height: 27px;
 	color: #999999;
-	font: 18px/24px Georgia, "Times New Roman", Times, serif;
 }
 .datestamp .source {
 }
@@ -288,7 +284,7 @@ a:active {
 }
 body {
 	margin-top: 0px;
-	margin-right: 170px;
+	margin-right: 10px;
 	margin-bottom: 0px;
 	margin-left: 0px;
 }
@@ -302,13 +298,13 @@ body {
 	color: #0000C8;
 }
 .author {
-	color: #666666;
+	color: #999;
 }
 .author a:link {
-	color: #999999;
+	color: #999;
 }
 .author a:visited {
-	color: #333333;
+	color: #999;
 }
 .author a:hover {
 	color: #0000C8;
@@ -319,10 +315,12 @@ body {
 .cluster {
 	color: #999999;
 	padding: 0px;
-	font: 18px/24px Georgia, "Times New Roman", Times, serif;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 19px;
+	line-height: 27px;
 }
 .cluster a:link {
-	color: #333333;
+	color: #999999;
 	text-decoration: none;
 }
 .cluster a:visited {
@@ -339,37 +337,36 @@ body {
 }
 
 
-.left_column {
-	width: 568px;
+.container
+{
+	width: 840px;
+	margin-left: 140px;
 }
-
-.right_column {
-	width: 351px;
-	float: none;
-	clear: none;
-	top: 97px;
-	position: absolute;
-	left: 728px;
-	padding-bottom: 40px;
-}
-
-#lrec_top {
+.col1
+{
 	width: 400px;
-	float: none;
-	clear: none;
-	top: 170px;
-	position: absolute;
-	padding-bottom: 40px;
-	left: 735px;
+	float: left;
+	margin-right: 20px;
+}
+.col2
+{
+	width: 400px;
+	float: left;
+	margin-right: 20px;
+}
+.module {
+	border-top: 7px solid #99CCFF;
+	padding-top: 7px;
+	padding-bottom: 10px;
 }
 
-#lrec_home_right {
-	padding-top: 80px;	
+#lrec_bottom {
+	margin-top: 40px;	
 }
 
-#lrec_left {
-	padding-top: 40px;	
+.default {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 17px;
+	color: #333333;
 }
-
-
-

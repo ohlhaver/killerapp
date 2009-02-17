@@ -1,11 +1,9 @@
 
-<div class="left_column">
 
 
 
 <% cache ( {:l => @l, :i=> @i, :page => params[:page] || 1}) do %>
-	
-	 
+
 		
 		<li>
   			<div class="pagelabel"><%= selection %></div>
@@ -20,105 +18,113 @@
 		</div>
 		<% end %>		
 	
-
-		
-	<% if params[:action] == 'index' %>
+	</ul>
 	
-
+		
+  <% if params[:action] == 'index' %>
+	
+		
 		
 		<% if @top_politics_haufens.size > 0 %>
-		<br>
+		<ul class="module">
 		<li>
   			<div class="pagelabel"> <%= link_to politics_label, :action => 'politics', :l => @l  %> </div>
 		</li>
 		<ul>
 			<%= render :partial => @top_politics_haufens %>
 		</ul>
+		</ul>
 		<% end %>
 
 		
 		<% if @top_business_haufens.size > 0 %>
-		<br>
+		<ul class="module">
 		<li>
   			<div class="pagelabel"><%= link_to business_label, :action => 'business', :l => @l  %> </div>
 		</li>
 		<ul>
 			<%= render :partial => @top_business_haufens %>
 		</ul>
+		</ul>
 		<% end %>
 
 		
 		
 		<% if @top_culture_haufens.size > 0 %>
-		<br>
+		<ul class="module">
 		<li>
   		<div class="pagelabel"> <%= link_to culture_label, :action => 'culture', :l => @l  %> </div>
 		</li>
 		<ul>
 		<%= render :partial => @top_culture_haufens %>
 		</ul>
+		</ul>
 		<% end %>
 
 
 
 		<% if @top_science_haufens.size > 0 %>
-		<br>
+		<ul class="module">
 		<li>
   		<div class="pagelabel"> <%= link_to science_label, :action => 'science', :l => @l  %> </div>
 		</li>
 		<ul>
 		<%= render :partial => @top_science_haufens %>
 		</ul>
+		</ul>
 		<% end %>
 
 		
 		
 		<% if @top_technology_haufens.size > 0 %>
-		<br>
+		<ul class="module">
 		<li>
   		<div class="pagelabel"> <%= link_to technology_label, :action => 'technology', :l => @l  %> </div>
 		</li>
 		<ul>
 		<%= render :partial => @top_technology_haufens %>
 		</ul>
+		</ul>
 		<% end %>
 
 
 		<% if @top_sport_haufens.size > 0 %>
-		<br>
+		<ul class="module">
 		<li>
   		<div class="pagelabel"> <%= link_to sport_label, :action => 'sport', :l => @l  %> </div>
 		</li>
 		<ul>
 			<%= render :partial => @top_sport_haufens %>
 		</ul>
+		</ul>
 		<% end %>
 
 
 		<% if @top_mixed_haufens.size > 0 %>
-		<br>
+		<ul class="module">
 		<li>
   		<div class="pagelabel"> <%= link_to mixed_label, :action => 'mixed', :l => @l  %> </div>
 		</li>
 		<ul>
 			<%= render :partial => @top_mixed_haufens %>
 		</ul>
+		</ul>
 		<% end %>
 
-
 </div>
+<div class="col2">
 
-<div class="right_column">
 		
 		<% if @top_opinions_haufens.size > 0 %>
 
 		
-		<br>
+		<ul class="module">
 		<li>
 			<div class="pagelabel"> <%= link_to opinions_label, :action => 'opinions', :l => @l  %> </div>
 		</li>
 		<ul>
 			<%= render :partial => @top_opinions_haufens %>
+		</ul>
 		</ul>
 		
 		<% end %>
@@ -134,21 +140,35 @@
 
 
   <% if logged_in? %>
-	<br>
+	<ul class="module">
 	<li>
-	<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </div>
-	</li>
+	<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> 
+	<% if @current_user.subscriptions.size > 0 %>
 	<% if @top_my_authors.size > 0 %>
+	</div>
+	</li>
 
 		<ul>
 			<%= render :partial => @top_my_authors %>
 		</ul>
+		
+		<% else %>
+			&nbsp;&nbsp;
+			
+			<% if @language == 2 %>
+			<%= 'Heute nichts Neues'  %>
+			<%else%>
+			<%= 'No news today' %>
+			<%end%>
+			</div>
+			</li>
+			
+	<%end%>
+	</ul>
 	<%end%>
 	
 	<% if @current_user.subscriptions.size == 0 %>
-	<br>
-	<li>
-	<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </div>
+	</div>
 	</li>
 	<div class = 'message'>
 		<% if @language == 2 %>
@@ -158,11 +178,11 @@
 	 		<%= 'You don\'t have any favourite authors yet.' %> <br><br>
 			<%= 'Click the ' + image_tag('plus.gif') + ' next to the name to add an author.'  %>		
 		<% end %>
-		<br>
 		</div>
+		</ul>
     <% end %>			
   <% else %>
-	<br>
+	<ul class="module">
 	<li>
 	<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </div>
 	</li>
@@ -173,33 +193,43 @@
 	 
 			<%= 'Start adding your favorite authors!'  %> <br> <%= link_to 'Sign up', :controller => 'users', :action => 'new', :l=>@l %> &nbsp;-&nbsp; <%= link_to 'Login', :controller => 'sessions', :action => 'new', :l=>@l %> 	
 		<% end %>
-		<br>	<br>
 		</div>
+		</ul>
 		
 	<%end%>
 	
-			
+	<div class = 'message'>		
 	<% if @searchterms %>			
 		<% @searchterms.each do |s| %>
 			
 			<% cache ( {:part => 'topic', :s => s, :l => @l, :page => params[:page] || 1}) do %>
-			<br>
+			<ul class="module">
 			<li>
 			<div class="pagelabel"> <%= link_to h(s), search_rawstories_path(:l => @l, :q => s)  %> &nbsp;&nbsp;
-			<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %></div>
-			</li>			
+			<%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %>
+						
 				<% if @top_my_searchterms[s].size > 0 %>
 					<% if s != nil %>
-
+					</div>
+					</li>
 					<ul>
 					<%= render :partial => @top_my_searchterms[s] %>
 					</ul>
 					<% end %>
-				<% end %>
+					<% else %>
+						&nbsp;&nbsp;
+						<% if @language == 2 %>
+						<%= 'Heute nichts Neues'  %>
+						<%else%>
+						<%= 'No news today' %>
+						<%end%>
+					<%end%>
+				</ul>
 			<% end %>		
 			
 		<% end %>
-		<br><br>
+		
+		<ul class="module">
 		<li>
 		<div class="pagelabel"> <%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %> </div>
 		</li>
@@ -210,8 +240,10 @@
 			<%= link_to 'Create your own topics!', :controller => 'topics', :action => 'new', :l => @l  %>
 			<%end%>
 		  <%end%>
+		</ul>
 		
 	<% else %>
+	<ul class="module">
 	<li>
 	<div class="pagelabel"> <%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %> </div>
 	</li>
@@ -226,25 +258,14 @@
 	
 	
 	<%end%>
+	</ul>
 	
-	<div id="lrec_home_right">
-	
-	<script type="text/javascript"><!--
-	google_ad_client = "pub-0643230471169917";
-	/* 336x280, created 2/3/09 */
-	google_ad_slot = "3259057232";
-	google_ad_width = 336;
-	google_ad_height = 280;
-	//-->
-	</script>
-	<script type="text/javascript"
-	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-	</script>
 	</div>
-	
 <% end %>
 
-</div>
+
+
+
 
 
 

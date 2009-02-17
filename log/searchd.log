@@ -643,3 +643,7 @@
 [Sun Feb  8 15:00:01.194 2009] [  316] accepting connections
 [Sat Feb 14 20:56:34.152 2009] [  623] creating server socket on 0.0.0.0:3313
 [Sat Feb 14 20:56:34.152 2009] [  623] accepting connections
+[Sun Feb 15 01:57:13.134 2009] [  623] caught SIGTERM, shutting down
+[Sun Feb 15 01:57:13.134 2009] [  623] shutdown complete
+[Tue Feb 17 09:08:35.396 2009] [  219] creating server socket on 0.0.0.0:3313
+[Tue Feb 17 09:08:35.422 2009] [  219] accepting connections

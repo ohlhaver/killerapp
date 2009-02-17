@@ -110,7 +110,7 @@ class RawstoriesController < ApplicationController
       @rawstories = opinion_stories if conditions == 1
       @rawstories = video_stories if conditions == 2
       @rawstories = @rawstories.paginate  :page => params[:page],
-                                          :per_page => 6
+                                          :per_page => 5
       
     end
 

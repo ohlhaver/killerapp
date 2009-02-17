@@ -59,9 +59,9 @@ module ApplicationHelper
   
   def topstories_label
     if @language ==2
-      label = 'Schlagzeilen'
+      label = 'Home'
     else
-      label = 'Top stories'
+      label = 'Home'
     end
   end
   def politics_label
@@ -115,9 +115,9 @@ module ApplicationHelper
   end
   def opinions_label
     if @language ==2
-      label = 'beliebteste autoren'
+      label = 'Beliebteste Autoren'
     else
-      label = 'most popular authors'
+      label = 'Most popular authors'
     end
   end 
   

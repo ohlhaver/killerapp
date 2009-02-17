@@ -44,7 +44,7 @@ def fetch_stories(conditions)
     @haufen_stories = videos if conditions == 2
     @haufen_stories = @haufen_stories.sort_by {|u| - u.id } 
     @haufen_stories = @haufen_stories.paginate :page => params[:page],
-                                         :per_page => 6
+                                         :per_page => 5
 end
    
    

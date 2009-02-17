@@ -1,7 +1,7 @@
 module GroupsHelper
   def selection
     if @language == 2
-        selection = 'Schlagzeilen des Tages' if params[:action] == 'index' && params[:controller] == 'groups'
+        selection = 'Schlagzeilen' + date if params[:action] == 'index' && params[:controller] == 'groups'
         selection = 'Politik' if params[:action] == 'politics'
         selection = 'Feuilleton' if params[:action] == 'culture'
         selection = 'Wirtschaft' if params[:action] == 'business'
@@ -9,9 +9,9 @@ module GroupsHelper
         selection = 'Technik' if params[:action] == 'technology'
         selection = 'Vermischtes' if params[:action] == 'mixed'
         selection = 'Sport' if params[:action] == 'sport'
-        selection = 'beliebteste Autoren' if params[:action] == 'opinions'
+        selection = 'Beliebteste Autoren' if params[:action] == 'opinions'
     else
-        selection = 'Today\'s top stories' if params[:action] == 'index' && params[:controller] == 'groups'
+        selection = 'Top stories' + date if params[:action] == 'index' && params[:controller] == 'groups'
         selection = 'Politics' if params[:action] == 'politics'
         selection = 'Culture' if params[:action] == 'culture'
         selection = 'Business' if params[:action] == 'business'
@@ -19,7 +19,7 @@ module GroupsHelper
         selection = 'Technology' if params[:action] == 'technology'
         selection = 'Mixed' if params[:action] == 'mixed'
         selection = 'Sport' if params[:action] == 'sport'
-        selection = 'most popular Authors' if params[:action] == 'opinions'
+        selection = 'Most popular Authors' if params[:action] == 'opinions'
    end
    #@selection = 'Ähnliche Artikel' if params[:controller] == 'haufens' && params[:action] == 'show'
    #@selection = 'Meinungen' if params[:controller] == 'haufens' && params[:action] == 'filter_haufen_by_opinions'
@@ -46,7 +46,7 @@ module GroupsHelper
         #clock = t.strftime('%I:%M Uhr')
         day = t.mday.to_s
 
-        date = ' - ' + day +'. ' + month #+ ' ' + clock
+        date = ' &nbsp;&nbsp;-&nbsp;&nbsp; ' + day +'. ' + month #+ ' ' + clock
       else
          month = 'January' if m == 1
          month = 'February' if m == 2
@@ -64,7 +64,7 @@ module GroupsHelper
         #clock = t.strftime('%I:%M Uhr')
          day = t.mday.to_s
 
-          date = ' - ' + month + ' ' + day
+          date = '  &nbsp;&nbsp;-&nbsp;&nbsp;  ' + month + ' ' + day
         end
    end
 

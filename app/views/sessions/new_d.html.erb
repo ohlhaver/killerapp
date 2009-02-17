@@ -1,8 +1,8 @@
 <div class = 'message'>
 <%= login_message %>
-</div>
 
-<div class = 'default'>
+
+<div class = 'message'>
 <% form_tag :controller => 'sessions', :action => 'create', :l => @l do -%>
 <p><label for="login">Login</label><br>
 <%= text_field_tag 'login', params[:login], :class => 'textfield' %></p>
@@ -17,4 +17,6 @@
 <p><%= submit_tag 'einloggen', :id => 'loginbutton', :class => 'button' %></p>
 <% end -%>
 <p><b><%= link_to 'Als neuer Benutzer anmelden!', :controller => 'users', :action => 'new', :l => @l %></b></p>
+</div>
+
 </div>

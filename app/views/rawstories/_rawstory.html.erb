@@ -1,6 +1,7 @@
 <li>
 <% div_for(rawstory) do %>
 
+<div class="rawstory">
 <div class="headline">
 
 
@@ -33,6 +34,9 @@
 
 <%= peterson rawstory %>
 <br>
+<div class="cluster">
+	<span class="source">
+	
 
 <% if rawstory.haufen && rawstory.haufen.weight > 1 && params[:controller] != 'haufens' %>
 <%= link_to haufen_label(rawstory), :controller => 'haufens', :action => 'show', :id => rawstory.haufen, :l => @l %> 
@@ -43,8 +47,10 @@
   <%end%>	
 <% end %>
 
+</span>
+</div>
 
-
+</div>
 </div>
 
 
