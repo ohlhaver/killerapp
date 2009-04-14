@@ -41,6 +41,8 @@ class ApplicationController < ActionController::Base
       @l='e'
     end
     
+    @i = 1 if params[:i] == '1'
+    
     if logged_in?
       if @current_user.language == 3
         @i=1  
