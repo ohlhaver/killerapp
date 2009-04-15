@@ -53,6 +53,7 @@ class ApplicationController < ActionController::Base
   
   def adjust_format_for_iphone
     request.format = :iphone if iphone_user_agent?
+    request.format = :iphone if params[:man_agent] = 'iphone'
   end
   
   def iphone_user_agent?
