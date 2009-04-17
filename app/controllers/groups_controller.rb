@@ -39,21 +39,21 @@ class GroupsController < ApplicationController
   end
   
   def politics
-    unless read_fragment({:action => 'politics', :l => @l,:i => @i, :page => params[:page] || 1})   
+    unless read_fragment({:f => iphone_user_agent?, :action => 'politics', :l => @l,:i => @i, :page => params[:page] || 1})   
     @haufens = fetch_groups 2, 0      
   end
     render :action => 'index'
   end
   
   def culture
-    unless read_fragment({:action => 'culture', :l => @l,:i => @i, :page => params[:page] || 1}) 
+    unless read_fragment({:f => iphone_user_agent?, :action => 'culture', :l => @l,:i => @i, :page => params[:page] || 1}) 
     @haufens = fetch_groups 3, 0
     end      
     render :action => 'index'
   end
   
   def science
-    unless read_fragment({:action => 'science', :l => @l,:i => @i, :page => params[:page] || 1}) 
+    unless read_fragment({:f => iphone_user_agent?, :action => 'science', :l => @l,:i => @i, :page => params[:page] || 1}) 
     @haufens = fetch_groups 4, 0  
     end    
     render :action => 'index'
@@ -61,7 +61,7 @@ class GroupsController < ApplicationController
   end
   
   def business
-    unless read_fragment({:action => 'business', :l => @l,:i => @i, :page => params[:page] || 1})  
+    unless read_fragment({:f => iphone_user_agent?, :action => 'business', :l => @l,:i => @i, :page => params[:page] || 1})  
     @haufens = fetch_groups 5, 0
     end    
     render :action => 'index'
@@ -69,7 +69,7 @@ class GroupsController < ApplicationController
   end
 
   def sport
-    unless read_fragment({:action => 'sport', :l => @l,:i => @i, :page => params[:page] || 1})  
+    unless read_fragment({:f => iphone_user_agent?, :action => 'sport', :l => @l,:i => @i, :page => params[:page] || 1})  
     @haufens = fetch_groups 6, 0
     end   
     render :action => 'index'
@@ -77,7 +77,7 @@ class GroupsController < ApplicationController
   end
   
   def mixed
-    unless read_fragment({:action => 'mixed', :l => @l,:i => @i, :page => params[:page] || 1}) 
+    unless read_fragment({:f => iphone_user_agent?, :action => 'mixed', :l => @l,:i => @i, :page => params[:page] || 1}) 
     @haufens = fetch_groups 7, 0  
     end    
     render :action => 'index'
@@ -85,21 +85,21 @@ class GroupsController < ApplicationController
   end
   
   def humor
-    unless read_fragment({:action => 'humor', :l => @l,:i => @i, :page => params[:page] || 1})  
+    unless read_fragment({:f => iphone_user_agent?, :action => 'humor', :l => @l,:i => @i, :page => params[:page] || 1})  
     @haufens = fetch_groups 8, 0
     end     
     render :action => 'index'
   end
   
   def technology
-    unless read_fragment({:action => 'technology', :l => @l,:i => @i, :page => params[:page] || 1}) 
+    unless read_fragment({:f => iphone_user_agent?, :action => 'technology', :l => @l,:i => @i, :page => params[:page] || 1}) 
     @haufens = fetch_groups 9, 0 
     end     
     render :action => 'index'
   end
 
   def opinions
-    unless read_fragment({:action => 'opinions', :l => @l, :i => @i, :page => params[:page] || 1}) 
+    unless read_fragment({:f => iphone_user_agent?, :action => 'opinions', :l => @l, :i => @i, :page => params[:page] || 1}) 
     @haufens = fetch_opinions 0
     end 
         

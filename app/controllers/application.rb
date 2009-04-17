@@ -58,7 +58,7 @@ class ApplicationController < ActionController::Base
   def iphone_user_agent?
     #
     #return (params[:format] == "iphone")
-   params[:man_agent] == 'iphone' or (request.env["HTTP_USER_AGENT"] && request.env["HTTP_USER_AGENT"][/(Mobile\/.+Safari)/])
+   params[:man_agent] == 'iphone' or !(request.env["HTTP_USER_AGENT"].blank? or request.env["HTTP_USER_AGENT"][/(Mobile\/.+Safari)/].blank?)
   #return true
   end
   

@@ -10,7 +10,7 @@
 	</div>
 <% end %>
 
-<% cache ( {:f => iphone_user_agent?, :l => @l, :page => params[:page] || 1}) do %>
+<% cache ( {:f => iphone_user_agent?, :i => @i, :action => params[:action], :l => @l, :page => params[:page] || 1}) do %>
 
 		<li>
   		<div class="pagelabel"><%= selection %><% if params[:action] == 'index'%> &nbsp;-&nbsp;<%= slogan %>&nbsp;-&nbsp;<%= ago %><%end%></div>
