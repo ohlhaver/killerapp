@@ -34,15 +34,14 @@ end
 
 task :after_update_code, :roles => [:web, :db, :app] do
   run "chmod 755 #{release_path}/public -R" 
-  run <<-CMD
-    cd #{release_path} && rm -rf ultrasphinx && ln -s #{shared_path}/ultrasphinx
-  CMD
 end
 
 task :after_deploy, :roles => [:web] do
     run "sed -e \"s/^# ENV/ENV/\" -i #{release_path}/config/environment.rb"
+    run <<-CMD
+      cd #{release_path} && rm -rf ultrasphinx && ln -s #{shared_path}/ultrasphinx
+    CMD
     run "cd /home/justus/#{application}/current; mongrel_rails cluster::restart"
-
 end
 
 after "deploy", "deploy:cleanup"
