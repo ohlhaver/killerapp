@@ -60,6 +60,28 @@ class UsersController < ApplicationController
     redirect_to :controller => 'groups', :action => 'index', :l => @l
   end
 
+  def forgot_password
+    if request.post?
+      if params[:login_or_email_address]
+        user = (/^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i).match(params[:login_or_email_address]).nil? ? User.find_by_login(params[:login_or_email_address]) : User.find(:first, :conditions => ["email = ? ", params[:login_or_email_address]])
+        if user
+          new_password               = Array.new(12) { (rand(122-97) + 97).chr }.join
+          user.password              = new_password
+          user.password_confirmation = new_password
+          user.save!
+          # Send email
+          UserMailer.deliver_credentials_email(user)
+          redirect_to login_url
+          flash[:notice] = "A new password has been created and sent to your email address. Please check your email box."
+        else
+          flash.now[:notice] = "The login/email address does not exist"
+        end
+      else
+        flash.now[:notice] = "Provider your login or email address"
+      end
+    end
+  end
+
   def settings
     if request.post?
        
