@@ -136,6 +136,9 @@
     <% else %>
       <%= link_to login_label, :controller => 'sessions', :action => 'new', :l=>@l %>
     <% end %>
+    <% if logged_in? %>
+      &nbsp;-&nbsp; <%= link_to "Settings", settings_url -%>
+    <% end -%>
 	
 	
   </div>

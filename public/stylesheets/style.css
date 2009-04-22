@@ -18,6 +18,15 @@ a img {
 	vertical-align: middle;
 	padding: 4px;
 }
+.button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 21px;
+	color: #FFFFFF;
+	background-color: #0000C8;
+	vertical-align: middle;
+	padding: 4px;
+}
 
 #footer {
 	font-family: Arial, Helvetica, sans-serif;

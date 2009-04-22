@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   
+  before_filter :login_required, :only => [:settings]
   # render new.rhtml
   def new
      if @language == 2
@@ -59,5 +60,42 @@ class UsersController < ApplicationController
     redirect_to :controller => 'groups', :action => 'index', :l => @l
   end
 
+  def settings
+    if request.post?
+       
+      # Settings : Email Alerts
+      if params[:setting_type] == 'email' and params[:alerts] and (params[:alerts] == "true") != @current_user.alerts
+        @current_user.update_attribute(:alerts, (params[:alerts] == "true"))
+        flash.now[:notice] = "Successfully updated"
+        return
+      end
+
+      # Settings : Language
+      if params[:setting_type] == 'language'
+         @current_user.language = (params[:search_language] == '1')? 3 : @language
+         @current_user.save!
+         flash.now[:notice] = "Successfully updated"
+         return
+      end
+
+      # Settings : Password 
+      if params[:setting_type] == 'password' and params[:password]
+        # If the current password is correct, update the password
+        if @current_user.authenticated?(params[:password][:current])
+          if params[:password][:new] == params[:password][:confirmation]
+            @current_user.password              = params[:password][:new]
+            @current_user.password_confirmation = params[:password][:confirmation]
+            @current_user.save!
+            flash.now[:notice] = "Successfully updated"
+          else
+            flash.now[:notice] = "The new password and confirmation do not match"
+          end
+        else
+          flash.now[:notice] = "Incorrect password"
+        end
+      end
+
+    end
+  end
 
 end
