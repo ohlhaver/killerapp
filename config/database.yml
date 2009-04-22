@@ -20,7 +20,7 @@ test:
 production:
     adapter: mysql
     encoding: utf8
-    database: crawler_prod
+    database: index_crawler_prod
     username: killerapp_prod
     password: sokratisrosenwel
     host: 75.126.145.240
