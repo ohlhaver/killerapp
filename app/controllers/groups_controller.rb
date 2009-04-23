@@ -184,19 +184,16 @@ class GroupsController < ApplicationController
     def fetch_my_authors
     if logged_in?  
      @user_stories =[]
-     if @current_user.stories
-      story_array = @current_user.stories.split(/\ /) if @current_user.stories
-      date = Time.now.yesterday
-      story_array.each do |story|
-
-        story = Rawstory.find(story)
-        @user_stories += story.to_a if story.created_at > date
-      end
+     unless @current_user.stories.blank?
+       story_ids     = @current_user.stories.split(' ')*","
+       @user_stories = Rawstory.find(:all,
+                                     :conditions => ["id IN ( #{story_ids} ) and created_at > ?", Time.now.yesterday],
+                                     :order      => "id DESC",
+                                     :limit      => 2)
+     
      end
 
-
-     @user_stories = @user_stories.sort_by {|u| - u.id }  
-     haufens = @user_stories.first(2)
+     haufens = @user_stories
     else
       haufens = []
                                               
