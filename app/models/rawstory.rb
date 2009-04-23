@@ -12,6 +12,7 @@ class Rawstory < ActiveRecord::Base
   {:field => :body},
   {:field => :opinion},
   {:field => :author_id},
+  {:field => :language},
   {:field => :created_at}],
       :delta => true
   

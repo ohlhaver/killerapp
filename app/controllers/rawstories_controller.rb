@@ -67,27 +67,17 @@ class RawstoriesController < ApplicationController
 
 
   def fetch_search_results conditions, query   
-      @search = Ultrasphinx::Search.new(:query => query, 
-                                        :weights => { 'title' => 2.0 })
-
-      @rawstories = @search.results
-   #   if logged_in?
-  #      if @current_user.language == 3
-  #        all_languages = true
-  #      else
-  #        all_languages = false
-  #      end
-  #    end
-        
-   #   unless all_languages == true
-   unless @i == 1
-        if @language == 2
-          @rawstories = @rawstories.find_all{|v| v.language == 2 }
-        else 
-          @rawstories = @rawstories.find_all{|v| v.language == 1 }
-        end
-      end
-      @matches = @search.response[:matches]
+      search_hash           = {:query => query, 
+                               :class_names => 'Rawstory', 
+                               :sort_mode   => 'descending',
+                               :sort_by     => 'created_at',
+                               :page        => 1,
+                               :per_page    => 100,
+                               :weights     => { 'title' => 2.0 }}
+      search_hash[:filters] = {'language' => (@language == 2 ? 2 : 1)} unless @i == 1
+      @search               = Ultrasphinx::Search.new(search_hash)
+      @rawstories           = @search.results
+      @matches              = @search.response[:matches]
 
       counter = 0
       @rawstories.each do |story|
