@@ -202,32 +202,30 @@ class GroupsController < ApplicationController
     
   def fetch_my_searchterms s
     if logged_in?
-      @search = Ultrasphinx::Search.new(:query => s, 
-                                        :weights => { 'title' => 2.0 })
+       search_hash           = {:query => s, 
+                                 :class_names => 'Rawstory', 
+                                 :sort_mode   => 'descending',
+                                 :sort_by     => 'created_at',
+                                 :page        => 1,
+                                 :per_page    => 100,
+                                 :weights     => { 'title' => 2.0 }}
+        search_hash[:filters] = {'language' => (@language == 2 ? 2 : 1)} unless @i == 1
+        @search               = Ultrasphinx::Search.new(search_hash)
+        @rawstories           = @search.results
+        @matches              = @search.response[:matches]
 
-      @rawstories = @search.results
-      unless @i == 1
-        if @language == 2
-          @rawstories = @rawstories.find_all{|v| v.language == 2 }
-        else 
-          @rawstories = @rawstories.find_all{|v| v.language == 1 }
-        end
-      end
-      
-      @matches = @search.response[:matches]
+        counter = 0
+        @rawstories.each do |story|
+        weight = (@matches[counter])[:weight]  
+        age = ((Time.new - story.created_at)/3600).to_i 
+        age = 1 if age < 1
+        age = (100*(1/(age**(0.33)))).to_i 
 
-      counter = 0
-      @rawstories.each do |story|
-      weight = (@matches[counter])[:weight]  
-      age = ((Time.new - story.created_at)/3600).to_i 
-      age = 1 if age < 1
-      age = (100*(1/(age**(0.33)))).to_i 
+        blub = age*weight/100
 
-      blub = age*weight/100
-
-      story.blub = blub    
-      counter = counter + 1
-      end                                            
+        story.blub = blub    
+        counter = counter + 1
+        end                                        
       date = Time.now.yesterday
       @rawstories = @rawstories.find_all {|u| u.created_at > date }  
       @rawstories = @rawstories.sort_by {|u| - u.blub }  

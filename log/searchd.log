@@ -653,3 +653,7 @@
 [Thu Apr 23 12:09:02.169 2009] [  422] rotating index 'delta': success
 [Thu Apr 23 12:09:02.177 2009] [  422] rotating index 'main': success
 [Thu Apr 23 12:09:02.177 2009] [  422] rotating finished
+[Thu Apr 23 21:28:05.683 2009] [  422] rotating indices (seamless=1)
+[Thu Apr 23 21:28:05.688 2009] [  422] rotating index 'delta': success
+[Thu Apr 23 21:28:05.698 2009] [  422] rotating index 'main': success
+[Thu Apr 23 21:28:05.698 2009] [  422] rotating finished
