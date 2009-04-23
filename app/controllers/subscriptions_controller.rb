@@ -8,17 +8,15 @@ before_filter :login_required
   end
 
   def index
-    
    @user_stories =[]
-   if @current_user.stories
-    story_array = @current_user.stories.split(/\ /)
-    story_array.each do |story|
-       @user_stories += Rawstory.find(story).to_a
-    end
-  end  
+   unless @current_user.stories.blank?
+     story_ids     = @current_user.stories.split(' ')*","
+     @user_stories = Rawstory.find(:all,
+                                   :conditions => ["id IN ( #{story_ids} )"],
+                                   :order      => "id DESC",
+                                   :limit      => 25)
    
-   @user_stories = @user_stories.sort_by {|u| - u.id }  
-   @user_stories = @user_stories.first(30)
+   end
    @user_stories = @user_stories.paginate :page => params[:page],
                                                 :per_page => 5                                             
   end
