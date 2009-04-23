@@ -14,7 +14,10 @@
 <p><label for="remember_me">Remember me:</label>
 <%= check_box_tag 'remember_me' %></p>
 
-<p><%= submit_tag 'login', :id => 'loginbutton', :class => 'button' %> &nbsp; <%= link_to "Forgot password?", forgot_password_url -%></p>
+<p><%= submit_tag 'login', :id => 'loginbutton', :class => 'button' %> </p>
+
+<p><%= link_to "Forgot password?", forgot_password_url(:l => @l) -%></p>
+
 <% end -%>
 <p><b><%= link_to 'Sign up as a new user!', new_user_path %></b></p>
 </div>

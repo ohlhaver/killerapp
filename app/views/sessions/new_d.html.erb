@@ -15,6 +15,9 @@
 <%= check_box_tag 'remember_me' %></p>
 
 <p><%= submit_tag 'einloggen', :id => 'loginbutton', :class => 'button' %></p>
+
+<p><%= link_to "Passwort vergessen?", forgot_password_url(:l => @l) -%></p>
+
 <% end -%>
 <p><b><%= link_to 'Als neuer Benutzer anmelden!', :controller => 'users', :action => 'new', :l => @l %></b></p>
 </div>

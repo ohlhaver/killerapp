@@ -1,35 +1,45 @@
+<div class = 'pagelabel'>
+
+<%=settings_label%>
+
+</div>
+
+
 <div class="message">
 
-  <%form_tag settings_url do -%>
+  <%form_tag settings_url(:l => @l) do -%>
     <input type="hidden" name="setting_type" value="language"/>
-    <p><label for="search_language">Give me all search results everywhere in English and German:</label>
-	<%= check_box_tag 'search_language', '1', (@current_user.language == 3) -%><br/> <input type="submit" value="Save" class="button"></p>
-  <% end -%>
+    <p><label for="search_language"><%=change_language_label%></label>
+	<%= check_box_tag 'search_language', '1', (@current_user.language == 3) -%> </p>
 
-  <%form_tag settings_url do -%>
+	<input type="submit" value="<%=save_label%>" class="button">
+  <% end -%>
+<br>
+  <%form_tag settings_url(:l => @l) do -%>
     <input type="hidden" name="setting_type" value="email"/>
-    <p><label for="search_language">Email alerts:</label>
-        <%= radio_button_tag :alerts, "true", @current_user.alerts  -%> On
-        <%= radio_button_tag :alerts, "false", !@current_user.alerts -%> Off<br/>
-    <input type="submit" value="Save" class="button"></p>
+    <p><label for="search_language"><%=switch_email_alerts_label%></label>
+        <%= radio_button_tag :alerts, "true", @current_user.alerts  -%> <%=on_label%>
+        <%= radio_button_tag :alerts, "false", !@current_user.alerts -%><%=off_label%></p>
+  
+<input type="submit" value="<%=save_label%>" class="button">
   <% end -%>
 
-  <p>Please use the form below to change passoword for your account</p>
-  <%form_tag settings_url do -%>
+  <br>
+  <%form_tag settings_url(:l => @l) do -%>
     <input type="hidden" name="setting_type" value="password"/>
     <p>
-      <label for="login">Current password</label><br/>
+      <label for="login"><%=password_label%></label><br/>
       <input type="password" name="password[current]" class="textfield">
     </p>
     <p>
-      <label for="login">New password</label><br/>
+      <label for="login"><%=new_password_label%></label><br/>
       <input type="password" name="password[new]" class="textfield">
     </p>
     <p>
-      <label for="login">Confirm new password</label><br/>
+      <label for="login"><%=confirm_password_label%></label><br/>
       <input type="password" name="password[confirmation]" class="textfield">
     </p>
-    <p><input type="submit" value="Change password" class="button"></p>
+    <p><input type="submit" value="<%=change_password_label%>" class="button"></p>
   <% end -%>
 
 </div>

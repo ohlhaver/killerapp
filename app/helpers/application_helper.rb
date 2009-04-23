@@ -14,6 +14,19 @@ module ApplicationHelper
     return label
   end
   
+   def settings_label
+     
+      if @language ==2
+      label = 'Einstellungen'
+      else
+      label = 'Settings' 
+      end
+    
+    return label
+  end
+  
+  
+  
   def previous_label
     if @language ==2
     label = 'zurück'

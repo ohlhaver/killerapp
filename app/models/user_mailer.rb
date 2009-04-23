@@ -14,10 +14,10 @@ class UserMailer < ActionMailer::Base
   def credentials_email(user)
     setup_email(user)
     if user.language == 2
-      @subject    = 'Bitte aktivieren Sie Ihren Jurnalo Zugang!' 
+      @subject    = 'Ihr neues Passwort für Jurnalo!' 
       @body[:url]  = "http://www.jurnalo.de/session/new"
     else
-      @subject    = 'Credentials for your Jurnalo account!'
+      @subject    = 'Your new password for Jurnalo!'
       @body[:url]  = "http://www.jurnalo.com/session/new"
     end
     

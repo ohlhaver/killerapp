@@ -32,7 +32,7 @@ class UsersController < ApplicationController
       #redirect_back_or_default('/')
       redirect_to :controller => 'groups', :action => 'index', :l => @l
       if @language == 2
-          flash[:notice] = "Vielen Dank für die Anmeldung! Bitte checken Sie Ihre Email um sich zu authentifizieren."
+          flash[:notice] = "Vielen Dank für die Anmeldung! Bitte checken Sie Ihre E-mail um sich zu authentifizieren."
         else
           flash[:notice] = "Thanks for signing up! Please check your email to authenticate yourself."
         end
@@ -71,13 +71,31 @@ class UsersController < ApplicationController
           user.save!
           # Send email
           UserMailer.deliver_credentials_email(user)
-          redirect_to login_url
-          flash[:notice] = "A new password has been created and sent to your email address. Please check your email box."
+          redirect_to login_url(:l => @l)
+          
+            if @language == 2
+            flash[:notice] = "Ein neues Passwort ist an Ihre Adresse gesandt worden. Bitte checken Sie Ihre Mail."
+            else
+            flash[:notice] = "A new password has been sent to your email address. Please check your e-mail."
+            end
+          
+          
         else
-          flash.now[:notice] = "The login/email address does not exist"
+          
+            if @language == 2
+            flash[:notice] = "Diesen Benutzernamen oder diese E-mail Adresse gibt es nicht."
+            else
+            flash.now[:notice] = "The login or e-mail address does not exist."
+            end
+          
         end
       else
-        flash.now[:notice] = "Provider your login or email address"
+        
+        if @language == 2
+        flash.now[:notice] = "Bitte geben Sie Ihren Benutzernamen oder Ihre E-mail Adresse an."
+        else
+        flash.now[:notice] = "Please provide your login or e-mail address."
+        end
       end
     end
   end
@@ -88,7 +106,11 @@ class UsersController < ApplicationController
       # Settings : Email Alerts
       if params[:setting_type] == 'email' and params[:alerts] and (params[:alerts] == "true") != @current_user.alerts
         @current_user.update_attribute(:alerts, (params[:alerts] == "true"))
-        flash.now[:notice] = "Successfully updated"
+        if @language == 2
+        flash.now[:notice] = "Sie haben erfolgreich Ihre E-mail Einstellungen verändert."
+        else
+        flash.now[:notice] = "You have successfully updated your e-mail settings."
+        end
         return
       end
 
@@ -96,7 +118,11 @@ class UsersController < ApplicationController
       if params[:setting_type] == 'language'
          @current_user.language = (params[:search_language] == '1')? 3 : @language
          @current_user.save!
-         flash.now[:notice] = "Successfully updated"
+         if @language == 2
+         flash.now[:notice] = "Sie haben erfolgreich Ihre Sprach-Einstellungen verändert."
+         else
+         flash.now[:notice] = "You have successfully updated your language settings."
+         end
          return
       end
 
@@ -108,12 +134,24 @@ class UsersController < ApplicationController
             @current_user.password              = params[:password][:new]
             @current_user.password_confirmation = params[:password][:confirmation]
             @current_user.save!
-            flash.now[:notice] = "Successfully updated"
+            if @language == 2
+            flash.now[:notice] = "Sie haben erfolgreich Ihr Passwort geändert."
+            else
+            flash.now[:notice] = "You have successfully updated your password."
+            end
           else
-            flash.now[:notice] = "The new password and confirmation do not match"
+            if @language == 2
+            flash.now[:notice] = "Ihr neues Passwort und dessen Bestätigung stimmen nicht überein."
+            else
+            flash.now[:notice] = "Your new password and its confirmation do not match."
+            end
           end
         else
-          flash.now[:notice] = "Incorrect password"
+          if @language == 2
+          flash.now[:notice] = "Falsches Passwort."
+          else
+          flash.now[:notice] = "Incorrect password."
+          end
         end
       end
 

@@ -4108,3 +4108,49 @@
 [Tue Feb 17 18:49:46.418 2009] 0.000 sec [ext/0/rel 20 (0,20)] [main delta] Jerry
 [Tue Feb 17 18:50:08.706 2009] 0.002 sec [ext/0/rel 798 (0,20)] [main delta] Obama
 [Tue Feb 17 18:50:08.721 2009] 0.000 sec [ext/0/rel 20 (0,20)] [main delta] Jerry
+[Thu Apr 23 12:01:22.910 2009] 0.005 sec [ext/0/rel 798 (0,20)] [main delta] Obama
+[Thu Apr 23 12:01:22.973 2009] 0.000 sec [ext/0/rel 20 (0,20)] [main delta] Jerry
+[Thu Apr 23 12:03:34.891 2009] 0.000 sec [scan/2/attr- 6 (0,5)] [main delta] 
+[Thu Apr 23 12:09:17.604 2009] 0.003 sec [ext/0/rel 847 (0,20)] [main delta] obama
+[Thu Apr 23 12:09:26.116 2009] 0.004 sec [ext/0/rel 847 (0,20)] [main delta] obama
+[Thu Apr 23 12:09:54.279 2009] 0.007 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 12:10:05.308 2009] 0.000 sec [scan/2/attr- 1 (0,5)] [main delta] 
+[Thu Apr 23 12:11:03.612 2009] 0.001 sec [ext/0/rel 73 (0,20)] [main delta] germany
+[Thu Apr 23 12:11:14.686 2009] 0.001 sec [ext/0/rel 73 (0,20)] [main delta] germany
+[Thu Apr 23 12:11:17.313 2009] 0.001 sec [ext/0/rel 73 (0,20)] [main delta] germany
+[Thu Apr 23 12:11:27.740 2009] 0.001 sec [scan/2/attr- 3 (0,5)] [main delta] 
+[Thu Apr 23 12:11:39.128 2009] 0.003 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 12:14:20.225 2009] 0.004 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 12:14:20.270 2009] 0.001 sec [ext/0/rel 21 (0,20)] [main delta] Jerry
+[Thu Apr 23 13:11:43.804 2009] 0.004 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 13:11:43.873 2009] 0.001 sec [ext/0/rel 21 (0,20)] [main delta] Jerry
+[Thu Apr 23 13:12:17.168 2009] 0.004 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 13:12:17.190 2009] 0.001 sec [ext/0/rel 21 (0,20)] [main delta] Jerry
+[Thu Apr 23 13:25:16.197 2009] 0.005 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 13:25:16.232 2009] 0.001 sec [ext/0/rel 21 (0,20)] [main delta] Jerry
+[Thu Apr 23 13:25:27.542 2009] 0.004 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 13:25:27.578 2009] 0.001 sec [ext/0/rel 21 (0,20)] [main delta] Jerry
+[Thu Apr 23 13:26:15.025 2009] 0.001 sec [scan/2/attr- 1 (0,5)] [main delta] 
+[Thu Apr 23 13:28:24.314 2009] 0.003 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 13:28:24.397 2009] 0.001 sec [ext/0/rel 21 (0,20)] [main delta] Jerry
+[Thu Apr 23 13:30:57.026 2009] 0.003 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 13:30:57.051 2009] 0.001 sec [ext/0/rel 21 (0,20)] [main delta] Jerry
+[Thu Apr 23 14:25:49.607 2009] 0.003 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 14:25:49.634 2009] 0.001 sec [ext/0/rel 21 (0,20)] [main delta] Jerry
+[Thu Apr 23 14:35:04.803 2009] 0.011 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 14:35:04.861 2009] 0.001 sec [ext/0/rel 21 (0,20)] [main delta] Jerry
+[Thu Apr 23 15:23:38.691 2009] 0.003 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 15:23:38.711 2009] 0.001 sec [ext/0/rel 21 (0,20)] [main delta] Jerry
+[Thu Apr 23 15:24:51.654 2009] 0.003 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 15:25:01.784 2009] 0.009 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 15:25:18.241 2009] 0.003 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 15:25:34.538 2009] 0.004 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 15:33:39.813 2009] 0.003 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 15:33:40.045 2009] 0.001 sec [ext/0/rel 21 (0,20)] [main delta] Jerry
+[Thu Apr 23 15:36:11.523 2009] 0.003 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 15:36:11.621 2009] 0.001 sec [ext/0/rel 21 (0,20)] [main delta] Jerry
+[Thu Apr 23 15:44:44.167 2009] 0.003 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 15:44:44.182 2009] 0.001 sec [ext/0/rel 21 (0,20)] [main delta] Jerry
+[Thu Apr 23 15:45:44.931 2009] 0.008 sec [ext/0/rel 847 (0,20)] [main delta] Obama
+[Thu Apr 23 15:45:45.087 2009] 0.001 sec [ext/0/rel 21 (0,20)] [main delta] Jerry
+[Thu Apr 23 15:50:23.912 2009] 0.000 sec [scan/2/attr- 0 (0,5)] [main delta] 
