@@ -18,12 +18,16 @@ class ApplicationController < ActionController::Base
   before_filter :adjust_format_for_iphone  
   before_filter :language?
   before_filter :fetch_searchterms
+  before_filter :log_request_information
  
 
  
   require 'will_paginate'
   
   protected
+  def log_request_information
+     logger.info "Request : #{request.env.inspect}"
+  end
 
   def language?
     @adresse = request.url
