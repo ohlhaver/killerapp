@@ -35,7 +35,7 @@ a img {
 	margin-left: 140px;
 	color: #999999;
 	margin-bottom: 10px;
-	margin-top: 20px;
+	margin-top: 10px;
 	float: left;
 	clear: both;
 }
@@ -370,7 +370,7 @@ body {
 }
 
 #lrec_bottom {
-	margin-top: 40px;	
+		margin-bottom: 25px;
 }
 
 .default {
