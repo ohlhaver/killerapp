@@ -25,6 +25,14 @@ module GroupsHelper
    #@selection = 'Meinungen' if params[:controller] == 'haufens' && params[:action] == 'filter_haufen_by_opinions'
    return selection
    end
+  
+   def author_ranking_label
+     if @language == 2
+       'Autoren  Rankliste'
+     else
+       'Author ranking'
+     end
+   end
 
    def date
       t = Time.now

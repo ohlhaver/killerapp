@@ -61,6 +61,7 @@ ActionController::Routing::Routes.draw do |map|
   map.logout '/logout', :controller => 'sessions', :action => 'destroy', :l => @l
   map.settings '/settings', :controller => 'users', :action => 'settings'
   map.forgot_password '/forgot_password', :controller => 'users', :action => 'forgot_password'
+  map.author_ranking '/author_ranking', :controller => 'authors', :action => 'ranked_list'
   map.search_rawstories ':l', :controller => 'rawstories', :action => 'search'
   
   

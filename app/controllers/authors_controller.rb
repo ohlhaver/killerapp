@@ -23,5 +23,20 @@ class AuthorsController < ApplicationController
     end
   end
 
+  def ranked_list
+    subscriptions = Subscription.find(:all,
+                                      :select => 'subscriptions.author_id, count(*) as popularity',
+                                      :group  => 'subscriptions.author_id',
+                                      :order  => 'popularity DESC',
+                                      :include => [:author],
+                                      :limit  => 25)
+    authors_id_ar = []
+    subscriptions.each{|s| authors_id_ar << s.author_id if s.popularity.to_i > 0}
+    author_ids    = authors_id_ar.uniq*","
+    @authors      = []
+    unless author_ids.blank?
+      @authors    = Author.find(:all, :conditions => "id IN ( #{author_ids} )")
+    end
+  end
 
 end

@@ -45,17 +45,22 @@ before_filter :login_required
 
   def subscribe
     author = Author.find(params[:id])
-    if  author && @current_user.subscriptions.find_by_author_id(params[:id]) == nil 
-      @current_user.subscriptions.create(:author_id => params[:id])       
-      author_stories = Author.find(params[:id]).rawstories.last(3)
+    if  author && Subscription.find_by_author_id_and_user_id(params[:id], @current_user.id) == nil 
+      Subscription.create!(:author_id => params[:id], :user_id => @current_user.id)
+      author_stories = Rawstory.find(:all,
+                                     :conditions => "author_id = #{author.id}",
+                                     :select => "id",
+                                     :order  => "id DESC",
+                                     :limit => 3)
+                                     
       user_stories = ''
       author_stories.each do |story|
           user_stories += story.id.to_s + ' '
       end 
       if @current_user.stories
-      @current_user.stories += user_stories
+        @current_user.stories += user_stories
       else
-      @current_user.stories = user_stories
+        @current_user.stories = user_stories
       end  
       @current_user.save   
       flash[:notice] = "Sie haben " + author.name + " zur Liste Ihrer Lieblingsautoren hinzugefügt." if @language == 2

@@ -1,0 +1,7 @@
+<span class = 'headline'>
+<div>
+<%= link_to author.name, :controller => 'authors', :action => 'show', :id => author, :l => @l %>&nbsp;&nbsp;
+<%= link_to image_tag('plus.gif'), :controller => 'subscriptions', :action => 'subscribe', :id => author.id, :l => @l if author.name != '' %> 
+<br><br>
+</div>
+</span>

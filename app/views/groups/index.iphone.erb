@@ -13,7 +13,12 @@
 <% cache ( {:f => iphone_user_agent?, :i => @i, :action => params[:action], :l => @l, :page => params[:page] || 1}) do %>
 
 		<li>
-  		<div class="pagelabel"><%= selection %></div>
+  		<div class="pagelabel"><%= selection %>
+                    <% if params[:action] == 'opinions' -%>
+                    ( <%= link_to author_ranking_label, author_ranking_path(:l => @l)%> )
+                    <% end -%>
+
+                </div>
 		</li>
 
 		<ul>

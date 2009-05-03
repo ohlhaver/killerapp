@@ -6,7 +6,11 @@
 
 		
 		<li>
-  			<div class="pagelabel"><%= selection %></div>
+  		  <div class="pagelabel"><%= selection %>
+                    <% if params[:action] == 'opinions' -%>
+                    ( <%= link_to author_ranking_label, author_ranking_path(:l => @l)%> )
+                    <% end -%>
+                  </div>
 		</li>
 
 		<ul>

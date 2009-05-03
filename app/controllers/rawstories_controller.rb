@@ -79,13 +79,23 @@ class RawstoriesController < ApplicationController
       @rawstories           = @search.results
       @matches              = @search.response[:matches]
 
+      story_ids = @rawstories.collect{|s| s.id}.uniq*","
+      unless story_ids.blank?
+        qualities = RawstoryDetail.find(:all,
+                                        :conditions => "rawstory_id IN ( #{story_ids} )",
+                                        :select     => "rawstory_id, quality")
+        qualities_hashed = qualities.group_by{|q| q.rawstory_id}
+      end
+
       counter = 0
       @rawstories.each do |story|
         weight = (@matches[counter])[:weight]  
         age = ((Time.new - story.created_at)/3600).to_i 
         age = 1 if age < 1
         age = (100*(1/(age**(0.33)))).to_i 
-        quality_value = story.rawstory_detail.quality rescue 1
+        quality_value = qualities_hashed[story.id].first.quality rescue nil
+        quality_value ||= 1
+
         blub =  age*weight*quality_value
 
         story.blub = blub    
