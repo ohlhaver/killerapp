@@ -81,15 +81,15 @@ class RawstoriesController < ApplicationController
 
       counter = 0
       @rawstories.each do |story|
-      weight = (@matches[counter])[:weight]  
-      age = ((Time.new - story.created_at)/3600).to_i 
-      age = 1 if age < 1
-      age = (100*(1/(age**(0.33)))).to_i 
+        weight = (@matches[counter])[:weight]  
+        age = ((Time.new - story.created_at)/3600).to_i 
+        age = 1 if age < 1
+        age = (100*(1/(age**(0.33)))).to_i 
+        quality_value = story.rawstory_detail.quality rescue 1
+        blub =  age*weight*quality_value
 
-      blub = age*weight/100
-
-      story.blub = blub    
-      counter = counter + 1
+        story.blub = blub    
+        counter = counter + 1
       end                                            
       
       @rawstories = @rawstories.sort_by {|u| - u.blub }  

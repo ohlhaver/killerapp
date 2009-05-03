@@ -221,7 +221,9 @@ class GroupsController < ApplicationController
         age = 1 if age < 1
         age = (100*(1/(age**(0.33)))).to_i 
 
-        blub = age*weight/100
+        quality_value = story.rawstory_detail.quality rescue 1
+        blub =  age*weight*quality_value
+
 
         story.blub = blub    
         counter = counter + 1

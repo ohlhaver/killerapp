@@ -26,26 +26,39 @@ end
 
 
 protected
-def fetch_stories(conditions)   
-   @haufen = Haufen.find(params[:id])
-    @haufen_stories =[]
-    member_array = @haufen.members.split(/\ /)
-    member_array.each do |member|
-       @haufen_stories += Rawstory.find(member).to_a
-    end    
-
-      opinion_stories = @haufen_stories.find_all {|u| u.opinion == 1 }
-      @opinion_weight = opinion_stories.size
-      
-      videos = @haufen_stories.find_all {|u| u.video == true }
-      @videos_weight = videos.size
-      
+  def fetch_stories(conditions)   
+    @haufen         = Haufen.find(params[:id])
+    story_ids       = @haufen.members.to_s.split(' ')*","
+    @haufen_stories = []
+    unless story_ids.blank?
+      @haufen_stories = Rawstory.find(:all,
+                                      :conditions => "id IN ( #{story_ids} )",
+                                      :include => [:rawstory_detail])
+    end
+    
+    opinion_stories = @haufen_stories.find_all {|u| u.opinion == 1 }
+    @opinion_weight = opinion_stories.size
+    
+    videos = @haufen_stories.find_all {|u| u.video == true }
+    @videos_weight = videos.size
+    
     @haufen_stories = opinion_stories if conditions == 1
     @haufen_stories = videos if conditions == 2
-    @haufen_stories = @haufen_stories.sort_by {|u| - u.id } 
-    @haufen_stories = @haufen_stories.paginate :page => params[:page],
-                                         :per_page => 5
-end
+    @haufen_stories.each do |story|
+      age = ((Time.new - story.created_at)/3600).to_i 
+      age = 1 if age < 1
+      age = (100*(1/(age**(0.33)))).to_i 
+
+      quality_value = story.rawstory_detail.quality rescue 1
+      blub =  age*quality_value
+
+      story.blub = blub    
+    end                                        
+
+    @haufen_stories = @haufen_stories.sort_by {|u| - u.blub } 
+    @haufen_stories = @haufen_stories.paginate :page     => params[:page],
+                                               :per_page => 5
+  end
    
    
   
