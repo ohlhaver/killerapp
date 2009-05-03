@@ -3,5 +3,7 @@
 </div>
 
 <span class = 'headlines'>
-<%= render :partial => @authors %>
+<%@authors.each_with_index do |a, i| %>
+<%= render :partial => a, :locals => {:rank => i+1} %>
+<% end %>
 </span>

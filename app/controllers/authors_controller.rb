@@ -30,12 +30,14 @@ class AuthorsController < ApplicationController
                                       :order  => 'popularity DESC',
                                       :include => [:author],
                                       :limit  => 25)
+
+    subscriptions_hashed = subscriptions.group_by{|a| a.author_id}
     authors_id_ar = []
-    subscriptions.each{|s| authors_id_ar << s.author_id if s.popularity.to_i > 0}
+    subscriptions.each{|s| authors_id_ar << s.author_id if s.popularity.to_i >= 2}
     author_ids    = authors_id_ar.uniq*","
     @authors      = []
     unless author_ids.blank?
-      @authors    = Author.find(:all, :conditions => "id IN ( #{author_ids} )")
+      @authors    = Author.find(:all, :conditions => "id IN ( #{author_ids} )").sort_by{|a| -(subscriptions_hashed[a.id].first.popularity.to_i rescue 1)}
     end
   end
 
