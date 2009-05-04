@@ -140,24 +140,27 @@ class GroupsController < ApplicationController
         
         list = Olist.find(:last) 
         @stories =[]
-        story_ids = '' 
+        story_id_ar = []
         if @i ==1
-          story_ids = list.all.split(' ').uniq*","
+          story_id_ar = list.all.split(' ')
         elsif @language == 2
-          story_ids = list.de.split(' ').uniq*","
+          story_id_ar = list.de.split(' ')
         else
-          story_ids = list.en.split(' ').uniq*","
+          story_id_ar = list.en.split(' ')
         end
+        story_id_ar = (home == 1) ? story_id_ar.first(2) : story_id_ar.first(20)
+        story_ids = story_id_ar*","
         unless story_ids.blank?
-          @stories = Rawstory.find(:all,
-                                   :conditions => "id IN ( #{story_ids} )",
-                                   :limit => (home == 1 ? 2 : 20))
+          stories = Rawstory.find(:all,
+                                  :conditions => "id IN ( #{story_ids} )")
+          stories_h = stories.group_by{|s| s.id}
+          story_id_ar.each{|id| @stories << stories[id.to_i].to_a.first if stories[id.to_i].to_a.first}
         end
         
         haufens = @stories.paginate :page => params[:page],
                                      :per_page => 5
                                      
-    end
+     end
     
     def fetch_my_authors
     if logged_in?  
