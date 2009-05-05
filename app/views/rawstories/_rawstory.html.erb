@@ -5,7 +5,17 @@
 <div class="headline">
 
 
-<%= image_tag('opinion.gif') if rawstory.opinion == 1 %> <%= image_tag('video.gif') + ' ' if rawstory.video == true %> <%= link_to rawstory.title, rawstory.link, { :popup => 'new_tab' } %>
+<%= image_tag('opinion.gif') if rawstory.opinion == 1 %> <%= image_tag('video.gif') + ' ' if rawstory.video == true %> 
+<span onMouseOver="this.getElementsByTagName('span')[0].style.display='';" onMouseOut="this.getElementsByTagName('span')[0].style.display='none';">
+  <%= link_to rawstory.title, rawstory.link, { :popup => 'new_tab' } %>
+  <span id="read_list_option_<%= rawstory.id %>" style="display:none;">
+  <% if defined?(read_item) and !read_item.nil?%>
+    <%= link_to image_tag('minus.gif'), {:controller => 'read_list', :action => 'remove_item', :id => read_item.id, :l => @l}, {:title => remove_from_read_list_label} -%>
+  <% else %>
+    <%= link_to image_tag('plus.gif'), {:controller => 'read_list', :action => 'add_item', :id => rawstory.id, :l => @l},{:title => save_to_read_list_label} -%> 
+  <% end %>
+  </span>
+</span>
 
 
 </div>

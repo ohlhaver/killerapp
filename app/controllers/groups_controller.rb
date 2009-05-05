@@ -154,7 +154,7 @@ class GroupsController < ApplicationController
           stories = Rawstory.find(:all,
                                   :conditions => "id IN ( #{story_ids} )")
           stories_h = stories.group_by{|s| s.id}
-          story_id_ar.each{|id| @stories << stories[id.to_i].to_a.first if stories[id.to_i].to_a.first}
+          story_id_ar.each{|id| @stories << stories_h[id.to_i].to_a.first if stories_h[id.to_i].to_a.first}
         end
         
         haufens = @stories.paginate :page => params[:page],

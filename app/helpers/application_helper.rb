@@ -1,8 +1,15 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-  
-  
-   
+  def articles_list_label
+    if @language ==2
+      label = 'Artikel'
+    else
+      label = 'Articles' 
+    end
+    
+    return label
+  end
+
    def search_label
      
       if @language ==2
@@ -25,6 +32,30 @@ module ApplicationHelper
     return label
   end
   
+  def read_list_label
+    if @language == 2
+      'Literaturliste'
+    else
+      'Reading list'
+    end
+  end
+
+  def save_to_read_list_label
+   if @language == 2
+     'Speichern Lesung Liste'
+   else
+     'Save to reading list'
+   end
+  end
+
+  def remove_from_read_list_label
+   if @language == 2
+     'Aus Lesung Liste'
+   else
+     'Remove from reading list'
+   end
+  end
+
   
   
   def previous_label

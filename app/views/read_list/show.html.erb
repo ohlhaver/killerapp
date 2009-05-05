@@ -1,0 +1,7 @@
+<div class="pagelabel">
+  <%= read_list_label  %>
+</div>
+<% @read_list.each do |r| -%>
+ <%= render :partial => r.rawstory, :locals =>{:read_item => r} -%>
+<% end -%>
+

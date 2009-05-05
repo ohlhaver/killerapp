@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
   before_filter :language?
   before_filter :fetch_searchterms
   before_filter :log_request_information
+  after_filter  :set_last_page_viewed
  
 
  

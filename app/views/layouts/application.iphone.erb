@@ -72,6 +72,9 @@
 	    <% if logged_in? %>
       &nbsp;-&nbsp; <%= link_to settings_label, settings_url(:l => @l) -%>
     <% end -%>
+      &nbsp;-&nbsp; <%= link_to read_list_label, {:controller => "read_list", :action => "show",:l => @l} -%>
+    
+
 
 	
   </div>

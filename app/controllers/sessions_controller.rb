@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
         cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
       end
       #redirect_back_or_default('/')
-      redirect_to :controller => 'groups', :action => 'index', :l => @l
+      redirect_back_or_default(:controller => 'groups', :action => 'index', :l => @l)
       flash[:notice] = "Erfolgreich eingeloggt." if @language == 2
       flash[:notice] = "Login successful." if @language == 1
     else

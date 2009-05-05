@@ -78,6 +78,13 @@ module AuthenticatedSystem
     def store_location
       session[:return_to] = request.request_uri
     end
+    def set_last_page_viewed
+      session[:last_page_viewed] =  request.request_uri unless params[:controller] == 'sessions'
+    end
+    def redirect_to_last_page_viewed_or_default(default=nil)
+      redirect_to(session[:last_page_viewed] || default || :back)
+      session[:last_page_viewed] = nil
+    end
 
     # Redirect to the URI stored by the most recent store_location call or
     # to the passed default.
