@@ -657,3 +657,9 @@
 [Thu Apr 23 21:28:05.688 2009] [  422] rotating index 'delta': success
 [Thu Apr 23 21:28:05.698 2009] [  422] rotating index 'main': success
 [Thu Apr 23 21:28:05.698 2009] [  422] rotating finished
+[Sun May  3 15:49:10.694 2009] [  739] creating server socket on 0.0.0.0:3313
+[Sun May  3 15:49:10.729 2009] [  739] accepting connections
+[Sun May  3 16:49:28.960 2009] [  739] caught SIGTERM, shutting down
+[Sun May  3 16:49:28.960 2009] [  739] shutdown complete
+[Tue May  5 15:05:42.871 2009] [  412] creating server socket on 0.0.0.0:3313
+[Tue May  5 15:05:42.890 2009] [  412] accepting connections

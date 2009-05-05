@@ -5,8 +5,8 @@ class ReadListController < ApplicationController
     story = Rawstory.find(params[:id], :select => "id")
     if story && ReadItem.find_by_user_id_and_rawstory_id(@current_user.id, params[:id]).nil?
       ReadItem.create!(:user_id => @current_user.id, :rawstory_id => params[:id])
-      flash[:notice] = "You have added the article to your read list." if @language == 1
-      flash[:notice] = "Sie haben den Artikel zu lesen, Ihre Liste." if @language == 2
+      flash[:notice] = "You have added the article to your reading list." if @language == 1
+      flash[:notice] = "Sie haben den Artikel zu Ihrer Leseliste hinzugefügt." if @language == 2
     end
     redirect_to_last_page_viewed_or_default
   end
@@ -14,8 +14,8 @@ class ReadListController < ApplicationController
     read_list = ReadItem.find(params[:id])
     if read_list.user_id == @current_user.id
       read_list.destroy
-      flash[:notice] = "You have removed the article from your read list." if @language == 1
-      flash[:notice] = "Sie haben den Artikel aus der Liste lesen." if @language == 2
+      flash[:notice] = "You have removed the article from your reading list." if @language == 1
+      flash[:notice] = "Sie haben den Artikel von Ihrer Leseliste entfernt." if @language == 2
     end
     redirect_to_last_page_viewed_or_default
   end

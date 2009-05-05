@@ -34,7 +34,7 @@ module ApplicationHelper
   
   def read_list_label
     if @language == 2
-      'Literaturliste'
+      'Leseliste'
     else
       'Reading list'
     end
@@ -42,7 +42,7 @@ module ApplicationHelper
 
   def save_to_read_list_label
    if @language == 2
-     'Speichern Lesung Liste'
+     'Zur Leseliste speichern'
    else
      'Save to reading list'
    end
@@ -50,7 +50,7 @@ module ApplicationHelper
 
   def remove_from_read_list_label
    if @language == 2
-     'Aus Lesung Liste'
+     'Von der Leseliste entfernen'
    else
      'Remove from reading list'
    end
