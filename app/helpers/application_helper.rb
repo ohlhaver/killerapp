@@ -2,9 +2,9 @@
 module ApplicationHelper
   def duplicates_label
     if @language ==2
-      label = 'Duplikate' 
+      label = 'Duplikate anzeigen' 
     else
-      label = 'duplicates'
+      label = 'show duplicates'
     end
     
     return label
