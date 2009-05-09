@@ -55,6 +55,19 @@ class RawstoriesController < ApplicationController
    render :action => 'show'
  end
 
+ def view_duplicates
+    duplicate_group = DuplicateGroup.find(params[:id], :include => [:rawstory_details])
+    if !duplicate_group.blank? and !duplicate_group.rawstory_details.blank?
+       ids = duplicate_group.rawstory_details.collect{|rd| rd.rawstory_id}*","
+       @rawstories      = Rawstory.find(:all,
+                                        :conditions => "id IN ( #{ids} )").sort_by{|r| r.created_at}.reverse
+    else 
+      flash[:notice] = "There are no duplicates available for the requested story." if @language == 1
+      flash[:notice] = "There are no duplicates available for the requested story." if @language == 2
+      redirect_to :back
+    end
+ end
+
  protected
  def fetch_stories(conditions)   
     story = Rawstory.find(params[:id])
@@ -74,7 +87,10 @@ class RawstoriesController < ApplicationController
                                :page        => 1,
                                :per_page    => 100,
                                :weights     => { 'title' => 2.0 }}
-      search_hash[:filters] = {'language' => (@language == 2 ? 2 : 1)} unless @i == 1
+
+      search_hash[:filters]                 = {}
+      search_hash[:filters][:language]      =  (@i==1 ? [1,2] : (@language == 2 ? 2 : 1))
+      search_hash[:filters][:is_duplicate]  = 0
       @search               = Ultrasphinx::Search.new(search_hash)
       @rawstories           = @search.results
       @matches              = @search.response[:matches]

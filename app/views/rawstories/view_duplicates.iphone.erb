@@ -1,0 +1,7 @@
+<div class="pagelabel">
+  <%= duplicates_label %>
+</div>
+
+<% @rawstories.each do |rs|%>
+<%= render :partial => rs, :locals => {:show_duplicate_link => false} %>
+<% end %>
