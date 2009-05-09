@@ -168,9 +168,10 @@ class GroupsController < ApplicationController
      unless @current_user.stories.blank?
        story_ids     = @current_user.stories.split(' ')*","
        @user_stories = Rawstory.find(:all,
-                                     :conditions => ["id IN ( #{story_ids} ) and created_at > ?", Time.now.yesterday],
-                                     :order      => "id DESC",
-                                     :limit      => 2)
+                                   :conditions => ["rawstories.id IN ( #{story_ids} ) and rawstories.created_at > :yesterday and rawstory_details.is_duplicate = :false", {:yesterday => Time.now.yesterday, :false => false}],
+                                   :order      => "rawstories.id DESC",
+                                   :joins      => 'inner join rawstory_details on rawstory_details.rawstory_id = rawstories.id',
+                                   :limit      => 2)
      
      end
 
