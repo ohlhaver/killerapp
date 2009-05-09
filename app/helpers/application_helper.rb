@@ -4,7 +4,7 @@ module ApplicationHelper
     if @language ==2
       label = 'duplicates'
     else
-      label = 'duplicates' 
+      label = 'Duplikate' 
     end
     
     return label

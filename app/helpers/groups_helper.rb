@@ -28,7 +28,7 @@ module GroupsHelper
   
    def author_ranking_label
      if @language == 2
-       'Autoren  Rankliste'
+       'Autoren  Rangliste'
      else
        'Author ranking'
      end
