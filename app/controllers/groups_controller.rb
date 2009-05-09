@@ -152,17 +152,12 @@ class GroupsController < ApplicationController
         limit = (home == 1) ? 2 : 20
         story_ids = story_id_ar*","
         unless story_ids.blank?
-          @stories = Rawstory.find(:all,
-                                   :conditions => ["rawstories.id IN ( #{story_ids} ) and rawstory_details.is_duplicate = :false", {:false => false}],
-                                   :order      => "rawstories.id DESC",
-                                   :joins      => 'inner join rawstory_details on rawstory_details.rawstory_id = rawstories.id',
-                                   :include    => [:rawstory_detail],
-                                   :limit => limit)
+          @stories = Rawstory.find_by_sql("select rawstories.*, FIND_IN_SET(rawstories.id, '#{story_ids}') as ranking from rawstories, rawstory_details where rawstories.id = rawstory_details.rawstory_id and rawstories.id IN ( #{story_ids} ) order by ranking ASC limit #{limit}")
         end
         
         haufens = @stories.paginate :page => params[:page],
                                      :per_page => 5
-                                     
+      
      end
     
     def fetch_my_authors
