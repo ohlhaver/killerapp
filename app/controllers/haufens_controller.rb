@@ -32,8 +32,9 @@ protected
     @haufen_stories = []
     unless story_ids.blank?
       @haufen_stories = Rawstory.find(:all,
-                                      :conditions => "id IN ( #{story_ids} )",
-                                      :include => [:rawstory_detail])
+                                   :conditions => ["rawstories.id IN ( #{story_ids} ) and rawstory_details.is_duplicate = :false", {:false => false}],
+                                   :joins      => 'inner join rawstory_details on rawstory_details.rawstory_id = rawstories.id',
+                                   :include => [:rawstory_detail])
     end
     
     opinion_stories = @haufen_stories.find_all {|u| u.opinion == 1 }
@@ -44,20 +45,13 @@ protected
     
     @haufen_stories = opinion_stories if conditions == 1
     @haufen_stories = videos if conditions == 2
-    story_ids = @haufen_stories.collect{|s| s.id}.uniq*","
-    unless story_ids.blank?
-      qualities = RawstoryDetail.find(:all,
-                                      :conditions => "rawstory_id IN ( #{story_ids} )",
-                                      :select     => "rawstory_id, quality")
-      qualities_hashed = qualities.group_by{|q| q.rawstory_id}
-    end
 
     @haufen_stories.each do |story|
       age = ((Time.new - story.created_at)/3600).to_i 
       age = 1 if age < 1
       age = (100*(1/(age**(0.33)))).to_i 
 
-      quality_value = qualities_hashed[story.id].first.quality rescue nil
+      quality_value = story.rawstory_detail.quality rescue nil
       quality_value ||= 1
 
       blub =  age*quality_value
