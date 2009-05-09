@@ -63,7 +63,7 @@ class RawstoriesController < ApplicationController
                                         :conditions => "id IN ( #{ids} )").sort_by{|r| r.created_at}.reverse
     else 
       flash[:notice] = "There are no duplicates available for the requested story." if @language == 1
-      flash[:notice] = "There are no duplicates available for the requested story." if @language == 2
+      flash[:notice] = "Es gibt keine Duplikate zu diesem Artikel." if @language == 2
       redirect_to :back
     end
  end
