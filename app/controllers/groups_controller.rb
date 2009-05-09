@@ -148,13 +148,16 @@ class GroupsController < ApplicationController
         else
           story_id_ar = list.en.split(' ')
         end
-        story_id_ar = (home == 1) ? story_id_ar.first(2) : story_id_ar.first(20)
+        #story_id_ar = (home == 1) ? story_id_ar.first(2) : story_id_ar.first(20)
+        limit = (home == 1) ? 2 : 20
         story_ids = story_id_ar*","
         unless story_ids.blank?
-          stories = Rawstory.find(:all,
-                                  :conditions => "id IN ( #{story_ids} )")
-          stories_h = stories.group_by{|s| s.id}
-          story_id_ar.each{|id| @stories << stories_h[id.to_i].to_a.first if stories_h[id.to_i].to_a.first}
+          @stories = Rawstory.find(:all,
+                                   :conditions => ["rawstories.id IN ( #{story_ids} ) and rawstory_details.is_duplicate = :false", {:false => false}],
+                                   :order      => "rawstories.id DESC",
+                                   :joins      => 'inner join rawstory_details on rawstory_details.rawstory_id = rawstories.id',
+                                   :include    => [:rawstory_detail],
+                                   :limit => limit)
         end
         
         haufens = @stories.paginate :page => params[:page],
