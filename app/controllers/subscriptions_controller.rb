@@ -12,8 +12,9 @@ before_filter :login_required
    unless @current_user.stories.blank?
      story_ids     = @current_user.stories.split(' ')*","
      @user_stories = Rawstory.find(:all,
-                                   :conditions => ["id IN ( #{story_ids} )"],
-                                   :order      => "id DESC",
+                                   :conditions => ["rawstories.id IN ( #{story_ids} ) and rawstory_details.is_duplicate = :false", {:false => false}],
+                                   :order      => "rawstories.id DESC",
+                                   :joins      => 'inner join rawstory_details on rawstory_details.rawstory_id = rawstories.id',
                                    :limit      => 25)
    
    end
