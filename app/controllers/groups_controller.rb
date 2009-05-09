@@ -184,16 +184,19 @@ class GroupsController < ApplicationController
   def fetch_my_searchterms s
     if logged_in?
        search_hash           = {:query => s, 
-                                 :class_names => 'Rawstory', 
-                                 :sort_mode   => 'descending',
-                                 :sort_by     => 'created_at',
-                                 :page        => 1,
-                                 :per_page    => 100,
-                                 :weights     => { 'title' => 2.0 }}
-        search_hash[:filters] = {'language' => (@language == 2 ? 2 : 1)} unless @i == 1
-        @search               = Ultrasphinx::Search.new(search_hash)
-        @rawstories           = @search.results
-        @matches              = @search.response[:matches]
+                                :class_names => 'Rawstory', 
+                                :sort_mode   => 'descending',
+                                :sort_by     => 'created_at',
+                                :page        => 1,
+                                :per_page    => 100,
+                                :weights     => { 'title' => 2.0 }}
+       search_hash[:filters]                 = {}
+       search_hash[:filters][:language]      =  (@i==1 ? [1,2] : (@language == 2 ? 2 : 1))
+       search_hash[:filters][:is_duplicate]  = 0
+
+       @search               = Ultrasphinx::Search.new(search_hash)
+       @rawstories           = @search.results
+       @matches              = @search.response[:matches]
 
         counter = 0
         story_ids = @rawstories.collect{|s| s.id}.uniq*","
