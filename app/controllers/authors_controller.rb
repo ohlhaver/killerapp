@@ -12,7 +12,7 @@ class AuthorsController < ApplicationController
                                                         :class_names => 'Rawstory', 
                                                         :sort_mode   => 'descending',
                                                         :sort_by     => 'created_at',
-                                                        :filters     => {'author_id' => @author.id},
+                                                        :filters     => {:author_id => @author.id, :is_duplicate => 0},
                                                         :page        => (params[:page] || 1).to_i,
                                                         :per_page    => 5)
         @rawstories_published.run
