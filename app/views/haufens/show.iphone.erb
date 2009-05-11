@@ -32,6 +32,15 @@
  )
 <% end %>
 
+<% unless @haufen.keywords.blank? %>
+(
+<% @haufen.keywords.strip.split(/\s+/).each_with_index do |k, i| -%>
+<%= ' - ' unless i==0 -%>
+<%= link_to k,{:controller => 'rawstories', :action => 'search', :l => @l, :q => k}%>
+<% end -%>
+)
+<% end %>
+
 </div>
   <%= render :partial => @haufen_stories %>
 
