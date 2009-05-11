@@ -46,13 +46,15 @@
 
 
 <%= peterson rawstory %>
+<% if !(defined?(show_duplicate_link) and show_duplicate_link == false ) and !rawstory.rawstory_detail.duplicate_group_id.blank? and rawstory.rawstory_detail.duplicate_group_id != 1 %>
+<%= ' - ' -%> <%= link_to duplicates_label, :controller => 'rawstories', :action => 'view_duplicates', :id => rawstory.rawstory_detail.duplicate_group_id %>
+<% end %>
+
 <br>
 <div class="cluster">
 	<span class="source">
 	
-<% previous_links_exist = false %>
 <% if rawstory.haufen && rawstory.haufen.weight > 1 && params[:controller] != 'haufens' %>
-<% previous_links_exist = true %>
 <%= link_to haufen_label(rawstory), :controller => 'haufens', :action => 'show', :id => rawstory.haufen, :l => @l %> 
 <% unless rawstory.haufen.videos == nil %>
 	<% if rawstory.haufen.videos > 0 %>
@@ -60,10 +62,6 @@
 	<% end %>
   <%end%>	
 <% end %>
-<% if !(defined?(show_duplicate_link) and show_duplicate_link == false ) and !rawstory.rawstory_detail.duplicate_group_id.blank? and rawstory.rawstory_detail.duplicate_group_id != 1 %>
-<%= ' - ' if previous_links_exist -%> <%= link_to duplicates_label, :controller => 'rawstories', :action => 'view_duplicates', :id => rawstory.rawstory_detail.duplicate_group_id %>
-<% end %>
-
 </span>
 </div>
 
