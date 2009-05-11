@@ -175,6 +175,7 @@ module ApplicationHelper
     end
   end 
   
+  
   def topics_label
     if @language ==2
       label = 'Meine Themen'

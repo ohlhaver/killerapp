@@ -1,7 +1,20 @@
 <div class="pagelabel">
   <%= read_list_label  %>
 </div>
+
+<% unless  @read_list.empty? -%> 
+
 <% @read_list.each do |r| -%>
  <%= render :partial => r.rawstory, :locals =>{:read_item => r} -%>
 <% end -%>
 
+
+<% else -%>
+<div class = 'message'>
+<% if @language == 2 %>
+<%= 'Um einen Artikel zu Ihrer Leseliste zu speichern, bewegen Sie Ihre Maus über die Überschrift und klicken Sie auf das ' + image_tag('plus.gif') + ' Symbol neben der Überschrift.'  %>
+<% else %>
+<%= 'To add an article to your reading list simply move your mouse over the headline and click the ' + image_tag('plus.gif') + ' symbol next to the headline.'  %>
+<% end %>
+</div>
+<% end -%>

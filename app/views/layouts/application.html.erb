@@ -81,6 +81,7 @@
 			<span class="unselected">
 			<%= link_to mixed_label, :controller => 'groups', :action => 'mixed', :l => @l  %> </span>
 			<% end %></li>
+			
 
 		</ul>
 		</list>
@@ -119,29 +120,54 @@
 		&nbsp;-&nbsp;
 	<% end %>
 
-    <% if logged_in? %>
 
-	<% if params[:controller] == 'subscriptions'  %> 
-		 <%='Email alerts'%>
-		<% if @current_user.alerts == true %>
-		<em><%= link_to unsubscribe_label, {:controller => 'subscriptions', :action => 'stop_alerts', :l => @l}%></em> &nbsp;-&nbsp;
-		<%else%>
-		<%= link_to subscribe_label, {:controller => 'subscriptions', :action => 'get_alerts', :l => @l}%> &nbsp;-&nbsp;
-		<%end%>
-	<%end%>
-	<%end%>
 	
 	<% if logged_in? %>
       <%= h(@current_user.login) %><em> <%= link_to logout_label, session_path(:l => @l), :method => :delete %></em>
     <% else %>
       <%= link_to login_label, :controller => 'sessions', :action => 'new', :l=>@l %>
     <% end %>
-    <% if logged_in? %>
-      &nbsp;-&nbsp; <%= link_to settings_label, settings_url(:l => @l) -%>
-    <% end -%>
-      &nbsp;-&nbsp; <%= link_to read_list_label, {:controller => "read_list", :action => "show",:l => @l} -%>
+	 <% if logged_in? %>
+	&nbsp;-&nbsp;
+		<% if params[:controller] == 'users'  %> 
+		
+			<span class="selected"><%= settings_label  %></span> 
+		<% else %>
+<%= link_to settings_label, settings_url(:l => @l) -%>
+	    <% end %>
+	<% end -%>
+   
+    
     
 
+
+	&nbsp;-&nbsp;
+	<% if params[:controller] == 'subscriptions'  %> 
+		<span class="selected"><%= my_authors  %></span> 
+	<% else %> 
+		<%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> 
+	<% end %>
+
+
+      &nbsp;-&nbsp; 
+	<% if params[:controller] == 'read_list'  %> 
+		<span class="selected"><%= read_list_label  %></span> 
+	<% else %>
+<%= link_to read_list_label, {:controller => "read_list", :action => "show",:l => @l} -%>
+    <% end %>
+
+    <% if logged_in? %>
+
+	<% if params[:controller] == 'subscriptions'  %> 
+	&nbsp;-&nbsp;
+		 <%='Email alerts'%>
+		<% if @current_user.alerts == true %>
+		<em><%= link_to unsubscribe_label, {:controller => 'subscriptions', :action => 'stop_alerts', :l => @l}%></em> 
+		<%else%>
+		<%= link_to subscribe_label, {:controller => 'subscriptions', :action => 'get_alerts', :l => @l}%> 
+		<%end%>
+	<%end%>
+	<%end%>
 	
 	
   </div>
