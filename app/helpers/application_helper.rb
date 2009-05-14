@@ -1,5 +1,15 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  def author_results_label
+    if @language ==2
+      label = 'Autoren Ergebnisse  für' 
+    else
+      label = 'Author results for'
+    end
+    
+    return label
+
+  end
   def duplicates_label
     if @language ==2
       label = 'Duplikate anzeigen' 
