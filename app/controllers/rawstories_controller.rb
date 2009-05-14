@@ -128,6 +128,17 @@ class RawstoriesController < ApplicationController
       @rawstories = @rawstories.paginate  :page => params[:page],
                                           :per_page => 5
       
+      @authors = []
+      if params[:action] == 'search' and !query.blank?
+        author_search_hash = {:query => query, 
+                              :class_names => 'Author',
+                              :sort_mode   => 'descending',
+                              :sort_by     => 'created_at',
+                              :page        => 1,
+                              :per_page    => 3}
+
+        @authors  = Ultrasphinx::Search.new(author_search_hash).results
+      end
     end
 
    
