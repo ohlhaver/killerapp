@@ -1,3 +1,9 @@
+<% unless @authors.blank? and  params[:action] == 'search'%>
+  <div class="pagelabel"><%= author_results_label -%> <b>'<%= h(params[:q]) %>'</b></div>
+  <%= render :partial => @authors, :locals => {:no_spacer => true} -%>
+  <br/>
+<% end %>
+
 <% unless @rawstories.empty? -%> 
 	<div class="pagelabel">
 	<%= search_results if params[:action] == 'search' %> <%= opinion_results if params[:action] == 'filter_by_opinions' %> <%= video_results if params[:action] == 'filter_by_videos' %> <b> '<%= h(params[:q]) %>'
@@ -40,8 +46,6 @@
 
 
 </div>
-
-
 
     <%= render :partial => @rawstories %>
 
