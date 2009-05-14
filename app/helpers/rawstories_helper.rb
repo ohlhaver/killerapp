@@ -145,4 +145,18 @@ module RawstoriesHelper
     return label
   end
   
+  
+  def author_results_label
+    if @language == 2
+      label = 'Autoren Ergebnisse für '
+    else
+      label = 'Author results for '
+    end
+    return label
+  end
+  
+  
+  
+  
+  
 end
