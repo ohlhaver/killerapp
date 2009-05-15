@@ -1,6 +1,6 @@
 <span class="headline">
 <div>
-<% if defined?(rank) -%>
+<% if defined?(rank) and !rank.blank? -%>
 <%= rank %>.
 <% end -%>
 <%= link_to author.name, :controller => 'authors', :action => 'show', :id => author, :l => @l %>&nbsp;&nbsp;
