@@ -137,7 +137,7 @@ class RawstoriesController < ApplicationController
                               :page        => 1,
                               :per_page    => 3}
 
-        @authors  = Ultrasphinx::Search.new(author_search_hash).results
+        @authors  = Ultrasphinx::Search.new(author_search_hash).results.reject!{|a| a.name.strip.split(/\s+/).size > 4}
       end
     end
 

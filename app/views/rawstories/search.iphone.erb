@@ -1,4 +1,4 @@
-<% unless @authors.blank? and  params[:action] == 'search'%>
+<% if !@authors.blank? and  params[:action] == 'search'%>
   <div class="pagelabel"><%= author_results_label -%> <b>'<%= h(params[:q]) %>'</b></div>
   <%= render :partial => @authors, :locals => {:no_spacer => true} -%>
   <br/>
