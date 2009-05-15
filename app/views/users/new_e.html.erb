@@ -21,4 +21,7 @@
 
 <p><%= submit_tag 'sign up', :id => 'loginbutton', :class => 'button' %></p>
 <% end -%>
+<p>or login with your Facebook account  
+<%= fb_login_button 'window.location = "/users/link_user_accounts";', :size => :medium,:length => :long, :background => :dark%>
+</p>
 </div>

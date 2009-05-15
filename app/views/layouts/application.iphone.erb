@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
     <xml:lang="en" lang="en">
 
@@ -8,9 +8,13 @@
 
 <title>jurnalo</title>
 <%= stylesheet_link_tag 'iui' %>
+<%= javascript_include_tag 'prototype' %>
 
 	</head>
 	<body>
+<%= fb_connect_javascript_tag %>
+<%= init_fb_connect "XFBML"%>
+
 		
 
 	
@@ -65,7 +69,12 @@
 		
 	&nbsp;-&nbsp; 
 	<% if logged_in? %> 
-      <%= h(@current_user.login) %><em> <%= link_to logout_label, session_path(:l => @l), :method => :delete %></em>
+          <% if @current_user.facebook_user? and facebook_session %>
+          <%= h(facebook_session.user.name) %> <em><a href="#" onclick='FB.Connect.logoutAndRedirect("/logout")'><%= logout_label -%></a></em>
+          <% else %>
+           <%= h(@current_user.name) %><em><%= link_to logout_label, session_path(:l => @l), :method => :delete %></em>
+          <% end %>
+
     <% else %>
       <%= link_to login_label, :controller => 'sessions', :action => 'new', :l=>@l %>
     <% end %>
@@ -74,6 +83,13 @@
     <% end -%>
       &nbsp;-&nbsp; <%= link_to read_list_label, {:controller => "read_list", :action => "show",:l => @l} -%>
     
+
+<%if !logged_in? or (logged_in? and !(@current_user and @current_user.facebook_user?)) %>
+  <%= facebook_login_button -%> 
+<% end -%>
+  <% if logged_in? and @current_user.facebook_user? and facebook_session%>
+  <br/>  <%= fb_profile_pic(facebook_session.user, {:size => :thumb, :facebook_logo => true})%>
+  <% end %>
 
 
 	

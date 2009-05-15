@@ -24,6 +24,8 @@
 <input type="submit" value="<%=save_label%>" class="button">
   <% end -%>
 
+  <% if ! (@current_user.facebook_user? and facebook_session and !facebook_session.user.blank?) -%>
+
   <br>
   <%form_tag settings_url(:l => @l) do -%>
     <input type="hidden" name="setting_type" value="password"/>
@@ -40,6 +42,7 @@
       <input type="password" name="password[confirmation]" class="textfield">
     </p>
     <p><input type="submit" value="<%=change_password_label%>" class="button"></p>
+  <% end -%>
   <% end -%>
 
 </div>

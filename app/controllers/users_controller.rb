@@ -1,6 +1,15 @@
 class UsersController < ApplicationController
   
-  before_filter :login_required, :only => [:settings]
+  before_filter :login_required, :only => [:settings, :link_user_accounts]
+  def link_user_accounts
+     # Connect accounts
+     self.current_user.link_fb_connect(facebook_session.user.id) unless self.current_user.fb_user_id == facebook_session.user.id
+     if facebook_session.user.has_permission?('email')
+       redirect_back_or_default(:controller => 'groups', :action => 'index', :l => @l)
+       return
+     end
+   end
+    
   # render new.rhtml
   def new
      if @language == 2

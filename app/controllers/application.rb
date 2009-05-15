@@ -3,6 +3,10 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
+  before_filter :set_facebook_session
+  before_filter :check_facebook_session
+  helper_method :facebook_session
+
   helper_method :iphone_user_agent?
   include ExceptionNotifiable
   include AuthenticatedSystem
@@ -26,6 +30,15 @@ class ApplicationController < ActionController::Base
   require 'will_paginate'
   
   protected
+  def check_facebook_session
+    if facebook_session
+      begin
+        facebook_session.user.name
+      rescue 
+        facebook_session = nil
+      end
+    end
+  end
   def log_request_information
      logger.info "Request : #{request.env.inspect}"
   end

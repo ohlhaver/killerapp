@@ -1,5 +1,9 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  def facebook_login_button
+   fb_login_button "window.location = '/users/link_user_accounts?l=#{@l}';", 
+                  {:size => :medium,:length => :long, :background => :dark}
+  end
   def duplicates_label
     if @language ==2
       label = 'Duplikate anzeigen' 

@@ -19,6 +19,10 @@
 <p><%= link_to "Passwort vergessen?", forgot_password_url(:l => @l) -%></p>
 
 <% end -%>
+<p>or login with your Facebook account  
+<%= fb_login_button 'window.location = "/users/link_user_accounts";', :size => :medium,:length => :long, :background => :dark%>
+</p>
+
 <p><b><%= link_to 'Als neuer Benutzer anmelden!', :controller => 'users', :action => 'new', :l => @l %></b></p>
 </div>
 
