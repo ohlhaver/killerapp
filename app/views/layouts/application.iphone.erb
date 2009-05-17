@@ -39,13 +39,16 @@
           <span class="unselected"><%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %> </span>
 	<% end %>&nbsp;-&nbsp; 
 	<% if logged_in? %> 
-          <% if @current_user.facebook_user? %>
-            <%= link_to h(truncate(@current_user.fb_user(facebook_session).name,15)), {:controller => 'users', :action => 'profile', :l => @l} %>
-            <em><a href="#" onclick='FB.Connect.logoutAndRedirect("/logout?l=<%= @l -%>")'><%= logout_label -%></a></em>
-          <% else %>
-            <%= link_to h(truncate(@current_user.name,15)), {:controller => 'users', :action => 'profile', :l => @l} %>
-            <em><%= link_to logout_label, session_path(:l => @l), :method => :delete %></em>
-          <% end %>
+            <% if @current_user.facebook_user?%>
+              <%= link_to h(truncate(@current_user.fb_user(facebook_session).name,15)), {:controller => 'users', :action => 'profile', :l => @l} %>
+            <% else %>
+              <%= link_to h(truncate(@current_user.name,15)), {:controller => 'users', :action => 'profile', :l => @l} %>
+            <% end %>
+            <% if facebook_session %>
+              <em><a href="#" onclick='FB.Connect.logoutAndRedirect("/logout?l=<%= @l -%>")'><%= logout_label -%></a></em>
+            <% else %>
+              <em><%= link_to logout_label, session_path(:l => @l), :method => :delete %></em>
+            <% end %>
          <% else %>
            <%= link_to login_label, :controller => 'sessions', :action => 'new', :l=>@l %>
          <% end %>
