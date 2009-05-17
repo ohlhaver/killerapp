@@ -11,15 +11,12 @@
 <% else %>
 <%= link_to friends_label, :controller => 'users' , :action => 'friends', :id => user.id, :l => @l -%>
 <% end %> -  
-<% if params[:controller] == 'users' and params[:action] == 'favorite_authors' %>
-<%= favorite_authors -%>
+<% if params[:controller] == 'users' and params[:action] == 'articles_by_favorite_authors' %>
+<%= favorite_authors -%> (  <%= articles_list_label -%> - <%= link_to authors_list_label, :controller => 'users' , :action => 'favorite_authors', :id => user.id, :l => @l -%> )
+<% elsif params[:controller] == 'users' and params[:action] == 'favorite_authors' %>
+<%= favorite_authors -%> ( <%= link_to articles_list_label, :controller => 'users' , :action => 'articles_by_favorite_authors', :id => user.id, :l => @l -%> - <%= authors_list_label -%> )
 <% else %>
-<%= link_to favorite_authors, :controller => 'users' , :action => 'favorite_authors', :id => user.id, :l => @l -%>
+<%= link_to favorite_authors, :controller => 'users' , :action => 'articles_by_favorite_authors', :id => user.id, :l => @l -%>
 <% end %>  
-( <% if params[:controller] == 'users' and params[:action] == 'articles_by_favorite_authors' %>
-<%= articles_list_label -%>
-<% else %>
-<%= link_to articles_list_label, :controller => 'users' , :action => 'articles_by_favorite_authors', :id => user.id, :l => @l -%>
-<% end %> )
 
 </div>
