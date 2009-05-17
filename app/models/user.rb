@@ -76,13 +76,11 @@ class User < ActiveRecord::Base
   
   after_create :register_user_to_fb
   def fb_user(fb_session, f_user=nil)
-    if !f_user.nil?
-      @fb_user = f_user
-    end
-    unless defined?( @fb_user )
-     @fb_user = self.fb_user_id == 0 ? nil : (Facebooker::User.new(self.fb_user_id, fb_session) rescue nil )
-    end
-   @fb_user
+    @fb_user = f_user if !f_user.nil?
+    return @fb_user   if defined?(@fb_user)
+    fb_session ||= Facebooker::Session.create 
+    @fb_user = self.fb_user_id == 0 ? nil : (Facebooker::User.new(self.fb_user_id, fb_session) rescue nil )
+    @fb_user
   end
   
   def jurnalo_friends(fb_session)

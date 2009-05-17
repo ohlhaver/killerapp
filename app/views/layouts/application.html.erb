@@ -129,7 +129,7 @@
             <%if !@current_user.facebook_user? %>
               <%= facebook_login_button -%> 
             <% else -%>
-              <%= fb_profile_pic(facebook_session.user || @current_user.fb_user(facebook_session), {:height => '32px', :facebook_logo => true})%>
+              <%= fb_profile_pic(@current_user.fb_user(facebook_session), {:height => '32px', :facebook_logo => true})%>
             <% end %>
           </div>
         <% end -%>

@@ -56,8 +56,8 @@
         <%if !logged_in? or (logged_in? and !(@current_user and @current_user.facebook_user?)) %>
           <%= facebook_login_button -%> 
         <% end -%>
-        <% if logged_in? and @current_user.facebook_user? and facebook_session%>
-        <br/>  <%= fb_profile_pic(facebook_session.user, {:size => :thumb, :facebook_logo => true})%>
+        <% if logged_in? and @current_user.facebook_user? %>
+        <br/><%= fb_profile_pic(@current_user.fb_user(facebook_session), {:size => :thumb, :facebook_logo => true})%>
         <% end %>
 
 
