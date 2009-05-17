@@ -1,6 +1,31 @@
 class UsersController < ApplicationController
   
   before_filter :login_required, :only => [:settings, :link_user_accounts]
+  def friends
+    @user = get_user
+  end
+  def profile 
+    @user = get_user
+  end
+  def favorite_authors
+    @user = get_user
+  end
+  def articles_by_favorite_authors
+    @user = get_user
+    @user_stories =[]
+    unless @user.stories.blank?
+      story_ids     = @user.stories.split(' ')*","
+      @user_stories = Rawstory.find(:all,
+                                   :conditions => ["rawstories.id IN ( #{story_ids} ) and rawstory_details.is_duplicate = :false", {:false => false}],
+                                   :order      => "rawstories.id DESC",
+                                   :joins      => 'inner join rawstory_details on rawstory_details.rawstory_id = rawstories.id',
+                                   :limit      => 25)
+   
+   end
+   @user_stories = @user_stories.paginate :page => params[:page],
+                                                :per_page => 5                                             
+
+  end
   def link_user_accounts
      # Connect accounts
      self.current_user.link_fb_connect(facebook_session.user.id) unless self.current_user.fb_user_id == facebook_session.user.id
@@ -165,6 +190,18 @@ class UsersController < ApplicationController
       end
 
     end
+  end
+
+  protected
+  def get_user
+    if params[:id]
+      user = User.find(params[:id])
+    elsif params[:fb_user_id]
+      user = User.find_by_fb_user_id(params[:fb_user_id])
+    else
+      user = @current_user
+    end
+    user
   end
 
 end

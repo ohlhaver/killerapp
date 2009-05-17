@@ -1,0 +1,5 @@
+<%= render :partial => "user_header", :locals => {:user => @user} -%>
+<span class='headlines'>
+<%= render :partial => @user.subscriptions %>
+</span>
+

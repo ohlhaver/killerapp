@@ -1,0 +1,12 @@
+<%= render :partial => "user_header", :locals => {:user => @user} -%>
+<% fb_user = @user.fb_user(facebook_session) %>
+<% unless fb_user.nil? %>
+  <% fb_user.friends_with_this_app.each do |u| -%>
+  <div style="float:left;"><%= fb_profile_pic(u, {:height => '32px', :facebook_logo => true})%></div>
+  <div style="float:left;">&nbsp;</div>
+  <div style="float:left;">
+    <em><%= link_to u.name, {:controller => 'users', :action => 'profile', :fb_user_id => u.id} -%></em>
+  </div>
+  <div style="clear:both;"></div><br/>
+  <% end -%>
+<% end -%>

@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :users, :collection => {:link_user_accounts => :get}
+  map.resources :users, :collection => {:link_user_accounts => :get, :profile => :get, :friends => :get, :favorite_authors => :get, :articles_by_favorite_authors => :get}
 
   map.resource :session
 
@@ -46,7 +46,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :authors
   map.resources :subscriptions, :collection => {:get_alerts => :get, :stop_alerts => :get}
   map.resources :groups, :collection => {:opinions => :get, :politics => :get, :culture => :get, :science => :get, :business => :get, :sport => :get, :mixed => :get, :humor => :get, :technology => :get}
-  map.resources :users
   map.resources :haufens
   map.resources :topics, :collection => {:delete => :get}
   map.resources :about, :collection => {:imprint => :get, :privacy => :get, :feedback => :get}

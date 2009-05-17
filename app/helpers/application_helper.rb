@@ -1,7 +1,41 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  def profile_label
+    if @language ==2
+      label = 'Profile' 
+    else
+      label = 'Profile'
+    end
+    return label
+  end
+  def friends_label
+    if @language ==2
+      label = 'Friends' 
+    else
+      label = 'Friends'
+    end
+    return label
+  end
+
+  def favorite_authors
+    if @language ==2
+      label = 'Favorite Authors' 
+    else
+      label = 'Favorite Authors'
+    end
+    return label
+  end
+
+  def sign_up_label
+    if @language ==2
+      label = 'Registrieren' 
+    else
+      label = 'Sign up'
+    end
+    return label
+  end
   def facebook_login_button
-   fb_login_button "window.location = '/users/link_user_accounts?l=#{@l}';", 
+   fb_login_button "window.location='/users/link_user_accounts?l=#{@l}';", 
                   {:size => :medium,:length => :long, :background => :dark}
   end
   def duplicates_label

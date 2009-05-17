@@ -20,7 +20,7 @@
 
 <% end -%>
 <p>or login with your Facebook account  
-<%= fb_login_button 'window.location = "/users/link_user_accounts";', :size => :medium,:length => :long, :background => :dark%>
+<%= facebook_login_button -%> 
 </p>
 
 <p><b><%= link_to 'Als neuer Benutzer anmelden!', :controller => 'users', :action => 'new', :l => @l %></b></p>

@@ -4,9 +4,8 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   before_filter :set_facebook_session
-  before_filter :check_facebook_session
   helper_method :facebook_session
-
+  
   helper_method :iphone_user_agent?
   include ExceptionNotifiable
   include AuthenticatedSystem
@@ -23,6 +22,7 @@ class ApplicationController < ActionController::Base
   before_filter :language?
   before_filter :fetch_searchterms
   before_filter :log_request_information
+  before_filter :check_facebook_session
   after_filter  :set_last_page_viewed
  
 
@@ -31,12 +31,9 @@ class ApplicationController < ActionController::Base
   
   protected
   def check_facebook_session
-    if facebook_session
-      begin
-        facebook_session.user.name
-      rescue 
-        facebook_session = nil
-      end
+    if !(params[:controller] == 'sessions' and params[:action] == 'destroy') and @current_user and @current_user.facebook_user? and facebook_session and !facebook_session.logged_into_facebook_connect?
+    redirect_to logout_url 
+    return false
     end
   end
   def log_request_information
@@ -91,6 +88,5 @@ class ApplicationController < ActionController::Base
     @searchterms = nil
     end
   end
-  
   
 end

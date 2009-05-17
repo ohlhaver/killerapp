@@ -96,6 +96,18 @@ module Facebooker
       Thread.current['facebook_session'] = session
     end
 
+    def logged_into_facebook_connect?
+      secured? && unexpired?
+    end
+
+    def unexpired?
+      begin
+        !!post('facebook.users.getLoggedInUser', :session_key => session_key)
+      rescue Facebooker::Session::SessionExpired
+        false
+      end
+    end
+
     def login_url(options={})
       options = default_login_url_options.merge(options)
       "#{Facebooker.login_url_base(@api_key)}#{login_url_optional_parameters(options)}"
