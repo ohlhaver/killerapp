@@ -29,15 +29,10 @@ module Facebooker
           end
           unless required_features.blank?
              init_string = <<-FBML
-             #{case options[:js]
-               when :jquery then "$(document).ready("
-               else "Element.observe(window,'load',"
-               end} function() {
                 FB_RequireFeatures(#{required_features.to_json}, function() {
                   #{init_string}
                   #{additions}
                 });
-              });
               FBML
           end
 
