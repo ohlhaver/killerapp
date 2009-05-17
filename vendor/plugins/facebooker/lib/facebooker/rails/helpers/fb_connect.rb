@@ -29,10 +29,11 @@ module Facebooker
           end
           unless required_features.blank?
              init_string = <<-FBML
+                window.onload = function () {
                 FB_RequireFeatures(#{required_features.to_json}, function() {
                   #{init_string}
                   #{additions}
-                });
+                });};
               FBML
           end
 
