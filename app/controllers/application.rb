@@ -32,8 +32,8 @@ class ApplicationController < ActionController::Base
   protected
   def check_facebook_session
     if !(params[:controller] == 'sessions' and params[:action] == 'destroy') and @current_user and @current_user.facebook_user? and facebook_session and !facebook_session.logged_into_facebook_connect?
-    redirect_to logout_url 
-    return false
+      redirect_to logout_url 
+      return false
     end
   end
   def log_request_information

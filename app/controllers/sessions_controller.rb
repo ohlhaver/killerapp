@@ -34,7 +34,9 @@ class SessionsController < ApplicationController
 
   def destroy
     self.current_user.forget_me if logged_in?
-    cookies.delete :auth_token
+    cookies.keys.each do |k|
+      cookies.delete k
+    end
     reset_session
     flash[:notice] = "Sie haben sich ausgeloggt." if @language == 2
     flash[:notice] = "You have logged out successfully." if @language == 1
