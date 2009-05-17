@@ -39,7 +39,7 @@
           <span class="unselected"><%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %> </span>
 	<% end %>&nbsp;-&nbsp; 
 	<% if logged_in? %> 
-          <% if @current_user.facebook_user? and facebook_session %>
+          <% if @current_user.facebook_user? %>
             <%= link_to h(truncate(@current_user.fb_user(facebook_session).name,15)), {:controller => 'users', :action => 'profile', :l => @l} %>
             <em><a href="#" onclick='FB.Connect.logoutAndRedirect("/logout?l=<%= @l -%>")'><%= logout_label -%></a></em>
           <% else %>
