@@ -80,7 +80,6 @@
       <% end -%>
       <div class="profile">
         <% if logged_in? == false -%>
-          <div style="float:left;width:40px;">&nbsp;</div>
           <div style="float:left;;margin-left:2px;">
             <div style="height:18px;">
               <%= link_to sign_up_label, :controller => 'users', :action => 'new', :l=>@l %>&nbsp;-&nbsp;
