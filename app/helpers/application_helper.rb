@@ -17,11 +17,11 @@ module ApplicationHelper
     return label
   end
 
-  def favorite_authors
+  def authors_label
     if @language ==2
-      label = 'Favorite Authors' 
+      label = 'Authors' 
     else
-      label = 'Favorite Authors'
+      label = 'Authors'
     end
     return label
   end
