@@ -35,8 +35,13 @@ module ApplicationHelper
     return label
   end
   def facebook_login_button
-   fb_login_button "window.location='/users/link_user_accounts?l=#{@l}';", 
-                  {:size => :medium,:length => :long, :background => :dark}
+   code = <<-EOF
+   <span style="vertical-align:-7px;">
+   #{fb_login_button "window.location='/users/link_user_accounts?l=#{@l}';", 
+                  {:size => :small,:length => :short, :background => :white}}
+   </span>
+   <span style=\"vertical-align:top;\">Connect with Facebook</span>
+   EOF
   end
   def duplicates_label
     if @language ==2
