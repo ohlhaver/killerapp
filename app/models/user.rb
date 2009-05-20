@@ -92,6 +92,11 @@ class User < ActiveRecord::Base
       return @friends
     end
     jurnalo_friends = fb_u.friends_with_this_app 
+    if jurnalo_friends.blank?
+      @friends = []
+      return @friends
+    end
+
     jurnalo_users   = User.find(:all, :conditions => "fb_user_id IN ( #{jurnalo_friends.collect{|f| f.id}*','} )")
     jurnalo_users_h = jurnalo_users.group_by{|u| u.fb_user_id}
     jurnalo_friends.each do | fbu|
