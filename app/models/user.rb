@@ -1,6 +1,7 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
   # Virtual attribute for the unencrypted password
+  has_many :profile_actions, :order => "created_at DESC"
   has_many :subscriptions
   has_many :authors,
     :through => :subscriptions,

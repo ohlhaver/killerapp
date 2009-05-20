@@ -1,12 +1,9 @@
 <span class="headline">
-<div>
 <% if defined?(rank) and !rank.blank? -%>
 <%= rank %>.
 <% end -%>
-<%= link_to author.name, :controller => 'authors', :action => 'show', :id => author, :l => @l %>&nbsp;&nbsp;
-<%= link_to image_tag('plus.gif'), :controller => 'subscriptions', :action => 'subscribe', :id => author.id, :l => @l if author.name != '' %> 
+<%= link_to author.name, :controller => 'authors', :action => 'show', :id => author, :l => @l %>&nbsp;<%= link_to image_tag('plus.gif'), :controller => 'subscriptions', :action => 'subscribe', :id => author.id, :l => @l if author.name != '' %> 
 <% unless defined?(no_spacer) and no_spacer == true -%>
 <br><br>
 <% end -%>
-</div>
 </span>

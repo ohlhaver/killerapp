@@ -155,14 +155,18 @@
           <p style="color: #0000C8"><%= flash[:alert] %></p>
         </div>
       <%end%>
-      <% if params[:action] == 'index' && params[:controller] != 'subscriptions'%>
+      <% if (params[:action] == 'index' and params[:controller] == 'groups')%>
         <div class="col1"> 
-      <%end%>
-      <ul class="module">
-        <%= yield %>
-      </ul>
-      <% if params[:action] == 'index' && params[:controller] != 'subscriptions'%>
+          <ul class="module">
+            <%= yield %>
+          </ul>
         </div> 
+      <% elsif (params[:action] == 'profile' and params[:controller] == 'users')-%>
+         <%= yield -%>
+      <% else -%>
+        <ul class="module">
+          <%= yield %>
+        </ul>
       <%end%>
     </div>
     <div id="footer">

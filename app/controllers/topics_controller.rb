@@ -22,7 +22,8 @@ class TopicsController < ApplicationController
     else
       @current_user.save if @searchterms.size < 10
     end
-    
+    # create profile action
+    ProfileAction.create_added_search_topic_action(@current_user.id, params[:searchterms])
     if params[:searchterms] != '' && params[:searchterms].size < 16
       
     redirect_to search_rawstories_path(:l => @l, :q => params[:searchterms]) 
@@ -39,6 +40,8 @@ class TopicsController < ApplicationController
     trash = params[:q] + ','
     @current_user.searchterms = @current_user.searchterms.sub(trash,'')
     @current_user.save
+    # create profile action
+    ProfileAction.create_removed_search_topic_action(@current_user.id, params[:q])
     redirect_to :back
     flash[:notice] = "Sie haben das alte Thema gelöscht." if @language == 2
     flash[:notice] = "You have deleted the old topic." if @language == 1

@@ -1,5 +1,23 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  def actions_label
+    if @language ==2
+      label = 'Actions' 
+    else
+      label = 'Actions'
+    end
+    return label
+  end
+  def notifications_label
+    if @language ==2
+      label = 'Notifications' 
+    else
+      label = 'Notifications'
+    end
+    return label
+  end
+
+  
   def profile_label
     if @language ==2
       label = 'Profile' 
