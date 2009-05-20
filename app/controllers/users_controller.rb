@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_filter :login_required, :only => [:settings, :link_user_accounts]
+  before_filter :login_required, :only => [:settings, :link_user_accounts, :friends, :profile, :favorite_authors, :articles_by_favorite_authors]
   def friends
     @user = get_user
   end
