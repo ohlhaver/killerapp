@@ -1,9 +1,16 @@
+<% if author.name != '' %>
 <span class="headline">
-<% if defined?(rank) and !rank.blank? -%>
-<%= rank %>.
-<% end -%>
-<%= link_to author.name, :controller => 'authors', :action => 'show', :id => author, :l => @l %>&nbsp;<%= link_to image_tag('plus.gif'), :controller => 'subscriptions', :action => 'subscribe', :id => author.id, :l => @l if author.name != '' %> 
+  <% if defined?(rank) and !rank.blank? -%><%= rank %>.&nbsp;<% end -%>
+  <%= link_to author.name, :controller => 'authors', :action => 'show', :id => author, :l => @l %>
+  <% s = @current_user ? @current_user.subscriptions.find_all{|s| s.author_id == author.id }.first : nil %>
+  <% if s %>
+     <%= link_to image_tag('minus.gif'), :controller => 'subscriptions', :action => 'subscribe', :id => s.id, :l => @l  %> 
+  <% else %>
+    <%= link_to image_tag('plus.gif'), :controller => 'subscriptions', :action => 'subscribe', :id => author.id, :l => @l  %> 
+  <% end %>
 <% unless defined?(no_spacer) and no_spacer == true -%>
 <br><br>
 <% end -%>
 </span>
+<% end %>
+

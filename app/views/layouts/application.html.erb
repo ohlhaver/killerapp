@@ -114,7 +114,7 @@
               <%if !@current_user.facebook_user? %>
                &nbsp;-&nbsp;<%= facebook_login_button -%> 
               <% end %>&nbsp;-&nbsp;
-              <% if params[:controller] == 'users' and params[:action] == 'settings'  %> 
+              <% if params[:controller] == 'users' and params[:action] == 'settings' and (params[:id].blank? or @current_user.id == params[:id].to_s) %> 
                 <span class="selected"><%= settings_label  %></span>
               <% else %>
                 <%= link_to settings_label, settings_url(:l => @l) -%>
@@ -122,18 +122,18 @@
             </div>
             <div style="padding-top:3px;">
               <% if @current_user.facebook_user?%>
-                <% if params[:controller] == 'users' and params[:action] == 'profile' %>
+                <% if params[:controller] == 'users' and params[:action] == 'profile' and (params[:id].blank? or @current_user.id == params[:id].to_s) %>
                  <span class="selected"><%= profile_label %></span>
                 <% else %>
                 <%= link_to profile_label, :controller => 'users' , :action => 'profile', :l => @l -%>
                 <% end %>&nbsp;-&nbsp;  
-                <% if params[:controller] == 'users' and params[:action] == 'friends' %>
+                <% if params[:controller] == 'users' and params[:action] == 'friends' and (params[:id].blank? or @current_user.id == params[:id].to_s) %>
                   <span class="selected"><%= friends_label -%></span>
                 <% else %>
                   <%= link_to friends_label, :controller => 'users' , :action => 'friends', :l => @l -%>
                 <% end %>&nbsp;-&nbsp; 
               <% end -%>
-              <% if params[:controller] == 'users' and params[:action] ==  'articles_by_favorite_authors' %> 
+              <% if params[:controller] == 'users' and params[:action] ==  'articles_by_favorite_authors' and (params[:id].blank? or @current_user.id == params[:id].to_s) %> 
                  <span class="selected"><%= my_authors  %></span> 
               <% else %> 
                 <%= link_to my_authors, :controller => 'users', :action => 'articles_by_favorite_authors',:l => @l  %> 
@@ -161,7 +161,7 @@
             <%= yield %>
           </ul>
         </div> 
-      <% elsif (params[:action] == 'profile' and params[:controller] == 'users')-%>
+      <% elsif (['profile', 'friends'].include?(params[:action]) and params[:controller] == 'users')-%>
          <%= yield -%>
       <% else -%>
         <ul class="module">

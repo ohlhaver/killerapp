@@ -1,12 +1,23 @@
-<%= render :partial => "user_header", :locals => {:user => @user} -%>
-<% fb_user = @user.fb_user(facebook_session) %>
-<% unless fb_user.nil? %>
-  <% fb_user.friends_with_this_app.each do |u| -%>
-  <div style="float:left;"><%= fb_profile_pic(u, {:height => '32px', :facebook_logo => true})%></div>
-  <div style="float:left;">&nbsp;</div>
-  <div style="float:left;">
-    <em><%= link_to u.name, {:controller => 'users', :action => 'profile', :fb_user_id => u.id} -%></em>
+<% if @current_user.id == @user.id -%>
+  <div class="col1">
+    <ul class="module">
+      <div class="pagelabel"><%= friends_label %></div>
+      <%= render :partial => "friend_list", :locals => {:user => @user}%>
+    </ul>
   </div>
-  <div style="clear:both;"></div><br/>
-  <% end -%>
-<% end -%>
+  <div class="col2">
+    <ul class="module">
+      <div class="pagelabel"><%= actions_label %></div>
+      <% @user.jurnalo_friends_profile_actions.each do |pa| %>
+        <%= render :partial => pa, :locals => {:user => @user.jurnalo_friends.find_all{|u| u.id == pa.user_id}.first} -%>
+      <% end %>
+    </ul>
+  </div>
+<% else %>
+  <ul class="module">
+    <%= render :partial => "user_header", :locals => {:user => @user} -%>
+    <%= render :partial => "friend_list", :locals => {:user => @user}%>
+  </ul>
+<% end %>
+
+

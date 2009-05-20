@@ -1,0 +1,9 @@
+<% user.jurnalo_friends(facebook_session).each do |u| -%>
+<div style="float:left;width:40px;"><%= fb_profile_pic(u.fb_user, {:height => '35px', :facebook_logo => true})%>&nbsp;</div>
+<div style="float:left;">&nbsp;</div>
+<div style="float:left;">
+  <em><%= link_to u.fb_user.name, {:controller => 'users', :action => 'profile', :id => u.id} -%></em>
+</div>
+<div style="clear:both;"></div><br/>
+<% end -%>
+

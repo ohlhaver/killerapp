@@ -76,7 +76,7 @@ class User < ActiveRecord::Base
 
   
   after_create :register_user_to_fb
-  def fb_user(fb_session, f_user=nil)
+  def fb_user(fb_session=nil, f_user=nil)
     @fb_user = f_user if !f_user.nil?
     return @fb_user   if defined?(@fb_user)
     fb_session ||= Facebooker::Session.create 
@@ -84,7 +84,28 @@ class User < ActiveRecord::Base
     @fb_user
   end
   
-  def jurnalo_friends(fb_session)
+  def jurnalo_friends(fb_session=nil)
+    return @friends if defined?(@friends)
+    fb_u            = self.fb_user(fb_session)
+    if fb_u.blank?
+      @friends = []
+      return @friends
+    end
+    jurnalo_friends = fb_u.friends_with_this_app 
+    jurnalo_users   = User.find(:all, :conditions => "fb_user_id IN ( #{jurnalo_friends.collect{|f| f.id}*','} )")
+    jurnalo_users_h = jurnalo_users.group_by{|u| u.fb_user_id}
+    jurnalo_friends.each do | fbu|
+      u = jurnalo_users_h[fbu.id].first
+      u.fb_user(fb_session, fbu)
+    end
+    @friends = jurnalo_users
+  end
+  def jurnalo_friends_profile_actions
+    friends = self.jurnalo_friends
+    return [] if friends.blank?
+    ProfileAction.find(:all,
+                       :conditions => "user_id IN ( #{friends.collect{|f| f.id}*','} )", 
+                       :order => "created_at DESC")
   end
   #########################################
   # Facebook integratioin methods : End
