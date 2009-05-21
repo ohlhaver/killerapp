@@ -14,9 +14,9 @@ class ProfileAction < ActiveRecord::Base
   def description(language=1)
     case action_type
     when  Type::ADDED_FAVORITE_AUTHOR    
-      language == 2 ?  "added favorite author" : "added favorite author"
+      language == 2 ?  "subscribed to author" : "subscribed to author"
     when  Type::REMOVED_FAVORITE_AUTHOR 
-      language == 2 ? "removed favorite author" : "removed favorite author"
+      language == 2 ?  "unsubscribed to author" : "unsubscribed to author"
     when  Type::ADDED_SEARCH_TOPIC        
       language == 2 ? "added search topic" : "added search topic"
     when  Type::REMOVED_SEARCH_TOPIC      
