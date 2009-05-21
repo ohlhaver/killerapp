@@ -150,9 +150,13 @@
     </div>
     <div class="container">
       <% if flash[:notice] or flash[:alert] %>
-        <div class = 'message'>
-          <p><%= flash[:notice] %></p>
-          <p style="color: #0000C8"><%= flash[:alert] %></p>
+        <div class="message">
+          <% if flash[:notice] %>
+          <span><%= flash[:notice] %></span>
+          <% end %>
+          <% if flash[:alert] %>
+          <span style="color: #0000C8"><%= flash[:alert] %></span>
+          <% end %>
         </div>
       <%end%>
       <% if (params[:action] == 'index' and params[:controller] == 'groups')%>

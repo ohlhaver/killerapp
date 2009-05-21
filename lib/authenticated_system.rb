@@ -18,6 +18,10 @@ module AuthenticatedSystem
       if @current_user != false  and @current_user.blank?
         @current_user ||= (login_from_session || login_from_basic_auth || login_from_cookie || login_from_fb) 
       end
+      if facebook_session && facebook_session.user
+        @current_user.fb_user = facebook_session.user
+        @logged_in_with_facebook_account = true
+      end
       @current_user
     end
 
@@ -26,8 +30,6 @@ module AuthenticatedSystem
       if facebook_session and !facebook_session.expired?
         #self.current_user = User.find_by_fb_user(facebook_session.user)
         self.current_user = User.find_by_fb_user(facebook_session.user) || User.create_from_fb_connect(facebook_session.user)
-        @current_user.fb_user = facebook_session.user
-        @logged_in_with_facebook_account = true
         @current_user
       end
     end
