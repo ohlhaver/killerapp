@@ -5,11 +5,20 @@ module AuthenticatedSystem
     def logged_in?
       !!current_user
     end
-
+    def logged_in_with_facebook_account?
+      val = defined?(@logged_in_with_facebook_account) and @logged_in_with_facebook_account
+      unless val
+        flash[:notice] = 'Please login with facebook account to access this feature'
+        access_denied
+      end
+    end
     # Accesses the current user from the session. 
     # Future calls avoid the database because nil is not equal to false.
     def current_user
-      @current_user ||= (login_from_session || login_from_basic_auth || login_from_cookie || login_from_fb) unless @current_user == false
+      if @current_user != false  and @current_user.blank?
+        @current_user ||= (login_from_session || login_from_basic_auth || login_from_cookie || login_from_fb) 
+      end
+      @current_user
     end
 
     # Login with facebook account 
@@ -17,6 +26,9 @@ module AuthenticatedSystem
       if facebook_session and !facebook_session.expired?
         #self.current_user = User.find_by_fb_user(facebook_session.user)
         self.current_user = User.find_by_fb_user(facebook_session.user) || User.create_from_fb_connect(facebook_session.user)
+        @current_user.fb_user = facebook_session.user
+        @logged_in_with_facebook_account = true
+        @current_user
       end
     end
 
@@ -58,6 +70,10 @@ module AuthenticatedSystem
     #
     def login_required
       authorized? || access_denied
+    end
+
+    def facebook_login_required
+      authorized? && logged_in_with_facebook_account?
     end
 
     # Redirect as appropriate when an access request fails.

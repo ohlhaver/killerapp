@@ -13,7 +13,7 @@
   <%= my_authors -%> ( <%= link_to articles_list_label, :controller => 'users' , :action => 'articles_by_favorite_authors', :id => user.id, :l => @l -%> - <%= authors_list_label -%> )
   <% end %>
 <% else -%>
-  <% name = user.fb_user(facebook_session).nil? ? user.name : user.fb_user(facebook_session).name -%> 
+  <% name = user.fb_user.nil? ? user.name : user.fb_user.name -%> 
   <%= name %> : 
   <% if params[:controller] == 'users' and params[:action] == 'profile' %>
   <%= profile_label %>

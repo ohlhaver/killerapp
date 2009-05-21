@@ -96,13 +96,13 @@
         <% else -%>
           <%if @current_user.facebook_user? %>
             <div style="float:left;width:40px;">
-            <%= fb_profile_pic(@current_user.fb_user(facebook_session), {:height => '35px', :facebook_logo => true})%>&nbsp;
+            <%= fb_profile_pic(@current_user.fb_user, {:height => '35px', :facebook_logo => true})%>&nbsp;
             </div>
           <% end %>
           <div style="float:left;margin-left:2px;">
             <div style="height:18px;">
               <% if @current_user.facebook_user?%>
-                <%= h(truncate(@current_user.fb_user(facebook_session).name,15)) -%>
+                <%= h(truncate(@current_user.fb_user.name,15)) -%>
               <% else %>
                 <%= h(truncate(@current_user.name,15)) -%>
               <% end %>

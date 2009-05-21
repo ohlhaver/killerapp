@@ -28,11 +28,15 @@ class UsersController < ApplicationController
   end
   def link_user_accounts
      # Connect accounts
-     self.current_user.link_fb_connect(facebook_session.user.id) unless self.current_user.fb_user_id == facebook_session.user.id
-     if facebook_session.user.has_permission?('email')
-       redirect_back_or_default(:controller => 'groups', :action => 'index', :l => @l)
+     @current_user.link_fb_connect(facebook_session.user.id) unless @current_user.fb_user_id == facebook_session.user.id
+     @ask_offline_access   = nil
+     if !@current_user.fb_session_key.blank? or @current_user.fb_user(facebook_session).has_permission?('offline_access')
+        @current_user.add_infinite_session_key(facebook_session.session_key) 
+     else
+       @ask_offline_access = true
        return
      end
+     redirect_back_or_default(:controller => 'groups', :action => 'index', :l => @l)
    end
     
   # render new.rhtml

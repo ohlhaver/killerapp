@@ -25,10 +25,14 @@ class User < ActiveRecord::Base
   #########################################
   # Facebook integratioin methods : Start
   ########################################
-
+  def add_infinite_session_key(inf_session_key)
+    self.fb_session_key = inf_session_key
+    save!
+  end
   # find the user in the database, first by the facebook user id and if that fails through the email hash
   def self.find_by_fb_user(fb_user)
-    User.find_by_fb_user_id(fb_user.uid) || User.find_by_email_hash(fb_user.email_hashes)
+    user = User.find_by_fb_user_id(fb_user.id) || User.find_by_email_hash(fb_user.email_hashes)
+    user
   end
 
   
@@ -37,11 +41,16 @@ class User < ActiveRecord::Base
   # If you were using username to display to people you might want to get them to select one after registering through Facebook Connect
   def self.create_from_fb_connect(fb_user)
     t_login =  Array.new(12) { (rand(122-97) + 97).chr }.join
-    new_facebooker = User.new(:name => fb_user.name, :login => "#{t_login}_#{fb_user.uid}", :password => "#{t_login}", :password_confirmation => "#{t_login}", :email => fb_user.proxied_email)
-    new_facebooker.fb_user_id = fb_user.uid.to_i
-    # We need to save without validations
-    new_facebooker.save(false)
+    new_facebooker = User.new(:login                 => "#{t_login}_#{fb_user.uid}", 
+                              :password              => "#{t_login}", 
+                              :password_confirmation => "#{t_login}",
+                              :email                 => fb_user.proxied_email)
+    new_facebooker.name = fb_user.name
+    new_facebooker.fb_user_id = fb_user.uid
+    new_facebooker.save!
+    new_facebooker.activate
     new_facebooker.register_user_to_fb
+    new_facebooker
   end
  
   # We are going to connect this user object with a facebook id. But only ever one account.
@@ -52,11 +61,11 @@ class User < ActiveRecord::Base
       # unlink the existing account
       unless existing_fb_user.nil?
         existing_fb_user.fb_user_id = nil
-        existing_fb_user.save(false)
+        existing_fb_user.save
       end
       # link the new one
       self.fb_user_id = fb_user_id
-      save(false)
+      save
     end
   end
   
@@ -67,7 +76,7 @@ class User < ActiveRecord::Base
     users = {:email => email, :account_id => id}
     Facebooker::User.register([users])
     self.email_hash = Facebooker::User.hash_email(email)
-    save(false)
+    save
   end
   
   def facebook_user?
@@ -76,32 +85,34 @@ class User < ActiveRecord::Base
 
   
   after_create :register_user_to_fb
-  def fb_user(fb_session=nil, f_user=nil)
-    @fb_user = f_user if !f_user.nil?
-    return @fb_user   if defined?(@fb_user)
-    fb_session ||= Facebooker::Session.create 
-    @fb_user = self.fb_user_id == 0 ? nil : (Facebooker::User.new(self.fb_user_id, fb_session) rescue nil )
-    @fb_user
+  def fb_user=(f_user)
+    @fb_user  = f_user
+  end
+  def fb_user
+    return nil           if self.fb_user_id == 0 
+    return @fb_user      if defined?(@fb_user)
+    fb_s = Facebooker::Session.create 
+    fb_s.secure_with!(fb_session_key, fb_user_id)
+    @fb_user =  Facebooker::User.new(fb_user_id, fb_s)
   end
   
-  def jurnalo_friends(fb_session=nil)
+  def jurnalo_friends
     return @friends if defined?(@friends)
-    fb_u            = self.fb_user(fb_session)
+    fb_u            = fb_user
     if fb_u.blank?
       @friends = []
       return @friends
     end
-    jurnalo_friends = fb_u.friends_with_this_app 
+    jurnalo_friends = fb_u.friends_with_this_app rescue []
     if jurnalo_friends.blank?
       @friends = []
       return @friends
     end
-
     jurnalo_users   = User.find(:all, :conditions => "fb_user_id IN ( #{jurnalo_friends.collect{|f| f.id}*','} )")
     jurnalo_users_h = jurnalo_users.group_by{|u| u.fb_user_id}
     jurnalo_friends.each do | fbu|
-      u = jurnalo_users_h[fbu.id].first
-      u.fb_user(fb_session, fbu)
+      u = jurnalo_users_h[fbu.uid].first
+      u.fb_user=fbu
     end
     @friends = jurnalo_users
   end
