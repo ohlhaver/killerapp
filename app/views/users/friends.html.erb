@@ -1,23 +1,29 @@
-<% if @current_user.id == @user.id -%>
-  <div class="col1">
+<% unless @current_user.fb_offline_access_permission_granted %>
+<ul class="module">
+  <div class="pagelabel"><%= friends_label %></div>
+  <div class="message">To be able to view friends you need to grant offline access permission to Jurnalo.</div>
+  <em><%= fb_prompt_permission('offline_access', "Click here to grant permission.", "window.location='/users/link_user_accounts?l=#{@l}';") -%></em>
+</ul>
+<% else %>
+  <% if @current_user.id == @user.id -%>
+    <div class="col1">
+      <ul class="module">
+        <div class="pagelabel"><%= friends_label %></div>
+        <%= render :partial => "friend_list", :locals => {:user => @user}%>
+      </ul>
+    </div>
+    <div class="col2">
+      <ul class="module">
+        <div class="pagelabel"><%= actions_label %></div>
+        <% @user.jurnalo_friends_profile_actions.each do |pa| %>
+          <%= render :partial => pa, :locals => {:user => @user.jurnalo_friends.find_all{|u| u.id == pa.user_id}.first} -%>
+        <% end %>
+      </ul>
+    </div>
+  <% else %>
     <ul class="module">
-      <div class="pagelabel"><%= friends_label %></div>
+      <%= render :partial => "user_header", :locals => {:user => @user} -%>
       <%= render :partial => "friend_list", :locals => {:user => @user}%>
     </ul>
-  </div>
-  <div class="col2">
-    <ul class="module">
-      <div class="pagelabel"><%= actions_label %></div>
-      <% @user.jurnalo_friends_profile_actions.each do |pa| %>
-        <%= render :partial => pa, :locals => {:user => @user.jurnalo_friends.find_all{|u| u.id == pa.user_id}.first} -%>
-      <% end %>
-    </ul>
-  </div>
-<% else %>
-  <ul class="module">
-    <%= render :partial => "user_header", :locals => {:user => @user} -%>
-    <%= render :partial => "friend_list", :locals => {:user => @user}%>
-  </ul>
+  <% end %>
 <% end %>
-
-

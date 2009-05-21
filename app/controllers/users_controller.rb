@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   
   before_filter :login_required, :only => [:settings, :link_user_accounts, :friends, :profile, :favorite_authors, :articles_by_favorite_authors]
   def friends
+    unless @current_user.fb_offline_access_permission_granted 
+      return
+    end
     @user = get_user
   end
   def profile 

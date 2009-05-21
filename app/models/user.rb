@@ -26,8 +26,13 @@ class User < ActiveRecord::Base
   # Facebook integratioin methods : Start
   ########################################
   def add_infinite_session_key(inf_session_key)
+    old_val = self.fb_offline_access_permission_granted
     self.fb_session_key = inf_session_key
+    self.fb_offline_access_permission_granted = true
     save!
+    if old_val == false
+      register_user_to_fb
+    end
   end
   # find the user in the database, first by the facebook user id and if that fails through the email hash
   def self.find_by_fb_user(fb_user)
@@ -47,9 +52,9 @@ class User < ActiveRecord::Base
                               :email                 => fb_user.proxied_email)
     new_facebooker.name = fb_user.name
     new_facebooker.fb_user_id = fb_user.uid
+    new_facebooker.jurnalo_user = false
     new_facebooker.save!
     new_facebooker.activate
-    new_facebooker.register_user_to_fb
     new_facebooker
   end
  
@@ -82,11 +87,8 @@ class User < ActiveRecord::Base
   def facebook_user?
     return !fb_user_id.nil? && fb_user_id > 0
   end
-
-  
-  after_create :register_user_to_fb
   def fb_user=(f_user)
-    @fb_user  = f_user
+    @fb_user=f_user
   end
   def fb_user
     return nil           if self.fb_user_id == 0 
