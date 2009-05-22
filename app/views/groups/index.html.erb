@@ -146,7 +146,7 @@
   <% if logged_in? %>
 	<ul class="module">
 	<li>
-	<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> 
+	<div class="pagelabel"> <%= link_to my_authors, :controller => 'users', :action => 'articles_by_favorite_authors', :l => @l  %> 
 	<% if @current_user.subscriptions.size > 0 %>
 	<% if @top_my_authors.size > 0 %>
 	</div>
@@ -188,7 +188,7 @@
   <% else %>
 	<ul class="module">
 	<li>
-	<div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %> </div>
+	<div class="pagelabel"> <%= link_to my_authors, :controller => 'users', :action => 'articles_by_favorite_authors', :l => @l  %> </div>
 	</li>
 	<div class = 'message'>
 		<% if @language == 2 %>

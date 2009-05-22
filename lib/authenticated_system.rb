@@ -105,8 +105,15 @@ module AuthenticatedSystem
       session[:return_to] = request.request_uri
     end
     def set_last_page_viewed
-      session[:last_page_viewed] =  request.request_uri unless params[:controller] == 'sessions'
+      unless params[:controller] == 'sessions' or 
+             (params[:controller] == 'users' and 
+              ['link_user_accounts', 'grant_email_permission'].include?(params[:action]) ) or 
+             (params[:controller] == 'subscriptions' and params[:action] == 'subscribe') or 
+             (params[:controller] == 'recommendations' and ['recommend_author', 'recommend_article'].include?(params[:action]))
+        session[:last_page_viewed] =  request.request_uri 
+      end
     end
+
     def redirect_to_last_page_viewed_or_default(default=nil)
       redirect_to(session[:last_page_viewed] || default || :back)
       session[:last_page_viewed] = nil

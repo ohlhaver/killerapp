@@ -1,7 +1,13 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
   # Virtual attribute for the unencrypted password
-  has_many :profile_actions, :order => "created_at DESC"
+  has_many :recommendations, :order => "id DESC"
+  has_many :provided_recommendations,
+             :class_name => 'Recommendation',
+             :foreign_key => 'recommender_id',
+             :order => "id DESC"
+
+  has_many :profile_actions, :order => "id DESC"
   has_many :subscriptions
   has_many :authors,
     :through => :subscriptions,
@@ -25,6 +31,10 @@ class User < ActiveRecord::Base
   #########################################
   # Facebook integratioin methods : Start
   ########################################
+  def grant_email_permission
+    self.fb_email_permission_granted = true
+    save!
+  end
   def add_infinite_session_key(inf_session_key)
     old_val = self.fb_offline_access_permission_granted
     self.fb_session_key = inf_session_key

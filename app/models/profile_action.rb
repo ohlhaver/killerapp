@@ -93,4 +93,21 @@ class ProfileAction < ActiveRecord::Base
 
   end
 
+  def self.create_recommended_action(recommendation)
+    action_type = (case recommendation.resource_type
+                   when 'Rawstory'
+                     ProfileAction::Type::RECOMMENDED_ARTICLE 
+                   when 'Author'
+                     ProfileAction::Type::RECOMMENDED_AUTHOR
+                   else
+                     nil
+                   end)
+    self.create!(:user_id         => recommendation.recommender_id,
+                 :action_type     => action_type,
+                 :entity_type     => recommendation.resource_type,
+                 :entity_id       => recommendation.resource_id,
+                 :receiver_user_id => recommendation.user_id)
+
+  end
+
 end

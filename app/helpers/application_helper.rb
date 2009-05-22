@@ -1,5 +1,13 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  def recommend_label
+    if @language ==2
+      label = 'Recommend' 
+    else
+      label = 'Recommend'
+    end
+    return label
+  end
   def actions_label
     if @language ==2
       label = 'Actions' 

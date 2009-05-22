@@ -39,13 +39,17 @@ before_filter :login_required
       flash[:notice] = "You have removed " + @subscription.author.name + " from your list of favourite authors." if @language == 1
      Subscription.destroy(@subscription) 
      
-     redirect_to :back
+     redirect_to_last_page_viewed_or_default(:controller => 'groups', :action => 'index', :l => @l)
    end
   end
 
 
   def subscribe
     author = Author.find(params[:id])
+    unless @current_user.jurnalo_user or @current_user.fb_email_permission_granted
+      @author = author
+      return
+    end
     if  author && Subscription.find_by_author_id_and_user_id(params[:id], @current_user.id) == nil 
       Subscription.create!(:author_id => params[:id], :user_id => @current_user.id)
       author_stories = Rawstory.find(:all,
@@ -67,7 +71,7 @@ before_filter :login_required
       flash[:notice] = "Sie haben " + author.name + " zur Liste Ihrer Lieblingsautoren hinzugefügt." if @language == 2
       flash[:notice] = "You have added " + author.name + " to your list of favourite authors." if @language == 1
     end
-    redirect_to :back  
+    redirect_to_last_page_viewed_or_default(:controller => 'groups', :action => 'index', :l => @l)
   end
   
   def get_alerts

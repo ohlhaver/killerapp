@@ -1,0 +1,6 @@
+<% unless @current_user.jurnalo_user or @current_user.fb_email_permission_granted %>
+<div class="message">
+To be able to receive alerts when <%= @author.name -%> posts any article, you need to allow Jurnalo to send emails through your facebook account.
+</div>
+<em><%= fb_prompt_permission('email', "Click here to grant permission.", "window.location='/users/grant_email_permission?l=#{@l}';") -%></em>
+<% end -%>

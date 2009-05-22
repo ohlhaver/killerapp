@@ -1,0 +1,18 @@
+<ul class="module">
+<div class="pagelabel">
+Recommendations (  
+<% if params[:controller] == 'recommendations' and params[:action] == 'view_articles'%>
+Articles
+<% else %>
+<%= link_to 'Articles', :controller => 'recommendations' , :action => 'view_articles', :l => @l%>
+<% end %>&nbsp;-&nbsp;
+<% if params[:controller] == 'recommendations' and params[:action] == 'view_authors'%>
+Authors
+<% else %>
+<%= link_to 'Authors', :controller => 'recommendations' , :action => 'view_authors', :l => @l%>
+<% end %>
+ ) 
+
+</div>
+<%= render :partial => @recommendations %>
+</ul>

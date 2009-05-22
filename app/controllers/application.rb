@@ -24,7 +24,6 @@ class ApplicationController < ActionController::Base
   before_filter :log_request_information
   before_filter :check_facebook_session
   after_filter  :set_last_page_viewed
- 
 
  
   require 'will_paginate'

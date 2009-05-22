@@ -12,7 +12,7 @@
     <%= link_to image_tag('minus.gif'), {:controller => 'read_list', :action => 'remove_item', :id => read_item.id, :l => @l}, {:title => remove_from_read_list_label} -%>
   <% else %>
     <%= link_to image_tag('plus.gif'), {:controller => 'read_list', :action => 'add_item', :id => rawstory.id, :l => @l},{:title => save_to_read_list_label} -%> 
-  <% end %>
+  <% end %>&nbsp;<%= link_to recommend_label, {:controller => 'recommendations', :action =>'recommend_article', :id =>rawstory.id, :l => @l}-%>
   </span>
 </span>
 
@@ -24,19 +24,9 @@
 <span class="source"><%= rawstory.source.website %></span> - 
 <% if rawstory.author.name != '' %>
 <% unless params[:controller] == 'authors' %>
-<span class="author"><%= link_to rawstory.author.name, :controller => 'authors', :action => 'show', :id => rawstory.author, :l => @l %> </span> 
-
-<% if logged_in? %>
-<%= link_to image_tag('plus.gif'), :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id, :l => @l if rawstory.author.name != '' && params[:controller] != 'subscriptions'  %> 
-
-<%= link_to image_tag('minus.gif'), :controller => 'subscriptions', :action => 'remove', :id => @current_user.subscriptions.find_by_author_id(rawstory.author.id), :l => @l if rawstory.author.name != '' && params[:controller] == 'subscriptions'  %> <%= ' - ' if rawstory.author.name != '' %>
-
-
-<% else %>
-
-<%= link_to image_tag('plus.gif'), :controller => 'subscriptions', :action => 'subscribe', :id => rawstory.author.id, :l => @l if rawstory.author.name != '' %> <%= ' - ' if rawstory.author.name != '' %>
-
-<% end %>
+<span class="author">
+<%= render :partial => rawstory.author, :locals =>{:no_spacer => true, :no_style => true} %>
+<span>&nbsp;-&nbsp;
 <% end %>
 <% end %>
 

@@ -165,7 +165,7 @@
             <%= yield %>
           </ul>
         </div> 
-      <% elsif (['profile', 'friends'].include?(params[:action]) and params[:controller] == 'users')-%>
+      <% elsif (['profile', 'friends'].include?(params[:action]) and params[:controller] == 'users') or params[:controller] == 'recommendations'-%>
          <%= yield -%>
       <% else -%>
         <ul class="module">

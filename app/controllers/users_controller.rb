@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_filter :login_required, :only => [:settings, :link_user_accounts, :friends, :profile, :favorite_authors, :articles_by_favorite_authors]
+  before_filter :login_required, :only => [:settings, :link_user_accounts, :grant_email_permission, :friends, :profile, :favorite_authors, :articles_by_favorite_authors]
   def friends
     return unless @current_user.fb_offline_access_permission_granted 
     @user = get_user
@@ -26,6 +26,10 @@ class UsersController < ApplicationController
    @user_stories = @user_stories.paginate :page => params[:page],
                                                 :per_page => 5                                             
 
+  end
+  def grant_email_permission
+    @current_user.grant_email_permission  if !@current_user.fb_email_permission_granted and @current_user.fb_user.has_permission?('email')
+    redirect_to :back
   end
   def link_user_accounts
      # Connect accounts

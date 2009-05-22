@@ -1,4 +1,11 @@
 <% user.jurnalo_friends.each do |u| -%>
+<% if defined?(show_select) and show_select == true %>
+<% select_tag_name = "friends" unless defined?(select_tag_name)%>
+<div style="float:left;width:25px;">
+  <%= check_box_tag select_tag_name, u.id %>
+</div>
+<div style="float:left;">&nbsp;</div>
+<% end %>
 <div style="float:left;width:40px;"><%= fb_profile_pic(u.fb_user, {:height => '35px', :facebook_logo => true})%>&nbsp;</div>
 <div style="float:left;">&nbsp;</div>
 <div style="float:left;">
