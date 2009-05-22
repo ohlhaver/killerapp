@@ -10,7 +10,45 @@ module Facebooker
             javascript_include_tag "http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php"
           end
         end
-        
+        def init_wrapper(check_connection, *required_features, &proc)
+          additions = ""
+          if block_given?
+            additions = capture(&proc)
+          end
+
+          options = {:js => :prototype}
+          if required_features.last.is_a?(Hash)
+            options.merge!(required_features.pop.symbolize_keys)
+          end
+
+          if request.ssl?
+            init_string = "FB.Facebook.init('#{Facebooker.api_key}','/xd_receiver_ssl.html');"
+          else
+            init_string = "FB.Facebook.init('#{Facebooker.api_key}','/xd_receiver.html',{'doNotUseCachedConnectState':true});"
+          end
+          unless required_features.blank?
+             init_string = <<-FBML
+               window.onload = function() {
+                FB_RequireFeatures(#{required_features.to_json}, function() {
+                  #{init_string}
+                  #{additions}
+                });
+              };
+             FBML
+          end
+
+          # block_is_within_action_view? is rails 2.1.x and has been
+          # deprecated.  rails >= 2.2.x uses block_called_from_erb?
+          block_tester = respond_to?(:block_is_within_action_view?) ?
+            :block_is_within_action_view? : :block_called_from_erb?
+
+          if block_given? && send(block_tester, proc)
+            concat(javascript_tag(init_string))
+          else
+            javascript_tag init_string
+          end
+
+        end
         def init_fb_connect(*required_features,&proc)
           additions = ""
           if block_given?
@@ -29,12 +67,13 @@ module Facebooker
           end
           unless required_features.blank?
              init_string = <<-FBML
-                window.onload = function () {
+               window.onload = function() {
                 FB_RequireFeatures(#{required_features.to_json}, function() {
                   #{init_string}
                   #{additions}
-                });};
-              FBML
+                });
+              };
+             FBML
           end
 
           # block_is_within_action_view? is rails 2.1.x and has been
