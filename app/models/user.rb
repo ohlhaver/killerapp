@@ -35,6 +35,13 @@ class User < ActiveRecord::Base
     self.fb_email_permission_granted = true
     save!
   end
+  def remove_infinite_session_key
+    #Facebooker::User.unregister([email_hash])
+    self.fb_email_permission_granted = false
+    self.fb_session_key = ''
+    save!
+  end
+
   def add_infinite_session_key(inf_session_key)
     old_val = self.fb_offline_access_permission_granted
     self.fb_session_key = inf_session_key
@@ -94,6 +101,7 @@ class User < ActiveRecord::Base
     save
   end
   
+
   def facebook_user?
     return !fb_user_id.nil? && fb_user_id > 0
   end
