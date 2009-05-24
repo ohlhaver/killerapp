@@ -1,10 +1,7 @@
-<li>
- 	  <div class="message">Please enter your information below to sign up for a new account.</div>
-
- 	</li>
-
-
-<div class = 'default'>
+<div class="message">
+<%= facebook_login_button('use your facebook account','') -%><br/>or<br/>
+Please enter your information below to sign up for a new account.</div>
+<div class="default">
 <%= error_messages_for :user %>
 <% form_for :user, :url => users_path do |f| -%>
 <p><label for="login">Login</label><br/>
@@ -21,8 +18,4 @@
 
 <p><%= submit_tag 'sign up', :id => 'loginbutton', :class => 'button' %></p>
 <% end -%>
-<p>or login with your Facebook account<br/>
-<%= facebook_login_button -%> 
-</p>
-
 </div>

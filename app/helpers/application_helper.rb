@@ -60,13 +60,16 @@ module ApplicationHelper
     end
     return label
   end
-  def facebook_login_button
+  def facebook_login_button(message=nil,style=nil)
+   message ||= "Connect with Facebook" if @language == 1
+   message ||= "Connect with Facebook" if @language == 2
+   style   ||= "vertical-align:-7px;"
    code = <<-EOF
-   <span style="vertical-align:-7px;">
+   <span style="#{style}">
    #{fb_login_button "window.location='/users/link_user_accounts?l=#{@l}';", 
                   {:size => :small,:length => :short, :background => :white}}
    </span>
-   <span style=\"vertical-align:top;\">Connect with Facebook</span>
+   <span><a href="#" onclick="FB.Connect.requireSession(function(){window.location='/users/link_user_accounts?l=#{@l}';});return false;" >#{message}</a></span>
    EOF
   end
   def duplicates_label

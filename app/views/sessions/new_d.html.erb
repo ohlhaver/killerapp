@@ -1,8 +1,7 @@
-<div class = 'message'>
+<div class="message">
 <%= login_message %>
-
-
-<div class = 'message'>
+<p><%= facebook_login_button('login with your facebook account') -%><br/>or<br/>
+login with your existing jurnalo account</p>
 <% form_tag :controller => 'sessions', :action => 'create', :l => @l do -%>
 <p><label for="login">Login</label><br>
 <%= text_field_tag 'login', params[:login], :class => 'textfield' %></p>
@@ -19,11 +18,5 @@
 <p><%= link_to "Passwort vergessen?", forgot_password_url(:l => @l) -%></p>
 
 <% end -%>
-<p>or login with your Facebook account  
-<%= facebook_login_button -%> 
-</p>
-
 <p><b><%= link_to 'Als neuer Benutzer anmelden!', :controller => 'users', :action => 'new', :l => @l %></b></p>
-</div>
-
 </div>

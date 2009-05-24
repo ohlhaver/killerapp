@@ -55,11 +55,11 @@
            &nbsp;-&nbsp; <%= link_to settings_label, settings_url(:l => @l) -%>
          <% end -%>
          &nbsp;-&nbsp; <%= link_to read_list_label, {:controller => "read_list", :action => "show",:l => @l} -%>
-        <%if !logged_in? or (logged_in? and !(@current_user and @current_user.facebook_user?)) %>
-          <%= facebook_login_button -%> 
+        <%unless (logged_in? and @current_user.facebook_user?) %>
+          &nbsp;-&nbsp;<%= facebook_login_button(nil,'') -%> 
         <% end -%>
         <% if logged_in? and @current_user.facebook_user? %>
-        <br/><%= fb_profile_pic(@current_user.fb_user(facebook_session), {:size => :thumb, :facebook_logo => true})%>
+        <br/><%= fb_profile_pic(@current_user.fb_user, {:size => :thumb, :facebook_logo => true})%>
         <% end %>
 
 
