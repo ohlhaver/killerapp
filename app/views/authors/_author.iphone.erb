@@ -1,12 +1,19 @@
-<span class = 'headline'>
-<div>
-<% if defined?(rank)  and !rank.blank? -%>
-<%= rank %>.
-<% end -%>
-<%= link_to author.name, :controller => 'authors', :action => 'show', :id => author, :l => @l %>&nbsp;&nbsp;
-<%= link_to image_tag('plus.gif'), :controller => 'subscriptions', :action => 'subscribe', :id => author.id, :l => @l if author.name != '' %> 
+<% if author.name != '' %>
+<span <%= 'class="headline"' unless defined?(no_style) and no_style == true%>>
+  <% if defined?(rank) and !rank.blank? -%><%= rank %>.&nbsp;<% end -%>
+<span onMouseOver="this.getElementsByTagName('span')[0].style.display='';" onMouseOut="this.getElementsByTagName('span')[0].style.display='none';">
+  <%= link_to author.name, :controller => 'authors', :action => 'show', :id => author, :l => @l %>
+  <% s = @current_user ? @current_user.subscriptions.find_all{|s| s.author_id == author.id }.first : nil %>
+  <% if s %>
+     <%= link_to image_tag('minus.gif'), :controller => 'subscriptions', :action => 'remove', :id => s.id, :l => @l  %> 
+  <% else %>
+    <%= link_to image_tag('plus.gif'), :controller => 'subscriptions', :action => 'subscribe', :id => author.id, :l => @l  %> 
+  <% end %><span style="display:none;position:absolute;background-color:white;">&nbsp;<%= link_to recommend_label, {:controller => 'recommendations', :action =>'recommend_author', :id =>author.id, :l => @l}-%>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>
+</span>
 <% unless defined?(no_spacer) and no_spacer == true -%>
 <br><br>
-<% end -%>
-</div>
 </span>
+<% end -%>
+<% end %>
+

@@ -1,1 +1,19 @@
-<%= render :partial => "user_header", :locals => {:user => @user} -%>
+<% if @current_user.id == @user.id -%>
+  <div class="col1">
+    <ul class="module">
+      <div class="pagelabel"><%= profile_label %></div>
+      <%= render :partial => @user.profile_actions -%>
+    </ul>
+  </div>
+  <div class="col2">
+    <ul class="module">
+      <div class="pagelabel"><%= notifications_label %></div>
+      <%= render :partial => "notifications" -%>
+    </ul>
+  </div>
+<% else %>
+  <ul class="module">
+    <%= render :partial => "user_header", :locals => {:user => @user} -%>
+    <%= render :partial => @user.profile_actions -%>
+  </ul>
+<% end %>

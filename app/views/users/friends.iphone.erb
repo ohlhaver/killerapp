@@ -1,12 +1,38 @@
-<%= render :partial => "user_header", :locals => {:user => @user} -%>
-<% fb_user = @user.fb_user(facebook_session) %>
-<% unless fb_user.nil? %>
-  <% fb_user.friends_with_this_app.each do |u| -%>
-  <div style="float:left;"><%= fb_profile_pic(u, {:size => :thumb, :facebook_logo => true})%></div>
-  <div style="float:left;">&nbsp;</div>
-  <div style="float:left;">
-    <em><%= link_to u.name, {:controller => 'users', :action => 'profile', :fb_user_id => u.id} -%></em>
-  </div>
-  <div style="clear:both;"></div><br/>
-  <% end -%>
-<% end -%>
+<% if !@current_user.facebook_user?%>
+  <ul class="module">
+    <div class="pagelabel"><%= friends_label %></div>
+    <div class="message"><%= facebook_login_button('Please connect your Jurnalo account with your facebook acoount to be able to view friends.') -%> </div>
+  </ul>
+<% elsif !@current_user.fb_offline_access_permission_granted %>
+  <ul class="module">
+   <div class="pagelabel"><%= friends_label %></div>
+   <% if facebook_session %>
+   <div class="message">To be able to view friends, you need to grant permission to Jurnalo to access your facebook account offline.</div>
+   <em><%= fb_prompt_permission('offline_access', "Click here to grant offline access permission.", "window.location='/users/link_user_accounts?l=#{@l}';") -%></em>
+   <% else %>
+   <div class="message"> <%= facebook_login_button('Please login with your facebook account to be able to view friends.') -%></div>
+   <% end %>
+</ul>
+<% else %>
+  <% if @current_user.id == @user.id -%>
+    <div class="col1">
+      <ul class="module">
+        <div class="pagelabel"><%= friends_label %></div>
+        <%= render :partial => "friend_list", :locals => {:user => @user}%>
+      </ul>
+    </div>
+    <div class="col2">
+      <ul class="module">
+        <div class="pagelabel"><%= actions_label %></div>
+        <% @user.jurnalo_friends_profile_actions.each do |pa| %>
+          <%= render :partial => pa, :locals => {:user => @user.jurnalo_friends.find_all{|u| u.id == pa.user_id}.first} -%>
+        <% end %>
+      </ul>
+    </div>
+  <% else %>
+    <ul class="module">
+      <%= render :partial => "user_header", :locals => {:user => @user} -%>
+      <%= render :partial => "friend_list", :locals => {:user => @user}%>
+    </ul>
+  <% end %>
+<% end %>

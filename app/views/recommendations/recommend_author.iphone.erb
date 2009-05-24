@@ -1,0 +1,27 @@
+<ul class="module">
+<% unless @current_user.facebook_user? and @current_user.fb_offline_access_permission_granted %>
+  <%= render :partial => "not_allowed_message", :locals => {:user => @current_user}%>
+<% else %>
+  <% if @current_user.jurnalo_friends.blank?%>
+  <div class="message">None for your facebook friends are on Jurnalo. Invite friends to join</div>
+  <% else %>
+  <div class="message">Please select the friends whom you want to recommend the author</div>
+  <%= render :partial => @author -%>
+  <script>
+    function setCheckBoxes(checkBoxName, checkValue){
+      var checkBoxes = document.getElementsByName(checkBoxName);
+      for(var i=0; i < checkBoxes.length; ++i){
+        var checkBox = checkBoxes[i];
+        if (checkBox.type == "checkbox")
+          checkBox.checked = checkValue;
+      }
+    }
+  </script>
+  <em>Select : <a onClick="setCheckBoxes('friends_to_recommend', true); return false;" style="cursor:pointer;">All</a>,&nbsp;<a onClick="setCheckBoxes('friends_to_recommend', false); return false;" style="cursor:pointer;">None</a></em><br/><br/>
+  <%form_tag({:controller => 'recommendations', :action => 'recommend_author', :id => @author.id, :l => @l},{:method => :post}) do %>
+  <%= render :partial => '/users/friend_list', :locals => {:user => @current_user, :show_select => true, :select_tag_name => 'friends_to_recommend'}%>
+  <%= submit_tag recommend_label %>
+  <% end %>
+  <% end %>
+<% end %>
+</ul>
