@@ -6,7 +6,7 @@
   </head>
   <body>
     <%= fb_connect_javascript_tag %>
-    <% if params[:controller] == 'users' and params[:action] == 'link_user_accounts' %>
+    <% if params[:controller] == 'users' and ['link_user_accounts','friends'].include?(params[:action]) %>
       <%= init_wrapper true, "XFBML"%>
     <% else -%>
       <%= init_fb_connect "XFBML"%>
