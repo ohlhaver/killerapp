@@ -57,7 +57,7 @@ ActionController::Routing::Routes.draw do |map|
   map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login '/login', :controller => 'sessions', :action => 'new'
-  map.logout '/logout', :controller => 'sessions', :action => 'destroy', :l => @l
+  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.settings '/settings', :controller => 'users', :action => 'settings'
   map.forgot_password '/forgot_password', :controller => 'users', :action => 'forgot_password'
   map.author_ranking '/author_ranking', :controller => 'authors', :action => 'ranked_list'
