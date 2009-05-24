@@ -1,14 +1,17 @@
-<% unless @current_user.fb_offline_access_permission_granted %>
-<ul class="module">
-  <div class="pagelabel"><%= friends_label %></div>
-  <% if !@current_user.facebook_user? %>
+<% if !@current_user.facebook_user?%>
+  <ul class="module">
+    <div class="pagelabel"><%= friends_label %></div>
     <div class="message"><%= facebook_login_button('Please connect your Jurnalo account with your facebook acoount to be able to view friends.') -%> </div>
-  <% elsif facebook_session.blank?%>
-    <div class="message"> <%= facebook_login_button('Please login with your facebook account to be able to view friends.') -%></div>
-  <% else -%>
-  <div class="message">To be able to view friends, you need to grant permission to Jurnalo to access your facebook account offline.</div>
-  <em><%= fb_prompt_permission('offline_access', "Click here to grant offline access permission.", "window.location='/users/link_user_accounts?l=#{@l}';") -%></em>
-  <% end %>
+  </ul>
+<% elsif !@current_user.fb_offline_access_permission_granted %>
+  <ul class="module">
+   <div class="pagelabel"><%= friends_label %></div>
+   <% if facebook_session %>
+   <div class="message">To be able to view friends, you need to grant permission to Jurnalo to access your facebook account offline.</div>
+   <em><%= fb_prompt_permission('offline_access', "Click here to grant offline access permission.", "window.location='/users/link_user_accounts?l=#{@l}';") -%></em>
+   <% else %>
+   <div class="message"> <%= facebook_login_button('Please login with your facebook account to be able to view friends.') -%></div>
+   <% end %>
 </ul>
 <% else %>
   <% if @current_user.id == @user.id -%>

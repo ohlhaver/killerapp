@@ -104,7 +104,7 @@
           <% end %>
           <div style="float:left;margin-left:2px;">
             <div style="height:18px;">
-              <% if @current_user.facebook_user?%>
+              <% if @current_user.facebook_user? and @current_user.fb_user %>
                 <%= h(truncate(@current_user.fb_user.name,15)) -%>
               <% else %>
                 <%= h(truncate(@current_user.name,15)) -%>

@@ -111,9 +111,13 @@ class User < ActiveRecord::Base
   def fb_user
     return nil           if self.fb_user_id == 0 
     return @fb_user      if defined?(@fb_user)
-    fb_s = Facebooker::Session.create 
-    fb_s.secure_with!(fb_session_key, fb_user_id)
-    @fb_user =  Facebooker::User.new(fb_user_id, fb_s)
+    if fb_offline_access_permission_granted
+      fb_s = Facebooker::Session.create 
+      fb_s.secure_with!(fb_session_key, fb_user_id)
+      @fb_user =  Facebooker::User.new(fb_user_id, fb_s)
+    else 
+      @fb_user = nil
+    end
   end
   
   def jurnalo_friends
