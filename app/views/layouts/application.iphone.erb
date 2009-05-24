@@ -39,7 +39,7 @@
 	<% end %>&nbsp;-&nbsp; 
 	<% if logged_in? %> 
             <% if @current_user.facebook_user?%>
-              <%= link_to h(truncate(@current_user.fb_user(facebook_session).name,15)), {:controller => 'users', :action => 'profile', :l => @l} %>
+              <%= link_to h(truncate(@current_user.fb_user.name,15)), {:controller => 'users', :action => 'profile', :l => @l} %>
             <% else %>
               <%= link_to h(truncate(@current_user.name,15)), {:controller => 'users', :action => 'profile', :l => @l} %>
             <% end %>
