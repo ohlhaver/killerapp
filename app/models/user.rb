@@ -70,8 +70,15 @@ class User < ActiveRecord::Base
     new_facebooker.name = fb_user.name
     new_facebooker.fb_user_id = fb_user.uid
     new_facebooker.jurnalo_user = false
+    puts " =================================User attributes ================================="
+    puts new_facebooker.inspect
+    puts " =================================User attributes ================================="
     new_facebooker.save!
     new_facebooker.activate
+    puts " =================================User attributes ================================="
+    puts new_facebooker.inspect
+    puts " =================================User attributes ================================="
+
     new_facebooker
   end
  
