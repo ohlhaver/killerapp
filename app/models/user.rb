@@ -90,11 +90,11 @@ class User < ActiveRecord::Base
       # unlink the existing account
       unless existing_fb_user.nil?
         existing_fb_user.fb_user_id = nil
-        existing_fb_user.save
+        existing_fb_user.save!
       end
       # link the new one
       self.fb_user_id = fb_user_id
-      save
+      save!
     end
   end
   
@@ -105,7 +105,7 @@ class User < ActiveRecord::Base
     users = {:email => email, :account_id => id}
     Facebooker::User.register([users])
     self.email_hash = Facebooker::User.hash_email(email)
-    save
+    save!
   end
   
 
@@ -173,6 +173,7 @@ class User < ActiveRecord::Base
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)
+    return nil if login.blank? or password.blank?
     u = find :first, :conditions => ['login = ? and activated_at IS NOT NULL', login] # need to get the salt
     u && u.authenticated?(password) ? u : nil
   end
