@@ -1,6 +1,8 @@
 <div class="message">
 <%= login_message %>
-<p><%= facebook_login_button('login with your facebook account') -%><br/>or<br/>
+<p>
+login with your facebook account<br/>
+<%= facebook_login_only_button({:size => :medium,:length => :long, :background => :white}) -%><br/>or<br/>
 login with your existing jurnalo account</p>
 <% form_tag :controller => 'sessions', :action => 'create', :l => @l do -%>
 <p><label for="login">Login</label><br/>

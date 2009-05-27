@@ -83,12 +83,21 @@ module ApplicationHelper
    style   ||= "vertical-align:-7px;"
    code = <<-EOF
    <span style="#{style}">
-   #{fb_login_button "window.location='/users/link_user_accounts?l=#{@l}';", 
-                  {:size => :small,:length => :short, :background => :white}}
+   #{facebook_login_only_button( {:size => :small,:length => :short, :background => :white})}
    </span>
-   <span><a href="#" onclick="FB.Connect.requireSession(function(){window.location='/users/link_user_accounts?l=#{@l}';});return false;" >#{message}</a></span>
+   <span>#{facebook_login_only_link message}</span>
    EOF
   end
+  def facebook_login_only_button(property_hash)
+    fb_login_button "window.location='/users/link_user_accounts?l=#{@l}';", property_hash
+  end
+  def facebook_login_only_link(message)
+   link_html = <<-EOF
+    <a href="#" onclick="FB.Connect.requireSession(function(){window.location='/users/link_user_accounts?l=#{@l}';});return false;" >#{message}</a>
+   EOF
+   link_html
+  end
+
   def duplicates_label
     if @language ==2
       label = 'Duplikate anzeigen' 
