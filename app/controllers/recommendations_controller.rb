@@ -41,15 +41,15 @@ class RecommendationsController < ApplicationController
 
   end
   def view_articles
-    @recommendations =  @current_user.recommendations.find_all{|r| r.active and r.article?}
+    @recommendations =  @current_user.article_recommendations
     render :action => 'view'
   end
   def view_authors
-    @recommendations =  @current_user.recommendations.find_all{|r| r.active and r.author?}
+    @recommendations =  @current_user.author_recommendations
     render :action => 'view'
   end
   def view
-    @recommendations =  @current_user.recommendations.find_all{|r| r.active}
+    @recommendations =  @current_user.recommendations
     render :action => 'view'
   end
 end

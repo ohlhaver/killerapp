@@ -1,7 +1,38 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
   # Virtual attribute for the unencrypted password
-  has_many :recommendations, :order => "id DESC"
+  has_many :recommendations, 
+           :order => "id DESC"
+  has_many :author_recommendations,
+           :class_name => 'Recommendation',
+           :foreign_key => 'user_id',
+           :conditions => "resource_type = 'Author'",
+           :order => "id DESC"
+
+  has_many :article_recommendations,
+           :class_name => 'Recommendation',
+           :foreign_key => 'user_id',
+           :conditions => "resource_type = 'Rawstory'",
+           :order => "id DESC"
+
+  has_many :active_recommendations,
+           :class_name => 'Recommendation',
+           :foreign_key => 'user_id',
+           :conditions => ["active = ?", true],
+           :order => "id DESC"
+           
+  has_many :active_author_recommendations,
+           :class_name => 'Recommendation',
+           :foreign_key => 'user_id',
+           :conditions => ["resource_type = 'Author' and active = ?", true],
+           :order => "id DESC"
+
+  has_many :active_article_recommendations,
+           :class_name => 'Recommendation',
+           :foreign_key => 'user_id',
+           :conditions => ["resource_type = 'Rawstory' and active = ?", true],
+           :order => "id DESC"
+
   has_many :provided_recommendations,
              :class_name => 'Recommendation',
              :foreign_key => 'recommender_id',

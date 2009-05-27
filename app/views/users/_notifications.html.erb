@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <%
-   recs = @current_user.recommendations.find_all{|r| r.active }
+   recs = @current_user.active_recommendations
    author_recs = recs.find_all{|r| r.author?}
    article_recs = recs.find_all{|r| r.article?} %>
   <% unless recs.blank? %>

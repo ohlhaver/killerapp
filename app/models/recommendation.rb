@@ -4,7 +4,19 @@ class Recommendation < ActiveRecord::Base
              :class_name => 'User',
              :foreign_key => 'recommender_id'
   belongs_to :resource, :polymorphic => true
-
+  def self.mark_as_inactive(rec_array)
+    return rec_array if rec_array.blank?
+    ids = []
+    rec_array.each{|r| ids << r.id if r.active}
+    ids = ids.uniq*","
+    return rec_array  if ids.blank?
+    self.update_all(["active = ?", false], ["id IN ( #{ids} )"])
+    rec_array.each{|r| r.active = false}
+    return rec_array 
+  end
+  def mark_as_inactive
+   Recommendation.mark_as_inactive([self])
+  end
   def self.create_article_recommendation(article_id, recommender_id, user_id)
     r = Recommendation.find(:all, 
                             :conditions => ["recommender_id = :recommender_id and user_id = :user_id and resource_id = :article_id and resource_type = 'Rawstory'",  {:recommender_id => recommender_id.to_i,

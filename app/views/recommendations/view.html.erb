@@ -19,4 +19,5 @@
 ) 
 </div>
 <%= render :partial => @recommendations %>
+<% Recommendation.mark_as_inactive(@recommendations)%>
 </ul>

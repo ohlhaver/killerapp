@@ -2,7 +2,7 @@
 <% if defined?(show_select) and show_select == true %>
 <% select_tag_name = "friends" unless defined?(select_tag_name)%>
 <div style="float:left;width:25px;">
-  <%= check_box_tag select_tag_name, u.id %>
+  <%= check_box_tag select_tag_name, u.id, false, {:id => select_tag_name+"_#{u.id}"} %>
 </div>
 <div style="float:left;">&nbsp;</div>
 <% end %>

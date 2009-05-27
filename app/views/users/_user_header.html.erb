@@ -1,7 +1,7 @@
 <div class="pagelabel">
 <% if @current_user.id == user.id -%>
   <% if params[:controller] == 'users' and params[:action] == 'profile' %>
-    <%= profile_label %>
+    <%= profile_label %>&nbsp;(&nbsp;<%= actions_label%>&nbsp;)
   <% end -%>
   <% if params[:controller] == 'users' and params[:action] == 'friends' %>
   <%= friends_label -%>
@@ -16,7 +16,7 @@
   <% name = user.fb_user.nil? ? user.name : user.fb_user.name -%> 
   <%= name %> : 
   <% if params[:controller] == 'users' and params[:action] == 'profile' %>
-  <%= profile_label %>
+  <%= profile_label %>&nbsp;(&nbsp;<%= actions_label%>&nbsp;)
   <% else %>
   <%= link_to profile_label, :controller => 'users' , :action => 'profile', :id => user.id, :l => @l -%>
   <% end %> -  
