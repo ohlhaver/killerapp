@@ -1,6 +1,6 @@
 <div>
 <% if defined?(user) and !user.blank? %>
-<em><%= link_to user.fb_user.name, {:controller => 'users', :action => 'profile', :id => user.id} -%></em> 
+<b><%= link_to user.fb_user.name, {:controller => 'users', :action => 'profile', :id => user.id} -%></b> 
 <% end %>
 <%= profile_action.description(@language) %>
 <% if profile_action.search_topic %>

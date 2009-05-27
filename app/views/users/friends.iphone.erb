@@ -8,7 +8,7 @@
    <div class="pagelabel"><%= friends_label %></div>
    <% if facebook_session %>
    <div class="message">To be able to view friends, you need to grant permission to Jurnalo to access your facebook account offline.</div>
-   <em><%= fb_prompt_permission('offline_access', "Click here to grant offline access permission.", "window.location='/users/link_user_accounts?l=#{@l}';") -%></em>
+   <b><%= fb_prompt_permission('offline_access', "Click here to grant offline access permission.", "window.location='/users/link_user_accounts?l=#{@l}';") -%></b>
    <% else %>
    <div class="message"> <%= facebook_login_button('Please login with your facebook account to be able to view friends.') -%></div>
    <% end %>

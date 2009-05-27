@@ -4,26 +4,45 @@ class GroupsController < ApplicationController
  
       
   def index   
-    #unless read_fragment({:f => iphone_user_agent?, :part => 'bottom', :action => 'index', :l => @l, :page => params[:page] || 1}) 
-    unless read_fragment({:f => iphone_user_agent?, :action => 'index', :i => @i, :l => @l, :page => params[:page] || 1})   
-    @haufens = fetch_groups nil, nil   
-    #end
-    
-    #unless read_fragment({:f => iphone_user_agent?, :part => 'bottom', :action => 'index', :l => @l, :page => params[:page] || 1}) 
-    @top_opinions_haufens = fetch_opinions 1
-    @top_politics_haufens = fetch_groups 2, 1
-    @top_business_haufens = fetch_groups 5, 1
-    @top_culture_haufens = fetch_groups 3, 1
-    @top_science_haufens = fetch_groups 4, 1
-    @top_technology_haufens = fetch_groups 9, 1
-    @top_sport_haufens = fetch_groups 6, 1
-    @top_mixed_haufens = fetch_groups 7, 1
+    caching_hash = {:action => 'index', :f => iphone_user_agent?, :l => @l, :i => @i}
+    if iphone_user_agent?
+      caching_hash[:part] = 'top_stories'
+      unless read_fragment(caching_hash)
+        @haufens = fetch_groups nil, nil        
+      end
+      caching_hash[:part] = 'bottom'
+      unless read_fragment(caching_hash)     
+        @top_politics_haufens = fetch_groups 2, 1
+        @top_business_haufens = fetch_groups 5, 1
+        @top_culture_haufens = fetch_groups 3, 1
+        @top_science_haufens = fetch_groups 4, 1
+        @top_technology_haufens = fetch_groups 9, 1
+        @top_sport_haufens = fetch_groups 6, 1
+        @top_mixed_haufens = fetch_groups 7, 1
+        @top_opinions_haufens = fetch_opinions 1
+      end
+    else
+      caching_hash[:part] = 'left_column'
+      unless read_fragment(caching_hash)
+        @haufens = fetch_groups nil, nil        
+        @top_politics_haufens = fetch_groups 2, 1
+        @top_business_haufens = fetch_groups 5, 1
+        @top_culture_haufens = fetch_groups 3, 1
+        @top_science_haufens = fetch_groups 4, 1
+        @top_technology_haufens = fetch_groups 9, 1
+        @top_sport_haufens = fetch_groups 6, 1
+        @top_mixed_haufens = fetch_groups 7, 1
+      end
+     caching_hash[:part] = 'opinions'
+     unless read_fragment(caching_hash)
+       @top_opinions_haufens = fetch_opinions 1        
+     end
     end
     
     @top_my_searchterms={}
     if @searchterms
       @searchterms.each do |s|
-        unless read_fragment({:f => iphone_user_agent?, :part => 'topic', :s => s, :f => iphone_user_agent?, :action => 'index', :l => @l, :page => params[:page] || 1})  
+        unless read_fragment({:action => 'index', :part => 'topic', :f => iphone_user_agent?, :l => @l, :i => @i, :s => s})  
           @top_my_searchterms[s] = fetch_my_searchterms s
         end
       end
@@ -175,9 +194,10 @@ class GroupsController < ApplicationController
 
      haufens = @user_stories
     else
-      haufens = []
+     haufens = []
                                               
     end
+    return haufens
   end
     
   def fetch_my_searchterms s

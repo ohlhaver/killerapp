@@ -1,18 +1,22 @@
-<%
- recs = @current_user.recommendations.find_all{|r| r.active }
- author_recs = recs.find_all{|r| r.author?}
- article_recs = recs.find_all{|r| r.article?} %>
-<% unless recs.blank? %>
-You have : 
+<% if logged_in? %>
+  <%
+   recs = @current_user.recommendations.find_all{|r| r.active }
+   author_recs = recs.find_all{|r| r.author?}
+   article_recs = recs.find_all{|r| r.article?} %>
+  <% unless recs.blank? %>
+    <ul class="module">
+      <li><div class="pagelabel"><%= link_to notifications_label, {:controller => 'recommendations', :action => 'view', :l => @l} %></div></li>
+      <li>
+        You have : <br/>
+        <% author_recs_size = author_recs.size %>
+        <% article_recs_size = article_recs.size %>
+        <%if author_recs_size > 0 %>
+        <b><%= link_to "#{author_recs_size} author recommendation#{'s' if author_recs_size > 1 }", :controller => "recommendations" , :action => "view_authors"%></b><br/>
+        <% end %>
+        <%if article_recs_size > 0 %>
+        <b><%= link_to "#{article_recs_size} article recommendation#{'s' if article_recs_size > 1 }", :controller => "recommendations" , :action => "view_articles"%></b><br/>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
 <% end %>
-<% author_recs_size = author_recs.size %>
-<% article_recs_size = article_recs.size %>
-<%if author_recs_size > 0 %>
-<em><%= link_to "#{author_recs_size} author recommendation#{'s' if author_recs_size > 1 }", :controller => "recommendations" , :action => "view_authors"%></em><br/>
-<% end %>
-<%if article_recs_size > 0 %>
-<%= ', ' if author_recs_size > 0%>
-<em><%= link_to "#{article_recs_size} article recommendation#{'s' if article_recs_size > 1 }", :controller => "recommendations" , :action => "view_articles"%></em><br/>
-<% end %>
-<br/><br/>
-<%= render :partial => recs -%>

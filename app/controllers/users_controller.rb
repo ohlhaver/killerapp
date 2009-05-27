@@ -35,6 +35,9 @@ class UsersController < ApplicationController
      # Connect accounts
      @current_user.link_fb_connect(facebook_session.user.id) unless @current_user.fb_user_id == facebook_session.user.id
      @ask_offline_access   = nil
+     puts "loggedin user================================================="
+       puts @current_user.inspect
+     puts "loggedin user================================================="
      if @current_user.fb_offline_access_permission_granted or @current_user.fb_user.has_permission?('offline_access')
         @current_user.add_infinite_session_key(facebook_session.session_key) 
      else
