@@ -6,7 +6,7 @@
   </head>
   <body>
     <%= fb_connect_javascript_tag %>
-    <% if params[:controller] == 'users' and ['link_user_accounts','friends'].include?(params[:action]) %>
+    <% if params[:controller] == 'users' and ['link_user_accounts','friends','friends_actions'].include?(params[:action]) %>
       <%= init_wrapper true, "XFBML"%>
     <% else -%>
       <%= init_fb_connect "XFBML"%>
@@ -91,7 +91,7 @@
             </div>
             <div style="padding-top:3px;">
               <%= link_to profile_label, :controller => 'users' , :action => 'profile', :l => @l -%>&nbsp;-&nbsp;
-              <%= link_to friends_label, :controller => 'users' , :action => 'friends', :l => @l -%>&nbsp;-&nbsp;
+              <%= link_to friends_label, :controller => 'users' , :action => 'friends_actions', :l => @l -%>&nbsp;-&nbsp;
               <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %>&nbsp;-&nbsp;
               <%= link_to read_list_label, {:controller => "read_list", :action => "show",:l => @l} -%>
             </div>
@@ -125,15 +125,15 @@
             </div>
             <div style="padding-top:3px;">
               <% if @current_user.facebook_user?%>
-                <% if params[:controller] == 'users' and params[:action] == 'profile' and (params[:id].blank? or @current_user.id == params[:id].to_s) %>
+                <% if params[:controller] == 'users' and params[:action] == 'profile' and (params[:id].blank? or @current_user.id == params[:id].to_i) %>
                  <span class="selected"><%= profile_label %></span>
                 <% else %>
                 <%= link_to profile_label, :controller => 'users' , :action => 'profile', :l => @l -%>
                 <% end %>&nbsp;-&nbsp;  
-                <% if params[:controller] == 'users' and params[:action] == 'friends' and (params[:id].blank? or @current_user.id == params[:id].to_s) %>
+                <% if params[:controller] == 'users' and ['friends_actions','friends'].include?(params[:action]) and (params[:id].blank? or @current_user.id == params[:id].to_i) %>
                   <span class="selected"><%= friends_label -%></span>
                 <% else %>
-                  <%= link_to friends_label, :controller => 'users' , :action => 'friends', :l => @l -%>
+                  <%= link_to friends_label, :controller => 'users' , :action => 'friends_actions', :l => @l -%>
                 <% end %>&nbsp;-&nbsp; 
               <% end -%>
               <% if params[:controller] == 'users' and params[:action] ==  'articles_by_favorite_authors' and (params[:id].blank? or @current_user.id == params[:id].to_s) %> 
