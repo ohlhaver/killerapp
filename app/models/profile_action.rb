@@ -16,7 +16,7 @@ class ProfileAction < ActiveRecord::Base
     when  Type::ADDED_FAVORITE_AUTHOR    
       language == 2 ?  "subscribed to author" : "subscribed to author"
     when  Type::REMOVED_FAVORITE_AUTHOR 
-      language == 2 ?  "unsubscribed to author" : "unsubscribed to author"
+      language == 2 ?  "unsubscribed from author" : "unsubscribed from author"
     when  Type::ADDED_SEARCH_TOPIC        
       language == 2 ? "added search topic" : "added search topic"
     when  Type::REMOVED_SEARCH_TOPIC      
