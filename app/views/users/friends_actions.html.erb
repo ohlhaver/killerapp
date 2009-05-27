@@ -14,10 +14,12 @@
    <% end %>
 </ul>
 <% else %>
-  <ul class="module">
-    <li>
-      <%= render :partial => "user_header", :locals => {:user => @user} -%>
-      <%= render :partial => "friend_list", :locals => {:user => @user}%>
-    </li>
-  </ul>
+<ul class="module">
+  <li>
+    <%= render :partial => "user_header", :locals => {:user => @user} -%>
+    <% @user.jurnalo_friends_profile_actions.each do |pa| %>
+      <%= render :partial => pa, :locals => {:user => @user.jurnalo_friends.find_all{|u| u.id == pa.user_id}.first} -%>
+    <% end %>
+  </li>
+</ul>
 <% end %>

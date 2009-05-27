@@ -4,8 +4,12 @@
     <%= profile_label %>&nbsp;(&nbsp;<%= actions_label%>&nbsp;)
   <% end -%>
   <% if params[:controller] == 'users' and params[:action] == 'friends' %>
-  <%= friends_label -%>
+  <%= friends_label -%>&nbsp;(&nbsp;<%= list_of_friends_label -%>&nbsp;-&nbsp;<%= link_to actions_label, {:controller => 'users' , :action => 'friends_actions', :l => @l}%>&nbsp;)
   <% end -%>
+  <% if params[:controller] == 'users' and params[:action] == 'friends_actions' %>
+  <%= friends_label -%>&nbsp;(&nbsp;<%= link_to list_of_friends_label, {:controller => 'users', :action => 'friends'} -%>&nbsp;-&nbsp;<%= actions_label%>&nbsp;)
+  <% end -%>
+
   <% if params[:controller] == 'users' and params[:action] == 'articles_by_favorite_authors' %>
   <%= my_authors -%> (  <%= articles_list_label -%> - <%= link_to authors_list_label, :controller => 'users' , :action => 'favorite_authors', :id => user.id, :l => @l -%> )
   <% end -%>
@@ -21,7 +25,7 @@
   <%= link_to profile_label, :controller => 'users' , :action => 'profile', :id => user.id, :l => @l -%>
   <% end %> -  
   <% if params[:controller] == 'users' and params[:action] == 'friends' %>
-  <%= friends_label -%>
+  <%= friends_label -%>(&nbsp;<%= list_of_friends_label -%>&nbsp;)
   <% else %>
   <%= link_to friends_label, :controller => 'users' , :action => 'friends', :id => user.id, :l => @l -%>
   <% end %> -  

@@ -14,25 +14,10 @@
    <% end %>
 </ul>
 <% else %>
-  <% if @current_user.id == @user.id -%>
-    <div class="col1">
-      <ul class="module">
-        <div class="pagelabel"><%= friends_label %></div>
-        <%= render :partial => "friend_list", :locals => {:user => @user}%>
-      </ul>
-    </div>
-    <div class="col2">
-      <ul class="module">
-        <div class="pagelabel"><%= actions_label %></div>
-        <% @user.jurnalo_friends_profile_actions.each do |pa| %>
-          <%= render :partial => pa, :locals => {:user => @user.jurnalo_friends.find_all{|u| u.id == pa.user_id}.first} -%>
-        <% end %>
-      </ul>
-    </div>
-  <% else %>
-    <ul class="module">
+  <ul class="module">
+    <li>
       <%= render :partial => "user_header", :locals => {:user => @user} -%>
       <%= render :partial => "friend_list", :locals => {:user => @user}%>
-    </ul>
-  <% end %>
+    </li>
+  </ul>
 <% end %>

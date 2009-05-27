@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
   
-  before_filter :login_required, :only => [:settings, :link_user_accounts, :grant_email_permission, :friends, :profile, :favorite_authors, :articles_by_favorite_authors]
+  before_filter :login_required, :only => [:settings, :link_user_accounts, :grant_email_permission, :friends, :friends_actions, :profile, :favorite_authors, :articles_by_favorite_authors]
   def friends
     return unless @current_user.fb_offline_access_permission_granted 
     @user = get_user
   end
+  def friends_actions
+    return unless @current_user.fb_offline_access_permission_granted 
+    @user = @current_user
+  end
+
   def profile 
     @user = get_user
   end

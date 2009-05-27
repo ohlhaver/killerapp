@@ -162,7 +162,7 @@
           <% end %>
         </div>
       <%end%>
-      <% if (params[:action] == 'index' and params[:controller] == 'groups') or (['profile', 'friends'].include?(params[:action]) and params[:controller] == 'users') or params[:controller] == 'recommendations'-%>
+      <% if (params[:action] == 'index' and params[:controller] == 'groups') or (['profile', 'friends', 'friends_actions'].include?(params[:action]) and params[:controller] == 'users') or params[:controller] == 'recommendations'-%>
          <%= yield -%>
       <% else -%>
         <ul class="module">
