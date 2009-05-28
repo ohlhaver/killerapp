@@ -35,6 +35,7 @@
 <% if !(defined?(show_duplicate_link) and show_duplicate_link == false ) and !rawstory.rawstory_detail.duplicate_group_id.blank? and rawstory.rawstory_detail.duplicate_group_id != 1 %>
 <%= ' - ' -%> <%= link_to duplicates_label, :controller => 'rawstories', :action => 'view_duplicates', :id => rawstory.rawstory_detail.duplicate_group_id %>
 <% end %>
+<% unless defined?(hide_extra) and hide_extra == true %>
 <br>
 <div class="cluster">
 	<span class="source">
@@ -51,7 +52,7 @@
 
 </span>
 </div>
-
+<% end %>
 </div>
 </div>
 

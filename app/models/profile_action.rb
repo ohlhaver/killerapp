@@ -1,6 +1,9 @@
 class ProfileAction < ActiveRecord::Base
   belongs_to :entity, :polymorphic => true
   belongs_to :user
+  belongs_to :receiver,
+             :class_name => 'User',
+             :foreign_key => 'receiver_user_id'
   class Type
     ADDED_FAVORITE_AUTHOR    = 1 
     REMOVED_FAVORITE_AUTHOR  = 2
@@ -24,12 +27,20 @@ class ProfileAction < ActiveRecord::Base
     when  Type::RECOMMENDED_AUTHOR        
       language == 2 ? "recommended author" : "recommended author"
     when  Type::RECOMMENDED_ARTICLE       
-      language == 2 ? "recommended article" : "recommended article"
+      language == 2 ? "recommended following article" : "recommended following article"
     when  Type::GOT_NEW_FRIEND            
       language == 2 ? "got new friend" : "got new friend"
     else
       ''
     end
+  end
+
+  def is_author_recommendation?
+    action_type ==  Type::RECOMMENDED_AUTHOR
+  end
+
+  def is_article_recommendation?
+    action_type ==  Type::RECOMMENDED_ARTICLE
   end
 
   def author

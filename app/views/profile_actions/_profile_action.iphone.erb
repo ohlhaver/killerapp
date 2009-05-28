@@ -1,17 +1,27 @@
 <div>
 <% if defined?(user) and !user.blank? %>
-<b><%= link_to user.fb_user.name, {:controller => 'users', :action => 'profile', :id => user.id} -%></b> 
+<b><%= link_to user.fb_user.first_name, {:controller => 'users', :action => 'profile', :id => user.id} -%></b> 
 <% end %>
+
 <%= profile_action.description(@language) %>
+  <% if profile_action.is_article_recommendation? %>
+    to <b><%= link_to profile_action.receiver.fb_user.first_name, {:controller => 'users', :action => 'profile', :id => profile_action.receiver.id} -%></b>
+  <% end %>
+
+
 <% if profile_action.search_topic %>
   <span class="headline"><%= link_to profile_action.entity_content,{:controller => 'rawstories', :action => 'search', :l => @l, :q => profile_action.entity_content}%></span>
 <% else %>
   <% if profile_action.entity_type == 'Rawstory' %>
     <div style="margin-left:20px;">
-      <%= render :partial => profile_action.entity, :locals => {:no_spacer => true}  %>
+      <%= render :partial => profile_action.entity, :locals => {:no_spacer => true, :hide_extra => true}  %>
     </div>
   <% else %>
     <%= render :partial => profile_action.entity, :locals => {:no_spacer => true}  %>
   <% end %>
+  <% if profile_action.is_author_recommendation? %>
+    to <b><%= link_to profile_action.receiver.fb_user.first_name, {:controller => 'users', :action => 'profile', :id => profile_action.receiver.id} -%></b>
+  <% end %>
+
 <% end %>
 </div><br/>
