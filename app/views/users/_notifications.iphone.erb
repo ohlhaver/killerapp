@@ -11,10 +11,10 @@
         <% author_recs_size = author_recs.size %>
         <% article_recs_size = article_recs.size %>
         <%if author_recs_size > 0 %>
-        <b><%= link_to "#{author_recs_size} author recommendation#{'s' if author_recs_size > 1 }", :controller => "recommendations" , :action => "view_authors"%></b><br/>
+        <b><%= link_to "#{author_recs_size} new author recommendation#{'s' if author_recs_size > 1 }", :controller => "recommendations" , :action => "view_authors"%></b><br/>
         <% end %>
         <%if article_recs_size > 0 %>
-        <b><%= link_to "#{article_recs_size} article recommendation#{'s' if article_recs_size > 1 }", :controller => "recommendations" , :action => "view_articles"%></b><br/>
+        <b><%= link_to "#{article_recs_size} new article recommendation#{'s' if article_recs_size > 1 }", :controller => "recommendations" , :action => "view_articles"%></b><br/>
         <% end %>
       </li>
     </ul>
