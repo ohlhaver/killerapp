@@ -1,19 +1,20 @@
 Dear <%= @recommendation.user.name %>, 
 
-<%= @recommendation.recommender.name %> recommended<%= @recommendation.article? ? ' this article ' : " an author " -%>to you.
-
+<%= @recommendation.recommender.name %> recommended<%= @recommendation.article? ? ' this article ' : " this author " -%>to you:
 <% if @recommendation.article? %>
+
 <%= @recommendation.article.title -%>
 
 <%= @recommendation.article.link -%>
 <% end %>
 <% if @recommendation.author? %>
+
 <%= @recommendation.author.name -%>
 
 <%= @author_url -%>
 <% end %>
 
-To view all the recommendations received, Please visit  <%= @url %> .
+To view all the recommendations you have received, please visit  <%= @url %> .
 
 Sincerely,
 Jurnalo
