@@ -1,5 +1,5 @@
 <% if @user.language == 2 %>
-Liebe(r) <%= @user.login %>, 
+Liebe(r) <%= @user.name %>, 
 
 Es gibt neue Artikel von Ihren Lieblingsautoren:
 <% if @user_new_stories %>
@@ -23,7 +23,7 @@ Viele Grüße,
 www.jurnalo.de
 
 <%else%>
-Dear <%= @user.login %>, 
+Dear <%= @user.name %>, 
 
 You have got new articles by your favorite authors:
 <% if @user_new_stories %>

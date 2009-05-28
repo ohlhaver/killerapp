@@ -68,5 +68,11 @@ class Recommendation < ActiveRecord::Base
 
   def after_create
     ProfileAction.create_recommended_action(self)
+    # send email
+    fb_session = Facebooker::Session.create
+    e = UserMailer.create_recommended_email(self) 
+    fb_session.send_email([self.user.fb_user_id],e.subject, e.body)
+    # send facebook notification
+    fb_session.send_notification([self.user.fb_user_id],e.subject)
   end
 end

@@ -1,0 +1,11 @@
+Dear <%= @recommendation.user.name %>, 
+
+<%= @recommendation.recommender.name %> recommended<%= @recommendation.article? ? ' this article ' : " an author " -%>to you.
+<% if @recommendation.article? %>
+<%= @recommendation.resource.link -%>
+<% end %>
+
+To view all the recommendations received, Please visit  <%= @url %> .
+
+Sincerely,
+Jurnalo

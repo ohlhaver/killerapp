@@ -1,4 +1,16 @@
 class UserMailer < ActionMailer::Base
+  def recommended_email(recommendation)
+    setup_email(recommendation.user)
+    if recommendation.user.language == 2
+      @subject    = "#{recommendation.recommender.fb_user.first_name} recommended an #{recommendation.article? ? 'article' : 'author' } to you"
+      @body[:recommendation]  = recommendation
+      @body[:url]  = "http://#{SITE_URL}/recommendations/view?l=d"
+    else
+      @subject    = "#{recommendation.recommender.fb_user.first_name} recommended an #{recommendation.article? ? 'article' : 'author' } to you"
+      @body[:recommendation]  = recommendation
+      @body[:url]  = "http://#{SITE_URL}/recommendations/view?l=e"
+    end
+  end
   def signup_notification(user)
     setup_email(user)
     if user.language == 2
