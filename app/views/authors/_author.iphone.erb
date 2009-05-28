@@ -5,7 +5,9 @@
     <%= link_to author.name, :controller => 'authors', :action => 'show', :id => author, :l => @l %>
     <% s = @current_user ? @current_user.subscriptions.find_all{|s| s.author_id == author.id }.first : nil %>
     <% if s %>
+    <% if params[:controller] == 'users' and params[:action] == 'favorite_authors' and (params[:id].blank? or params[:id].to_i == @current_user.id)  %>
        <%= link_to image_tag('minus.gif'), :controller => 'subscriptions', :action => 'remove', :id => s.id, :l => @l  %> 
+     <% end %>
     <% else %>
       <%= link_to image_tag('plus.gif'), :controller => 'subscriptions', :action => 'subscribe', :id => author.id, :l => @l  %> 
     <% end %><span style="display:none;position:absolute;background-color:white;">&nbsp;<%= link_to recommend_label, {:controller => 'recommendations', :action =>'recommend_author', :id =>author.id, :l => @l}-%>&nbsp;&nbsp;&nbsp;&nbsp;
