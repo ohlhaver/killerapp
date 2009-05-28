@@ -1,4 +1,4 @@
 <ul class="module">
   <%= render :partial => "user_header", :locals => {:user => @user} -%>
-  <%= render :partial => @user.profile_actions, :locals => {:user => @user} -%>
+  <%= render :partial => @user.all_profile_actions, :locals => {:user => @user} -%>
 </ul>

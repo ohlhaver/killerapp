@@ -38,13 +38,19 @@ class User < ActiveRecord::Base
              :foreign_key => 'recommender_id',
              :order => "id DESC"
 
-  has_many :profile_actions, :order => "id DESC"
   has_many :subscriptions
   has_many :authors,
     :through => :subscriptions,
     :source => :author
   
   attr_accessor :password
+
+  has_many :profile_actions, :order => "id DESC"
+  def all_profile_actions
+    ProfileAction.find(:all,
+                       :conditions => ["user_id = :current_user_id or receiver_user_id = :current_user_id",{:current_user_id => self.id }],
+                       :order => "id DESC")
+  end
 
   validates_presence_of     :login, :email
   validates_presence_of     :password,                   :if => :password_required?
@@ -101,14 +107,8 @@ class User < ActiveRecord::Base
     new_facebooker.name = fb_user.name
     new_facebooker.fb_user_id = fb_user.uid
     new_facebooker.jurnalo_user = false
-    puts " =================================User attributes ================================="
-    puts new_facebooker.inspect
-    puts " =================================User attributes ================================="
     new_facebooker.save!
     new_facebooker.activate
-    puts " =================================User attributes ================================="
-    puts new_facebooker.inspect
-    puts " =================================User attributes ================================="
 
     new_facebooker
   end

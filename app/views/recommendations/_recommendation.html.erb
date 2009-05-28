@@ -1,10 +1,12 @@
-<b><%= link_to recommendation.recommender.fb_user.name, {:controller => 'users', :action => 'profile', :id => recommendation.recommender.id} -%></b>
-<%= '<b> ' if recommendation.active %> recommended you <%= recommendation.article? ?  'article' : 'author' %> <%= '</b> ' if recommendation.active %>
-<% if recommendation.author? %>
-<%= render :partial => recommendation.resource %>
-<% else -%>
+<div>
+<b><%= link_to recommendation.recommender.fb_user.first_name, {:controller => 'users', :action => 'profile', :id => recommendation.recommender.id} -%></b>
+<% if recommendation.article? %>
+<%= '<b> ' if recommendation.active %> recommended following article to you <%= '</b> ' if recommendation.active %>
 <div style="margin-left:20px;">
 <%= render :partial => recommendation.resource %>
 </div>
+<%elsif recommendation.author?%>
+<%= '<b> ' if recommendation.active %> recommended author <%= render :partial => recommendation.resource, :locals => {:no_spacer => true} %> <%= '</b> ' if recommendation.active %>
+<%= '<b> ' if recommendation.active %>to you <%= '</b> ' if recommendation.active %><br/>
 <% end -%>
-
+</div>
