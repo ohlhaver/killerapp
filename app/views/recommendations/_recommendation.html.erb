@@ -7,6 +7,6 @@
 </div>
 <%elsif recommendation.author?%>
 <%= '<b> ' if recommendation.active %> recommended author <%= render :partial => recommendation.resource, :locals => {:no_spacer => true} %> <%= '</b> ' if recommendation.active %>
-<%= '<b> ' if recommendation.active %>to you <%= '</b> ' if recommendation.active %><br/>
+<%= '<b> ' if recommendation.active %>to you <%= '</b> ' if recommendation.active %>
 <% end -%>
-</div>
+</div><br/>

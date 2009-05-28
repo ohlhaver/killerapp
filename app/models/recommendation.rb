@@ -73,6 +73,6 @@ class Recommendation < ActiveRecord::Base
     e = UserMailer.create_recommended_email(self) 
     fb_session.send_email([self.user.fb_user_id],e.subject, e.body)
     # send facebook notification
-    fb_session.send_notification([self.user.fb_user_id],e.subject)
+    fb_session.send_notification([self.user.fb_user_id],"<a href=\"http://#{SITE_URL}/recommendations/view?l=#{self.user.language == 2 ? 'd' : 'e'}\">#{e.subject}</a>")
   end
 end

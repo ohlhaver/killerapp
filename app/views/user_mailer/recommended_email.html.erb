@@ -1,8 +1,16 @@
 Dear <%= @recommendation.user.name %>, 
 
 <%= @recommendation.recommender.name %> recommended<%= @recommendation.article? ? ' this article ' : " an author " -%>to you.
+
 <% if @recommendation.article? %>
-<%= @recommendation.resource.link -%>
+<%= @recommendation.article.title -%>
+
+<%= @recommendation.article.link -%>
+<% end %>
+<% if @recommendation.author? %>
+<%= @recommendation.author.name -%>
+
+<%= @author_url -%>
 <% end %>
 
 To view all the recommendations received, Please visit  <%= @url %> .

@@ -2,7 +2,7 @@
 <% if defined?(user) and !user.blank? and profile_action.user_id == user.id %>
 <b><%= link_to user.fb_user.first_name, {:controller => 'users', :action => 'profile', :id => user.id} -%></b> 
 <% else %>
-<b><%= link_to profile_action.user.fb_user.first_name, {:controller => 'users', :action => 'profile', :id => user.id} -%></b> 
+<b><%= link_to profile_action.user.fb_user.first_name, {:controller => 'users', :action => 'profile', :id => profile_action.user.id} -%></b> 
 <% end %>
 
 <%= profile_action.description(@language) %>

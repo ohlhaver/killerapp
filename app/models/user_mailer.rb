@@ -5,10 +5,13 @@ class UserMailer < ActionMailer::Base
       @subject    = "#{recommendation.recommender.fb_user.first_name} recommended an #{recommendation.article? ? 'article' : 'author' } to you"
       @body[:recommendation]  = recommendation
       @body[:url]  = "http://#{SITE_URL}/recommendations/view?l=d"
+      @body[:author_url]  = "http://#{SITE_URL}/authors/#{recommendation.resource_id}?l=d" if recommendation.author?
+      
     else
       @subject    = "#{recommendation.recommender.fb_user.first_name} recommended an #{recommendation.article? ? 'article' : 'author' } to you"
       @body[:recommendation]  = recommendation
       @body[:url]  = "http://#{SITE_URL}/recommendations/view?l=e"
+      @body[:author_url]  = "http://#{SITE_URL}/authors/#{recommendation.resource_id}?l=e" if recommendation.author?
     end
   end
   def signup_notification(user)
