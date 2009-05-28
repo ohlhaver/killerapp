@@ -123,6 +123,7 @@ class User < ActiveRecord::Base
       # link the new one
       self.fb_user_id = fb_user_id
       save!
+      register_user_to_fb
     end
   end
   
