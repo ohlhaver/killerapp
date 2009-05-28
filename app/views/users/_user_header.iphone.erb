@@ -34,7 +34,7 @@
   <% elsif params[:controller] == 'users' and params[:action] == 'favorite_authors' %>
   <%= authors_label -%> ( <%= link_to articles_list_label, :controller => 'users' , :action => 'articles_by_favorite_authors', :id => user.id, :l => @l -%> - <%= authors_list_label -%> )
   <% else %>
-  <%= link_to authors_label, :controller => 'users' , :action => 'articles_by_favorite_authors', :id => user.id, :l => @l -%>
+  <%= link_to authors_label, :controller => 'users' , :action => 'favorite_authors', :id => user.id, :l => @l -%>
   <% end %>  
 <% end %>  
 </div>
