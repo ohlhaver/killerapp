@@ -84,9 +84,6 @@ class User < ActiveRecord::Base
     self.fb_session_key = inf_session_key
     self.fb_offline_access_permission_granted = true
     save!
-    if old_val == false
-      register_user_to_fb
-    end
   end
   # find the user in the database, first by the facebook user id and if that fails through the email hash
   def self.find_by_fb_user(fb_user)

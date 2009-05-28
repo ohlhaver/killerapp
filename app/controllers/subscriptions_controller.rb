@@ -47,7 +47,7 @@ before_filter :login_required
   def subscribe
     author = Author.find(params[:id])
     unless @current_user.jurnalo_user or @current_user.fb_email_permission_granted
-      @author = author
+      redirect_to :controller => 'users', :action => 'link_user_accounts', :l => @l
       return
     end
     if  author && Subscription.find_by_author_id_and_user_id(params[:id], @current_user.id) == nil 

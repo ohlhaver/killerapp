@@ -1,4 +1,11 @@
+<% if @ask_offline_access %>
 <div class="message">
-To complete the registration, you need to grant permission to Jurnalo to access your facebook account offline.
-</div>
+Step 1 : Registration <br/>
+you need to grant permission to Jurnalo to access your facebook account offline.</div>
 <b><%= fb_prompt_permission('offline_access', "Click here to grant offline access permission.", "window.location='/users/link_user_accounts?l=#{@l}';") -%></b>
+<% end %>
+<% if @ask_email_permission %>
+<div class="message">Step 2 : Registration <br/>
+you need to grant permission to Jurnalo to send emails to your facebook account.</div>
+<b><%= fb_prompt_permission('email', "Click here to grant permission.", "window.location='/users/grant_email_permission?l=#{@l}';") -%></b>
+<% end%>
