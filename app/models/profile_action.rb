@@ -21,13 +21,13 @@ class ProfileAction < ActiveRecord::Base
     when  Type::REMOVED_FAVORITE_AUTHOR 
       language == 2 ?  "unsubscribed from author" : "unsubscribed from author"
     when  Type::ADDED_SEARCH_TOPIC        
-      language == 2 ? "added search topic" : "added search topic"
+      language == 2 ? "added the search topic" : "added the search topic"
     when  Type::REMOVED_SEARCH_TOPIC      
-      language == 2 ? "removed search topic" : "removed search topic"
+      language == 2 ? "removed the search topic" : "removed the search topic"
     when  Type::RECOMMENDED_AUTHOR        
       language == 2 ? "recommended author" : "recommended author"
     when  Type::RECOMMENDED_ARTICLE       
-      language == 2 ? "recommended following article" : "recommended following article"
+      language == 2 ? "recommended this article" : "recommended this article"
     when  Type::GOT_NEW_FRIEND            
       language == 2 ? "got new friend" : "got new friend"
     else

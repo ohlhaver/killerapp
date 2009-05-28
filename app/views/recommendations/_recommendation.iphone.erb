@@ -1,7 +1,7 @@
 <div>
 <b><%= link_to recommendation.recommender.fb_user.first_name, {:controller => 'users', :action => 'profile', :id => recommendation.recommender.id} -%></b>
 <% if recommendation.article? %>
-<%= '<b> ' if recommendation.active %> recommended following article to you <%= '</b> ' if recommendation.active %>
+<%= '<b> ' if recommendation.active %> recommended this article to you <%= '</b> ' if recommendation.active %>
 <div style="margin-left:20px;">
 <%= render :partial => recommendation.resource %>
 </div>
