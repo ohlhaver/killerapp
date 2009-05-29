@@ -123,6 +123,7 @@ module Facebooker
         fb_cookie_names = cookies.keys.select{|k| k.starts_with?(fb_cookie_prefix)}
       end
 
+      public
       def secure_with_cookies!
           parsed = {}
           
@@ -138,7 +139,7 @@ module Facebooker
           @facebook_session.secure_with!(parsed['session_key'],parsed['user'],parsed['expires'],parsed['ss'])
           @facebook_session
       end
-    
+      private
       def secure_with_token!
         if params['auth_token']
           @facebook_session = new_facebook_session
