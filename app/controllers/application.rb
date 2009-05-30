@@ -62,9 +62,9 @@ class ApplicationController < ActionController::Base
   def language?
     @adresse = request.url
     if @adresse.match('74.63.8.37') or @adresse.match('journalo.com') or @adresse.match('//jurnalo.com')
-      redirect_to www_jurnalo_com_url(@address,'e')
+      redirect_to www_jurnalo_com_url(@adresse,'e')
     elsif @adresse.match('journalo.de') or @adresse.match('jurnalo.de')
-      redirect_to www_jurnalo_com_url(@address,'d')
+      redirect_to www_jurnalo_com_url(@adresse,'d')
     end
     
     if @adresse.match('lo.de') or params[:l] == 'd'
