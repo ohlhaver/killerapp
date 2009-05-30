@@ -90,8 +90,6 @@
               <%= facebook_login_button -%>
             </div>
             <div style="padding-top:3px;">
-              <%= link_to profile_label, :controller => 'users' , :action => 'profile', :l => @l -%>&nbsp;-&nbsp;
-              <%= link_to friends_label, :controller => 'users' , :action => 'friends_actions', :l => @l -%>&nbsp;-&nbsp;
               <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %>&nbsp;-&nbsp;
               <%= link_to read_list_label, {:controller => "read_list", :action => "show",:l => @l} -%>
             </div>

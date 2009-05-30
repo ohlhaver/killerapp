@@ -1,6 +1,6 @@
 # Filters added to this controller apply to all controllers in the application.
 # Likewise, all the methods added will be available for all controllers.
-
+require 'uri'
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   before_filter :set_facebook_session
@@ -38,14 +38,34 @@ class ApplicationController < ActionController::Base
   def log_request_information
      logger.info "Request : #{request.env.inspect}"
   end
+  def www_jurnalo_com_url(address,l='e')
+    scheme, user_info, host, port, registry, path, opaque, query, fragment = URI::split(address)
+    host = 'www.jurnalo.com'
+    s    = query.to_s.split(/(l=[^&]*)/)
+    s[1] = "l=#{l}"
+    s[0] = s[0].to_s
+    s[0] += '&' unless s[0].blank? or s[0].match(/&$/)
+    new_query = ''
+    s.each{|m| new_query += m}
+    URI::Generic.new(scheme,
+                     user_info,
+                     host,
+                     port,
+                     registry,
+                     path,
+                     opaque,
+                     new_query,
+                     fragment).to_s
+
+  end
 
   def language?
     @adresse = request.url
-    redirect_to 'http://www.jurnalo.com' if @adresse.match('74.63.8.37')
-    redirect_to 'http://www.jurnalo.com' if @adresse.match('journalo.com')
-    redirect_to 'http://www.jurnalo.de' if @adresse.match('journalo.de')
-    redirect_to 'http://www.jurnalo.com' if @adresse.match('//jurnalo.com')
-    redirect_to 'http://www.jurnalo.de' if @adresse.match('//jurnalo.de')
+    if @adresse.match('74.63.8.37') or @adresse.match('journalo.com') or @adresse.match('//jurnalo.com')
+      redirect_to www_jurnalo_com_url(@address,'e')
+    elsif @adresse.match('journalo.de') or @adresse.match('jurnalo.de')
+      redirect_to www_jurnalo_com_url(@address,'d')
+    end
     
     if @adresse.match('lo.de') or params[:l] == 'd'
       @language = 2
