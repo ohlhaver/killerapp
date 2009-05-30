@@ -4,7 +4,7 @@
   <span onMouseOver="this.getElementsByTagName('span')[0].style.display='';" onMouseOut="this.getElementsByTagName('span')[0].style.display='none';">
     <%= link_to author.name, :controller => 'authors', :action => 'show', :id => author, :l => @l %>
     <% if @current_user and params[:controller] == 'users' and params[:action] == 'favorite_authors' and (params[:id].blank? or params[:id].to_i == @current_user.id)  %>
-    <% s = (defined?(subscription) and subscription.author_id == author.id and subscription.user_id == @current_user.id)? subscription : @current_user.subscirptions.find_all{|s| s.author_id == author.id}.first %>
+    <% s = (defined?(subscription) and subscription.author_id == author.id and subscription.user_id == @current_user.id)? subscription : @current_user.subscriptions.find_all{|s| s.author_id == author.id}.first %>
        <%= link_to image_tag('minus.gif'), :controller => 'subscriptions', :action => 'remove', :id => s.id, :l => @l  %> 
     <% else %>
       <%= link_to image_tag('plus.gif'), :controller => 'subscriptions', :action => 'subscribe', :id => author.id, :l => @l  %> 
