@@ -18,10 +18,10 @@ class UserMailer < ActionMailer::Base
     setup_email(user)
     if user.language == 2
     @subject    = 'Bitte aktivieren Sie Ihren Jurnalo Zugang!' 
-    @body[:url]  = "http://www.jurnalo.de/activate/#{user.activation_code}"
+    @body[:url]  = "http://www.jurnalo.com/activate/#{user.activation_code}?l=d"
     else
     @subject    = 'Please activate your new Jurnalo account!'
-    @body[:url]  = "http://#{SITE_URL}/activate/#{user.activation_code}"
+    @body[:url]  = "http://#{SITE_URL}/activate/#{user.activation_code}?l=e"
     end
     
   end
@@ -30,10 +30,10 @@ class UserMailer < ActionMailer::Base
     setup_email(user)
     if user.language == 2
       @subject    = 'Ihr neues Passwort für Jurnalo!' 
-      @body[:url]  = "http://www.jurnalo.de/session/new"
+      @body[:url]  = "http://www.jurnalo.com/session/new?l=d"
     else
       @subject    = 'Your new password for Jurnalo!'
-      @body[:url]  = "http://www.jurnalo.com/session/new"
+      @body[:url]  = "http://www.jurnalo.com/session/new?l=e"
     end
     
   end
@@ -43,10 +43,10 @@ class UserMailer < ActionMailer::Base
     setup_email(user)
     if user.language == 2  
       @subject    = 'Ihr Jurnalo Zugang ist nun aktiviert!'
-      @body[:url]  = "http://www.jurnalo.de/"  
+      @body[:url]  = "http://www.jurnalo.com/?l=d"  
     else    
     @subject    = 'Your Jurnalo account has been activated!'
-    @body[:url]  = "http://#{SITE_URL}/"
+    @body[:url]  = "http://#{SITE_URL}/?l=e"
     end
   end
   
@@ -79,13 +79,13 @@ class UserMailer < ActionMailer::Base
        @subject    = 'Neue Artikel von Ihren Lieblingsautoren'
        @body[:url]  = "http://www.jurnalo.de/" 
        @body[:user_new_stories] = @user_new_stories
-       @body[:my_authors_link] = "http://www.jurnalo.de/subscriptions"
+       @body[:my_authors_link] = "http://www.jurnalo.com/subscriptions?l=d"
        @body[:from] = "#{SITE_EMAIL}"
      else
        @subject    = 'New articles by your favorite authors'
        @body[:url]  = "http://#{SITE_URL}/" 
        @body[:user_new_stories] = @user_new_stories
-       @body[:my_authors_link] = "http://#{SITE_URL}/subscriptions"
+       @body[:my_authors_link] = "http://#{SITE_URL}/subscriptions?l=e"
        @body[:from] = "#{SITE_EMAIL}"
        
      end
