@@ -36,10 +36,10 @@ test:
     server_alive_interval: 0
 
 production:
-  api_key: 
-  secret_key: 
+  api_key:  9a18a8054e7d5ec4d9729be467241481
+  secret_key: bc6c23ed85943fd1ec9ef95ffe438ae0
   canvas_page_name: 
-  callback_url: 
+  callback_url: http://www.jurnalo.com
   set_asset_host_to_callback_url: true   
   tunnel:
     public_host_username: 
