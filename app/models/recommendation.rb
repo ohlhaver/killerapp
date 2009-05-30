@@ -68,10 +68,14 @@ class Recommendation < ActiveRecord::Base
 
   def after_create
     ProfileAction.create_recommended_action(self)
-    # send email
     fb_session = Facebooker::Session.create
-    e = UserMailer.create_recommended_email(self) 
-    fb_session.send_email([self.user.fb_user_id],e.subject, e.body)
+    # send email
+    if not user.jurnalo_user and user.facebook_user?
+      e = UserMailer.create_recommended_email(self) 
+      fb_session.send_email([self.user.fb_user_id],e.subject, e.body)
+    else
+      UserMailer.deliver_recommended_email(self) 
+    end
     # send facebook notification
     fb_session.send_notification([self.user.fb_user_id],"<a href=\"http://#{SITE_URL}/recommendations/view?l=#{self.user.language == 2 ? 'd' : 'e'}\">#{e.subject}</a>")
   end
