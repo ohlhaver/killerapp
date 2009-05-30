@@ -70,8 +70,8 @@ class Recommendation < ActiveRecord::Base
     ProfileAction.create_recommended_action(self)
     fb_session = Facebooker::Session.create
     # send email
+    e = UserMailer.create_recommended_email(self) 
     if not user.jurnalo_user and user.facebook_user?
-      e = UserMailer.create_recommended_email(self) 
       fb_session.send_email([self.user.fb_user_id],e.subject, e.body)
     else
       UserMailer.deliver_recommended_email(self) 
