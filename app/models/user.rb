@@ -176,12 +176,13 @@ class User < ActiveRecord::Base
     end
     @friends = jurnalo_users
   end
-  def jurnalo_friends_profile_actions
+  def jurnalo_friends_profile_actions(limit=nil)
     friends = self.jurnalo_friends
     return [] if friends.blank?
     ProfileAction.find(:all,
                        :conditions => "user_id IN ( #{friends.collect{|f| f.id}*','} )", 
-                       :order => "created_at DESC")
+                       :order => "created_at DESC",
+                       :limit => limit)
   end
   #########################################
   # Facebook integratioin methods : End

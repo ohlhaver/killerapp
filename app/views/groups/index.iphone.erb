@@ -19,6 +19,22 @@
   <% end %>
   <% if logged_in? %>
     <%= render :partial => '/users/notifications'-%>
+    <%# Latest two profile actions Start %>
+    <% if logged_in? %>
+      <% latest_pa = @current_user.jurnalo_friends_profile_actions(2) %>
+      <% unless latest_pa.blank? %>
+        <ul class="module">
+          <li><div class="pagelabel"><%= link_to friends_label, :controller => 'users' , :action => 'friends_actions', :l => @l -%></div></li>
+          <li>
+            <% latest_pa.each do |pa| %>
+              <%= render :partial => pa, :locals => {:user => latest_pa.find_all{|u| u.id == pa.user_id}.first} -%>
+            <% end %>
+          </li>
+        </ul>
+      <% end %>
+    <% end %>
+    <%# Latest two profile actions End %>
+
     <% if @top_my_authors.size > 0 %>
       <ul>
         <li><div class="pagelabel"> <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %></div>>/li>
