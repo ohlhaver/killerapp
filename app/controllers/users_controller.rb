@@ -45,6 +45,7 @@ class UsersController < ApplicationController
        if @current_user.fb_user.has_permission?('offline_access')
          secure_with_cookies!
          @current_user.add_infinite_session_key(facebook_session.session_key)
+         @current_user.register_user_to_fb if @current_user.jurnalo_user
        else
          @ask_offline_access = true
          return
