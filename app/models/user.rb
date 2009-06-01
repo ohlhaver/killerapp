@@ -168,11 +168,14 @@ class User < ActiveRecord::Base
       return @friends
     end
     jurnalo_users   = User.find(:all, :conditions => "fb_user_id IN ( #{jurnalo_friends.collect{|f| f.id}*','} )")
-    jurnalo_users_h = jurnalo_users.group_by{|u| u.fb_user_id}
-    jurnalo_friends.each do | fbu|
-      u = jurnalo_users_h[fbu.uid].first
-      u.fb_user=fbu
-    end
+    #jurnalo_users_h = jurnalo_users.group_by{|u| u.fb_user_id}
+    #jurnalo_friends.each do | fbu|
+    #  u = jurnalo_users_h[fbu.uid].first
+    #  u.fb_user=fbu
+    #end
+    jurnalo_users.reject!{|u| 
+      !(u.fb_offline_access_permission_granted and (u.fb_email_permission_granted or u.jurnalo_user)  and u.fb_user)
+    }
     @friends = jurnalo_users
   end
   def jurnalo_friends_profile_actions(limit=nil)
