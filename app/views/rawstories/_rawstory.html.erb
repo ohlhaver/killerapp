@@ -1,4 +1,3 @@
-<li>
 <% div_for(rawstory) do %>
 
 <div class="rawstory">
@@ -26,7 +25,7 @@
 <% unless params[:controller] == 'authors' %>
 <span class="author">
 <%= render :partial => rawstory.author, :locals =>{:no_spacer => true, :no_style => true} %>
-<span>&nbsp;-&nbsp;
+</span>&nbsp;-&nbsp;
 <% end %>
 <% end %>
 
@@ -59,4 +58,3 @@
 
 
 <% end %>
-</li>

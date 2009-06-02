@@ -147,6 +147,8 @@ li {
 }
 .sidebar{
 	position: fixed;
+        top:0;
+        left:0;
 }
 .logo {
 	margin-left: 10px;
