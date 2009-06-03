@@ -1,0 +1,9 @@
+<ul class="module">
+  <div class="pagelabel">
+  <%= render :partial => '/notifications/notifications_header'%>
+  </div>
+  <% @notifications.each do |n| %>
+   <%= render :partial => 'notification', :locals => {:notification => n} %>
+  <% end %>
+  <% ProfileNotification.mark_as_inactive(@notifications)%>
+</ul>

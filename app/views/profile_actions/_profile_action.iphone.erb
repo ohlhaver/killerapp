@@ -13,7 +13,7 @@
 
 <% if profile_action.search_topic %>
   <span class="headline"><%= link_to profile_action.entity_content,{:controller => 'rawstories', :action => 'search', :l => @l, :q => profile_action.entity_content}%></span>
-<% else %>
+<% elsif not profile_action.joined_jurnalo? %>
   <% if profile_action.entity_type == 'Rawstory' %>
     <div style="margin-left:20px;">
       <%= render :partial => profile_action.entity, :locals => {:no_spacer => true, :hide_extra => true}  %>

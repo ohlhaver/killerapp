@@ -1,0 +1,33 @@
+<%= notifications_label -%>&nbsp;:&nbsp;
+<% if params[:controller] == 'notifications' and params[:action] == 'view'%>
+<%= show_all_label %>&nbsp;-&nbsp;
+<% else %>
+<%= link_to show_all_label, :controller => 'notifications' , :action => 'view', :l => @l%>&nbsp;-&nbsp;
+<% end %>
+<% if params[:controller] == 'notifications' and params[:action] == 'view_new_friends'%>
+<%= friends_label %>&nbsp;-&nbsp;
+<% else %>
+<%= link_to friends_label,  :controller => 'notifications' , :action => 'view_new_friends', :l => @l%>&nbsp;-&nbsp;
+<% end %>
+<% if params[:controller] == 'recommendations' and params[:action] == 'view'%>
+<%= recommendation_label %>&nbsp;(&nbsp;
+<% else %>
+<%= link_to recommendation_label, :controller => 'recommendations' , :action => 'view', :l => @l%>&nbsp;(&nbsp;
+<% end %>
+<% if params[:controller] == 'recommendations' and ['view', 'view_articles', 'view_authors'].include?params[:action]%>
+  <% if params[:controller] == 'recommendations' and params[:action] == 'view'%>
+    <%= show_all_label%>&nbsp;-&nbsp;
+  <% else %>
+    <%= link_to show_all_label, :controller => 'recommendations' , :action => 'view', :l => @l%>&nbsp;-&nbsp;
+  <% end %>
+  <% if params[:controller] == 'recommendations' and params[:action] == 'view_articles'%>
+    <%= articles_list_label -%>&nbsp;-&nbsp;
+  <% else %>
+    <%= link_to articles_list_label, :controller => 'recommendations' , :action => 'view_articles', :l => @l%>&nbsp;-&nbsp;
+  <% end %>
+  <% if params[:controller] == 'recommendations' and params[:action] == 'view_authors'%>
+    <%= authors_label -%>&nbsp;)&nbsp;
+  <% else %>
+    <%= link_to authors_label, :controller => 'recommendations' , :action => 'view_authors', :l => @l%>&nbsp;)&nbsp;
+  <% end %>
+<% end %>

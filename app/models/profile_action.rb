@@ -12,6 +12,7 @@ class ProfileAction < ActiveRecord::Base
     RECOMMENDED_AUTHOR       = 5
     RECOMMENDED_ARTICLE      = 6
     GOT_NEW_FRIEND           = 7
+    JOINED_JURNALO           = 8
   end
 
   def description(language=1)
@@ -30,6 +31,8 @@ class ProfileAction < ActiveRecord::Base
       language == 2 ? "recommended this article" : "recommended this article"
     when  Type::GOT_NEW_FRIEND            
       language == 2 ? "got new friend" : "got new friend"
+    when  Type::JOINED_JURNALO            
+      language == 2 ? "connected with Jurnalo" : "connected with Jurnalo"
     else
       ''
     end
@@ -43,6 +46,9 @@ class ProfileAction < ActiveRecord::Base
     action_type ==  Type::RECOMMENDED_ARTICLE
   end
 
+  def joined_jurnalo?
+    Type::JOINED_JURNALO == self.action_type
+  end
   def author
     case action_type
     when Type::ADDED_FAVORITE_AUTHOR, Type::REMOVED_FAVORITE_AUTHOR, Type::RECOMMENDED_AUTHOR
@@ -101,6 +107,11 @@ class ProfileAction < ActiveRecord::Base
                  :action_type => ProfileAction::Type::REMOVED_FAVORITE_AUTHOR,
                  :entity_type => Author.to_s,
                  :entity_id   => subscription.author_id)
+
+  end
+  def self.create_joined_jurnalo_action(user_id)
+    self.create!(:user_id         => user_id,
+                 :action_type     => Type::JOINED_JURNALO)
 
   end
 

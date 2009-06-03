@@ -11,9 +11,9 @@ module ApplicationHelper
   end
   def recommendation_label
     if @language ==2
-      label = 'Recommendation' 
+      label = 'Recommendations' 
     else
-      label = 'Recommendation'
+      label = 'Recommendations'
     end
     return label
   end

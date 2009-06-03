@@ -1,23 +1,7 @@
 <ul class="module">
-<div class="pagelabel">
-<%= notifications_label -%> : <%= recommendation_label -%>&nbsp;(&nbsp;  
-<% if params[:controller] == 'recommendations' and params[:action] == 'view'%>
- <%= show_all_label%> 
-<% else %>
-<%= link_to show_all_label, :controller => 'recommendations' , :action => 'view', :l => @l%>
-<% end %>&nbsp;-&nbsp;
-<% if params[:controller] == 'recommendations' and params[:action] == 'view_articles'%>
-  <%= articles_list_label -%>
-<% else %>
-  <%= link_to articles_list_label, :controller => 'recommendations' , :action => 'view_articles', :l => @l%>
-<% end %>&nbsp;-&nbsp;
-<% if params[:controller] == 'recommendations' and params[:action] == 'view_authors'%>
-  <%= authors_label -%>
-<% else %>
-<%= link_to authors_label, :controller => 'recommendations' , :action => 'view_authors', :l => @l%>
-<% end %>&nbsp;
-) 
-</div>
-<%= render :partial => @recommendations %>
-<% Recommendation.mark_as_inactive(@recommendations)%>
+  <div class="pagelabel">
+    <%= render :partial => '/notifications/notifications_header' %>
+  </div>
+  <%= render :partial => @recommendations %>
+  <% Recommendation.mark_as_inactive(@recommendations)%>
 </ul>

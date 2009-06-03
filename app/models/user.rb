@@ -1,6 +1,28 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
   # Virtual attribute for the unencrypted password
+  has_many :notifications, 
+           :class_name => 'ProfileNotification',
+           :foreign_key => 'user_id',
+           :order => "id DESC"
+  has_many :active_notifications,
+           :class_name => 'ProfileNotification',
+           :foreign_key => 'user_id',
+           :conditions => ["active = ?", true],
+           :order => "id DESC"
+
+  has_many :new_friend_notifications,
+           :class_name => 'ProfileNotification',
+           :foreign_key => 'user_id',
+           :conditions => ["notification_type = ? ", ProfileNotification::Type::GOT_NEW_FRIEND],
+           :order => "id DESC"
+
+  has_many :active_new_friend_notifications,
+           :class_name => 'ProfileNotification',
+           :foreign_key => 'user_id',
+           :conditions => ["active = ? and notification_type = ? ", true, ProfileNotification::Type::GOT_NEW_FRIEND],
+           :order => "id DESC"
+
   has_many :recommendations, 
            :order => "id DESC"
   has_many :author_recommendations,
@@ -134,6 +156,12 @@ class User < ActiveRecord::Base
     Facebooker::User.register([users])
     self.email_hash = Facebooker::User.hash_email(email)
     save!
+    # create notifications for friends
+    self.jurnalo_friends.each do |u|
+      ProfileNotification.create_got_new_friend_notification(u.id, self.id)
+    end
+    # create action for the user
+    ProfileAction.create_joined_jurnalo_action(self.id)
   end
   
 

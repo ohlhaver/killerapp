@@ -2,20 +2,26 @@
   <%
    recs = @current_user.active_recommendations
    author_recs = recs.find_all{|r| r.author?}
-   article_recs = recs.find_all{|r| r.article?} %>
-  <% unless recs.blank? %>
+   article_recs = recs.find_all{|r| r.article?} 
+   new_friend_notifications = @current_user.active_new_friend_notifications%>
+  <% unless recs.blank? and new_friend_notifications.blank? %>
     <ul class="module">
       <li><div class="pagelabel"><%= link_to notifications_label, {:controller => 'recommendations', :action => 'view', :l => @l} %></div></li>
       <li>
         You have : <br/>
         <% author_recs_size = author_recs.size %>
         <% article_recs_size = article_recs.size %>
+        <% new_frind_noti_size = new_friend_notifications.size %>
         <%if author_recs_size > 0 %>
         <b><%= link_to "#{author_recs_size} new author recommendation#{'s' if author_recs_size > 1 }", :controller => "recommendations" , :action => "view_authors"%></b><br/>
         <% end %>
         <%if article_recs_size > 0 %>
         <b><%= link_to "#{article_recs_size} new article recommendation#{'s' if article_recs_size > 1 }", :controller => "recommendations" , :action => "view_articles"%></b><br/>
         <% end %>
+        <%if new_frind_noti_size > 0 %>
+        <b><%= link_to "#{new_frind_noti_size} friend#{'s' if new_frind_noti_size > 1 } joined Jurnalo", :controller => "notifications" , :action => "view_new_friends"%></b><br/>
+        <% end %>
+
       </li>
     </ul>
   <% end %>

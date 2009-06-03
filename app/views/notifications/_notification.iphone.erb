@@ -1,0 +1,3 @@
+<div>
+  <b><%= link_to notification.friend.fb_user.first_name, {:controller => 'users', :action => 'profile', :id => notification.friend.id} -%></b> is now your friend on Jurnalo <% if notification.active %><i>(new)</i><% end %>
+</div><br/>
