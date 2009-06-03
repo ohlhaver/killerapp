@@ -206,13 +206,21 @@ class User < ActiveRecord::Base
     }
     @friends = jurnalo_users
   end
-  def jurnalo_friends_profile_actions(limit=nil)
+  def jurnalo_friends_profile_actions(limit=nil, last_24_hours = false)
     friends = self.jurnalo_friends
     return [] if friends.blank?
+    if last_24_hours == false
     ProfileAction.find(:all,
                        :conditions => "user_id IN ( #{friends.collect{|f| f.id}*','} )", 
                        :order => "created_at DESC",
                        :limit => limit)
+    else
+    ProfileAction.find(:all,
+                       :conditions => ["user_id IN ( #{friends.collect{|f| f.id}*','} ) and created_at >= :one_day_before",{ :one_day_before => (Time.now - 1.day)}],
+                       :order => "created_at DESC",
+                       :limit => limit)
+    end
+
   end
   #########################################
   # Facebook integratioin methods : End
