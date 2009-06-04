@@ -182,6 +182,11 @@ class User < ActiveRecord::Base
       @fb_user = nil
     end
   end
+
+  def is_a_friend?(user_id_or_user)
+    user = (user_id_or_user.class == User)? user_id_or_user : User.find_by_id(user_id_or_user)
+    self.fb_user.friends_with?(user.fb_user_id)
+  end
   
   def jurnalo_friends
     return @friends if defined?(@friends)

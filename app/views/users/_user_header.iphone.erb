@@ -16,6 +16,9 @@
   <% if params[:controller] == 'users' and params[:action] == 'favorite_authors' %>
   <%= my_authors -%> ( <%= link_to articles_list_label, :controller => 'users' , :action => 'articles_by_favorite_authors', :id => user.id, :l => @l -%> - <%= authors_list_label -%> )
   <% end %>
+<% elsif params[:controller] == 'users' and params[:action] == 'friends' and not @current_user.is_a_friend?(user) -%>
+  <% name = user.fb_user.nil? ? user.name : user.fb_user.name -%> 
+  <%= name %> : <%= friends_label -%>
 <% else -%>
   <% name = user.fb_user.nil? ? user.name : user.fb_user.name -%> 
   <%= name %> : 

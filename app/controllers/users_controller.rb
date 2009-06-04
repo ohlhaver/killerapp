@@ -8,16 +8,20 @@ class UsersController < ApplicationController
   def friends_actions
     return unless @current_user.fb_offline_access_permission_granted 
     @user = @current_user
+    return if redirect_to_friend_list_if_not_a_friend(@user)
   end
 
   def profile 
     @user = get_user
+    return if redirect_to_friend_list_if_not_a_friend(@user)
   end
   def favorite_authors
     @user = get_user
+    return if redirect_to_friend_list_if_not_a_friend(@user)
   end
   def articles_by_favorite_authors
     @user = get_user
+    return if redirect_to_friend_list_if_not_a_friend(@user)
     @user_stories =[]
     unless @user.stories.blank?
       story_ids     = @user.stories.split(' ')*","
@@ -232,6 +236,11 @@ class UsersController < ApplicationController
       user = @current_user
     end
     user
+  end
+  def redirect_to_friend_list_if_not_a_friend(user_id_or_user)
+    return false if @current_user.id == (user_id_or_user.class == User ? user_id_or_user : user_id_or_user.to_i) or @current_user.is_a_friend?(user_id_or_user)
+    redirect_to :controller => 'users', :action => 'friends', :id => user_id_or_user, :l => @l
+    return true
   end
 
 end
