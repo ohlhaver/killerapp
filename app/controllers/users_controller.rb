@@ -54,8 +54,6 @@ class UsersController < ApplicationController
          @ask_offline_access = true
          return
        end
-     else
-       @current_user.add_infinite_session_key(facebook_session.session_key)
      end
      if not (@current_user.jurnalo_user or @current_user.fb_email_permission_granted)
        if @current_user.fb_user.has_permission?('email')
