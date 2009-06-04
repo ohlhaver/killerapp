@@ -2,8 +2,6 @@
   <%= opinions_label -%> ( <%= link_to articles_list_label, {:controller => 'groups', :action => 'opinions', :l => @l} -%>  - <%= author_ranking_label -%> )
 </div>
 
-<span class = 'headlines'>
 <%@authors.each_with_index do |a, i| %>
 <%= render :partial => a, :locals => {:rank => i+1} %>
 <% end %>
-</span>

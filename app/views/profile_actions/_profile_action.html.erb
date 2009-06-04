@@ -1,4 +1,4 @@
-<div>
+<div class="unselected">
 <% if defined?(user) and !user.blank? and profile_action.user_id == user.id %>
 <b><%= link_to (user.fb_user ? user.fb_user.first_name : user.name), {:controller => 'users', :action => 'profile', :id => user.id} -%></b> 
 <% else %>

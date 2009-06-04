@@ -10,11 +10,12 @@
 <%= link_to friends_label,  :controller => 'notifications' , :action => 'view_new_friends', :l => @l%>&nbsp;-&nbsp;
 <% end %>
 <% if params[:controller] == 'recommendations' and params[:action] == 'view'%>
-<%= recommendation_label %>&nbsp;(&nbsp;
+<%= recommendation_label %>
 <% else %>
-<%= link_to recommendation_label, :controller => 'recommendations' , :action => 'view', :l => @l%>&nbsp;(&nbsp;
+<%= link_to recommendation_label, :controller => 'recommendations' , :action => 'view', :l => @l%>
 <% end %>
 <% if params[:controller] == 'recommendations' and ['view', 'view_articles', 'view_authors'].include?params[:action]%>
+&nbsp;(&nbsp;
   <% if params[:controller] == 'recommendations' and params[:action] == 'view'%>
     <%= show_all_label%>&nbsp;-&nbsp;
   <% else %>

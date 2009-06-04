@@ -5,7 +5,7 @@ class NotificationsController < ApplicationController
     render :action => 'view'
   end
   def view
-    @notifications =  @current_user.notifications
+    @notifications =  (@current_user.notifications.to_a + @current_user.recommendations.to_a).sort_by{|s| s.created_at}.reverse
     render :action => 'view'
   end
 end
