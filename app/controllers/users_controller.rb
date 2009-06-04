@@ -236,7 +236,9 @@ class UsersController < ApplicationController
     user
   end
   def redirect_to_friend_list_if_not_a_friend(user_id_or_user)
-    return false if @current_user.id == (user_id_or_user.class == User ? user_id_or_user : user_id_or_user.to_i) or @current_user.is_a_friend?(user_id_or_user)
+    if @current_user.id == (user_id_or_user.class == User ? user_id_or_user.id : user_id_or_user.to_i) or @current_user.is_a_friend?(user_id_or_user)
+        return false 
+    end
     redirect_to :controller => 'users', :action => 'friends', :id => user_id_or_user, :l => @l
     return true
   end
