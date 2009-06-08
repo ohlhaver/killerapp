@@ -160,7 +160,7 @@
           <% end %>
         </div>
       <%end%>
-      <% if (params[:action] == 'index' and params[:controller] == 'groups') or (['profile', 'friends', 'friends_actions'].include?(params[:action]) and params[:controller] == 'users') or ['recommendations', 'notifications'].include?(params[:controller])-%>
+      <% if (params[:action] == 'index' and params[:controller] == 'groups') or (['profile', 'friends', 'friends_actions','invite_fb_friends'].include?(params[:action]) and params[:controller] == 'users') or ['recommendations', 'notifications'].include?(params[:controller])-%>
          <%= yield -%>
       <% else -%>
         <ul class="module">

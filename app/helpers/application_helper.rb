@@ -1,5 +1,13 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  def invite_label
+    if @language ==2
+      label = 'invite' 
+    else
+      label = 'invite'
+    end
+    return label
+  end
   def list_of_friends_label
     if @language ==2
       label = 'list of friends' 

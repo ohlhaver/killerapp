@@ -1,0 +1,24 @@
+<ul class="module">
+  <li>
+    <%= render :partial => "user_header", :locals => {:user => @current_user} -%>
+   <div style="width:750px; height:20px;">
+     Fetching your friend list ...
+   </div>
+   <div style="width:750px;">
+     <fb:serverfbml style="width:750px;position:relative;z-index:100;top:-20px;left:-10px;">
+       <script type="text/fbml">
+         <fb:fbml>
+           <fb:request-form type="Jurnalo" 
+                            content='<%= fb_req_choice("Join Juranlo","http://#{SITE_URL}?connect_with_facebook=true&l=#{@l}") %>'
+                            invite="true"
+                            action='<%= "http://#{SITE_URL}/users/friends_actions?l=#{@l}" %>'
+                            method="POST">
+             <fb:multi-friend-selector actiontext="Select friends you want to Invite."
+                                       <%= "exclude_ids=\"#{@current_user.jurnalo_friends.collect{|u| u.fb_user_id.to_s}*','}\"" unless @current_user.jurnalo_friends.blank? %>/>
+           </fb:request-form>
+         </fb:fbml>
+       </script>
+     </fb:serverfbml>
+   </div>
+  </li>
+</ul>

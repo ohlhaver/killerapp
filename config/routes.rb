@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :users, :collection => {:grant_email_permission => :get, :link_user_accounts => :get, :profile => :get, :friends => :get, :friends_actions => :get, :favorite_authors => :get, :articles_by_favorite_authors => :get}
+  map.resources :users, :collection => {:grant_email_permission => :get, :link_user_accounts => :get, :profile => :get, :friends => :get, :friends_actions => :get, :favorite_authors => :get, :articles_by_favorite_authors => :get, :invite_fb_friends => :get}
 
   map.resource :session
 

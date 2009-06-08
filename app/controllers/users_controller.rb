@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   
-  before_filter :login_required, :only => [:settings, :link_user_accounts, :grant_email_permission, :friends, :friends_actions, :profile, :favorite_authors, :articles_by_favorite_authors]
+  before_filter :login_required, :only => [:settings, :link_user_accounts, :grant_email_permission, :friends, :friends_actions, :profile, :favorite_authors, :articles_by_favorite_authors, :invite_fb_friends]
+  def invite_fb_friends
+  end
   def friends
     return unless @current_user.fb_offline_access_permission_granted 
     @user = get_user
@@ -37,6 +39,7 @@ class UsersController < ApplicationController
 
   end
   def grant_email_permission
+    redirect_to :action => 'link_user_accounts', :l => @l
     @current_user.grant_email_permission  if !@current_user.fb_email_permission_granted and @current_user.fb_user.has_permission?('email')
     redirect_to :back
   end

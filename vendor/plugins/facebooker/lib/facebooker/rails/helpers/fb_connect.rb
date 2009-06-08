@@ -32,9 +32,17 @@ module Facebooker
                 FB_RequireFeatures(#{required_features.to_json}, function() {
                   #{init_string}
                   #{additions}
+             FBML
+             if params[:connect_with_facebook] == "true"
+               init_string += <<-FBML
+                FB.Connect.requireSession(function(){window.location='/users/link_user_accounts?l=#{@l}';});
+               FBML
+             end
+             init_string += <<-FBML
                 });
               };
              FBML
+
           end
 
           # block_is_within_action_view? is rails 2.1.x and has been
@@ -71,6 +79,13 @@ module Facebooker
                 FB_RequireFeatures(#{required_features.to_json}, function() {
                   #{init_string}
                   #{additions}
+             FBML
+             if params[:connect_with_facebook] == "true"
+               init_string += <<-FBML
+                FB.Connect.requireSession(function(){window.location='/users/link_user_accounts?l=#{@l}';});
+               FBML
+             end
+             init_string += <<-FBML
                 });
               };
              FBML
