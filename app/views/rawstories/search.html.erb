@@ -1,6 +1,8 @@
-<% if !@authors.blank? and  params[:action] == 'search'%>
+<% if not @authors.blank? and  params[:action] == 'search'%>
   <div class="pagelabel"><%= author_results_label -%> <b>'<%= h(params[:q]) %>'</b></div>
-  <%= render :partial => @authors, :locals => {:no_spacer => true} -%>
+  <% @authors.each do |a| %>
+   <div><%= render :partial => a, :locals => {:no_spacer => true} -%></div>
+  <% end %>
   <br/>
 <% end %>
 
@@ -62,9 +64,3 @@
 </p>
 </div>
 <% end -%>
-
-
-
-
-
-
