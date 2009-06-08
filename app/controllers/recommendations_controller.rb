@@ -41,15 +41,15 @@ class RecommendationsController < ApplicationController
 
   end
   def view_articles
-    @recommendations =  @current_user.article_recommendations
+    @recommendations = Recommendation.from_valid_users(@current_user.article_recommendations, @current_user.jurnalo_friends)
     render :action => 'view'
   end
   def view_authors
-    @recommendations =  @current_user.author_recommendations
+    @recommendations = Recommendation.from_valid_users(@current_user.author_recommendations, @current_user.jurnalo_friends)
     render :action => 'view'
   end
   def view
-    @recommendations =  @current_user.recommendations
+    @recommendations =  Recommendation.from_valid_users(@current_user.recommendations, @current_user.jurnalo_friends)
     render :action => 'view'
   end
 end

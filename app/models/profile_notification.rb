@@ -7,6 +7,19 @@ class ProfileNotification < ActiveRecord::Base
     GOT_NEW_FRIEND                  = 3
   end
 
+  def self.from_valid_users(notifications, users)
+    user_ids = users.collect{|u| u.id}
+    ns = []
+    notifications.each do |n|
+      case n.notification_type
+      when Type::GOT_NEW_FRIEND
+        ns << n if user_ids.include?(n.entity_id)
+      else
+        ns << n  
+      end
+    end
+    return ns
+  end
   def friend?
     notification_type == Type::GOT_NEW_FRIEND
   end

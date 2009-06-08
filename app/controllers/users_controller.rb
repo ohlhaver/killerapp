@@ -1,6 +1,18 @@
 class UsersController < ApplicationController
   
   before_filter :login_required, :only => [:settings, :link_user_accounts, :grant_email_permission, :friends, :friends_actions, :profile, :favorite_authors, :articles_by_favorite_authors, :invite_fb_friends]
+  before_filter :verify_uninstall_signature, :only => [:fb_user_removed_application]
+  def fb_user_removed_application
+    @fb_uid = params[:fb_sig_user]
+    @user = User.find_by_fb_user_id(@fb_uid)
+    if @user
+      @user.fb_offline_access_permission_granted = false
+      @user.fb_email_permission_granted = false
+      @user.save!
+    end
+    render :nothing => true
+    return 
+  end
   def invite_fb_friends
   end
   def friends
@@ -246,4 +258,28 @@ class UsersController < ApplicationController
     return true
   end
 
+  def verify_uninstall_signature
+    signature = '' 
+    keys = params.keys.sort
+    keys.each do |key| 
+      next if key == 'fb_sig' 
+      next unless key.include?('fb_sig') 
+      key_name = key.gsub('fb_sig_', '')
+      signature += key_name
+      signature += '='
+      signature += params[key]
+    end
+    signature += Facebooker.secret_key
+    calculated_sig = Digest::MD5.hexdigest(signature) 
+    logger.info "\nUNINSTALL :: Signature (fb_sig param from facebook) :: #{params[:fb_sig]}" 
+    logger.info "\nUNINSTALL :: Signature String (pre-hash) :: #{signature}" 
+    logger.info "\nUNINSTALL :: MD5 Hashed Sig :: #{calculated_sig}" 
+    if calculated_sig != params[:fb_sig]
+      logger.warn "\n\nUNINSTALL :: WARNING :: expected signatures did not match\n\n" 
+      return false 
+    else 
+      logger.warn "\n\nUNINSTALL :: SUCCESS!! Signatures matched.\n" 
+    end 
+    return true 
+  end 
 end

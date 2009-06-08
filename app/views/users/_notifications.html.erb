@@ -1,13 +1,14 @@
 <% if logged_in? %>
   <%
-   recs = @current_user.active_recommendations
+   recs = Recommendation.from_valid_users(@current_user.active_recommendations, @current_user.jurnalo_friends)
    author_recs = recs.find_all{|r| r.author?}
    article_recs = recs.find_all{|r| r.article?} 
-   new_friend_notifications = @current_user.active_new_friend_notifications%>
+   new_friend_notifications = ProfileNotification.from_valid_users(@current_user.active_new_friend_notifications, @current_user.jurnalo_friends) %>
   <% unless recs.blank? and new_friend_notifications.blank? %>
     <ul class="module">
       <li><div class="pagelabel"><%= link_to notifications_label, {:controller => 'recommendations', :action => 'view', :l => @l} %></div></li>
       <li>
+       <div class="notifications">
         You have : <br/>
         <% author_recs_size = author_recs.size %>
         <% article_recs_size = article_recs.size %>
@@ -21,7 +22,7 @@
         <%if new_frind_noti_size > 0 %>
         <b><%= link_to "#{new_frind_noti_size} friend#{'s' if new_frind_noti_size > 1 } joined Jurnalo", :controller => "notifications" , :action => "view_new_friends"%></b><br/>
         <% end %>
-
+        </div>
       </li>
     </ul>
   <% end %>

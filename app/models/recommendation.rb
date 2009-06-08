@@ -4,6 +4,16 @@ class Recommendation < ActiveRecord::Base
              :class_name => 'User',
              :foreign_key => 'recommender_id'
   belongs_to :resource, :polymorphic => true
+
+  def self.from_valid_users(recommendations, users)
+    user_ids = users.collect{|u| u.id}
+    rs = []
+    recommendations.each do |r|
+      rs << r if user_ids.include?(r.recommender_id)
+    end
+    return rs
+  end
+
   def self.mark_as_inactive(rec_array)
     return rec_array if rec_array.blank?
     ids = []
