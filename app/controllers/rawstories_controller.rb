@@ -2,6 +2,15 @@ class RawstoriesController < ApplicationController
   
 # before_filter :login_required
 
+  def image
+    s = Rawstory.find(params[:id])
+    si = s.rawstories_story_image.story_image
+    response.headers['Content-Type'] = si.thumb_content_type
+    # Ask the browser to cache the images
+    #response.headers["Expires"] = si.created_at.to_s
+    #response.headers['Cache-Control'] = "public"
+    render :text => si.thumb_image_data
+  end
   
   def index
 

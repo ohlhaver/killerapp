@@ -8,6 +8,7 @@ class Rawstory < ActiveRecord::Base
   belongs_to :source
   belongs_to :haufen
   has_one    :rawstory_detail
+  has_one    :rawstories_story_image
   is_indexed :fields       =>[{:field => :title},
                               {:field => :body},
                               {:field => :opinion},

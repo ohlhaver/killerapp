@@ -71,3 +71,5 @@ Rails::Initializer.run do |config|
   
   
 end
+
+MOGILE_FS_CONFIG = YAML.load(IO.read(RAILS_ROOT + "/config/mogilefs.yml"))[RAILS_ENV]

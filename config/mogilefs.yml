@@ -1,0 +1,7 @@
+
+development:
+  hosts: localhost:7001
+test:
+  hosts: localhost:7001
+production:
+  hosts: localhost:7001
