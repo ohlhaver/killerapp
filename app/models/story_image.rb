@@ -1,6 +1,7 @@
 require 'RMagick'
 require 'mogilefs'
 class StoryImage < ActiveRecord::Base
+  belongs_to :source
   THUMBNAIL_MAX_WIDTH  = 80
   THUMBNAIL_MAX_HEIGHT = 80
 
