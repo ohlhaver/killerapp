@@ -1,62 +1,64 @@
-<ul style="margin:0;"><li>
-<% div_for(rawstory) do %>
+<ul style="margin:0;">
+  <li>
+    <% div_for(rawstory) do %>
+      <div class="rawstory">
+      <% if defined?(show_image) and show_image == true and defined?(image_src) and not image_src.blank?%>
+        <div style="float:left;width:320px;">
+      <% end %>
+        <div class="headline">
+          <%= image_tag('opinion.gif') if rawstory.opinion == 1 %>
+          <%= image_tag('video.gif') + ' ' if rawstory.video == true %> 
+          <span onMouseOver="this.getElementsByTagName('span')[0].style.display='';" onMouseOut="this.getElementsByTagName('span')[0].style.display='none';">
+            <%= link_to rawstory.title, rawstory.link, { :popup => 'new_tab' } %>&nbsp;<span id="read_list_option_<%= rawstory.id %>" style="display:none;position:absolute;">
+            <% if defined?(read_item) and !read_item.nil?%>
+              <%= link_to image_tag('minus.gif'), {:controller => 'read_list', :action => 'remove_item', :id => read_item.id, :l => @l}, {:title => remove_from_read_list_label} -%>
+            <% else %>
+              <%= link_to image_tag('plus.gif'), {:controller => 'read_list', :action => 'add_item', :id => rawstory.id, :l => @l},{:title => save_to_read_list_label} -%> 
+            <% end %>&nbsp;<%= link_to recommend_label, {:controller => 'recommendations', :action =>'recommend_article', :id =>rawstory.id, :l => @l}-%>
+            </span>
+          </span>
+        </div>
+        <div class="datestamp">
+          <span class="source"><%= rawstory.source.website %></span> - 
+          <% if rawstory.author.name != '' %>
+            <% unless params[:controller] == 'authors' %>
+              <span class="author">
+                <%= render :partial => rawstory.author, :locals =>{:no_spacer => true, :no_style => true} %>
+              </span>&nbsp;-&nbsp;
+            <% end %>
+          <% end %>
+          <%= peterson rawstory %>
+          <% if !(defined?(show_duplicate_link) and show_duplicate_link == false ) and !rawstory.rawstory_detail.duplicate_group_id.blank? and rawstory.rawstory_detail.duplicate_group_id != 1 %>
+          <%= ' - ' -%> <%= link_to duplicates_label, :controller => 'rawstories', :action => 'view_duplicates', :id => rawstory.rawstory_detail.duplicate_group_id %>
+          <% end %>
+          <% unless defined?(hide_extra) and hide_extra == true %>
+            <br/>
+            <div class="cluster">
+              <span class="source">
+                <% if rawstory.haufen && rawstory.haufen.weight > 1 && params[:controller] != 'haufens' %>
+                  <%= link_to haufen_label(rawstory), :controller => 'haufens', :action => 'show', :id => rawstory.haufen, :l => @l %> 
+                  <% unless rawstory.haufen.videos == nil %>
+                    <% if rawstory.haufen.videos > 0 %>
+                  - 	<%= link_to video_label(rawstory), :controller => 'haufens', :action => 'filter_haufen_by_videos', :id => rawstory.haufen, :l => @l %> 	
+                    <% end %>
+                  <%end%>	
+                <% end %>
+              </span>
+            </div>
+          <% end %>
+        </div>
+      <% if defined?(show_image) and show_image == true and defined?(image_src) and not image_src.blank?%>
+        </div>
+        <div style="float:right; margin-top:8px;">
+          <a href="<%= image_story.link%>">
+          <img src="<%= image_src %>"/><br/>
+          <span class="source"><%= image_story.source.name %></span>
+          </a>
+        </div>
+        <div style="clear:both"></div>
+      <% end %>
 
-<div class="rawstory">
-<div class="headline">
-
-
-<%= image_tag('opinion.gif') if rawstory.opinion == 1 %> <%= image_tag('video.gif') + ' ' if rawstory.video == true %> 
-<span onMouseOver="this.getElementsByTagName('span')[0].style.display='';" onMouseOut="this.getElementsByTagName('span')[0].style.display='none';">
-  <%= link_to rawstory.title, rawstory.link, { :popup => 'new_tab' } %>&nbsp;<span id="read_list_option_<%= rawstory.id %>" style="display:none;position:absolute;">
-  <% if defined?(read_item) and !read_item.nil?%>
-    <%= link_to image_tag('minus.gif'), {:controller => 'read_list', :action => 'remove_item', :id => read_item.id, :l => @l}, {:title => remove_from_read_list_label} -%>
-  <% else %>
-    <%= link_to image_tag('plus.gif'), {:controller => 'read_list', :action => 'add_item', :id => rawstory.id, :l => @l},{:title => save_to_read_list_label} -%> 
-  <% end %>&nbsp;<%= link_to recommend_label, {:controller => 'recommendations', :action =>'recommend_article', :id =>rawstory.id, :l => @l}-%>
-  </span>
-</span>
-
-
-</div>
-
-
-<div class="datestamp">
-<span class="source"><%= rawstory.source.website %></span> - 
-<% if rawstory.author.name != '' %>
-<% unless params[:controller] == 'authors' %>
-<span class="author">
-<%= render :partial => rawstory.author, :locals =>{:no_spacer => true, :no_style => true} %>
-</span>&nbsp;-&nbsp;
-<% end %>
-<% end %>
-
-
-<%= peterson rawstory %>
-<% if !(defined?(show_duplicate_link) and show_duplicate_link == false ) and !rawstory.rawstory_detail.duplicate_group_id.blank? and rawstory.rawstory_detail.duplicate_group_id != 1 %>
-<%= ' - ' -%> <%= link_to duplicates_label, :controller => 'rawstories', :action => 'view_duplicates', :id => rawstory.rawstory_detail.duplicate_group_id %>
-<% end %>
-<% unless defined?(hide_extra) and hide_extra == true %>
-<br>
-<div class="cluster">
-	<span class="source">
-	
-<% if rawstory.haufen && rawstory.haufen.weight > 1 && params[:controller] != 'haufens' %>
-<%= link_to haufen_label(rawstory), :controller => 'haufens', :action => 'show', :id => rawstory.haufen, :l => @l %> 
-<% unless rawstory.haufen.videos == nil %>
-	<% if rawstory.haufen.videos > 0 %>
-- 	<%= link_to video_label(rawstory), :controller => 'haufens', :action => 'filter_haufen_by_videos', :id => rawstory.haufen, :l => @l %> 	
-	<% end %>
-  <%end%>	
-<% end %>
-
-
-</span>
-</div>
-<% end %>
-</div>
-</div>
-
-
-
-<% end %>
-</li></ul>
+      </div>
+    <% end %>
+  </li>
+</ul>
