@@ -7,7 +7,8 @@ class StoryImage < ActiveRecord::Base
 
   def thumb_image_data
     mg = MogileFS::MogileFS.new(:domain => 'stories', :hosts => MOGILE_FS_CONFIG["hosts"].split(","))
-    data = mg.get_file_data "thumb_#{self.id}"
+    
+    data = mg.get_file_data "thumb_#{self.id}" rescue ''
   end
 
   def store_image(image_data,content_type)
