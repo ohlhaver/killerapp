@@ -3,7 +3,7 @@
     <% div_for(rawstory) do %>
       <div class="rawstory">
       <% if defined?(show_image) and show_image == true and defined?(image_src) and not image_src.blank?%>
-        <div style="float:left;width:320px;">
+        <div style="float:left;width:318px;margin-right:2px;">
       <% end %>
         <div class="headline">
           <%= image_tag('opinion.gif') if rawstory.opinion == 1 %>
@@ -49,10 +49,10 @@
         </div>
       <% if defined?(show_image) and show_image == true and defined?(image_src) and not image_src.blank?%>
         </div>
-        <div style="float:right; margin-top:8px;">
+        <div style="float:left; margin-top:5px;">
           <a href="<%= image_story.link%>">
-          <img src="<%= image_src %>"/><br/>
-          <span class="source"><%= image_story.source.name %></span>
+            <img src="<%= image_src %>"/><br/>
+            <div style="color:#999999;font-size:12px;overflow:hidden;text-align:center;word-wrap:break-word;"><%= image_story.source.name %></div>
           </a>
         </div>
         <div style="clear:both"></div>

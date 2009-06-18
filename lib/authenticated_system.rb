@@ -106,6 +106,7 @@ module AuthenticatedSystem
     end
     def set_last_page_viewed
       unless params[:controller] == 'sessions' or 
+             params[:action] == 'image' or
              (params[:controller] == 'users' and 
               ['link_user_accounts', 'grant_email_permission'].include?(params[:action]) ) or 
              (params[:controller] == 'subscriptions' and params[:action] == 'subscribe') or 

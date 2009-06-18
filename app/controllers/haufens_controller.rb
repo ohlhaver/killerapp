@@ -2,7 +2,7 @@ class HaufensController < ApplicationController
 
   def image
     h = Haufen.find(params[:id])
-    si = s.rawstories_story_image.story_image
+    si = h.haufens_story_image.story_image
     response.headers['Content-Type'] = si.thumb_content_type
     # Ask the browser to cache the images
     #response.headers["Expires"] = si.created_at.to_s
