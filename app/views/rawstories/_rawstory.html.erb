@@ -52,7 +52,7 @@
         <div style="float:right; width:80px;margin-top:5px;">
           <a href="<%= image_story.link%>">
             <img src="<%= image_src %>"/><br/>
-            <div title="<%= image_story.source.name %>i" style="color:#999999;font-size:12px;width:80px;overflow:hidden;text-align:center;word-wrap:break-word;"><%= image_story.source.name %></div>
+            <div title="<%= image_story.source.name.split('www.').join %>" style="color:#999999;font-size:12px;width:80px;overflow:hidden;text-align:center;word-wrap:break-word;"><%= image_story.source.name.split('www.').join %></div>
           </a>
         </div>
         <div style="clear:both"></div>
