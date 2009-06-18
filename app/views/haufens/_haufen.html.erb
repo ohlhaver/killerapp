@@ -2,6 +2,6 @@
   <% @haufen_story = Rawstory.find(haufen.latest) %>
   <% image_story =  haufen.image_exists ? (haufen.image_story || @haufen_story ) : nil %>
   <%= render :partial => @haufen_story, :locals => {:show_image => haufen.image_exists, 
-                                                    :image_src  => "/rawstories/image/#{haufen.id}",
+                                                    :image_src  => "/haufens/image/#{haufen.id}",
                                                     :image_story => image_story}%>
 <% end %>
