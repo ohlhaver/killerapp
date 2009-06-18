@@ -49,10 +49,10 @@
         </div>
       <% if defined?(show_image) and show_image == true and defined?(image_src) and not image_src.blank?%>
         </div>
-        <div style="float:left; margin-top:5px;">
+        <div style="float:right; width:80px;margin-top:5px;">
           <a href="<%= image_story.link%>">
             <img src="<%= image_src %>"/><br/>
-            <div style="color:#999999;font-size:12px;overflow:hidden;text-align:center;word-wrap:break-word;"><%= image_story.source.name %></div>
+            <div title="<%= image_story.source.name %>i" style="color:#999999;font-size:12px;width:80px;overflow:hidden;text-align:center;word-wrap:break-word;"><%= image_story.source.name %></div>
           </a>
         </div>
         <div style="clear:both"></div>
