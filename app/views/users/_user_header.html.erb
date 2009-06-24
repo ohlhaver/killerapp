@@ -14,7 +14,11 @@
   <% end -%>
 
   <% if params[:controller] == 'users' and params[:action] == 'articles_by_favorite_authors' %>
-  <%= my_authors -%> (  <%= articles_list_label -%> - <%= link_to authors_list_label, :controller => 'users' , :action => 'favorite_authors', :id => user.id, :l => @l -%> )
+    <%= my_authors -%>
+    <% if @current_user.home_page_conf.deleted?('my_authors') %>
+    &nbsp;<%= link_to '[+]',{ :controller => 'users', :action => 'personalize_home', :section_name => 'my_authors', :section_status_change => 'add', :l => @l},{:title => 'Add this section to your home page'}  %>&nbsp;
+    <% end %>
+    (  <%= articles_list_label -%> - <%= link_to authors_list_label, :controller => 'users' , :action => 'favorite_authors', :id => user.id, :l => @l -%> )
   <% end -%>
   <% if params[:controller] == 'users' and params[:action] == 'favorite_authors' %>
   <%= my_authors -%> ( <%= link_to articles_list_label, :controller => 'users' , :action => 'articles_by_favorite_authors', :id => user.id, :l => @l -%> - <%= authors_list_label -%> )
