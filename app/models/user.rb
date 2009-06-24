@@ -1,5 +1,6 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
+  has_one   :home_page_conf
   # Virtual attribute for the unencrypted password
   has_many :notifications, 
            :class_name => 'ProfileNotification',

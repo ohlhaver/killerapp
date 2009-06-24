@@ -9,7 +9,7 @@ module GroupsHelper
         selection = 'Technik' if params[:action] == 'technology'
         selection = 'Vermischtes' if params[:action] == 'mixed'
         selection = 'Sport' if params[:action] == 'sport'
-        selection = 'Beliebteste Autoren' if params[:action] == 'opinions'
+        selection = 'Meinungen' if params[:action] == 'opinions'
     else
         selection = 'Top stories' + date if params[:action] == 'index' && params[:controller] == 'groups'
         selection = 'Politics' if params[:action] == 'politics'
@@ -19,7 +19,7 @@ module GroupsHelper
         selection = 'Technology' if params[:action] == 'technology'
         selection = 'Mixed' if params[:action] == 'mixed'
         selection = 'Sport' if params[:action] == 'sport'
-        selection = 'Most popular Authors' if params[:action] == 'opinions'
+        selection = 'Opinions' if params[:action] == 'opinions'
    end
    #@selection = 'Ähnliche Artikel' if params[:controller] == 'haufens' && params[:action] == 'show'
    #@selection = 'Meinungen' if params[:controller] == 'haufens' && params[:action] == 'filter_haufen_by_opinions'
@@ -114,6 +114,5 @@ module GroupsHelper
      return label
    end
      
-
 
 end

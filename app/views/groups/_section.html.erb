@@ -1,0 +1,13 @@
+<% if haufens.size > 0 %>
+  <ul class="module">
+    <li>
+      <div class="pagelabel">
+      <%= section_label %>
+      <% unless defined?(deleteable) and deleteable == false %>
+        <%= link_to '[ - ]',  :controller => 'users', :action => 'personalize_home', :section_name => section_name, :section_status_change => 'delete', :l => @l  %>
+      <% end %>
+      </div>
+    </li>
+    <li><%= render :partial => haufens %></li>
+  </ul>
+<% end %>

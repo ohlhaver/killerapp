@@ -22,21 +22,48 @@ class GroupsController < ApplicationController
         @top_opinions_haufens = fetch_opinions 1
       end
     else
-      caching_hash[:part] = 'left_column'
-      unless read_fragment(caching_hash)
-        @haufens = fetch_groups nil, nil        
-        @top_politics_haufens = fetch_groups 2, 1
-        @top_business_haufens = fetch_groups 5, 1
-        @top_culture_haufens = fetch_groups 3, 1
-        @top_science_haufens = fetch_groups 4, 1
-        @top_technology_haufens = fetch_groups 9, 1
-        @top_sport_haufens = fetch_groups 6, 1
-        @top_mixed_haufens = fetch_groups 7, 1
-      end
+     caching_hash[:part]   = 'top_stories'
+     @haufens              = fetch_groups nil, nil unless read_fragment(caching_hash) 
+
+     caching_hash[:part]   = 'politics'
+     @top_politics_haufens = fetch_groups 2, 1 if (not logged_in? or
+                                                   @current_user.home_page_conf.maximized?('politics')) and
+                                                   not read_fragment(caching_hash)
+     caching_hash[:part]   = 'business'
+     @top_business_haufens = fetch_groups 5, 1 if (not logged_in? or
+                                                   @current_user.home_page_conf.maximized?('business')) and
+                                                   not read_fragment(caching_hash)
+
+     caching_hash[:part]  = 'culture'
+     @top_culture_haufens = fetch_groups 3, 1  if (not logged_in? or
+                                                   @current_user.home_page_conf.maximized?('culture')) and
+                                                   not read_fragment(caching_hash)
+
+     caching_hash[:part]  = 'science'
+     @top_science_haufens = fetch_groups 4, 1  if (not logged_in? or
+                                                   @current_user.home_page_conf.maximized?('science')) and
+                                                   not read_fragment(caching_hash)
+
+     caching_hash[:part]     = 'technology'
+     @top_technology_haufens = fetch_groups 9, 1  if (not logged_in? or
+                                                      @current_user.home_page_conf.maximized?('technology')) and
+                                                      not read_fragment(caching_hash)
+
+     caching_hash[:part] = 'sport'
+     @top_sport_haufens  = fetch_groups 6, 1   if (not logged_in? or
+                                                  @current_user.home_page_conf.maximized?('sport')) and
+                                                  not read_fragment(caching_hash)
+
+     caching_hash[:part] = 'mixed'
+     @top_mixed_haufens = fetch_groups 7, 1    if (not logged_in? or
+                                                  @current_user.home_page_conf.maximized?('mixed')) and
+                                                  not read_fragment(caching_hash)
+
      caching_hash[:part] = 'opinions'
-     unless read_fragment(caching_hash)
-       @top_opinions_haufens = fetch_opinions 1        
-     end
+     @top_opinions_haufens = fetch_opinions 1  if (not logged_in? or
+                                                  @current_user.home_page_conf.maximized?('mixed')) and
+                                                  not read_fragment(caching_hash)
+
     end
     
     @top_my_searchterms={}

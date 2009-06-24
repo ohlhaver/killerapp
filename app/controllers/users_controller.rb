@@ -1,7 +1,30 @@
 class UsersController < ApplicationController
   
-  before_filter :login_required, :only => [:settings, :link_user_accounts, :grant_email_permission, :friends, :friends_actions, :profile, :favorite_authors, :articles_by_favorite_authors, :invite_fb_friends]
+  before_filter :login_required, :only => [:settings, :link_user_accounts, :grant_email_permission, :friends, :friends_actions, :profile, :favorite_authors, :articles_by_favorite_authors, :invite_fb_friends, :personalize_home]
   before_filter :verify_uninstall_signature, :only => [:fb_user_removed_application]
+
+  def personalize_home
+
+    if params[:section_name].blank? or 
+       params[:section_status_change].blank? or
+       not ['top_stories','politics','business','culture','science','technology','sport','mixed','opinions','my_authors'].include?(params[:section_name]) or
+       not ['add','delete'].include?(params[:section_status_change])
+      flash[:notice] = "Invalid request."
+      redirect_to_last_page_viewed_or_default(:controller => 'groups', :action => 'index', :l => @l)
+      return
+    end
+    
+    case params[:section_status_change]
+    when 'add'
+      @current_user.home_page_conf.add_section(params[:section_name])
+      flash[:notice] = "Section added to home page."
+    when 'delete'
+      @current_user.home_page_conf.delete_section(params[:section_name])
+      flash[:notice] = "Section removed from home page."
+    end
+    redirect_to_last_page_viewed_or_default(:controller => 'groups', :action => 'index', :l => @l)
+  end
+
   def fb_user_removed_application
     @fb_uid = params[:fb_sig_user]
     @user = User.find_by_fb_user_id(@fb_uid)

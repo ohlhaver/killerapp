@@ -108,7 +108,7 @@ module AuthenticatedSystem
       unless params[:controller] == 'sessions' or 
              params[:action] == 'image' or
              (params[:controller] == 'users' and 
-              ['link_user_accounts', 'grant_email_permission'].include?(params[:action]) ) or 
+              ['personalize_home', 'link_user_accounts', 'grant_email_permission'].include?(params[:action]) ) or 
              (params[:controller] == 'subscriptions' and params[:action] == 'subscribe') or 
              (params[:controller] == 'recommendations' and ['recommend_author', 'recommend_article'].include?(params[:action]))
         session[:last_page_viewed] =  request.request_uri 
