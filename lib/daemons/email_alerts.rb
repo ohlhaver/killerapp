@@ -46,7 +46,7 @@ class EmailAlerts
                                                  :conditions => ["user_id IN ( #{user_ids} )"],
                                                  :order  => "created_at DESC",
                                                  :select => "user_id, author_id")
-    subscriptions_hashed     = all_subscriptions.group_by{|s| s.user_id}
+    subscriptions_hashed     = subscriptions.group_by{|s| s.user_id}
 
     author_ids               = subscriptions.collect{|s| s.author_id}.uniq*","
 
