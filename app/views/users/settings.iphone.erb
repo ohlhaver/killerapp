@@ -15,13 +15,25 @@
 	<input type="submit" value="<%=save_label%>" class="button">
   <% end -%>
 <br>
+
   <%form_tag settings_url(:l => @l) do -%>
-    <input type="hidden" name="setting_type" value="email"/>
-    <p><label for="search_language"><%=switch_email_alerts_label%></label>
-        <%= radio_button_tag :alerts, "true", @current_user.alerts  -%> <%=on_label%>
-        <%= radio_button_tag :alerts, "false", !@current_user.alerts -%><%=off_label%></p>
-  
-<input type="submit" value="<%=save_label%>" class="button">
+    <input type="hidden" name="setting_type" value="email_alerts"/>
+    <p>
+      <label for="search_language"><%=switch_email_alerts_label%></label>
+    </p>
+    <p>
+      <select name="alert_type" id="alert_type">
+        <optgroup label="ON">
+        <%= options_for_select [['Immediately', User::Alert::IMMEDIATE],
+                                                ['Daily', User::Alert::DAILY],
+                                                ['Weekly', User::Alert::WEEKLY]], @current_user.alert_type -%>
+        </optgroup>
+        <optgroup label="OFF">
+          <%= options_for_select [['Off', User::Alert::OFF]], @current_user.alert_type -%>
+        </optgroup>
+      </select>
+    </p>
+    <input type="submit" value="<%=save_label%>" class="button">
   <% end -%>
 
   <% if ! (@current_user.facebook_user? and facebook_session and !facebook_session.user.blank?) -%>

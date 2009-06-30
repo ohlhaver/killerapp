@@ -75,13 +75,13 @@ before_filter :login_required
   end
   
   def get_alerts
-    @current_user.alerts = true
+    @current_user.alert_type = User::Alert::IMMEDIATE
     @current_user.save
   redirect_to :back
   end
   
   def stop_alerts
-    @current_user.alerts = false
+    @current_user.alert_type = User::Alert::OFF
     @current_user.save
     redirect_to :back
   end

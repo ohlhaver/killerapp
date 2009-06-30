@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     if params[:section_name].blank? or 
        params[:section_status_change].blank? or
-       not ['top_stories','politics','business','culture','science','technology','sport','mixed','opinions','my_authors'].include?(params[:section_name]) or
+       not ['politics','business','culture','science','technology','sport','mixed','opinions','my_authors'].include?(params[:section_name]) or
        not ['add','delete'].include?(params[:section_status_change])
       flash[:notice] = "Invalid request."
       redirect_to_last_page_viewed_or_default(:controller => 'groups', :action => 'index', :l => @l)
@@ -121,7 +121,7 @@ class UsersController < ApplicationController
     # uncomment at your own risk
     # reset_session
     @user = User.new(params[:user])
-    @user.alerts = true
+    @user.alert_type = User::Alert::IMMEDIATE
     
     if @language == 2
         @user.language = 2
@@ -208,12 +208,16 @@ class UsersController < ApplicationController
     if request.post?
        
       # Settings : Email Alerts
-      if params[:setting_type] == 'email' and params[:alerts] and (params[:alerts] == "true") != @current_user.alerts
-        @current_user.update_attribute(:alerts, (params[:alerts] == "true"))
+      if params[:setting_type] == 'email_alerts' and
+         params[:alert_type] and 
+         [User::Alert::OFF, User::Alert::IMMEDIATE, User::Alert::DAILY, User::Alert::WEEKLY].include?(params[:alert_type].to_i) and
+         params[:alert_type].to_i != @current_user.alert_type
+
+        @current_user.update_attribute(:alert_type, params[:alert_type].to_i)
         if @language == 2
-        flash.now[:notice] = "Sie haben erfolgreich Ihre E-mail Einstellungen verändert."
+          flash.now[:notice] = "Sie haben erfolgreich Ihre E-mail Einstellungen verändert."
         else
-        flash.now[:notice] = "You have successfully updated your e-mail settings."
+          flash.now[:notice] = "You have successfully updated your e-mail settings."
         end
         return
       end

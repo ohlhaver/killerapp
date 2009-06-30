@@ -69,6 +69,20 @@ class User < ActiveRecord::Base
   attr_accessor :password
 
   has_many :profile_actions, :order => "id DESC"
+
+  class Alert
+    OFF       = 0
+    IMMEDIATE = 1
+    DAILY     = 2
+    WEEKLY    = 3
+  end
+  def alerts_on?
+    alert_type != Alert::OFF
+  end
+  def alerts_off?
+    alert_type == Alert::OFF
+  end
+
   def all_profile_actions
     ProfileAction.find(:all,
                        :conditions => ["user_id = :current_user_id or receiver_user_id = :current_user_id",{:current_user_id => self.id }],
@@ -294,6 +308,19 @@ class User < ActiveRecord::Base
   # Returns true if the user has just been activated.
   def recently_activated?
     @activated
+  end
+
+  # Send email alert for stories from subscribed authors
+  def send_alerts(stories=nil)
+    if not stories.blank? and user.alerts_on?
+      if not user.jurnalo_user and user.facebook_user?
+        fb_session = Facebooker::Session.create
+        e = UserMailer.create_change_alert(user,stories) 
+        fb_session.send_email([user.fb_user_id], e.subject, e.body)
+      else
+        UserMailer.deliver_change_alert(user,stories) 
+      end
+    end
   end
 
   protected

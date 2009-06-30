@@ -75,6 +75,7 @@ while($running) do
 
     # Find all the new rawstories corresponding to all the subscribed authors
     author_ids               = all_subscriptions.collect{|s| s.author_id}.uniq*","
+    time_now = Time.now
     rawstories               = author_ids.blank? ? [] :  Rawstory.find(:all,
                                                                        :conditions => "author_id IN ( #{author_ids} )",
                                                                        :order      => "id DESC",
@@ -90,22 +91,24 @@ while($running) do
         old_user_stories = user.stories.split(' ')
         user_stories = ''
         new_user_stories = ''
+        new_user_stories_a = []
         subscriptions = all_subscriptions_hashed[user.id].to_a
         subscriptions.each do |subscription|
             author_stories = rawstories_hashed[subscription.author_id].to_a[0,3]
             author_stories.each do |story|
                 story_id = story.id.to_s
-               # This is worng
-               # new_user_stories += story_id + ' ' unless old_user_stories.match(story_id)
-               # below is the correct code
-                new_user_stories += story_id + ' ' unless old_user_stories.include?(story_id)
+                unless old_user_stories.include?(story_id)
+                  new_user_stories += story_id + ' ' 
+                  new_user_stories_a << story
+                end
                 user_stories += story_id + ' '
             end
         end
         user.stories = user_stories
         user.new_stories = new_user_stories
-        user.save
-
+        user.send_alerts(new_user_stories_a)
+        user.last_time_alerts = time_now
+        user.save!
     end
 
 

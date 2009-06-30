@@ -61,18 +61,9 @@ class UserMailer < ActionMailer::Base
   end
   
   
-  def change_alert(user)
+  def change_alert(user,stories)
     
-      @user_new_stories =[]
-       if user.new_stories
-        story_array = user.new_stories.split(/\ /)
-        story_array.each do |story|
-           @user_new_stories += Rawstory.find(story).to_a
-        end
-      end
-      
-    user.new_stories = nil
-    user.save
+      @user_new_stories = stories
     
      setup_email(user)
      if user.language == 2

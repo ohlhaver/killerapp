@@ -156,8 +156,7 @@ class GroupsController < ApplicationController
       
      protected
      def fetch_groups(conditions, home)
-        right_session = Hsession.find(:last).id - 1
-        haufens = Hsession.find(right_session).haufens  
+        haufens = Hsession.find(:all, :order => "id DESC", :limit => 2).last.haufens
         if @language == 2
           haufens = haufens.find_all{|v| v.language == 2 }
         else 
