@@ -93,11 +93,8 @@
         <% if logged_in? == false -%>
           <div style="float:left;;margin-left:2px;">
             <div style="height:18px;">
-              <%= link_to sign_up_label, :controller => 'users', :action => 'new', :l=>@l %>&nbsp;-&nbsp;
               <%= link_to login_label, :controller => 'sessions', :action => 'new', :l=>@l %>&nbsp;-&nbsp;
-              <%= facebook_login_button -%>
-            </div>
-            <div style="padding-top:3px;">
+
               <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %>&nbsp;-&nbsp;
               <%= link_to read_list_label, {:controller => "read_list", :action => "show",:l => @l} -%>
             </div>
@@ -131,11 +128,7 @@
             </div>
             <div style="padding-top:3px;">
               <% if @current_user.facebook_user?%>
-                <% if params[:controller] == 'users' and params[:action] == 'profile' and (params[:id].blank? or @current_user.id == params[:id].to_i) %>
-                 <span class="selected"><%= profile_label %></span>
-                <% else %>
-                <%= link_to profile_label, :controller => 'users' , :action => 'profile', :l => @l -%>
-                <% end %>&nbsp;-&nbsp;  
+                 
                 <% if params[:controller] == 'users' and ['friends_actions','friends'].include?(params[:action]) and (params[:id].blank? or @current_user.id == params[:id].to_i) %>
                   <span class="selected"><%= friends_label -%></span>
                 <% else %>

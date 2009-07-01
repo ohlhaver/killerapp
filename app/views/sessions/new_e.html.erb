@@ -1,9 +1,8 @@
 <div class="message">
-<%= login_message %>
-<p>
-login with your facebook account<br/>
-<%= facebook_login_only_button({:size => :medium,:length => :long, :background => :white}) -%><br/>or<br/>
-login with your existing jurnalo account</p>
+<br>
+Login with your facebook account<br><br/>
+<%= facebook_login_only_button({:size => :medium,:length => :long, :background => :white}) -%><br/><br>
+or with your existing jurnalo account:</p>
 <% form_tag :controller => 'sessions', :action => 'create', :l => @l do -%>
 <p><label for="login">Login</label><br/>
 <%= text_field_tag 'login', params[:login], :class => 'textfield'  %></p>
@@ -20,4 +19,5 @@ login with your existing jurnalo account</p>
 <% end -%>
 
 <p><b><%= link_to 'Sign up as a new user!', new_user_path %></b></p>
+<%= login_message %>
 </div>
