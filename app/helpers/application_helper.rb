@@ -2,7 +2,7 @@
 module ApplicationHelper
   def invite_label
     if @language ==2
-      label = 'invite' 
+      label = 'einladen' 
     else
       label = 'invite'
     end
@@ -27,9 +27,9 @@ module ApplicationHelper
   end
   def recommend_label
     if @language ==2
-      label = 'empfehle' 
+      label = 'empfehlen' 
     else
-      label = 'recommend'
+      label = 'share'
     end
     return label
   end
@@ -53,7 +53,7 @@ module ApplicationHelper
   
   def profile_label
     if @language ==2
-      label = 'Profile' 
+      label = 'Profil' 
     else
       label = 'Profile'
     end
@@ -87,7 +87,7 @@ module ApplicationHelper
   end
   def facebook_login_button(message=nil,style=nil)
    message ||= "Connect with Facebook" if @language == 1
-   message ||= "Verbinde via Facebook" if @language == 2
+   message ||= "Mit Facebook verbinden" if @language == 2
    style   ||= "vertical-align:-7px;"
    code = <<-EOF
    <span style="#{style}">

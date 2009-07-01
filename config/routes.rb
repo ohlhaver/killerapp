@@ -47,7 +47,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :subscriptions, :collection => {:get_alerts => :get, :stop_alerts => :get}
   map.resources :groups, :collection => {:opinions => :get, :politics => :get, :culture => :get, :science => :get, :business => :get, :sport => :get, :mixed => :get, :humor => :get, :technology => :get}
   map.resources :haufens
-  map.resources :topics, :collection => {:delete => :get}
+  map.resources :topics, :collection => {:delete => :get, :create => :get}
   map.resources :about, :collection => {:imprint => :get, :privacy => :get, :feedback => :get}
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

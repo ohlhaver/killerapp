@@ -84,7 +84,7 @@
                                :locals => {:haufens => @top_opinions_haufens, 
                                            :section_name => 'opinions',
                                            :section_label =>(link_to opinions_label, :action => 'opinions', :l => @l)}%>
-
+		<br>								
       <% end %>
     <% end %>
   </div>
@@ -107,27 +107,7 @@
     <%# Latest two profile actions End %>
 
 
-    <% if logged_in? -%>
-      <% if @current_user.home_page_conf.maximized?('my_authors')%>
-		<% if @current_user.subscriptions.size > 0  -%>
-		 <% if @top_my_authors.size > 0 %>
-
-        <ul class="module">
-          <li>
-            <div class="pagelabel">
-              <%= link_to my_authors, :controller => 'users', :action => 'articles_by_favorite_authors', :l => @l  %>
-              <%= link_to '[ - ]',  :controller => 'users', :action => 'personalize_home', :section_name => 'my_authors', :section_status_change => 'delete', :l => @l  %>
-            
-          </li>
-			        
-            <li>
-              <%= render :partial => @top_my_authors %>
-            </li>
-			
-            <%end%>
-		<% end %>
-	<% end %>
-<% end %>
+  
          
     <% if @searchterms %>
       <% @searchterms.each do |s| %>
@@ -162,7 +142,7 @@
         <% if @searchterms.size == 0 %>
           <div class = 'message'>		
             <% if @language == 2 %>
-              <%= link_to 'Eigene Themen erstellen!', :controller => 'topics', :action => 'new', :l => @l  %>
+              <%= link_to 'Erstellen Sie Ihre eigenen Themen!', :controller => 'topics', :action => 'new', :l => @l  %>
             <%else%>
               <%= link_to 'Create your own topics!', :controller => 'topics', :action => 'new', :l => @l  %>
             <%end%>
@@ -176,14 +156,38 @@
         <li>
           <div class = 'message'>		
             <% if @language == 2 %>
-              <%= 'Erstellen Sie Ihre eigenen Themen!' %><br><%= link_to 'Registrieren', :controller => 'users', :action => 'new', :l=>@l %> &nbsp;-&nbsp; <%= link_to 'Einloggen', :controller => 'sessions', :action => 'new', :l=>@l %> 
+              <%= 'Erstellen Sie Ihre eigenen Themen!' %><br> <%= link_to 'Einloggen', :controller => 'sessions', :action => 'new', :l=>@l %> &nbsp;-&nbsp; <%= link_to 'Registrieren', :controller => 'users', :action => 'new', :l=>@l %> 
             <% else %>
-              <%= 'Create your own topics!' %><br><%= link_to 'Sign up', :controller => 'users', :action => 'new', :l=>@l %> &nbsp;-&nbsp; <%= link_to 'Login', :controller => 'sessions', :action => 'new', :l=>@l %> 
+              <%= 'Create your own topics!' %><br> <%= link_to 'Login', :controller => 'sessions', :action => 'new', :l=>@l %> &nbsp;-&nbsp; <%= link_to 'Sign up', :controller => 'users', :action => 'new', :l=>@l %> 
             <%end%>
           </div>
         </li>
       </ul>
     <%end%>
+
+	  <% if logged_in? -%>
+	      <% if @current_user.home_page_conf.maximized?('my_authors')%>
+			<% if @current_user.subscriptions.size > 0  -%>
+			 <% if @top_my_authors.size > 0 %>
+
+	        <ul class="module">
+	          <li>
+	            <div class="pagelabel">
+	              <%= link_to my_authors, :controller => 'users', :action => 'articles_by_favorite_authors', :l => @l  %>
+	              <%= link_to '[ - ]',  :controller => 'users', :action => 'personalize_home', :section_name => 'my_authors', :section_status_change => 'delete', :l => @l  %>
+
+	          </li>
+
+	            <li>
+	              <%= render :partial => @top_my_authors %>
+	            </li>
+
+	            <%end%>
+			<% end %>
+		<% end %>
+	<% end %>
+
+
   </div>
 <% end %>
 
@@ -193,7 +197,7 @@
   <li>
     <div class="pagelabel"><%= selection %>
       <% if  logged_in? and @current_user.home_page_conf.deleted?(params[:action]) %>
-      &nbsp;<%= link_to '[+]',{ :controller => 'users', :action => 'personalize_home', :section_name => params[:action], :section_status_change => 'add', :l => @l},{:title => 'Add this section to your home page'}  %>&nbsp;
+      &nbsp;<%= link_to image_tag('plus.gif'),{ :controller => 'users', :action => 'personalize_home', :section_name => params[:action], :section_status_change => 'add', :l => @l},{:title => add_section_to_homepage_label}  %>&nbsp;
       <% end %>
       <% if params[:action] == 'opinions' -%>
       ( <%= articles_list_label -%> - <%= link_to author_ranking_label, author_ranking_path(:l => @l)%> )

@@ -14,6 +14,15 @@ a img {
 	padding: 3px;
 }
 
+.haufen {
+margin-bottom: 45px;
+}
+
+.related_rawstory {
+	margin-top: -10px;
+}
+
+
 #loginbutton {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
@@ -86,10 +95,16 @@ color: #333333;
 	text-decoration: none;
 }
 
-
+.related_headline {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	font-style: normal;
+	line-height: 20px;
+	font-weight: normal;
+	color: #333333;
+}
 
 #beginning of christians styleshheet {}
-
 
 .headline {
 	font-family: Georgia, "Times New Roman", Times, serif;
@@ -99,6 +114,17 @@ color: #333333;
 	font-weight: normal;
 	color: #333333;
 }
+
+.super_headline {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 22px;
+	font-style: normal;
+	line-height: 31px;
+	font-weight: normal;
+	color: #333333;
+}
+
+
 .headline a:link {
 	color: #333333;
 	text-decoration: none;
@@ -271,11 +297,18 @@ ul {
 }
 .datestamp {
 	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size: 19px;
-	line-height: 27px;
+	font-size: 16px;
+	line-height: 20px;
+	color: #999999;
+}
+.related_datestamp {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	line-height: 20px;
 	color: #999999;
 }
 .datestamp .source {
+	color: #999999;
 }
 
 a:link {
@@ -313,6 +346,9 @@ body {
 .datestamp a:active {
 	color: #0000C8;
 }
+.source {
+	color: #999;
+}
 .author {
 	color: #999;
 }
@@ -329,14 +365,15 @@ body {
 	color: #0000C8;
 }
 .cluster {
-	color: #999999;
-	padding: 0px;
-	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size: 19px;
-	line-height: 27px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 17px;
+	color: #333333;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 .cluster a:link {
-	color: #999999;
+	color: #333333;
 	text-decoration: none;
 }
 .cluster a:visited {

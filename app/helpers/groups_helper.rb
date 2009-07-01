@@ -33,6 +33,15 @@ module GroupsHelper
        'Author ranking'
      end
    end
+   
+   def add_section_to_homepage_label
+     if @language == 2
+       'Diese Rubrik zur Homepage hinzufügen.'
+     else
+        'Add this section to your home page'
+     end
+   end
+  
 
    def date
       t = Time.now
