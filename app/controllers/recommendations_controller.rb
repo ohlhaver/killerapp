@@ -1,5 +1,20 @@
 class RecommendationsController < ApplicationController
   before_filter :login_required
+  def share_article
+    @article = params[:id].blank? ? nil :  Rawstory.find(params[:id])
+    if @article.nil?
+      flash[:notice] = "The article does not exist" if @language == 1
+      flash[:notice] = "The article does not exist" if @language == 2
+      redirect_to :back
+      return
+    end
+    ProfileAction.create_liked_article_action(@current_user.id, @article.id)
+    flash[:notice] = "The article has been shared on your profile" if @language == 1
+    flash[:notice] = "The article has been shared on your profile" if @language == 2
+    redirect_to_last_page_viewed_or_default(:controller => 'groups', :action => 'index', :l => @l)
+    return
+  end
+
   def recommend_article
     @article = params[:id].blank? ? nil :  Rawstory.find(params[:id])
     if @article.nil?

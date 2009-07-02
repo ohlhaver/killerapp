@@ -1,27 +1,49 @@
 <ul class="module">
+<li>
 <% unless @current_user.facebook_user? and @current_user.fb_offline_access_permission_granted %>
   <%= render :partial => "not_allowed_message", :locals => {:user => @current_user}%>
 <% else %>
   <% if @current_user.jurnalo_friends.blank?%>
   <div class="message">None for your facebook friends are on Jurnalo. Invite friends to join</div>
   <% else %>
-  <div class="message">Please select the friends whom you want to recommend the article</div>
-  <%= render :partial => @article -%>
-  <script>
-    function setCheckBoxes(checkBoxName, checkValue){
-      var checkBoxes = document.getElementsByName(checkBoxName);
-      for(var i=0; i < checkBoxes.length; ++i){
-        var checkBox = checkBoxes[i];
-        if (checkBox.type == "checkbox")
-          checkBox.checked = checkValue;
-      }
-    }
-  </script>
-  <b>Select : <a onClick="setCheckBoxes('friends_to_recommend[]', true); return false;" style="cursor:pointer;">All</a>,&nbsp;<a onClick="setCheckBoxes('friends_to_recommend[]', false); return false;" style="cursor:pointer;">None</a></b><br/><br/>
-  <%form_tag({:controller => 'recommendations', :action => 'recommend_article', :id => @article.id, :l => @l},{:method => :post}) do %>
-  <%= render :partial => '/users/friend_list', :locals => {:user => @current_user, :show_select => true, :select_tag_name => 'friends_to_recommend[]'}%>
-  <%= submit_tag recommend_label %>
-  <% end %>
+   <%= render :partial => @article -%>
+   <div id="sharingOptions" style="padding:5px;">
+     <div class="message"><%= link_to 'Click here to share it on your Jurnalo profile',{:controller => 'recommendations', :action => 'share_article', :id => @article.id, :l => @l, :share_to => 'jurnalo_profile'} %></div>
+<script>
+function twitter_share(){
+  window.open('http://www.twitter.com/home?status=<%= @article.link -%>','sharer','toolbar=0,status=0');
+  window.location='<%= url_for({:controller => "recommendations", :action => "share_article", :id => @article.id, :l => @l, :share_to => "twitter_profile"})%>';
+}
+function facebook_share(){
+  window.open('http://www.facebook.com/sharer.php?u=<%= URI.encode(@article.link) -%>&t=<%= URI.encode(@article.title) -%>','sharer','toolbar=0,status=0,width=626,height=436');
+  window.location='<%= url_for({:controller => "recommendations", :action => "share_article", :id => @article.id, :l => @l, :share_to => "facebook_wall"})%>';
+}
+
+</script>
+     <div class="message"><a href="#" onClick="facebook_share();">Click here to share it on your Facebook wall</a></div>
+     <div class="message"><a href="#" onClick="twitter_share();">Click here to share it on your Twitter profile</a></div>
+     <div class="message"><a href="#" onClick="document.getElementById('sharingOptions').style.display='none';document.getElementById('shareWithSpecificFriends').style.display='';">Click here to share it with some specific friends on Jurnalo </a></div>
+   </div>
+
+    <div style="border:1px solid #99CCFF;padding:5px;display:none;" id="shareWithSpecificFriends">
+      <div class="message">Please select the friends whom you want to recommend the article</div>
+      <script>
+        function setCheckBoxes(checkBoxName, checkValue){
+          var checkBoxes = document.getElementsByName(checkBoxName);
+          for(var i=0; i < checkBoxes.length; ++i){
+            var checkBox = checkBoxes[i];
+            if (checkBox.type == "checkbox")
+              checkBox.checked = checkValue;
+          }
+        }
+      </script>
+      <b>Select : <a onClick="setCheckBoxes('friends_to_recommend[]', true); return false;" style="cursor:pointer;">All</a>,&nbsp;<a onClick="setCheckBoxes('friends_to_recommend[]', false); return false;" style="cursor:pointer;">None</a></b><br/><br/>
+      <%form_tag({:controller => 'recommendations', :action => 'recommend_article', :id => @article.id, :l => @l},{:method => :post}) do %>
+      <%= render :partial => '/users/friend_list', :locals => {:user => @current_user, :show_select => true, :select_tag_name => 'friends_to_recommend[]'}%>
+      <%= submit_tag recommend_label %>
+      <% end %>
+    </div>
   <% end %>
 <% end %>
+</li>
 </ul>

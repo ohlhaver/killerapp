@@ -13,6 +13,7 @@ class ProfileAction < ActiveRecord::Base
     RECOMMENDED_ARTICLE      = 6
     GOT_NEW_FRIEND           = 7
     JOINED_JURNALO           = 8
+    LIKED_ARTICLE            = 9 
   end
 
   def description(language=1)
@@ -33,6 +34,8 @@ class ProfileAction < ActiveRecord::Base
       language == 2 ? "got new friend" : "got new friend"
     when  Type::JOINED_JURNALO            
       language == 2 ? "connected with Jurnalo" : "connected with Jurnalo"
+    when  Type::LIKED_ARTICLE            
+      language == 2 ? "likes this article" : "likes this article"
     else
       ''
     end
@@ -130,6 +133,13 @@ class ProfileAction < ActiveRecord::Base
                  :entity_id       => recommendation.resource_id,
                  :receiver_user_id => recommendation.user_id)
 
+  end
+
+  def self.create_liked_article_action(user_id, article_id)
+    self.create!(:user_id         => user_id,
+                 :action_type     => ProfileAction::Type::LIKED_ARTICLE,
+                 :entity_type     => 'Rawstory',
+                 :entity_id       => article_id)
   end
 
 end
