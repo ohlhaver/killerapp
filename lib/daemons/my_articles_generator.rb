@@ -108,7 +108,7 @@ while($running) do
         user.new_stories = new_user_stories
         if user.alert_type == User::Alert::IMMEDIATE 
           user.send_alerts(new_user_stories_a) 
-          user.last_time_alerts = time_now
+          user.last_alert_at = time_now
         end
         user.save!
     end
