@@ -106,7 +106,27 @@
     <% end %>
     <%# Latest two profile actions End %>
 
+	<% if logged_in? -%>
+	      <% if @current_user.home_page_conf.maximized?('my_authors')%>
+			<% if @current_user.subscriptions.size > 0  -%>
+			 <% if @top_my_authors.size > 0 %>
 
+	        <ul class="module">
+	          <li>
+	            <div class="pagelabel">
+	              <%= link_to my_authors, :controller => 'users', :action => 'articles_by_favorite_authors', :l => @l  %>
+	              <%= link_to '[ - ]',  :controller => 'users', :action => 'personalize_home', :section_name => 'my_authors', :section_status_change => 'delete', :l => @l  %>
+
+	          </li>
+
+	            <li>
+	              <%= render :partial => @top_my_authors %>
+	            </li>
+
+	            <%end%>
+			<% end %>
+		<% end %>
+	<% end %>
   
          
     <% if @searchterms %>
@@ -164,29 +184,6 @@
         </li>
       </ul>
     <%end%>
-
-	  <% if logged_in? -%>
-	      <% if @current_user.home_page_conf.maximized?('my_authors')%>
-			<% if @current_user.subscriptions.size > 0  -%>
-			 <% if @top_my_authors.size > 0 %>
-
-	        <ul class="module">
-	          <li>
-	            <div class="pagelabel">
-	              <%= link_to my_authors, :controller => 'users', :action => 'articles_by_favorite_authors', :l => @l  %>
-	              <%= link_to '[ - ]',  :controller => 'users', :action => 'personalize_home', :section_name => 'my_authors', :section_status_change => 'delete', :l => @l  %>
-
-	          </li>
-
-	            <li>
-	              <%= render :partial => @top_my_authors %>
-	            </li>
-
-	            <%end%>
-			<% end %>
-		<% end %>
-	<% end %>
-
 
   </div>
 <% end %>
