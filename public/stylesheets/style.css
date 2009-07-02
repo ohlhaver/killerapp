@@ -451,5 +451,22 @@ body {
   padding: 5px 10px 20px 10px; 
   background-color: #99CCFF; 
   width: 283px;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.newTopicTextBox{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border: 2px solid rgb(255, 255, 255); 
+  background-color: rgb(153, 204, 255); 
+  font-size: 19px; color: rgb(255, 255, 255); 
+  width: 171px; 
+  height: 30px;
+}
+.newTopicAddButton{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border: 0px solid rgb(0, 0, 200); 
+  width: 100px; 
+  background-color: rgb(0, 0, 200); 
+  font-size: 19px; 
+  color: rgb(255, 255, 255); 
+  height: 35px;
 }
