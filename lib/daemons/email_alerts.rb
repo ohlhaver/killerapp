@@ -55,7 +55,7 @@ class EmailAlerts
     rawstories               = author_ids.blank? ? [] :  Rawstory.find(:all,
                                                                        :conditions => ["author_id IN ( #{author_ids} ) and created_at > ?",last_time_alerts],
                                                                        :order      => "id DESC",
-                                                                       :select     => "id, author_id")
+                                                                       :select     => "id, author_id, title, link")
     rawstories_hashed        = rawstories.group_by{|r| r.author_id}
 
     # Update stories, new_stories columns for  users with at least one subscription
