@@ -312,13 +312,13 @@ class User < ActiveRecord::Base
 
   # Send email alert for stories from subscribed authors
   def send_alerts(stories=nil)
-    if not stories.blank? and user.alerts_on?
-      if not user.jurnalo_user and user.facebook_user?
+    if not stories.blank? and self.alerts_on?
+      if not self.jurnalo_user and self.facebook_user?
         fb_session = Facebooker::Session.create
-        e = UserMailer.create_change_alert(user,stories) 
-        fb_session.send_email([user.fb_user_id], e.subject, e.body)
+        e = UserMailer.create_change_alert(self,stories) 
+        fb_session.send_email([self.fb_user_id], e.subject, e.body)
       else
-        UserMailer.deliver_change_alert(user,stories) 
+        UserMailer.deliver_change_alert(self,stories) 
       end
     end
   end
