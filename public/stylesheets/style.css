@@ -446,3 +446,10 @@ body {
   font-size: 12px;
   font-family:Arial,Helvetica,sans-serif;
 }
+
+.newTopicBox {
+  padding: 5px 10px 20px 10px; 
+  background-color: #99CCFF; 
+  width: 283px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
