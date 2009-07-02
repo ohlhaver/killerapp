@@ -1,5 +1,23 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  def add_to_my_authors_label
+    if @language ==2
+      label = 'Add to my authors' 
+    else
+      label = 'Add to my authors' 
+    end
+    return label
+  end
+
+  def remove_from_my_authors_label
+    if @language ==2
+      label = 'Remove from my authors' 
+    else
+      label = 'Remove from my authors' 
+    end
+    return label
+  end
+
   def via_jurnalo_label
    " (found via www.jurnalo.#{@l == 'd' ? 'de' : 'com'})"
   end
@@ -32,7 +50,7 @@ module ApplicationHelper
     if @language ==2
       label = 'empfehlen' 
     else
-      label = 'share'
+      label = 'Share'
     end
     return label
   end
