@@ -7,22 +7,24 @@
   <div class="message">None for your facebook friends are on Jurnalo. Invite friends to join</div>
   <% else %>
    <%= render :partial => @article -%>
-   <div id="sharingOptions" style="padding:5px;">
-     <div class="message"><%= link_to 'Click here to share it on your Jurnalo profile',{:controller => 'recommendations', :action => 'share_article', :id => @article.id, :l => @l, :share_to => 'jurnalo_profile'} %></div>
-<script>
-function twitter_share(){
-  window.open('http://www.twitter.com/home?status=<%= @article.link -%>','sharer','toolbar=0,status=0');
-  window.location='<%= url_for({:controller => "recommendations", :action => "share_article", :id => @article.id, :l => @l, :share_to => "twitter_profile"})%>';
-}
-function facebook_share(){
-  window.open('http://www.facebook.com/sharer.php?u=<%= URI.encode(@article.link) -%>&t=<%= URI.encode(@article.title) -%>','sharer','toolbar=0,status=0,width=626,height=436');
-  window.location='<%= url_for({:controller => "recommendations", :action => "share_article", :id => @article.id, :l => @l, :share_to => "facebook_wall"})%>';
-}
+   <script>
+   function twitter_share(){
+     window.open('http://twitter.com/home?status=<%= URI.encode(@article.link + via_jurnalo_label(@article.language)) -%>','sharer','toolbar=0,status=0');
+     window.location='<%= url_for({:controller => "recommendations", :action => "share_article", :id => @article.id, :l => @l, :share_to => "twitter_profile"})%>';
+   }
+   function facebook_share(){
+     window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent('<%= @article.link-%>')+'&t='+encodeURIComponent('<%= @article.title + via_jurnalo_label(@article.language) -%>'),'sharer','toolbar=0,status=0,width=626,height=436');
+     window.location='<%= url_for({:controller => "recommendations", :action => "share_article", :id => @article.id, :l => @l, :share_to => "facebook_wall"})%>';
+   }
+   
+   </script>
 
-</script>
-     <div class="message"><a href="#" onClick="facebook_share();">Click here to share it on your Facebook wall</a></div>
-     <div class="message"><a href="#" onClick="twitter_share();">Click here to share it on your Twitter profile</a></div>
-     <div class="message"><a href="#" onClick="document.getElementById('sharingOptions').style.display='none';document.getElementById('shareWithSpecificFriends').style.display='';">Click here to share it with some specific friends on Jurnalo </a></div>
+   <div id="sharingOptions" style="padding:5px;">
+     <div class="message">How would you like to share this article?</div>
+     <div class="message"><%= link_to 'Jurnalo profile',{:controller => 'recommendations', :action => 'share_article', :id => @article.id, :l => @l, :share_to => 'jurnalo_profile'} %></div>
+     <div class="message"><a href="#" onClick="facebook_share();">Facebook</a></div>
+     <div class="message"><a href="#" onClick="twitter_share();">Twitter</a></div>
+     <div class="message"><a href="#" onClick="document.getElementById('sharingOptions').style.display='none';document.getElementById('shareWithSpecificFriends').style.display='';">selected friends on Jurnalo</a></div>
    </div>
 
     <div style="border:1px solid #99CCFF;padding:5px;display:none;" id="shareWithSpecificFriends">

@@ -1,5 +1,8 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  def via_jurnalo_label(language=nil)
+   " ( found via www.jurnalo.#{language == 2 ? 'de' : 'com'} ) "
+  end
   def invite_label
     if @language ==2
       label = 'einladen' 
