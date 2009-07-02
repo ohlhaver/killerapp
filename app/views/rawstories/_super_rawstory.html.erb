@@ -5,7 +5,7 @@
       <% if defined?(show_image) and show_image == true and defined?(image_src) and not image_src.blank?%>
         <div style="float:left;width:318px;margin-right:2px;">
       <% end %>
-        <div class="headline">
+        <div class="super_headline">
           <%= image_tag('opinion.gif') if rawstory.opinion == 1 %>
           <%= image_tag('video.gif') + ' ' if rawstory.video == true %> 
           <span onMouseOver="this.getElementsByTagName('span')[0].style.display='';" onMouseOut="this.getElementsByTagName('span')[0].style.display='none';">

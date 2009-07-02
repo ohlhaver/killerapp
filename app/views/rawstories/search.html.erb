@@ -8,7 +8,7 @@
 
 <% unless @rawstories.empty? -%> 
 	<div class="pagelabel">
-	<%= search_results if params[:action] == 'search' %> <%= opinion_results if params[:action] == 'filter_by_opinions' %> <%= video_results if params[:action] == 'filter_by_videos' %> <b> '<%= h(params[:q]) %>'
+	<%= search_results if params[:action] == 'search' %> <%= opinion_results if params[:action] == 'filter_by_opinions' %> <%= video_results if params[:action] == 'filter_by_videos' %> <b> '<%= h(params[:q]) %>'&nbsp;<%= link_to image_tag('plus.gif'), {:controller => 'topics', :action => 'create', :l => @l, :searchterms => h(params[:q])},{:title => add_to_homepage_label}  %>
 </b>
 <%  if params[:action] == 'search' %>
 	<% if @opinion_weight > 0 or @videos_weight > 0  %>

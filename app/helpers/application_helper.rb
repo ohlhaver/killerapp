@@ -2,7 +2,7 @@
 module ApplicationHelper
   def invite_label
     if @language ==2
-      label = 'invite' 
+      label = 'einladen' 
     else
       label = 'invite'
     end
@@ -10,7 +10,7 @@ module ApplicationHelper
   end
   def list_of_friends_label
     if @language ==2
-      label = 'list of friends' 
+      label = 'Liste der Freunde' 
     else
       label = 'list of friends'
     end
@@ -19,7 +19,7 @@ module ApplicationHelper
   end
   def recommendation_label
     if @language ==2
-      label = 'Recommendations' 
+      label = 'Empfehlungen' 
     else
       label = 'Recommendations'
     end
@@ -27,15 +27,15 @@ module ApplicationHelper
   end
   def recommend_label
     if @language ==2
-      label = 'recommend' 
+      label = 'empfehlen' 
     else
-      label = 'recommend'
+      label = 'share'
     end
     return label
   end
   def actions_label
     if @language ==2
-      label = 'Actions' 
+      label = 'Aktionen' 
     else
       label = 'Actions'
     end
@@ -43,7 +43,7 @@ module ApplicationHelper
   end
   def notifications_label
     if @language ==2
-      label = 'Notifications' 
+      label = 'Benachrichtigungen' 
     else
       label = 'Notifications'
     end
@@ -53,7 +53,7 @@ module ApplicationHelper
   
   def profile_label
     if @language ==2
-      label = 'Profile' 
+      label = 'Profil' 
     else
       label = 'Profile'
     end
@@ -61,7 +61,7 @@ module ApplicationHelper
   end
   def friends_label
     if @language ==2
-      label = 'Friends' 
+      label = 'Freunde' 
     else
       label = 'Friends'
     end
@@ -70,7 +70,7 @@ module ApplicationHelper
 
   def authors_label
     if @language ==2
-      label = 'Authors' 
+      label = 'Autoren' 
     else
       label = 'Authors'
     end
@@ -87,7 +87,7 @@ module ApplicationHelper
   end
   def facebook_login_button(message=nil,style=nil)
    message ||= "Connect with Facebook" if @language == 1
-   message ||= "Connect with Facebook" if @language == 2
+   message ||= "Mit Facebook verbinden" if @language == 2
    style   ||= "vertical-align:-7px;"
    code = <<-EOF
    <span style="#{style}">
@@ -325,9 +325,9 @@ module ApplicationHelper
   
   def create_topic
     if @language ==2
-      label = 'Neues Thema [+]'
+      label = 'Neues Thema &nbsp;  [ + ]'
     else
-      label = 'New topic [+]'
+      label = 'New topic &nbsp; [ + ]'
     end
   end
   

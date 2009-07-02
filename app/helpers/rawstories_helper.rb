@@ -155,6 +155,16 @@ module RawstoriesHelper
     return label
   end
   
+  def add_to_homepage_label
+    if @language == 2
+      label = 'Dieses Thema zur Homepage hinzufügen.'
+    else
+      label = 'Add this topic to your home page.'
+    end
+    return label
+  end
+  
+  
   
   
   
