@@ -1,5 +1,20 @@
 class RecommendationsController < ApplicationController
   before_filter :login_required
+  def share_author
+    @author = params[:id].blank? ? nil :  Author.find(params[:id])
+    if @author.nil?
+      flash[:notice] = "The author does not exist" if @language == 1
+      flash[:notice] = "The author does not exist" if @language == 2
+      redirect_to :back
+      return
+    end
+    ProfileAction.create_liked_author_action(@current_user.id, @author.id)
+    flash[:notice] = "The author has been shared on your profile" if @language == 1
+    flash[:notice] = "The author has been shared on your profile" if @language == 2
+    redirect_to_last_page_viewed_or_default(:controller => 'groups', :action => 'index', :l => @l)
+    return
+  end
+
   def share_article
     @article = params[:id].blank? ? nil :  Rawstory.find(params[:id])
     if @article.nil?

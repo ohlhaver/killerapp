@@ -5,9 +5,9 @@ class AuthorsController < ApplicationController
 
 
   def show
+    @author = Author.find(params[:id])
     unless read_fragment({:l => @l, :id => params[:id], :page => params[:page] || 1}) 
         
-        @author = Author.find(params[:id])
         @rawstories_published = Ultrasphinx::Search.new(:query       => '',
                                                         :class_names => 'Rawstory', 
                                                         :sort_mode   => 'descending',
