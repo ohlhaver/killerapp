@@ -11,7 +11,7 @@ module ApplicationHelper
 
   def remove_from_my_authors_label
     if @language ==2
-      label = 'Unsubscribe' 
+      label = 'abbestellen' 
     else
       label = 'Unsubscribe' 
     end
