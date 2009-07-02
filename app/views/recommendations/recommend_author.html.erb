@@ -9,7 +9,7 @@
   <%= render :partial => @author -%>
    <script>
    function twitter_share(){
-     window.open('http://twitter.com/home?status=<%= URI.encode("recommeding articles by #{@author.name} www.jurnalo.com/authors/#{@author.id}") -%>','sharer','toolbar=0,status=0');
+     window.open('http://twitter.com/home?status=<%= URI.encode("recommending articles by #{@author.name} www.jurnalo.com/authors/#{@author.id}") -%>','sharer','toolbar=0,status=0');
      window.location='<%= url_for({:controller => "recommendations", :action => "share_author", :id => @author.id, :l => @l, :share_to => "twitter_profile"})%>';
    }
    function facebook_share(){
