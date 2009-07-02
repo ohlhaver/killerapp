@@ -9,12 +9,20 @@
           <%= image_tag('opinion.gif') if rawstory.opinion == 1 %>
           <%= image_tag('video.gif') + ' ' if rawstory.video == true %> 
           <span onMouseOver="this.getElementsByTagName('span')[0].style.display='';" onMouseOut="this.getElementsByTagName('span')[0].style.display='none';">
-            <%= link_to rawstory.title, rawstory.link, { :popup => 'new_tab' } %>&nbsp;<span id="read_list_option_<%= rawstory.id %>" style="display:none;position:absolute;">
-            <% if defined?(read_item) and !read_item.nil?%>
-              <%= link_to image_tag('minus.gif'), {:controller => 'read_list', :action => 'remove_item', :id => read_item.id, :l => @l}, {:title => remove_from_read_list_label} -%>
-            <% else %>
-              <%= link_to image_tag('plus.gif'), {:controller => 'read_list', :action => 'add_item', :id => rawstory.id, :l => @l},{:title => save_to_read_list_label} -%> 
-            <% end %>&nbsp;<%= link_to recommend_label, {:controller => 'recommendations', :action =>'recommend_article', :id =>rawstory.id, :l => @l}-%>
+            <%= link_to rawstory.title, rawstory.link, { :popup => 'new_tab' } %>&nbsp;<span id="read_list_option_<%= rawstory.id %>" style="display:none;position:absolute;" onMouseOver="this.getElementsByTagName('div')[0].style.display='';" onMouseOut="this.getElementsByTagName('div')[0].style.display='none';">
+            &nbsp;<%= image_tag('plus.gif') %>
+            <div class="actionsBox" style="display:none;" name="rawStoryActionsBox">
+              <div style="margin-bottom:10px;">
+                <% if defined?(read_item) and !read_item.nil?%>
+                  <%= link_to remove_from_read_list_label, {:controller => 'read_list', :action => 'remove_item', :id => read_item.id, :l => @l} -%>
+                <% else %>
+                  <%= link_to save_to_read_list_label, {:controller => 'read_list', :action => 'add_item', :id => rawstory.id, :l => @l} -%> 
+                <% end %>
+              </div>
+              <div style="margin-bottom:10px;">
+                <%= link_to share_label, {:controller => 'recommendations', :action =>'recommend_article', :id =>rawstory.id, :l => @l}-%>
+              </div>
+            </div>
             </span>
           </span>
         </div>

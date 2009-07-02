@@ -2,18 +2,18 @@
 module ApplicationHelper
   def add_to_my_authors_label
     if @language ==2
-      label = 'Add to my authors' 
+      label = 'abonnieren' 
     else
-      label = 'Add to my authors' 
+      label = 'Subscribe' 
     end
     return label
   end
 
   def remove_from_my_authors_label
     if @language ==2
-      label = 'Remove from my authors' 
+      label = 'Unsubscribe' 
     else
-      label = 'Remove from my authors' 
+      label = 'Unsubscribe' 
     end
     return label
   end
@@ -46,7 +46,7 @@ module ApplicationHelper
     end
     return label
   end
-  def recommend_label
+  def share_label
     if @language ==2
       label = 'empfehlen' 
     else
@@ -54,6 +54,15 @@ module ApplicationHelper
     end
     return label
   end
+  def recommend_label
+    if @language ==2
+      label = 'empfehlen' 
+    else
+      label = 'Recommend'
+    end
+    return label
+  end
+
   def actions_label
     if @language ==2
       label = 'Aktionen' 
@@ -179,9 +188,9 @@ module ApplicationHelper
 
   def save_to_read_list_label
    if @language == 2
-     'Zur Leseliste speichern'
+     'zur Leseliste hinzufügen'
    else
-     'Save to reading list'
+     'Add to reading list'
    end
   end
 

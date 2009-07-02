@@ -4,7 +4,7 @@
   <span onMouseOver="this.getElementsByTagName('span')[0].style.display='';" onMouseOut="this.getElementsByTagName('span')[0].style.display='none';">
     <%= link_to author.name, :controller => 'authors', :action => 'show', :id => author, :l => @l %>
 <span style="display:none;position:absolute;background-color:white;" onMouseOver="this.getElementsByTagName('div')[0].style.display='';" onMouseOut="this.getElementsByTagName('div')[0].style.display='none';">
-     <%= image_tag('plus.gif') %>
+     &nbsp;<%= image_tag('plus.gif') %>
      <div class="actionsBox" style="display:none;" name="rawStoryActionsBox">
        <div style="margin-bottom:10px;">
          <% if @current_user and params[:controller] == 'users' and params[:action] == 'favorite_authors' and (params[:id].blank? or params[:id].to_i == @current_user.id)  %>
