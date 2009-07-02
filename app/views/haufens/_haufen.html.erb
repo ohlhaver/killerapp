@@ -19,7 +19,7 @@
 
 <%= render :partial => '/rawstories/related_rawstory', :locals =>{:rawstory=> @third_story} if top_stories[2] != nil %>
 
-<div class="cluster">
+<div class="big_cluster">
   <span class="source">
    
       <%= link_to haufen_label(@haufen_story), :controller => 'haufens', :action => 'show', :id => haufen, :l => @l %> 
@@ -29,6 +29,17 @@
         <% end %>
      	
     <% end %>
+
+	<% unless haufen.keywords.blank? %>
+	<br> 
+	<% haufen.keywords.strip.split(/\s+/).each_with_index do |k, i| -%>
+	<%= ' - ' unless i==0 -%>
+	<%= link_to k,{:controller => 'rawstories', :action => 'search', :l => @l, :q => k}%>
+	<% end -%>
+	
+
+	<% end %>
+
   </span>
 </div>
 </div>
