@@ -179,7 +179,20 @@
     </div>
   </li>
   <% cache (caching_hash) do %>
-    <li><%= render :partial => @haufens -%></li>
+    <li>
+      <% if params[:action] == 'opinions' %>
+        <% @haufens.each do |s| %>
+          <%= render :partial => s, 
+                     :locals   => {:rawstory    => s,
+				   :show_image  => s.rawstory_detail.image_exists, 
+                                   :image_src   => "/rawstories/image/#{s.id}",
+                                   :image_story => s}%>
+        <% end %>
+
+      <% else %>
+        <%= render :partial => @haufens -%>
+      <% end %>
+    </li>
     <li>
       <div class="pagination">
         <%= will_paginate(@haufens, options = {:prev_label => previous_label + '&nbsp -&nbsp', :next_label => ' &nbsp;-&nbsp; ' + next_label}) %>
