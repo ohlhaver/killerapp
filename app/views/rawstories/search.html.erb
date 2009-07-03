@@ -49,7 +49,14 @@
 
 </div>
 
-    <%= render :partial => @rawstories %>
+   <% @rawstories.each do |s| %>
+     <%= render :partial => s, 
+                :locals  => {:rawstory    => s,
+   			     :show_image  => s.rawstory_detail.image_exists, 
+                             :image_src   => "/rawstories/image/#{s.id}",
+                             :image_story => s}%>
+   <% end %>
+
 
 <div class= "pagination" > 
 <%= will_paginate(@rawstories, options = {:prev_label => previous_label + '&nbsp -&nbsp', :next_label => ' &nbsp;-&nbsp; ' + next_label}) %>

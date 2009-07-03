@@ -43,7 +43,14 @@
 
 
 </div>
-  <%= render :partial => @haufen_stories %>
+   <% @haufen_stories.each do |s| %>
+     <%= render :partial => s, 
+                :locals  => {:rawstory    => s,
+   			     :show_image  => s.rawstory_detail.image_exists, 
+                             :image_src   => "/rawstories/image/#{s.id}",
+                             :image_story => s}%>
+   <% end %>
+
 
 <%= will_paginate(@haufen_stories, options = {:prev_label => previous_label + '&nbsp -&nbsp', :next_label => ' &nbsp;-&nbsp; ' + next_label}) %>
 
