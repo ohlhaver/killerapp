@@ -4,7 +4,7 @@ module ApplicationHelper
     if @language ==2
       label = 'abonnieren' 
     else
-      label = 'Subscribe' 
+      label = 'subscribe' 
     end
     return label
   end
@@ -13,7 +13,7 @@ module ApplicationHelper
     if @language ==2
       label = 'abbestellen' 
     else
-      label = 'Unsubscribe' 
+      label = 'unsubscribe' 
     end
     return label
   end
@@ -50,7 +50,7 @@ module ApplicationHelper
     if @language ==2
       label = 'empfehlen' 
     else
-      label = 'Share'
+      label = 'share'
     end
     return label
   end
@@ -58,7 +58,7 @@ module ApplicationHelper
     if @language ==2
       label = 'empfehlen' 
     else
-      label = 'Recommend'
+      label = 'recommend'
     end
     return label
   end
@@ -190,15 +190,15 @@ module ApplicationHelper
    if @language == 2
      'zur Leseliste hinzufügen'
    else
-     'Add to reading list'
+     'add to reading list'
    end
   end
 
   def remove_from_read_list_label
    if @language == 2
-     'Von der Leseliste entfernen'
+     'von der Leseliste entfernen'
    else
-     'Remove from reading list'
+     'remove from reading list'
    end
   end
 

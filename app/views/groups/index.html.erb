@@ -90,21 +90,7 @@
   </div>
   <div class="col2">
     <%= render :partial => '/users/notifications'-%>
-    <%# Latest two profile actions Start %>
-    <% if logged_in? %>
-      <% latest_pa = @current_user.jurnalo_friends_profile_actions(2, true) %>
-      <% unless latest_pa.blank? %>
-        <ul class="module">
-          <li><div class="pagelabel"><%= link_to friends_label, :controller => 'users' , :action => 'friends_actions', :l => @l -%></div></li>
-          <li>
-            <% latest_pa.each_with_index do |pa, i| %>
-              <%= render :partial => pa, :locals => {:user => latest_pa.find_all{|u| u.id == pa.user_id}.first, :no_spacer => (i == (latest_pa.size - 1) )} -%>
-            <% end %>
-          </li>
-        </ul>
-      <% end %>
-    <% end %>
-    <%# Latest two profile actions End %>
+  
 
 	<% if logged_in? -%>
 	      <% if @current_user.home_page_conf.maximized?('my_authors')%>
@@ -186,6 +172,24 @@
     <%end%>
 
     <%= render :partial => "new_topic" %>
+
+  <%# Latest two profile actions Start %>
+    <% if logged_in? %>
+      <% latest_pa = @current_user.jurnalo_friends_profile_actions(2, true) %>
+      <% unless latest_pa.blank? %>
+        <ul class="module">
+          <li><div class="pagelabel"><%= link_to friends_label, :controller => 'users' , :action => 'friends_actions', :l => @l -%></div></li>
+          <li>
+            <% latest_pa.each_with_index do |pa, i| %>
+              <%= render :partial => pa, :locals => {:user => latest_pa.find_all{|u| u.id == pa.user_id}.first, :no_spacer => (i == (latest_pa.size - 1) )} -%>
+            <% end %>
+          </li>
+        </ul>
+      <% end %>
+    <% end %>
+    <%# Latest two profile actions End %>
+
+
   </div>
 <% end %>
 
