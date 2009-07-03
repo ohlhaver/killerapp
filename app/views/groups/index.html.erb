@@ -142,35 +142,7 @@
           </ul>
         <% end %>
       <% end %>
-      <ul class="module">
-        <li><div class="pagelabel"> <%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %></div></li>
-        <li>
-        <% if @searchterms.size == 0 %>
-          <div class = 'message'>		
-            <% if @language == 2 %>
-              <%= link_to 'Erstellen Sie Ihre eigenen Themen!', :controller => 'topics', :action => 'new', :l => @l  %>
-            <%else%>
-              <%= link_to 'Create your own topics!', :controller => 'topics', :action => 'new', :l => @l  %>
-            <%end%>
-          </div>
-        <%end%>
-        </li>
-      </ul>
-    <% else %>
-      <ul class="module">
-        <li><div class="pagelabel"><%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %></div></li>
-        <li>
-          <div class = 'message'>		
-            <% if @language == 2 %>
-              <%= 'Erstellen Sie Ihre eigenen Themen!' %><br> <%= link_to 'Einloggen', :controller => 'sessions', :action => 'new', :l=>@l %> &nbsp;-&nbsp; <%= link_to 'Registrieren', :controller => 'users', :action => 'new', :l=>@l %> 
-            <% else %>
-              <%= 'Create your own topics!' %><br> <%= link_to 'Login', :controller => 'sessions', :action => 'new', :l=>@l %> &nbsp;-&nbsp; <%= link_to 'Sign up', :controller => 'users', :action => 'new', :l=>@l %> 
-            <%end%>
-          </div>
-        </li>
-      </ul>
     <%end%>
-
     <%= render :partial => "new_topic" %>
 
   <%# Latest two profile actions Start %>

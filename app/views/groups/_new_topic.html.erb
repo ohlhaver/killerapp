@@ -1,14 +1,16 @@
 <ul>
   <li>        
-    <div class="newTopicBox">
-      <div style="color: #333333;" class="pagelabel">NEW TOPIC</div>
-      <div style="float: left; height: 30px;">
-        <input type="text" value="my topic" id="new_topic_field" onClick="if (this.value == 'my topic'){this.value='';}"/> 
+    <% form_tag url_for({:controller => 'topics', :action => 'create', :l => @l}), {:method => :get} do -%>
+      <div class="newTopicBox">
+        <div style="color: #333333;" class="pagelabel"><%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %></div>
+        <div style="float: left; height: 30px;">
+          <input type="text" name="searchterms" value="my topic" id="new_topic_field" onClick="if (this.value == 'my topic'){this.value='';}"/> 
+        </div>
+        <div style="float: left; margin-left: 5px; height: 36px;">
+          <input type="submit" value= "<%= add_button_label %>" id="new_topic_button" /> 
+        </div>
+        <div style="clear: both;"></div>
       </div>
-      <div style="float: left; margin-left: 5px; height: 36px;">
-        <input type="button" value= "<%= add_button_label %>" id="new_topic_button" /> 
-      </div>
-      <div style="clear: both;"></div>
-    </div>
+    <% end -%>
   </li>
 </ul>

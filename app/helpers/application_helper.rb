@@ -355,9 +355,9 @@ module ApplicationHelper
   
   def create_topic
     if @language ==2
-      label = 'Neues Thema &nbsp;  [ + ]'
+      label = 'Neues Thema'
     else
-      label = 'New topic &nbsp; [ + ]'
+      label = 'New topic'
     end
   end
   
