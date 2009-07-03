@@ -14,8 +14,6 @@ class TopicsController < ApplicationController
     end
     if params[:search_language] == '1'
       @current_user.language = 3
-    else
-      @current_user.language = @language
     end
     if @searchterms == nil
       @current_user.save 
