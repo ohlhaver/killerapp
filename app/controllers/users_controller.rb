@@ -62,11 +62,14 @@ class UsersController < ApplicationController
     @user_stories =[]
     unless @user.stories.blank?
       story_ids     = @user.stories.split(' ')*","
+      author_ids    = @user.subscriptions.collect{|s| s.author_id}*','
+      unless story_ids.blank? or author_ids.blank?
       @user_stories = Rawstory.find(:all,
-                                   :conditions => ["rawstories.id IN ( #{story_ids} ) and rawstory_details.is_duplicate = :false", {:false => false}],
+                                   :conditions => ["rawstories.id IN ( #{story_ids} ) and rawstories.author_id IN ( #{author_ids} ) and rawstory_details.is_duplicate = :false", {:false => false}],
                                    :order      => "rawstories.id DESC",
                                    :joins      => 'inner join rawstory_details on rawstory_details.rawstory_id = rawstories.id',
                                    :limit      => 25)
+      end
    
    end
    @user_stories = @user_stories.paginate :page => params[:page],
