@@ -42,6 +42,13 @@ module GroupsHelper
      end
    end
   
+   def add_button_label
+     if @language == 2
+       'hinzufügen'
+     else
+        'add'
+     end
+   end
 
    def date
       t = Time.now
