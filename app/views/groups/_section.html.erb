@@ -8,6 +8,16 @@
       <% end %>
       </div>
     </li>
-    <li><%= render :partial => haufens %></li>
+    <li>
+      <% if defined?(story_render) and story_render == 'super'%>
+         <% haufens.each do |s| %>
+          <%= render :partial => '/rawstories/super_rawstory', :locals => {:rawstory => s}%>
+         <% end %>
+      <% elsif defined?(story_render) and story_render == 'related'%>
+          <%= render :partial => '/rawstories/related_rawstory', :locals => {:rawstory => s}%>
+      <% else %>
+          <%= render :partial => haufens %>
+      <% end %>
+    </li>
   </ul>
 <% end %>

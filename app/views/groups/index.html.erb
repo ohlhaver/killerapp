@@ -82,9 +82,9 @@
       <% cache (caching_hash) do %>
         <%= render :partial => '/groups/section', 
                                :locals => {:haufens => @top_opinions_haufens, 
+                                           :story_render => 'super',
                                            :section_name => 'opinions',
                                            :section_label =>(link_to opinions_label, :action => 'opinions', :l => @l)}%>
-		<br>								
       <% end %>
     <% end %>
   </div>
