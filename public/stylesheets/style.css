@@ -448,7 +448,7 @@ body {
 }
 
 .newTopicBox {
-  padding: 5px 10px 20px 10px; 
+  padding: 5px 10px 20px 8px; 
   background-color: #99CCFF; 
   width: 283px;
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -470,3 +470,31 @@ body {
   color: rgb(255, 255, 255); 
   height: 35px;
 }
+
+#new_topic_field {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 19px;
+	line-height: 30px;
+	color: #FFFFFF;
+	width: 171px;
+	align: left;
+	background-color: #99CCFF;
+	border: 2px solid #FFFFFF;
+	padding: 5px;
+	vertical-align: middle;
+	margin-bottom: 6px;
+}
+
+#new_topic_button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 21px;
+	color: #FFFFFF;
+	background-color: #0000C8;
+	vertical-align: middle;
+	padding: 6px;
+	margin-bottom: 6px;
+	height: 37px;
+	width: 85px;
+}
+
