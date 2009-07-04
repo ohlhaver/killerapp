@@ -171,17 +171,9 @@
       <%end%>
     </div>
     <div id="footer">
-      <div id="lrec_bottom">
-        <script type="text/javascript"><!--
-          google_ad_client = "pub-0643230471169917";
-          /* 336x280, created 2/3/09 */
-          google_ad_slot = "1575268559";
-          google_ad_width = 336;
-          google_ad_height = 280;
-        //-->
-        </script>
-        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-      </div>
+      <% unless params[:controller] == 'groups' and params[:action] == 'action' %>
+      <%= render :partial => '/layouts/google_ad' %>
+      <% end -%>
       ©2009 &nbsp; <%= link_to imprint_label, :controller => 'about', :action => 'imprint', :l => @l  %> - <%= link_to privacy_label, :controller => 'about', :action => 'privacy', :l => @l  %> <% if @language == 2  %> - <%= link_to 'English edition', 'http://www.jurnalo.com' %> <%end%> 
       <% if logged_in? %> - <%= (link_to 'Feedback [+]' , :controller => 'about', :action => 'feedback', :l => @l) %> <% end %>
 
