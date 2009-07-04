@@ -171,7 +171,7 @@
       <%end%>
     </div>
     <div id="footer">
-      <% unless params[:controller] == 'groups' and params[:action] == 'action' %>
+      <% unless params[:controller] == 'groups' and params[:action] == 'index' %>
       <%= render :partial => '/layouts/google_ad' %>
       <% end -%>
       ©2009 &nbsp; <%= link_to imprint_label, :controller => 'about', :action => 'imprint', :l => @l  %> - <%= link_to privacy_label, :controller => 'about', :action => 'privacy', :l => @l  %> <% if @language == 2  %> - <%= link_to 'English edition', 'http://www.jurnalo.com' %> <%end%> 
