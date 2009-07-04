@@ -1,10 +1,11 @@
 <ul>
   <li>        
-    <% form_tag url_for({:controller => 'topics', :action => 'create', :l => @l}), {:method => :get} do -%>
+    <% form_tag url_for({:controller => 'topics', :action => 'create'}), {:method => :get} do -%>
       <div class="newTopicBox">
         <div style="color: #333333;" class="pagelabel"><%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %></div>
         <div style="float: left; height: 30px;">
           <input type="text" name="searchterms" value="my topic" id="new_topic_field" onClick="if (this.value == 'my topic'){this.value='';}"/> 
+          <input type="hidden" name="l" value="<%= @l -%>"/> 
         </div>
         <div style="float: left; margin-left: 5px; height: 36px;">
           <input type="submit" value= "<%= add_button_label %>" id="new_topic_button" /> 

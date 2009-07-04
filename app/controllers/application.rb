@@ -102,7 +102,7 @@ class ApplicationController < ActionController::Base
   
   def fetch_searchterms
     if logged_in?
-    @searchterms = @current_user.searchterms.split(/\,/) if  @current_user.searchterms
+    @searchterms = @current_user.searchterms.split(/\,/).reverse if  @current_user.searchterms
     else
     @searchterms = nil
     end
