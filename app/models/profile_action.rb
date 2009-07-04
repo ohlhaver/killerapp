@@ -140,6 +140,16 @@ class ProfileAction < ActiveRecord::Base
   end
 
   def self.create_liked_article_action(user_id, article_id)
+    existing_action = self.find(:first,
+                                :conditions => ["user_id = :user_id and action_type = :liked_artcle and entity_type = :article and entity_id = :article_id and created_at > :yesterday",
+                                                {:user_id => user_id,
+                                                 :liked_artcle => ProfileAction::Type::LIKED_ARTICLE,
+                                                 :article      => 'Rawstory',
+                                                 :article_id   => article_id,
+                                                 :yesterday    => (Time.now - 1.day)
+                                                 }
+                              ])
+    return existing_action if existing_action
     self.create!(:user_id         => user_id,
                  :action_type     => ProfileAction::Type::LIKED_ARTICLE,
                  :entity_type     => 'Rawstory',
@@ -147,6 +157,17 @@ class ProfileAction < ActiveRecord::Base
   end
 
   def self.create_liked_author_action(user_id, author_id)
+    existing_action = self.find(:first,
+                                :conditions => ["user_id = :user_id and action_type = :liked_author and entity_type = :author and entity_id = :author_id and created_at > :yesterday",
+                                                {:user_id => user_id,
+                                                 :liked_author => ProfileAction::Type::LIKED_AUTHOR,
+                                                 :author      => 'Author',
+                                                 :author_id   => author_id,
+                                                 :yesterday    => (Time.now - 1.day)
+                                                 }
+                              ])
+
+    return existing_action if existing_action
     self.create!(:user_id         => user_id,
                  :action_type     => ProfileAction::Type::LIKED_AUTHOR,
                  :entity_type     => 'Author',

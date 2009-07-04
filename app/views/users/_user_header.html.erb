@@ -7,7 +7,12 @@
   <%= friends_label -%>&nbsp;(&nbsp;<%= link_to actions_label, {:controller => 'users' , :action => 'friends_actions', :l => @l}%>&nbsp;-&nbsp;<%= list_of_friends_label -%>&nbsp;-&nbsp;<%= link_to invite_label, :controller => 'users', :action => 'invite_fb_friends', :l => @l -%>&nbsp;)
   <% end -%>
   <% if params[:controller] == 'users' and params[:action] == 'friends_actions' %>
-  <%= friends_label -%>&nbsp;(&nbsp;<%= actions_label%>&nbsp;-&nbsp;<%= link_to list_of_friends_label, {:controller => 'users', :action => 'friends'} -%>&nbsp;-&nbsp;<%= link_to invite_label, :controller => 'users', :action => 'invite_fb_friends', :l => @l -%>&nbsp;)
+  <%= friends_label -%>
+  <% if  logged_in? and @current_user.home_page_conf.deleted?('friends') %>
+  &nbsp;<%= link_to image_tag('plus.gif'),{ :controller => 'users', :action => 'personalize_home', :section_name => 'friends', :section_status_change => 'add', :l => @l},{:title => add_section_to_homepage_label}  %>&nbsp;
+  <% end %>
+
+&nbsp;(&nbsp;<%= actions_label%>&nbsp;-&nbsp;<%= link_to list_of_friends_label, {:controller => 'users', :action => 'friends'} -%>&nbsp;-&nbsp;<%= link_to invite_label, :controller => 'users', :action => 'invite_fb_friends', :l => @l -%>&nbsp;)
   <% end -%>
   <% if params[:controller] == 'users' and params[:action] == 'invite_fb_friends' %>
   <%= friends_label -%>&nbsp;(&nbsp;<%= link_to actions_label, {:controller => 'users' , :action => 'friends_actions', :l => @l}%>&nbsp;-&nbsp;<%= link_to list_of_friends_label, {:controller => 'users', :action => 'friends'} -%>&nbsp;-&nbsp;<%= invite_label-%>&nbsp;)

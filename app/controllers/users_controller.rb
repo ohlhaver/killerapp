@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     if params[:section_name].blank? or 
        params[:section_status_change].blank? or
-       not ['politics','business','culture','science','technology','sport','mixed','opinions','my_authors'].include?(params[:section_name]) or
+       not ['politics','business','culture','science','technology','sport','mixed','opinions','my_authors','friends'].include?(params[:section_name]) or
        not ['add','delete'].include?(params[:section_status_change])
       flash[:notice] = "Invalid request."
       redirect_to_last_page_viewed_or_default(:controller => 'groups', :action => 'index', :l => @l)
