@@ -9,11 +9,11 @@
           <%= image_tag('opinion.gif') if rawstory.opinion == 1 %>
           <%= image_tag('video.gif') + ' ' if rawstory.video == true %> 
           <span onMouseOver="this.getElementsByTagName('span')[0].style.display='';" onMouseOut="this.getElementsByTagName('span')[0].style.display='none';">
-            <%= link_to rawstory.title, rawstory.link, { :popup => 'new_tab' } %>&nbsp;<span id="read_list_option_<%= rawstory.id %>" style="display:none;position:absolute;" onMouseOver="this.getElementsByTagName('div')[0].style.display='';" onMouseOut="this.getElementsByTagName('div')[0].style.display='none';">
+            <%= link_to rawstory.title, rawstory.link, { :popup => 'new_tab' } %>&nbsp;&nbsp;<span id="read_list_option_<%= rawstory.id %>" style="display:none;position:absolute;" onMouseOver="this.getElementsByTagName('div')[0].style.display='';" onMouseOut="this.getElementsByTagName('div')[0].style.display='none';">
                <% if params[:controller] == 'read_list' and params[:action] == 'show' %>
-               &nbsp;<%= image_tag('minus.gif') %>
+               &nbsp;<%= image_tag('minus.gif') %>&nbsp;
                <% else %>
-               &nbsp;<%= image_tag('plus.gif') %>
+               &nbsp;<%= image_tag('plus.gif') %>&nbsp;
                <% end %>
                <div class="actionsBox" style="display:none;" name="rawStoryActionsBox">
                  <div style="margin-bottom:10px;">
