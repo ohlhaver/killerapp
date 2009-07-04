@@ -16,7 +16,7 @@
             &nbsp;<%= image_tag('plus.gif') %>
             <% end %>
 
-            <div class="actionsBox" style="display:none;" name="rawStoryActionsBox">
+            <div class="actionsBox" style="display:none;margin-top:-4px;" name="rawStoryActionsBox">
               <div style="margin-bottom:10px;">
                 <% if defined?(read_item) and !read_item.nil?%>
                   <%= link_to remove_from_read_list_label, {:controller => 'read_list', :action => 'remove_item', :id => read_item.id, :l => @l} -%>
