@@ -1,7 +1,7 @@
 <%= render :partial => "user_header", :locals => {:user => @user} -%>
 <% unless @user.subscriptions.blank? %>
 <span class='headlines'>
-<%= render :partial => @user.subscriptions %>
+<%= render :partial => @user.subscriptions.sort_by{|s| s.author.name} %>
 </span>
 <% else %>
 <div class = 'message'>

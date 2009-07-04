@@ -6,7 +6,7 @@
    new_friend_notifications = ProfileNotification.from_valid_users(@current_user.active_new_friend_notifications, @current_user.jurnalo_friends) %>
   <% unless recs.blank? and new_friend_notifications.blank? %>
     <ul class="module">
-      <li><div class="pagelabel"><%= link_to notifications_label, {:controller => 'recommendations', :action => 'view', :l => @l} %></div></li>
+      <li><div class="pagelabel"><%= link_to notifications_label, {:controller => 'notifications', :action => 'view', :l => @l} %></div></li>
       <li>
        <div class="notifications">
         You have : <br/>
