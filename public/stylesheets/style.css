@@ -447,6 +447,22 @@ body {
   font-family:Arial,Helvetica,sans-serif;
 }
 
+.actionsBox a:link {
+  color : #333333;
+  text-decoration: none;
+}
+
+.actionsBox a:visited {
+  color : #333333;
+  text-decoration: none;
+}
+
+.actionsBox a:hover {
+  color: #0000CC;
+  text-decoration: none;
+}
+
+
 .newTopicBox {
   padding: 5px 10px 20px 8px; 
   background-color: #99CCFF; 

@@ -39,7 +39,7 @@
           }
         }
       </script>
-      <div style="font-weight:bold;">Select : <input type="button" class="button" value="All" onClick="setCheckBoxes('friends_to_recommend[]', true); return false;" style="cursor:pointer;"/>&nbsp;<input type="button" class="button" value="None" onClick="setCheckBoxes('friends_to_recommend[]', false); return false;" style="cursor:pointer;"/></div><br/><br/>
+      <div class="headline"><input type="button" class="button" value="all" onClick="setCheckBoxes('friends_to_recommend[]', true); return false;" style="cursor:pointer;"/>&nbsp;<input type="button" class="button" value="none" onClick="setCheckBoxes('friends_to_recommend[]', false); return false;" style="cursor:pointer;"/></div><br/><br/>
       <%form_tag({:controller => 'recommendations', :action => 'recommend_article', :id => @article.id, :l => @l},{:method => :post}) do %>
       <%= render :partial => '/users/friend_list', :locals => {:user => @current_user, :show_select => true, :select_tag_name => 'friends_to_recommend[]'}%>
       <%= submit_tag share_label,{:class => "button", :style => "cursor:pointer;"} %>
