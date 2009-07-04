@@ -138,7 +138,7 @@ class RawstoriesController < ApplicationController
                                           :per_page => 5
       
       @authors = []
-      if params[:action] == 'search' and !query.blank?
+      if params[:action] == 'search' and !query.blank? and params[:author_results] != 'hide'
         author_search_hash = {:query => query, 
                               :class_names => 'Author',
                               :sort_mode   => 'descending',

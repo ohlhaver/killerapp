@@ -121,7 +121,7 @@
           <ul class="module">
             <li>
               <div class="pagelabel">
-                <%= link_to h(s), search_rawstories_path(:l => @l, :q => s)  %>
+                <%= link_to h(s), search_rawstories_path(:l => @l, :q => s, :author_results => 'hide')  %>
                 &nbsp;&nbsp;
                 <%= link_to '[ - ]',  :controller => 'topics', :action => 'delete', :q => s, :l => @l  %>
                 <% if @top_my_searchterms[s].size == 0 %>

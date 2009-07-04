@@ -24,7 +24,7 @@ class TopicsController < ApplicationController
     ProfileAction.create_added_search_topic_action(@current_user.id, params[:searchterms])
     if params[:searchterms] != '' && params[:searchterms].size < 16
       
-    redirect_to search_rawstories_path(:l => @l, :q => params[:searchterms]) 
+    redirect_to search_rawstories_path(:l => @l, :q => params[:searchterms], :author_results => 'hide') 
     flash[:notice] = "Sie haben ein neues Thema erstellt." if @language == 2
     flash[:notice] = "You have created a new topic." if @language == 1
     else
