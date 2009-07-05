@@ -62,7 +62,8 @@ class UsersController < ApplicationController
     @user_stories =[]
     unless @user.stories.blank?
       story_ids     = @user.stories.split(' ')*","
-      author_ids    = @user.subscriptions.collect{|s| s.author_id}*','
+      #author_ids    = @user.subscriptions.collect{|s| s.author_id}*','
+      author_ids    = @user.subscriptions.collect{|s| s.author.author_ids_in_group}.flatten.uniq*','
       unless story_ids.blank? or author_ids.blank?
       @user_stories = Rawstory.find(:all,
                                    :conditions => ["rawstories.id IN ( #{story_ids} ) and rawstories.author_id IN ( #{author_ids} ) and rawstory_details.is_duplicate = :false", {:false => false}],
