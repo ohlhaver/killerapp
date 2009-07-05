@@ -74,7 +74,29 @@ while($running) do
 
 
     # Find all the new rawstories corresponding to all the subscribed authors
-    author_ids               = all_subscriptions.collect{|s| s.author_id}.uniq*","
+      # Get  all unique authors
+      s_author_ids               = all_subscriptions.collect{|s| s.author_id}.uniq*","
+      authors                    = Author.find(:all, :conditions => "id IN ( #{s_author_ids} )" )
+      authors_hashed             = authors.group_by{|a| a.id}
+      unapproved_authors = []
+      approved_authors   = []
+      authors.each do |a|
+          if a.approved?
+            approved_authors << a
+          else
+            unapproved_authors << a
+          end
+      end
+      unique_author_ids = approved_authors.collect{|a| a.approved_map.unique_author_id}.uniq*','
+      all_author_maps = AuthorMap.find(:all, 
+                                :conditions => ["unique_author_id IN ( #{unique_author_ids}) and status = :approved",
+                                                {:unique_author_id => unique_author_ids, 
+                                                 :approved => JConst::AuthorMapStatus::APPROVED}],
+                                :select => 'author_id,unique_author_id')
+      all_author_maps_hashed = all_author_maps.group_by{|a| a.unique_author_id}
+      all_author_ids = all_author_maps.collect{|a| a.author_id}
+      author_ids               = (unapproved_authors.collect{|a| a.id} + all_author_ids).uniq*','
+    #
     time_now = Time.now
     rawstories               = author_ids.blank? ? [] :  Rawstory.find(:all,
                                                                        :conditions => "author_id IN ( #{author_ids} )",
@@ -94,7 +116,17 @@ while($running) do
         new_user_stories_a = []
         subscriptions = all_subscriptions_hashed[user.id].to_a
         subscriptions.each do |subscription|
-            author_stories = rawstories_hashed[subscription.author_id].to_a[0,3]
+            a = authors_hashed[subscription.author_id].to_a.first
+            unless a.approved?
+              author_stories = rawstories_hashed[subscription.author_id].to_a[0,3]
+            else
+              author_stories = []
+              all_author_ids = (all_author_maps_hashed[a.group_primary_author_id].to_a + [a.id]).uniq
+              all_author_ids.each do |a_id|
+                author_stories += rawstories_hashed[a_id].to_a
+              end
+              author_stories = author_stories.sort_by{|s|  s.id}.reverse[0,3]
+            end
             author_stories.each do |story|
                 story_id = story.id.to_s
                 unless old_user_stories.include?(story_id)
