@@ -19,4 +19,13 @@ class JConst
     MEDIUM  = 2
     HIGH    = 3
   end
+  class AuthorStatus
+    SUGGESTION_PENDING = 0 ## Suggestion Generation for this author has not yet been done
+    APPROVAL_PENDING = 1   ## Suggestions have been generated for this author, but have not yet been approved
+    APPROVED = 2           ## Suggestions have been generated and approved.
+  end
+  class AuthorMapStatus
+    UNAPPROVED = 0    ## These suggestions are not yet approved manually.
+    APPROVED   = 1    ## These suggestions have been approved manually. So they are Author groups.
+  end
 end

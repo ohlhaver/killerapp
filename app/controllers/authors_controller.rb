@@ -7,12 +7,12 @@ class AuthorsController < ApplicationController
   def show
     @author = Author.find(params[:id])
     unless read_fragment({:l => @l, :id => params[:id], :page => params[:page] || 1}) 
-        
+        author_ids_in_group = @author.author_ids_in_group
         @rawstories_published = Ultrasphinx::Search.new(:query       => '',
                                                         :class_names => 'Rawstory', 
                                                         :sort_mode   => 'descending',
                                                         :sort_by     => 'created_at',
-                                                        :filters     => {:author_id => @author.id, :is_duplicate => 0},
+                                                        :filters     => {:author_id => author_ids_in_group, :is_duplicate => 0},
                                                         :page        => (params[:page] || 1).to_i,
                                                         :per_page    => 5)
         @rawstories_published.run
