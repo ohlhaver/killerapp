@@ -1,5 +1,148 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  
+  def title_label
+    if params[:controller] == 'authors' and params[:action] == 'show'
+      if @language ==2
+          label= 'Artikel von ' + @author.name + ' - Jurnalo'  
+        else
+          label= 'Articles by ' + @author.name + ' - Jurnalo' 
+      end
+      
+      
+    elsif	params[:controller] == 'groups' and params[:action] == 'index'
+  	  if @language ==2
+          label = 'Jurnalo - Nachrichten aus allen Quellen zu allen Themen' 
+        else
+          label = 'Jurnalo - News from all sources on all topics' 
+      end
+      
+      elsif params[:controller] == 'groups' and params[:action] == 'politics'
+         if @language ==2
+             label= 'Politik ' + ' - Jurnalo'  
+           else
+             label= 'Politics ' + ' - Jurnalo' 
+         end
+         
+         elsif params[:controller] == 'groups' and params[:action] == 'culture'
+            if @language ==2
+                label= 'Feuilleton ' + ' - Jurnalo'  
+              else
+                label= 'Culture ' + ' - Jurnalo' 
+            end
+            
+            elsif params[:controller] == 'groups' and params[:action] == 'business'
+               if @language ==2
+                   label= 'Wirtschaft ' + ' - Jurnalo'  
+                 else
+                   label= 'Business ' + ' - Jurnalo' 
+               end
+               
+               elsif params[:controller] == 'groups' and params[:action] == 'science'
+                  if @language ==2
+                      label= 'Wissenschaft ' + ' - Jurnalo'  
+                    else
+                      label= 'Science ' + ' - Jurnalo' 
+                  end
+                  
+                  elsif params[:controller] == 'groups' and params[:action] == 'technology'
+                     if @language ==2
+                         label= 'Technik ' + ' - Jurnalo'  
+                       else
+                         label= 'Technology ' + ' - Jurnalo' 
+                     end
+                     
+                     elsif params[:controller] == 'groups' and params[:action] == 'sport'
+                        if @language ==2
+                            label= 'Sport ' + ' - Jurnalo'  
+                          else
+                            label= 'Sport ' + ' - Jurnalo' 
+                        end
+                        
+                        elsif params[:controller] == 'groups' and params[:action] == 'mixed'
+                           if @language ==2
+                               label= 'Vermischtes ' + ' - Jurnalo'  
+                             else
+                               label= 'Mixed ' + ' - Jurnalo' 
+                           end
+                         
+                         elsif params[:controller] == 'groups' and params[:action] == 'opinions'
+                            if @language ==2
+                                label= 'Meinungen ' + ' - Jurnalo'  
+                              else
+                                label= 'Opinions ' + ' - Jurnalo' 
+                            end
+                            
+                            elsif params[:controller] == 'subscriptions' 
+                               if @language ==2
+                                   label= 'Meine Autoren ' + ' - Jurnalo'  
+                                 else
+                                   label= 'My authors ' + ' - Jurnalo' 
+                               end
+                               
+                               elsif params[:controller] == 'read_list' 
+                                  if @language ==2
+                                      label= 'Leseliste ' + ' - Jurnalo'  
+                                    else
+                                      label= 'Reading list ' + ' - Jurnalo' 
+                                  end
+         
+                                elsif params[:controller] == 'settings' 
+                                   if @language ==2
+                                       label= 'Einstellungen ' + ' - Jurnalo'  
+                                     else
+                                       label= 'Settings ' + ' - Jurnalo' 
+                                   end
+                                   
+                                   elsif params[:controller] == 'sessions' and params[:action] == 'new'
+                                      if @language ==2
+                                          label= 'Einloggen ' + ' - Jurnalo'  
+                                        else
+                                          label= 'Login ' + ' - Jurnalo' 
+                                      end
+                                      
+                                      elsif params[:controller] == 'users' and params[:action] == 'new'
+                                         if @language ==2
+                                             label= 'Registrieren ' + ' - Jurnalo'  
+                                           else
+                                             label= 'Sign up ' + ' - Jurnalo' 
+                                         end
+                                         
+                                       elsif params[:controller] == 'rawstories' and params[:action] == 'search'
+                                          if @language ==2
+                                              label= h(params[:q]) + ' - Jurnalo'  
+                                            else
+                                              label= h(params[:q]) + ' - Jurnalo' 
+                                          end
+                                          
+                                          elsif params[:controller] == 'rawstories' and params[:action] == 'filter_by_opinions'
+                                             if @language ==2
+                                                 label= 'Meinungen zu ' + h(params[:q]) + ' - Jurnalo'  
+                                               else
+                                                 label= 'Opinions on ' + h(params[:q]) + ' - Jurnalo' 
+                                             end
+                                             
+                                             elsif params[:controller] == 'rawstories' and params[:action] == 'filter_by_videos'
+                                                if @language ==2
+                                                    label= 'Videos zu ' + h(params[:q]) + ' - Jurnalo'  
+                                                  else
+                                                    label= 'Videos on ' + h(params[:q]) + ' - Jurnalo' 
+                                                end
+                                             
+                                             
+                                             
+                                             
+                                             
+    
+    else
+    label = 'Jurnalo'
+    end
+      
+    
+    return label
+  end
+  
+  
   def add_to_my_authors_label
     if @language ==2
       label = 'abonnieren' 

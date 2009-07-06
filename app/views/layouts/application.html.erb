@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
     
-    <title><% if params[:controller] == 'authors' and params[:action] == 'show'%> Articles by <%= @author.name %> - <% end %>jurnalo</title>
+    <title> <%= title_label %></title>
     <%= stylesheet_link_tag 'style' %>
   </head>
   <body>
-    <% unless params[:controller] == 'groups' and params[:action] == 'index' and not logged_in? -%>
+    <% unless params[:controller] == 'groups' and params[:controller] != 'users' and params[:controller] != 'sessions' and not logged_in? -%>
       <%= fb_connect_javascript_tag %>
       <% if params[:controller] == 'users' and ['link_user_accounts','friends','friends_actions'].include?(params[:action]) %>
         <%= init_wrapper true, "XFBML"%>
