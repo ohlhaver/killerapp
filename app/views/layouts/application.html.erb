@@ -6,11 +6,13 @@
     <%= stylesheet_link_tag 'style' %>
   </head>
   <body>
-    <%= fb_connect_javascript_tag %>
-    <% if params[:controller] == 'users' and ['link_user_accounts','friends','friends_actions'].include?(params[:action]) %>
-      <%= init_wrapper true, "XFBML"%>
-    <% else -%>
-      <%= init_fb_connect "XFBML"%>
+    <% unless params[:controller] == 'groups' and params[:action] == 'index' and not logged_in? -%>
+      <%= fb_connect_javascript_tag %>
+      <% if params[:controller] == 'users' and ['link_user_accounts','friends','friends_actions'].include?(params[:action]) %>
+        <%= init_wrapper true, "XFBML"%>
+      <% else -%>
+        <%= init_fb_connect "XFBML"%>
+      <% end -%>
     <% end -%>
     <div class="sidebar">
       <div class ="logo"><%= link_to image_tag('logo.gif'), :controller => 'groups', :l => @l%></div>
