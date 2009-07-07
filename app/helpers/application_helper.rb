@@ -12,9 +12,9 @@ module ApplicationHelper
       
     elsif	params[:controller] == 'groups' and params[:action] == 'index'
   	  if @language ==2
-          label = 'Jurnalo - Nachrichten aus allen Quellen zu allen Themen' 
+          label = 'Jurnalo - Nachrichtensuche' 
         else
-          label = 'Jurnalo - News from all sources on all topics' 
+          label = 'Jurnalo - News search' 
       end
       
       elsif params[:controller] == 'groups' and params[:action] == 'politics'
@@ -80,6 +80,14 @@ module ApplicationHelper
                                    label= 'My authors ' + ' - Jurnalo' 
                                end
                                
+                               elsif params[:action] == 'articles_by_favorite_authors' 
+                                  if @language ==2
+                                      label= 'Meine Autoren ' + ' - Jurnalo'  
+                                    else
+                                      label= 'My authors ' + ' - Jurnalo' 
+                                  end
+                               
+                               
                                elsif params[:controller] == 'read_list' 
                                   if @language ==2
                                       label= 'Leseliste ' + ' - Jurnalo'  
@@ -87,7 +95,7 @@ module ApplicationHelper
                                       label= 'Reading list ' + ' - Jurnalo' 
                                   end
          
-                                elsif params[:controller] == 'settings' 
+                                elsif params[:action] == 'settings' 
                                    if @language ==2
                                        label= 'Einstellungen ' + ' - Jurnalo'  
                                      else
