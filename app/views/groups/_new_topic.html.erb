@@ -4,7 +4,7 @@
       <div class="newTopicBox">
         <div style="color: #333333;" class="pagelabel"><%= link_to create_topic, :controller => 'topics', :action => 'new', :l => @l  %></div>
         <div style="float: left; height: 30px;">
-          <input type="text" name="searchterms" value="my topic" id="new_topic_field" onClick="if (this.value == 'my topic'){this.value='';}"/> 
+          <input type="text" name="searchterms" value="<%= add_field_label %>" id="new_topic_field" onClick="if (this.value == 'my topic'){this.value='';}"/> 
           <input type="hidden" name="l" value="<%= @l -%>"/> 
         </div>
         <div style="float: left; margin-left: 5px; height: 36px;">

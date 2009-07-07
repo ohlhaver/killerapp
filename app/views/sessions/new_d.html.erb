@@ -1,5 +1,6 @@
 <div class="message">
-
+<div class="col1">
+	<br>
 Loggen Sie sich mit Ihrem Facebook Zugang ein<br><br/>
 <%= facebook_login_only_button({:size => :medium,:length => :long, :background => :white}) -%><br/><br/>
 oder mit Ihrem bestehenden Jurnalo Zugang:</p>
@@ -19,8 +20,12 @@ oder mit Ihrem bestehenden Jurnalo Zugang:</p>
 <p><%= link_to "Passwort vergessen?", forgot_password_url(:l => @l) -%></p>
 
 <% end -%>
-<p><b><%= link_to 'Als neuer Benutzer anmelden!', :controller => 'users', :action => 'new', :l => @l %></b></p>
+</div>
+<div class="col2">
+
+<br>
+<b><%= link_to 'Als neuer Benutzer anmelden!', :controller => 'users', :action => 'new', :l => @l %></b>
+	<br><br>
 <%= login_message %>
-
-
+</div>
 </div>

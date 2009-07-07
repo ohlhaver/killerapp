@@ -49,6 +49,14 @@ module GroupsHelper
         'add'
      end
    end
+   
+   def add_field_label
+     if @language == 2
+       'mein Thema'
+     else
+        'my topic'
+     end
+   end
 
    def date
       t = Time.now
