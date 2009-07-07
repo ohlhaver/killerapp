@@ -12,9 +12,9 @@ module ApplicationHelper
       
     elsif	params[:controller] == 'groups' and params[:action] == 'index'
   	  if @language ==2
-          label = 'Jurnalo - Nachrichtensuche' 
+          label = 'Jurnalo - die besten Artikel zu den wichtigsten Nachrichten des Tages' 
         else
-          label = 'Jurnalo - News search' 
+          label = 'Jurnalo - the best articles on the most important news of the day' 
       end
       
       elsif params[:controller] == 'groups' and params[:action] == 'politics'
