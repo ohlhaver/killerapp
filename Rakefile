@@ -15,7 +15,7 @@ namespace :email_alerts do
     EmailAlerts.new.send_email_alerts('daily')
   end
 
-  task :send_daily_alerts do
+  task :send_weekly_alerts do
     require(File.join(File.dirname(__FILE__), 'lib', 'daemons', 'email_alerts.rb'))
     EmailAlerts.new.send_email_alerts('weekly')
   end
