@@ -6,9 +6,9 @@
 <% hstories_hashed = Rawstory.find(:all,
                             :conditions => ["id IN ( #{ top_stories*','})"],
                             :include    => [:source, :author]).group_by{|s| s.id}%>
-  <% @haufen_story = hstories_hashed[top_stories[0]).to_a.first%>
-<% @second_story = hstories_hashed[top_stories[1]).to_a.first%> 
-<% @third_story  = hstories_hashed[top_stories[2]).to_a.first if top_stories[2] != nil %>
+  <% @haufen_story = hstories_hashed[top_stories[0]].to_a.first%>
+<% @second_story = hstories_hashed[top_stories[1]].to_a.first%> 
+<% @third_story  = hstories_hashed[top_stories[2]].to_a.first if top_stories[2] != nil %>
 
   <% image_story =  haufen.image_exists ? (haufen.image_story || @haufen_story ) : nil %>
   <%= render :partial => '/rawstories/super_rawstory', :locals => {:rawstory => @haufen_story,
