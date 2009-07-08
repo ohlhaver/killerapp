@@ -10,13 +10,11 @@ class HaufensController < ApplicationController
     render :text => si.thumb_image_data
   end
 
-
-
-def show
-  unless read_fragment({:l => @l, :id => params[:id], :page => params[:page] || 1}) 
-  fetch_stories nil
+  def show
+    unless read_fragment({:l => @l, :id => params[:id], :page => params[:page] || 1}) 
+    fetch_stories nil
+    end
   end
-end
 
 def filter_haufen_by_opinions
   unless read_fragment({:l => @l, :id => params[:id], :page => params[:page] || 1})
@@ -72,6 +70,15 @@ protected
     @haufen_stories = @haufen_stories.sort_by {|u| - u.blub } 
     @haufen_stories = @haufen_stories.paginate :page     => params[:page],
                                                :per_page => 5
+    source_ids  = @haufen_stories.collect{|s| s.source_id}.reject{|s_id| s_id.blank?}*','
+    unless source_ids.blank?
+      @haufen_stories_sources_hashed = Source.find(:all, :conditions => [" id IN ( #{source_ids} )"]).group_by{|s| s.id}
+    end
+    author_ids  = @haufen_stories.collect{|s| s.author_id}.reject{|a_id| a_id.blank?}*','
+    unless author_ids.blank?
+      @haufen_stories_authors_hashed = Author.find(:all, :conditions => [" id IN ( #{author_ids} )"]).group_by{|a| a.id}
+    end
+
   end
    
    

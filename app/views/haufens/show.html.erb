@@ -46,6 +46,8 @@
    <% @haufen_stories.each do |s| %>
      <%= render :partial => s, 
                 :locals  => {:rawstory    => s,
+                             :source      => (defined?(@haufen_stories_sources_hashed) ? @haufen_stories_sources_hashed[s.source_id].to_a.first : nil),
+                             :author       => (defined?(@haufen_stories_authors_hashed) ? @haufen_stories_authors_hashed[s.author_id].to_a.first : nil),
    			     :show_image  => s.rawstory_detail.image_exists, 
                              :image_src   => "/rawstories/image/#{s.id}",
                              :image_story => s}%>
