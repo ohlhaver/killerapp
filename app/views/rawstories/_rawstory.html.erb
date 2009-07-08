@@ -31,7 +31,7 @@
           </span>
         </div>
         <div class="datestamp">
-          <span class="source"><%= (defined?(source) and not source.blank?) ? source : rawstory.source.website %></span> - 
+          <span class="source"><%= (defined?(source) and not source.blank?) ? source.website : rawstory.source.website %></span> - 
           <% rawstory_author = (defined?(author) and not author.blank?) ? author : rawstory.author %>
           <% if rawstory_author.name != '' %>
             <% unless params[:controller] == 'authors' %>
