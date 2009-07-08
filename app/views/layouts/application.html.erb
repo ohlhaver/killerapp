@@ -6,7 +6,7 @@
     <%= stylesheet_link_tag 'style' %>
   </head>
   <body>
-    <% unless params[:controller] == 'groups' and params[:controller] != 'users' and params[:controller] != 'sessions' and not logged_in? -%>
+    <% if logged_in? or ['users', 'sessions'].include?(params[:controller]) -%>
       <%= fb_connect_javascript_tag %>
       <% if params[:controller] == 'users' and ['link_user_accounts','friends','friends_actions'].include?(params[:action]) %>
         <%= init_wrapper true, "XFBML"%>
