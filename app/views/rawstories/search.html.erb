@@ -52,7 +52,9 @@
    <% @rawstories.each do |s| %>
      <%= render :partial => s, 
                 :locals  => {:rawstory    => s,
-   			     :show_image  => s.rawstory_detail.image_exists, 
+                             :source      => (defined?(@rawstories_sources_hashed) ? @rawstories_sources_hashed[s.source_id].to_a.first : nil),
+                             :author       => (defined?(@rawstories_authors_hashed) ? @rawstories_authors_hashed[s.author_id].to_a.first : nil),
+   			     :show_image  => (defined?(@rawstories_rawstory_details_hashed)? (@rawstories_rawstory_details_hashed[s.id].to_a.first.image_exists rescue false ): s.rawstory_detail.image_exists), 
                              :image_src   => "/rawstories/image/#{s.id}",
                              :image_story => s}%>
    <% end %>

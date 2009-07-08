@@ -175,7 +175,7 @@ Note that your database is never changed by anything Ultrasphinx does.
       # example, with :includes) and then attach it here. Each method must accept an Array 
       # of ids, but do not have to preserve order. If the class does not respond_to? any 
       # method name in the array, :find_all_by_id will be used.
-      :finder_methods => [] 
+      :finder_methods => ['find_searched_records'] 
     })
     
     # Friendly sort mode mappings    

@@ -106,10 +106,11 @@ class RawstoriesController < ApplicationController
 
       story_ids = @rawstories.collect{|s| s.id}.uniq*","
       unless story_ids.blank?
-        qualities = RawstoryDetail.find(:all,
+        rawstories_rawstory_details = RawstoryDetail.find(:all,
                                         :conditions => "rawstory_id IN ( #{story_ids} )",
-                                        :select     => "rawstory_id, quality")
-        qualities_hashed = qualities.group_by{|q| q.rawstory_id}
+                                        :select     => "rawstory_id, quality,image_exists")
+        @rawstories_rawstory_details_hashed = rawstories_rawstory_details.group_by{|r| r.rawstory_id}
+        qualities_hashed = rawstories_rawstory_details.group_by{|q| q.rawstory_id}
       end
 
       counter = 0
@@ -136,6 +137,14 @@ class RawstoriesController < ApplicationController
       @rawstories = video_stories if conditions == 2
       @rawstories = @rawstories.paginate  :page => params[:page],
                                           :per_page => 5
+      source_ids  = @rawstories.collect{|s| s.source_id}.reject{|s_id| s_id.blank?}*','
+      unless source_ids.blank?
+       @rawstories_sources_hashed = Source.find(:all, :conditions => [" id IN ( #{source_ids} )"]).group_by{|s| s.id}
+      end
+      author_ids  = @rawstories.collect{|s| s.author_id}.reject{|a_id| a_id.blank?}*','
+      unless author_ids.blank?
+        @rawstories_authors_hashed = Author.find(:all, :conditions => [" id IN ( #{author_ids} )"]).group_by{|a| a.id}
+      end
       
       @authors = []
       if params[:action] == 'search' and !query.blank? and params[:author_results] != 'hide'

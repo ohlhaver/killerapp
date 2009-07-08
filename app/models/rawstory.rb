@@ -21,6 +21,12 @@ class Rawstory < ActiveRecord::Base
     self.feedpage.subscription_type
   end
   class << self
+    def find_searched_records(ids_ary)
+      return [] if ids_ary.blank?
+       find(:all,
+            :conditions => ["rawstories.id IN ( #{ids_ary*','} )"],
+            :select     => 'rawstories.id,rawstories.title,rawstories.link,rawstories.source_id,rawstories.author_id,rawstories.created_at,rawstories.opinion,rawstories.video')
+    end
     def find_en_keywords(text)
       raw_text = text.gsub(/, |\. |“|”|; | - |_|\n+|\\|\"|\(|\)/, ' ')
       ignore_kw = ['jan','feb','mar','apr','may','jun','jul', 'aug','sep','oct','nov','dec',    

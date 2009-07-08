@@ -31,11 +31,12 @@
           </span>
         </div>
         <div class="datestamp">
-          <span class="source"><%= rawstory.source.website %></span> - 
-          <% if rawstory.author.name != '' %>
+          <span class="source"><%= (defined?(source) and not source.blank?) ? source : rawstory.source.website %></span> - 
+          <% rawstory_author = (defined?(author) and not author.blank?) ? author : rawstory.author %>
+          <% if rawstory_author.name != '' %>
             <% unless params[:controller] == 'authors' %>
               <span class="author">
-                <%= render :partial => rawstory.author, :locals =>{:no_spacer => true, :no_style => true} %>
+                <%= render :partial => rawstory_author, :locals =>{:no_spacer => true, :no_style => true} %>
               </span>&nbsp;-&nbsp;
             <% end %>
           <% end %>
