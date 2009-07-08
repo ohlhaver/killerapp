@@ -1,11 +1,51 @@
 
+<div class="haufen">
 
-<% div_for(@haufens) do %>
+<% div_for(haufen) do %>
+<% top_stories= haufen.top_story_ids.split(',')[0,3].reject{|id| id.blank?}.collect{|id| id.to_i} %>
+<% hstories_hashed = Rawstory.find(:all,
+                            :conditions => ["id IN ( #{ top_stories*','})"],
+                            :include    => [:source, :author]).group_by{|s| s.id}%>
+  <% @haufen_story = hstories_hashed[top_stories[0]].to_a.first%>
+<% @second_story = hstories_hashed[top_stories[1]].to_a.first%> 
+<% @third_story  = hstories_hashed[top_stories[2]].to_a.first if top_stories[2] != nil %>
+
+  <% image_story =  haufen.image_exists ? (haufen.image_story || @haufen_story ) : nil %>
+  <%= render :partial => '/rawstories/super_rawstory', :locals => {:rawstory => @haufen_story,
+													:show_image => haufen.image_exists, 
+                                                    :image_src  => "/haufens/image/#{haufen.id}",
+                                                    :image_story => image_story}%>
 
 
-<% @haufen_story = Rawstory.find(haufen.latest) %>
 
+<%= render :partial => '/rawstories/related_rawstory', :locals =>{:rawstory=> @second_story} %>
 
-<%= render :partial => @haufen_story %>
+<%= render :partial => '/rawstories/related_rawstory', :locals =>{:rawstory=> @third_story} if top_stories[2] != nil %>
+
+<div class="big_cluster">
+  <span class="source">
+   
+      <%= link_to haufen_label(@haufen_story), :controller => 'haufens', :action => 'show', :id => haufen, :l => @l %> 
+      <% unless haufen.videos == nil %>
+        <% if haufen.videos > 0 %>
+      - 	<%= link_to video_label(@haufen_story), :controller => 'haufens', :action => 'filter_haufen_by_videos', :id => haufen, :l => @l %> 	
+        <% end %>
+     	
+    <% end %>
+
+	<% unless haufen.keywords.blank? %>
+	<br> 
+	<% haufen.keywords.strip.split(/\s+/).each_with_index do |k, i| -%>
+	<%= ' - ' unless i==0 -%>
+	<%= link_to k,{:controller => 'rawstories', :action => 'search', :l => @l, :q => k, :author_results => 'hide'}%>
+	<% end -%>
+	
+
+	<% end %>
+
+  </span>
+</div>
+</div>
+
 
 <% end %>

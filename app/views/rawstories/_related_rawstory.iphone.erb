@@ -1,0 +1,52 @@
+<ul style="margin:0;">
+  <li>
+    <% div_for(rawstory) do %>
+      <div class="related_rawstory">
+      <% if defined?(show_image) and show_image == true and defined?(image_src) and not image_src.blank?%>
+        <div style="float:left;width:307px;margin-right:62px;">
+      <% end %>
+        <div class="related_headline">
+          <% image_tag('opinion.gif') if rawstory.opinion == 1 %>
+          <% image_tag('video.gif') + ' ' if rawstory.video == true %> 
+          <span onMouseOver="this.getElementsByTagName('span')[0].style.display='';" onMouseOut="this.getElementsByTagName('span')[0].style.display='none';">
+            <%= link_to rawstory.title, rawstory.link, { :popup => 'new_tab' } %>&nbsp;<span id="read_list_option_<%= rawstory.id %>" style="display:none;position:absolute;" onMouseOver="this.getElementsByTagName('div')[0].style.display='';" onMouseOut="this.getElementsByTagName('div')[0].style.display='none';">
+            <% if params[:controller] == 'read_list' and params[:action] == 'show' %>
+            &nbsp;<%= image_tag('minus.gif') %>
+            <% else %>
+            &nbsp;<%= image_tag('plus.gif') %>
+            <% end %>
+
+            <div class="actionsBox" style="display:none;margin-top:-4px;" name="rawStoryActionsBox">
+              <div style="margin-bottom:10px;">
+                <% if defined?(read_item) and !read_item.nil?%>
+                  <%= link_to remove_from_read_list_label, {:controller => 'read_list', :action => 'remove_item', :id => read_item.id, :l => @l} -%>
+                <% else %>
+                  <%= link_to save_to_read_list_label, {:controller => 'read_list', :action => 'add_item', :id => rawstory.id, :l => @l} -%> 
+                <% end %>
+              </div>
+              <div style="margin-bottom:10px;">
+                <%= link_to share_label, {:controller => 'recommendations', :action =>'recommend_article', :id =>rawstory.id, :l => @l}-%>
+              </div>
+            </div>
+
+            </span>
+          </span>
+
+          <span class="source"> - <%= rawstory.source.website %></span>
+          <% if rawstory.author.name != '' %> 
+            <% unless params[:controller] == 'authors' %>
+              <span class="author"> -
+                <%= render :partial => rawstory.author, :locals =>{:no_spacer => true, :no_style => true} %>
+              </span>
+            <% end %>
+          <% end %>
+   
+                   
+        </div>
+    
+
+
+      </div>
+    <% end %>
+  </li>
+</ul>

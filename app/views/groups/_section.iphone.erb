@@ -1,0 +1,28 @@
+<% unless haufens.blank? %>
+  <ul class="module">
+    <li>
+      <div class="pagelabel">
+      <%= section_label %>
+      <% unless defined?(deleteable) and deleteable == false %>
+       &nbsp; <%= link_to '[ - ]',  :controller => 'users', :action => 'personalize_home', :section_name => section_name, :section_status_change => 'delete', :l => @l  %>
+      <% end %>
+      </div>
+    </li>
+    <li>
+      <% if defined?(story_render) and story_render == 'super'%>
+         <% haufens.each do |s| %>
+          <%= render :partial => '/rawstories/super_rawstory', 
+                     :locals   => {:rawstory    => s,
+				   :show_image  => s.rawstory_detail.image_exists, 
+                                   :image_src   => "/rawstories/image/#{s.id}",
+                                   :image_story => s}%>
+
+         <% end %>
+      <% elsif defined?(story_render) and story_render == 'related'%>
+          <%= render :partial => '/rawstories/related_rawstory', :locals => {:rawstory => s}%>
+      <% else %>
+          <%= render :partial => haufens %>
+      <% end %>
+    </li>
+  </ul>
+<% end %>

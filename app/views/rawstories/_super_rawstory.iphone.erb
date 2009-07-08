@@ -1,0 +1,77 @@
+<ul style="margin:0;">
+  <li>
+    <% div_for(rawstory) do %>
+      <div class="rawstory">
+      <% if defined?(show_image) and show_image == true and defined?(image_src) and not image_src.blank?%>
+        <div style="float:left;width:307px;margin-right:62px;">
+      <% end %>
+        <div class="super_headline">
+          <%= image_tag('opinion.gif') if rawstory.opinion == 1 %>
+          <%= image_tag('video.gif') + ' ' if rawstory.video == true %> 
+          <span onMouseOver="this.getElementsByTagName('span')[0].style.display='';" onMouseOut="this.getElementsByTagName('span')[0].style.display='none';">
+            <%= link_to rawstory.title, rawstory.link, { :popup => 'new_tab' } %>&nbsp;<span id="read_list_option_<%= rawstory.id %>" style="display:none;position:absolute;" onMouseOver="this.getElementsByTagName('div')[0].style.display='';" onMouseOut="this.getElementsByTagName('div')[0].style.display='none';">
+               <% if params[:controller] == 'read_list' and params[:action] == 'show' %>
+               &nbsp;<%= image_tag('minus.gif') %>
+               <% else %>
+               &nbsp;<%= image_tag('plus.gif') %>
+               <% end %>
+
+            <div class="actionsBox" style="display:none;margin-top:-7px;" name="rawStoryActionsBox">
+              <div style="margin-bottom:10px;">
+                <% if defined?(read_item) and !read_item.nil?%>
+                  <%= link_to remove_from_read_list_label, {:controller => 'read_list', :action => 'remove_item', :id => read_item.id, :l => @l} -%>
+                <% else %>
+                  <%= link_to save_to_read_list_label, {:controller => 'read_list', :action => 'add_item', :id => rawstory.id, :l => @l} -%> 
+                <% end %>
+              </div>
+              <div style="margin-bottom:10px;">
+                <%= link_to share_label, {:controller => 'recommendations', :action =>'recommend_article', :id =>rawstory.id, :l => @l}-%>
+              </div>
+            </div>
+            </span>
+          </span>
+        </div>
+        <div class="datestamp">
+          <span class="source"><%= rawstory.source.website %></span> - 
+          <% if rawstory.author.name != '' %>
+            <% unless params[:controller] == 'authors' %>
+              <span class="author">
+                <%= render :partial => rawstory.author, :locals =>{:no_spacer => true, :no_style => true} %>
+              </span>&nbsp;-&nbsp;
+            <% end %>
+          <% end %>
+          <%= peterson rawstory %>
+
+          <% unless defined?(hide_extra) and hide_extra == true %>
+            <br/>
+			<% unless params[:controller] == 'groups' %>
+            <div class="cluster">
+              <span class="source">
+                <% if rawstory.haufen && rawstory.haufen.weight > 1 && params[:controller] != 'haufens' %>
+                  <%= link_to haufen_label(rawstory), :controller => 'haufens', :action => 'show', :id => rawstory.haufen, :l => @l %> 
+                  <% unless rawstory.haufen.videos == nil %>
+                    <% if rawstory.haufen.videos > 0 %>
+                  - 	<%= link_to video_label(rawstory), :controller => 'haufens', :action => 'filter_haufen_by_videos', :id => rawstory.haufen, :l => @l %> 	
+                    <% end %>
+                  <%end%>	
+                <% end %>
+              </span>
+            </div>
+			<% end %>
+          <% end %>
+        </div>
+      <% if defined?(show_image) and show_image == true and defined?(image_src) and not image_src.blank?%>
+        </div>
+        <div style="float:left; width:80px;margin-top:5px;">
+          <a href="<%= image_story.link%>">
+            <img src="<%= image_src %>"/><br/>
+            <div title="<%= image_story.source.name.split('www.').join %>" style="color:#999999;font-size:12px;width:80px;overflow:hidden;text-align:center;word-wrap:break-word;"><%= image_story.source.name.split('www.').join %></div>
+          </a>
+        </div>
+        <div style="clear:both"></div>
+      <% end %>
+
+      </div>
+    <% end %>
+  </li>
+</ul>
