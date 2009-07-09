@@ -46,8 +46,8 @@
                 <em><%= link_to logout_label, session_path(:l => @l), :method => :delete %></em>
               <% end %>
               <%if !@current_user.facebook_user? %>
-               &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;<%= facebook_login_button -%> 
-              <% end %>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
+               &nbsp;-&nbsp;<%= facebook_login_button -%> 
+              <% end %>&nbsp;-&nbsp;
               <% if params[:controller] == 'users' and params[:action] == 'settings' and (params[:id].blank? or @current_user.id == params[:id].to_s) %> 
                 <span class="selected"><%= settings_label  %></span>
               <% else %>
@@ -62,13 +62,13 @@
                   <span class="selected"><%= friends_label -%></span>
                 <% else %>
                   <%= link_to friends_label, :controller => 'users' , :action => 'friends_actions', :l => @l -%>
-                <% end %>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; 
+                <% end %>&nbsp;-&nbsp; 
               <% end -%>
               <% if params[:controller] == 'users' and params[:action] ==  'articles_by_favorite_authors' and (params[:id].blank? or @current_user.id == params[:id].to_s) %> 
                  <span class="selected"><%= my_authors  %></span> 
               <% else %> 
                 <%= link_to my_authors, :controller => 'users', :action => 'articles_by_favorite_authors',:l => @l  %> 
-              <% end %>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
+              <% end %>&nbsp;-&nbsp;
               <% if params[:controller] == 'read_list'  %> 
                 <span class="selected"><%= read_list_label  %></span> 
               <% else %>

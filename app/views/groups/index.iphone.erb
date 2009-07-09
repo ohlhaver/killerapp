@@ -87,9 +87,7 @@
                                            :section_label =>(link_to opinions_label, :action => 'opinions', :l => @l)}%>
       <% end %>
     <% end %>
-    
-  </div>
-  <div class="col2">
+
     <%= render :partial => '/users/notifications'-%>
   
 
@@ -103,7 +101,7 @@
 	            <div class="pagelabel">
 	              <%= link_to my_authors, :controller => 'users', :action => 'articles_by_favorite_authors', :l => @l  %> &nbsp;&nbsp;
 	              <%= link_to '[ - ]',  :controller => 'users', :action => 'personalize_home', :section_name => 'my_authors', :section_status_change => 'delete', :l => @l  %>
-
+				</div>
 	          </li>
 
 	            <li>
