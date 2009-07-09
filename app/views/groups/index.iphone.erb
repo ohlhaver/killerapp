@@ -90,7 +90,7 @@
 
     <%= render :partial => '/users/notifications'-%>
   
-	<div id='my_authors'>
+
 	<% if logged_in? -%>
 	      <% if @current_user.home_page_conf.maximized?('my_authors')%>
 			<% if @current_user.subscriptions.size > 0  -%>
@@ -112,7 +112,7 @@
 			<% end %>
 		<% end %>
 	<% end %>
-	</div>
+
   
          
     <% if @searchterms %>

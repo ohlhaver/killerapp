@@ -12,7 +12,7 @@
       <% if defined?(story_render) and story_render == 'super'%>
          <% haufens.each do |s| %>
           <%= render :partial => '/rawstories/super_rawstory', 
-                     :locals   => {:rawstory    => s,
+                     :locals   => {:rawstory    => s
 				  }%>
 
          <% end %>
