@@ -12,15 +12,7 @@
 
   <% image_story =  haufen.image_exists ? (haufen.image_story || @haufen_story ) : nil %>
   <%= render :partial => '/rawstories/super_rawstory', :locals => {:rawstory => @haufen_story,
-													:show_image => haufen.image_exists, 
-                                                    :image_src  => "/haufens/image/#{haufen.id}",
-                                                    :image_story => image_story}%>
-
-
-
-<%= render :partial => '/rawstories/related_rawstory', :locals =>{:rawstory=> @second_story} %>
-
-<%= render :partial => '/rawstories/related_rawstory', :locals =>{:rawstory=> @third_story} if top_stories[2] != nil %>
+													}%>
 
 <div class="big_cluster">
   <span class="source">
@@ -28,7 +20,7 @@
       <%= link_to haufen_label(@haufen_story), :controller => 'haufens', :action => 'show', :id => haufen, :l => @l %> 
       <% unless haufen.videos == nil %>
         <% if haufen.videos > 0 %>
-      - 	<%= link_to video_label(@haufen_story), :controller => 'haufens', :action => 'filter_haufen_by_videos', :id => haufen, :l => @l %> 	
+    &nbsp;   -  &nbsp; 	<%= link_to video_label(@haufen_story), :controller => 'haufens', :action => 'filter_haufen_by_videos', :id => haufen, :l => @l %> 	
         <% end %>
      	
     <% end %>
@@ -36,7 +28,7 @@
 	<% unless haufen.keywords.blank? %>
 	<br> 
 	<% haufen.keywords.strip.split(/\s+/).each_with_index do |k, i| -%>
-	<%= ' - ' unless i==0 -%>
+	<%= ' &nbsp; -  &nbsp; ' unless i==0 -%>
 	<%= link_to k,{:controller => 'rawstories', :action => 'search', :l => @l, :q => k, :author_results => 'hide'}%>
 	<% end -%>
 	

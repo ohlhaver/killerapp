@@ -2,14 +2,26 @@
 <span <%= 'class="headline"' unless defined?(no_style) and no_style == true%>>
   <% if defined?(rank) and !rank.blank? -%><%= rank %>.&nbsp;<% end -%>
   <span onMouseOver="this.getElementsByTagName('span')[0].style.display='';" onMouseOut="this.getElementsByTagName('span')[0].style.display='none';">
-    <%= link_to author.name, :controller => 'authors', :action => 'show', :id => author, :l => @l %>
-    <% if @current_user and params[:controller] == 'users' and params[:action] == 'favorite_authors' and (params[:id].blank? or params[:id].to_i == @current_user.id)  %>
-    <% s = (defined?(subscription) and subscription.author_id == author.id and subscription.user_id == @current_user.id)? subscription : @current_user.subscriptions.find_all{|s| s.author_id == author.id}.first %>
-       <%= link_to image_tag('minus.gif'), :controller => 'subscriptions', :action => 'remove', :id => s.id, :l => @l  %> 
+    <%= link_to author.name, :controller => 'authors', :action => 'show', :id => author, :l => @l %>&nbsp;<span style="display:none;position:absolute;background-color:white;" onMouseOver="this.getElementsByTagName('div')[0].style.display='';" onMouseOut="this.getElementsByTagName('div')[0].style.display='none';">
+    <% if params[:controller] == 'users' and ['articles_by_favorite_authors','favorite_authors'].include?(params[:action]) %>
+     &nbsp;<%= image_tag('minus.gif') %>
     <% else %>
-      <%= link_to image_tag('plus.gif'), :controller => 'subscriptions', :action => 'subscribe', :id => author.id, :l => @l  %> 
-    <% end %><span style="display:none;position:absolute;background-color:white;">&nbsp;<%= link_to recommend_label, {:controller => 'recommendations', :action =>'recommend_author', :id =>author.id, :l => @l}-%>&nbsp;&nbsp;&nbsp;&nbsp;
-    </span>
+     &nbsp;<%= image_tag('plus.gif') %>
+    <% end %>
+     <div class="actionsBox" style="display:none;margin-top:-4px;" name="rawStoryActionsBox">
+       <div style="margin-bottom:10px;">
+         <% if @current_user and params[:controller] == 'users' and ['articles_by_favorite_authors','favorite_authors'].include?(params[:action]) and (params[:id].blank? or params[:id].to_i == @current_user.id)  %>
+         <% s = (defined?(subscription) and subscription.author_id == author.id and subscription.user_id == @current_user.id)? subscription : @current_user.subscriptions.find_all{|s| s.author_id == author.id}.first %>
+            <%= link_to remove_from_my_authors_label, {:controller => 'subscriptions', :action => 'remove', :id => s.id, :l => @l}  %> 
+         <% else %>
+           <%= link_to add_to_my_authors_label, {:controller => 'subscriptions', :action => 'subscribe', :id => author.id, :l => @l}%> 
+         <% end %>
+       </div>
+       <div style="margin-bottom:10px;">
+         <%= link_to recommend_label, {:controller => 'recommendations', :action =>'recommend_author', :id =>author.id, :l => @l}-%>
+       </div>
+     </div>
+     </span>
   </span>
 <% unless defined?(no_spacer) and no_spacer == true -%>
 <br><br>

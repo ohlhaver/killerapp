@@ -490,7 +490,7 @@ body {
 #new_topic_field {
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 19px;
-	line-height: 30px;
+	line-height: 21px;
 	color: #FFFFFF;
 	width: 155px;
 	align: left;
@@ -500,6 +500,9 @@ body {
 	vertical-align: middle;
 	margin-bottom: 6px;
 }
+
+
+
 
 #new_topic_button {
 	font-family: Arial, Helvetica, sans-serif;

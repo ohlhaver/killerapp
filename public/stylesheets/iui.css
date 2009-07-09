@@ -4,6 +4,17 @@ a img {
     border: 0px;
 }
 
+.col1 {
+	
+}
+
+#main_menu {
+		margin-left: 20px;
+		margin-bottom: 50px;
+
+}
+
+
 #google_ad_bottom_left {
 
 	margin-top: 50px;
@@ -39,8 +50,8 @@ a img {
 
 #footer {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 24px;
-	line-height: 38px;
+	font-size: 32px;
+	line-height: 48px;
 	margin-left: 20px;
 	color: #999999;
 	margin-bottom: 20px;
@@ -144,14 +155,16 @@ li {
 }
 .profile {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 24px;
-	line-height: 34px;
+	font-size: 36px;	
 	color: #999999;
 	display: inline;
 	white-space: nowrap;
 	padding-right: 60px;
-	padding-bottom: 60px;
+	padding-bottom: 0px;
 	padding-top: 14px;
+	line-height: 90px;
+	margin-bottom: 54px;
+
 }
 .default {
 	font-family: Arial, Helvetica, sans-serif;
@@ -168,7 +181,7 @@ li {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 32px;
 	line-height: 42px;
-	height: 188px;
+	height: 110px;
 	padding-top: 12px;
 }
 .selected {
@@ -297,8 +310,12 @@ body {
 .datestamp a:active {
 	color: #0000C8;
 }
+
+.source {
+	color: #999;
+}
 .author {
-	color: #666666;
+	color: #999;
 }
 .author a:link {
 	color: #999999;
@@ -312,13 +329,7 @@ body {
 .author a:active {
 	color: #0000C8;
 }
-.cluster {
-	color: #999999;
-	padding: 0px;
-	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size: 44px;
-	line-height: 54px;
-}
+
 .cluster a:link {
 	color: #333333;
 	text-decoration: none;
@@ -339,7 +350,7 @@ body {
 .cluster {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 32px;
-	line-height: 42px;
+	line-height: 48px;
 	color: #333333;
 	margin-top: 10px;
 	margin-bottom: 0px;
@@ -348,9 +359,9 @@ body {
 .big_cluster {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 32px;
-	line-height: 42px;
+	line-height: 48px;
 	color: #333333;
-	margin-top: 0px;
+	margin-top: -20px;
 	margin-bottom: 0px;
 }
 
@@ -396,5 +407,37 @@ margin-bottom: 75px;
 	border-top: 14px solid #99CCFF;
 	padding-top: 7px;
 	padding-bottom: 10px;
+}
+
+.container
+{
+	width: 840px;
+	margin-left: 20px;
+}
+
+.actionsBox {
+  border: 1px solid #99CCFF; 
+  padding: 10px 7px 0px 7px; 
+  background-color: #FFFFFF; 
+  color:#333333;
+  width: 300px; 
+  line-height: 60px; 
+  font-size: 36px;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+.actionsBox a:link {
+  color : #333333;
+  text-decoration: none;
+}
+
+.actionsBox a:visited {
+  color : #333333;
+  text-decoration: none;
+}
+
+.actionsBox a:hover {
+  color: #0000CC;
+  text-decoration: none;
 }
 

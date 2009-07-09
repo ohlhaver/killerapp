@@ -11,29 +11,30 @@
     <div class ="logo"><%= link_to image_tag('logo.gif'), :controller => 'groups', :l => @l%></div>
     <div class ="search">
       <% form_tag search_rawstories_path(:l => @l), :method => :get do -%>
-        <div>
+
           <%= text_field_tag :q, params[:q],  :id => 'searchfield', :class =>"text" %>
           <%= submit_tag search_label, :id => 'searchbutton', :class => 'button', :name => nil %>
         </div>
       <% end -%>
+<div id ="main_menu">
     <div class="profile">
         <% if logged_in? == false -%>
-          <div style="float:left;;margin-left:2px;">
-            <div style="height:18px;">
-              <%= link_to login_label, :controller => 'sessions', :action => 'new', :l=>@l %>&nbsp;-&nbsp;
+          
+            
+              <%= link_to login_label, :controller => 'sessions', :action => 'new', :l=>@l %>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
 
-              <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %>&nbsp;-&nbsp;
+              <%= link_to my_authors, :controller => 'subscriptions', :l => @l  %>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
               <%= link_to read_list_label, {:controller => "read_list", :action => "show",:l => @l} -%>
-            </div>
-          </div>
+            
+        
         <% else -%>
           <%if @current_user.facebook_user? %>
-            <div style="float:left;width:40px;">
+            
             <%= fb_profile_pic(@current_user.fb_user, {:height => '35px', :facebook_logo => true})%>&nbsp;
-            </div>
+            
           <% end %>
-          <div style="float:left;margin-left:2px;">
-            <div style="height:18px;">
+          
+            
               <% if @current_user.facebook_user? and @current_user.fb_user %>
                 <%= h(truncate(@current_user.fb_user.name,15)) -%>
               <% else %>
@@ -45,50 +46,60 @@
                 <em><%= link_to logout_label, session_path(:l => @l), :method => :delete %></em>
               <% end %>
               <%if !@current_user.facebook_user? %>
-               &nbsp;-&nbsp;<%= facebook_login_button -%> 
-              <% end %>&nbsp;-&nbsp;
+               &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;<%= facebook_login_button -%> 
+              <% end %>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
               <% if params[:controller] == 'users' and params[:action] == 'settings' and (params[:id].blank? or @current_user.id == params[:id].to_s) %> 
                 <span class="selected"><%= settings_label  %></span>
               <% else %>
                 <%= link_to settings_label, settings_url(:l => @l) -%>
               <% end %>
-            </div>
-            <div style="padding-top:3px;">
+          
+<br>
+           
               <% if @current_user.facebook_user?%>
 
                 <% if params[:controller] == 'users' and ['friends_actions','friends'].include?(params[:action]) and (params[:id].blank? or @current_user.id == params[:id].to_i) %>
                   <span class="selected"><%= friends_label -%></span>
                 <% else %>
                   <%= link_to friends_label, :controller => 'users' , :action => 'friends_actions', :l => @l -%>
-                <% end %>&nbsp;-&nbsp; 
+                <% end %>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; 
               <% end -%>
               <% if params[:controller] == 'users' and params[:action] ==  'articles_by_favorite_authors' and (params[:id].blank? or @current_user.id == params[:id].to_s) %> 
                  <span class="selected"><%= my_authors  %></span> 
               <% else %> 
                 <%= link_to my_authors, :controller => 'users', :action => 'articles_by_favorite_authors',:l => @l  %> 
-              <% end %>&nbsp;-&nbsp;
+              <% end %>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
               <% if params[:controller] == 'read_list'  %> 
                 <span class="selected"><%= read_list_label  %></span> 
               <% else %>
                 <%= link_to read_list_label, {:controller => "read_list", :action => "show",:l => @l} -%>
               <% end %>
-            </div>
+     
           </div>
         <% end -%>
       </div>
+   
+
+</div>
+
+<div class="container">
+  <% if flash[:notice] or flash[:alert] %>
+    <div class="message">
+      <% if flash[:notice] %>
+      <span><%= flash[:notice] %></span>
+      <% end %>
+      <% if flash[:alert] %>
+      <span style="color: #0000C8"><%= flash[:alert] %></span>
+      <% end %>
     </div>
-
-
-
-<div class="headlines">
-  <ul>
- <div id="content">
-	<div class = 'message'>
-	<p><%= flash[:notice] %></p>
-	<p style="color: #0000C8"><%= flash[:alert] %></p>
-	<%= yield %>
- </div>
-</ul>
+  <%end%>
+  <% if (params[:action] == 'index' and params[:controller] == 'groups') or (['profile', 'friends', 'friends_actions','invite_fb_friends'].include?(params[:action]) and params[:controller] == 'users') or ['recommendations', 'notifications'].include?(params[:controller])-%>
+     <%= yield -%>
+  <% else -%>
+    <ul class="module">
+      <%= yield %>
+    </ul>
+  <%end%>
 </div>
 
 
