@@ -118,7 +118,6 @@
          
     <% if @searchterms %>
       <% @searchterms.each do |s| %>
-        <% cache({:action => 'index', :part => 'topic', :f => iphone_user_agent?, :l => @l, :i => @i, :s => s}) do %>
           <ul class="module">
             <li>
               <div class="pagelabel">
@@ -141,7 +140,6 @@
               <% end %>
             <% end %>		
           </ul>
-        <% end %>
       <% end %>
     <%end%>
     <%= render :partial => "new_topic" %>

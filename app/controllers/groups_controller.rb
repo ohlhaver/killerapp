@@ -66,18 +66,36 @@ class GroupsController < ApplicationController
 
     end
     
-    @top_my_searchterms={}
-    if @searchterms
-      @searchterms.each do |s|
-        unless read_fragment({:action => 'index', :part => 'topic', :f => iphone_user_agent?, :l => @l, :i => @i, :s => s})  
-          @top_my_searchterms[s] = fetch_my_searchterms s
+    @top_my_searchterms= {}
+    @top_my_authors = []
+    if logged_in?
+      @cache_key = CacheUtils.generate_key({:controller => params[:controller],
+                                            :action      => params[:action],
+                                            :user_id     => @current_user.id,
+                                            :i           => @i,
+                                            :l           => @l})
+      cache_read = Rails.cache.read(@cache_key) || {}
+      unless cache_read.blank?
+        if @searchterms
+          @searchterms.each do |s|
+            @top_my_searchterms[s] = cache_read[:top_my_searchterms][s]
+          end
         end
+        @top_my_authors = cache_read[:top_my_authors]
+      else
+        if @searchterms
+          @searchterms.each do |s|
+            @top_my_searchterms[s] = fetch_my_searchterms s
+          end
+          cache_read[:top_my_searchterms]= @top_my_searchterms
+        end
+        @top_my_authors = fetch_my_authors 
+        cache_read[:top_my_authors]= @top_my_authors
+        Rails.cache.write(@cache_key, cache_read) unless cache_read.blank?
       end
-    end
-    @top_my_authors = fetch_my_authors 
+    end 
     
     
-     
      # respond_to do |format|
     #      format.iphone
     #      format.html
@@ -205,11 +223,11 @@ class GroupsController < ApplicationController
       
      end
     
-    def fetch_my_authors
-    if logged_in?  
+    def fetch_my_authors(user=@current_user)
+    if user  
      @user_stories =[]
-     unless @current_user.stories.blank?
-       story_ids     = @current_user.stories.split(' ')*","
+     unless user.stories.blank?
+       story_ids     = user.stories.split(' ')*","
        @user_stories = Rawstory.find(:all,
                                    :conditions => ["rawstories.id IN ( #{story_ids} ) and rawstories.created_at > :yesterday and rawstory_details.is_duplicate = :false", {:yesterday => Time.now.yesterday, :false => false}],
                                    :order      => "rawstories.id DESC",
@@ -226,8 +244,8 @@ class GroupsController < ApplicationController
     return haufens
   end
     
-  def fetch_my_searchterms s
-    if logged_in?
+  def fetch_my_searchterms(s, i=@i,language=@languagei,user=@current_user)
+    if user
        search_hash           = {:query => s, 
                                 :class_names => 'Rawstory', 
                                 :sort_mode   => 'descending',
@@ -236,7 +254,7 @@ class GroupsController < ApplicationController
                                 :per_page    => 100,
                                 :weights     => { 'title' => 2.0 }}
        search_hash[:filters]                 = {}
-       search_hash[:filters][:language]      =  (@i==1 ? [1,2] : (@language == 2 ? 2 : 1))
+       search_hash[:filters][:language]      =  (i==1 ? [1,2] : (language == 2 ? 2 : 1))
        search_hash[:filters][:is_duplicate]  = 0
 
        @search               = Ultrasphinx::Search.new(search_hash)
