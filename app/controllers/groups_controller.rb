@@ -288,11 +288,16 @@ class GroupsController < ApplicationController
       @rawstories = @rawstories.sort_by {|u| - u.blub }  
       
       haufens = @rawstories.first(2)
+      haufens.each do |rs|
+        s = rs.source 
+        a = rs.author
+      end
   
     else
       haufens = []                                              
     end
   
+    return haufens
   end
   
 end
