@@ -78,7 +78,12 @@ class GroupsController < ApplicationController
       unless cache_read.blank?
         if @searchterms
           @searchterms.each do |s|
-            @top_my_searchterms[s] = cache_read[:top_my_searchterms][s].to_a
+            @top_my_searchterms[s] = cache_read[:top_my_searchterms][s]
+            if @top_my_searchterms[s].nil?
+              @top_my_searchterms[s] = fetch_my_searchterms s
+              cache_read[:top_my_searchterms][s] = @top_my_searchterms[s]
+              Rails.cache.write(@cache_key, cache_read) unless cache_read.blank?
+            end
           end
         end
         @top_my_authors = cache_read[:top_my_authors].to_a
