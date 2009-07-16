@@ -78,10 +78,10 @@ class GroupsController < ApplicationController
       unless cache_read.blank?
         if @searchterms
           @searchterms.each do |s|
-            @top_my_searchterms[s] = cache_read[:top_my_searchterms][s]
+            @top_my_searchterms[s] = cache_read[:top_my_searchterms][s].to_a
           end
         end
-        @top_my_authors = cache_read[:top_my_authors]
+        @top_my_authors = cache_read[:top_my_authors].to_a
       else
         if @searchterms
           @searchterms.each do |s|
