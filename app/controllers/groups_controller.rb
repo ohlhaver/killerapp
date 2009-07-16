@@ -249,7 +249,7 @@ class GroupsController < ApplicationController
     return haufens
   end
     
-  def fetch_my_searchterms(s, i=@i,language=@languagei,user=@current_user)
+  def fetch_my_searchterms(s, i=@i,language=@language,user=@current_user)
     if user
        search_hash           = {:query => s, 
                                 :class_names => 'Rawstory', 
