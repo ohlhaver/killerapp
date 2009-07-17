@@ -8,7 +8,7 @@ class CacheUtils
   end
   class GroupsControllerCache < GroupsController
     def update_cache_index(user)
-      [[1,1],[nil,1],[nil,2]].each do |i,language|
+      [[1,1],[1,2],[nil,1],[nil,2]].each do |i,language|
         cache_key = CacheUtils.generate_key({:controller => 'groups',
                                               :action      => 'index',
                                               :user_id     => user.id,
