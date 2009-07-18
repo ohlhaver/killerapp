@@ -77,6 +77,7 @@ class GroupsController < ApplicationController
       cache_read = Rails.cache.read(@cache_key) || {}
       unless cache_read.blank?
         if @searchterms
+          cache_read[:top_my_searchterms] ||= {}
           @searchterms.each do |s|
             @top_my_searchterms[s] = cache_read[:top_my_searchterms][s]
             if @top_my_searchterms[s].nil?
