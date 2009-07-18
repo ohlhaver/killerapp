@@ -115,8 +115,13 @@
               <% else %>
                 <%= h(truncate(@current_user.name,15)) -%>
               <% end %>
+              <script>
+              function rescuedLogout(){
+                  FB.Connect.ifUserConnected(function(){FB.Connect.logoutAndRedirect('/logout?l=<%= @l -%>')}, '/logout?l=<%= @l -%>');
+              }
+              </script>
               <% if facebook_session %>
-                <em><a href="#" onclick='FB.Connect.logoutAndRedirect("/logout?l=<%= @l -%>")'><%= logout_label -%></a></em>
+                <em><a href="#" onclick='rescuedLogout();'><%= logout_label -%></a></em>
               <% else %>
                 <em><%= link_to logout_label, session_path(:l => @l), :method => :delete %></em>
               <% end %>
