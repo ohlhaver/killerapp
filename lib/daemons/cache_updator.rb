@@ -13,9 +13,13 @@ while($running) do
   
   # update home page cache for users
   User.find(:all,:order =>"id ASC").each do |u|
-    fb_user = u.fb_user(true)
-    jurnalo_friends = u.jurnalo_friends(true)
-    CacheUtils::GroupsControllerCache.new.update_cache_index(u)
+    begin
+      fb_user = u.fb_user(true) rescue nil
+      jurnalo_friends = u.jurnalo_friends(true) rescue []
+      CacheUtils::GroupsControllerCache.new.update_cache_index(u)
+    rescue
+      next
+    end
   end
 
   finishing_time = Time.new
