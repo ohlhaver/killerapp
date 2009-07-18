@@ -190,12 +190,18 @@ class User < ActiveRecord::Base
     return nil           if self.fb_user_id == 0 
     return @fb_user      if defined?(@fb_user)
     if fb_offline_access_permission_granted
-      fb_s = Facebooker::Session.create 
-      fb_s.secure_with!(fb_session_key, fb_user_id)
-      @fb_user =  Facebooker::User.new(fb_user_id, fb_s)
+      @fb_user = Rails.cache.read("user_#{self.id}_fb_user_#{fb_user_id}")
+      if @fb_user.nil?
+        fb_s = Facebooker::Session.create 
+        fb_s.secure_with!(fb_session_key, fb_user_id)
+        @fb_user =  Facebooker::User.new(fb_user_id, fb_s)
+        name = @fb_user.name
+        Rails.cache.write("user_#{self.id}_fb_user_#{fb_user_id}", @fb_user)
+      end
     else 
       @fb_user = nil
     end
+     return @fb_user
   end
 
   def is_a_friend?(user_id_or_user)
