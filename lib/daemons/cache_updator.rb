@@ -14,7 +14,7 @@ while($running) do
   # update home page cache for users
   User.find(:all,:order =>"id ASC").each do |u|
     CacheUtils::GroupsControllerCache.new.update_cache_index(u)
-    fb_user = u.fb_user
+    fb_user = u.fb_user(true)
   end
 
   finishing_time = Time.new

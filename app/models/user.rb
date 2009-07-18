@@ -186,7 +186,7 @@ class User < ActiveRecord::Base
   def fb_user=(f_user)
     @fb_user=f_user
   end
-  def fb_user
+  def fb_user(force_cache_write=false)
     return nil           if self.fb_user_id == 0 
     return @fb_user      if defined?(@fb_user)
     if fb_offline_access_permission_granted
@@ -196,8 +196,9 @@ class User < ActiveRecord::Base
         fb_s.secure_with!(fb_session_key, fb_user_id)
         @fb_user =  Facebooker::User.new(fb_user_id, fb_s)
         name = @fb_user.name
-        Rails.cache.write("user_#{self.id}_fb_user_#{fb_user_id}", @fb_user)
+        force_cache_write = true
       end
+      Rails.cache.write("user_#{self.id}_fb_user_#{fb_user_id}", @fb_user) if force_cache_write == true
     else 
       @fb_user = nil
     end
