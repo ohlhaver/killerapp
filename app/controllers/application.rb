@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   before_filter :language?
   before_filter :fetch_searchterms
   before_filter :log_request_information
-  before_filter :check_facebook_session
+  #before_filter :check_facebook_session
   after_filter  :set_last_page_viewed
 
  
