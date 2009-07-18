@@ -191,7 +191,7 @@ class User < ActiveRecord::Base
     return @fb_user      if defined?(@fb_user)
     if fb_offline_access_permission_granted
       @fb_user = Rails.cache.read("user_#{self.id}_fb_user_#{fb_user_id}")
-      if @fb_user.nil?
+      if @fb_user.nil? or force_cache_write == true
         fb_s = Facebooker::Session.create 
         fb_s.secure_with!(fb_session_key, fb_user_id)
         @fb_user =  Facebooker::User.new(fb_user_id, fb_s)
@@ -210,28 +210,29 @@ class User < ActiveRecord::Base
     self.fb_user.friends_with?(user.fb_user_id)
   end
   
-  def jurnalo_friends
+  def jurnalo_friends(force_cache_write=false)
     return @friends if defined?(@friends)
-    fb_u            = fb_user
-    if fb_u.blank?
-      @friends = []
-      return @friends
+    @friends = Rails.cache.read("user_#{self.id}_fb_user_#{fb_user_id}_friends")
+    if @friends.nil? or force_cache_write == true
+      force_cache_write = true
+      fb_u              = fb_user
+      if fb_u.blank?
+        @friends = []
+      else
+        jurnalo_fs = fb_u.friends_with_this_app rescue []
+        if jurnalo_fs.blank?
+          @friends = []
+        else
+          jurnalo_users   = User.find(:all, :conditions => "fb_user_id IN ( #{jurnalo_fs.collect{|f| f.id}*','} )")
+          jurnalo_users.reject!{|u| 
+            !(u.fb_offline_access_permission_granted and (u.fb_email_permission_granted or u.jurnalo_user)  and u.fb_user)
+          }
+          @friends = jurnalo_users
+        end
+      end
     end
-    jurnalo_friends = fb_u.friends_with_this_app rescue []
-    if jurnalo_friends.blank?
-      @friends = []
-      return @friends
-    end
-    jurnalo_users   = User.find(:all, :conditions => "fb_user_id IN ( #{jurnalo_friends.collect{|f| f.id}*','} )")
-    #jurnalo_users_h = jurnalo_users.group_by{|u| u.fb_user_id}
-    #jurnalo_friends.each do | fbu|
-    #  u = jurnalo_users_h[fbu.uid].first
-    #  u.fb_user=fbu
-    #end
-    jurnalo_users.reject!{|u| 
-      !(u.fb_offline_access_permission_granted and (u.fb_email_permission_granted or u.jurnalo_user)  and u.fb_user)
-    }
-    @friends = jurnalo_users
+    Rails.cache.write("user_#{self.id}_fb_user_#{fb_user_id}_friends", @friends) if force_cache_write == true
+    return @friends
   end
   def jurnalo_friends_profile_actions(limit=nil, last_24_hours = false)
     friends = self.jurnalo_friends

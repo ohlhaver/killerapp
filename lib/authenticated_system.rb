@@ -18,10 +18,12 @@ module AuthenticatedSystem
       if @current_user != false  and @current_user.blank?
         @current_user ||= (login_from_session || login_from_basic_auth || login_from_cookie || login_from_fb) 
       end
-      if facebook_session && facebook_session.user
-        @current_user.fb_user = facebook_session.user
-        @logged_in_with_facebook_account = true
-      end
+      #if facebook_session && facebook_session.user
+      #  @current_user.fb_user = facebook_session.user
+      #  @logged_in_with_facebook_account = true
+      #end
+      @logged_in_with_facebook_account = true if facebook_session && @current_user && @current_user.fb_user
+
       @current_user
     end
 
