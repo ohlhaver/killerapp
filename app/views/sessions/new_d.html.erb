@@ -3,7 +3,7 @@
 	<br>
 Loggen Sie sich mit Ihrem Facebook Zugang ein:<br><br/>
 <%= facebook_login_only_button({:size => :medium,:length => :long, :background => :white}) -%><br/><br/>
-Oder benutzen Sie Ihrem bestehenden Jurnalo Zugang:</p>
+Oder benutzen Sie Ihren bestehenden Jurnalo Zugang:</p>
 <% form_tag :controller => 'sessions', :action => 'create', :l => @l do -%>
 <p><label for="login">Login</label><br>
 <%= text_field_tag 'login', params[:login], :class => 'textfield' %></p>
