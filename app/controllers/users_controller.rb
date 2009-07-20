@@ -63,7 +63,8 @@ class UsersController < ApplicationController
     unless @user.stories.blank?
       story_ids     = @user.stories.split(' ')*","
       #author_ids    = @user.subscriptions.collect{|s| s.author_id}*','
-      author_ids    = @user.subscriptions.collect{|s| s.author.author_ids_in_group}.flatten.uniq*','
+      #author_ids    = @user.subscriptions.collect{|s| s.author.author_ids_in_group}.flatten.uniq*','
+      author_ids    = Subscription.find(:all, :conditions => ["`subscriptions`.user_id = ?", @current_user.id], :include => [:author]).collect{|s| s.author.author_ids_in_group}.flatten.uniq*','
       unless story_ids.blank? or author_ids.blank?
       @user_stories = Rawstory.find(:all,
                                    :conditions => ["rawstories.id IN ( #{story_ids} ) and rawstories.author_id IN ( #{author_ids} ) and rawstory_details.is_duplicate = :false", {:false => false}],
@@ -75,6 +76,26 @@ class UsersController < ApplicationController
    end
    @user_stories = @user_stories.paginate :page => params[:page],
                                                 :per_page => 5                                             
+
+
+   @user_stories_r_d_h = {}
+   @user_stories_s_h = {}
+   @user_stories_a_h = {}
+
+   story_ids = @user_stories.collect{|s| s.id}*','
+   unless story_ids.blank?
+     @user_stories_r_d_h = RawstoryDetail.find(:all, :conditions => ["rawstory_id IN ( #{story_ids} )"]).group_by{|r| r.rawstory_id}
+   end
+   s_ids = @user_stories.collect{|s| s.source_id}*','
+   unless s_ids.blank?
+     @user_stories_s_h = Source.find(:all, 
+                                        :conditions => ["id IN ( #{s_ids} )"]).group_by{|s| s.id}
+   end
+   a_ids = @user_stories.collect{|s| s.author_id}*','
+   unless a_ids.blank?
+     @user_stories_a_h = Author.find(:all, 
+                                        :conditions => ["id IN ( #{a_ids} )"]).group_by{|a| a.id}
+   end
 
   end
   def grant_email_permission
