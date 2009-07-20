@@ -5,7 +5,9 @@
 <% unless  @read_list.empty? -%> 
 
 <% @read_list.each do |r| -%>
- <%= render :partial => r.rawstory, :locals =>{:read_item => r} -%>
+  <% if @rawstories_h[r.rawstory_id].to_a.first %>
+   <%= render :partial => @rawstories_h[r.rawstory_id].to_a.first, :locals =>{:read_item => r} -%>
+  <% end -%>
 <% end -%>
 
 

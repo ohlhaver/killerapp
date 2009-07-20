@@ -21,7 +21,13 @@ class ReadListController < ApplicationController
   end
   def show
     @read_list = ReadItem.find(:all, 
-                               :conditions =>"user_id = #{@current_user.id}",
-                               :include    => [:rawstory]).sort_by{|r| r.created_at}.reverse
+                               :conditions =>"user_id = #{@current_user.id}").sort_by{|r| r.created_at}.reverse
+    story_ids = @read_list.collect{|r| r.rawstory_id}*','
+    @rawstories_h = {}
+    unless story_ids.blank?
+      @rawstories_h = Rawstory.find(:all, 
+                                  :conditions => ["`rawstories`.id IN ( #{story_ids} )"],
+                                  :include => [:source, :author]).group_by{|s| s.id}
+    end
   end
 end
