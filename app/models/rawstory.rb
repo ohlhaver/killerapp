@@ -25,7 +25,7 @@ class Rawstory < ActiveRecord::Base
       return [] if ids_ary.blank?
        find(:all,
             :conditions => ["rawstories.id IN ( #{ids_ary*','} )"],
-            :select     => 'rawstories.id,rawstories.title,rawstories.link,rawstories.source_id,rawstories.author_id,rawstories.created_at,rawstories.opinion,rawstories.video')
+            :select     => 'rawstories.id,rawstories.title,rawstories.link,rawstories.source_id,rawstories.author_id,rawstories.created_at,rawstories.opinion,rawstories.video,rawstories.haufen_id')
     end
     def find_en_keywords(text)
       raw_text = text.gsub(/, |\. |“|”|; | - |_|\n+|\\|\"|\(|\)/, ' ')
