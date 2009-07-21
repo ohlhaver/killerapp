@@ -25,10 +25,10 @@
 <div class="big_cluster">
   <span class="source">
    
-      <%= link_to haufen_label(@haufen_story), :controller => 'haufens', :action => 'show', :id => haufen, :l => @l %> 
+      <%= link_to haufen_preview_label(haufen), :controller => 'haufens', :action => 'show', :id => haufen, :l => @l %> 
       <% unless haufen.videos == nil %>
         <% if haufen.videos > 0 %>
-      - 	<%= link_to video_label(@haufen_story), :controller => 'haufens', :action => 'filter_haufen_by_videos', :id => haufen, :l => @l %> 	
+      - 	<%= link_to video_preview_label(haufen), :controller => 'haufens', :action => 'filter_haufen_by_videos', :id => haufen, :l => @l %> 	
         <% end %>
      	
     <% end %>
