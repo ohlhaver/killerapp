@@ -6,7 +6,21 @@
   <% if @current_user.jurnalo_friends.blank?%>
   <div class="message">None for your facebook friends are on Jurnalo. Invite friends to join</div>
   <% else %>
-  <%= render :partial => @author -%>
+  <div class = 'pagelabel'>
+
+ <b><%= @author.name %></b>&nbsp; (	
+         <% if @current_user and params[:controller] == 'users' and ['articles_by_favorite_authors','favorite_authors'].include?(params[:action]) and (params[:id].blank? or params[:id].to_i == @current_user.id)  %>
+         <% s = (defined?(subscription) and subscription.author_id == author.id and subscription.user_id == @current_user.id)? subscription : @current_user.subscriptions.find_all{|s| s.author_id == @author.id}.first %>
+            <%= link_to remove_from_my_authors_label, {:controller => 'subscriptions', :action => 'remove', :id => s.id, :l => @l}  %> 
+         <% else %>
+           <%= link_to add_to_my_authors_label, {:controller => 'subscriptions', :action => 'subscribe', :id => @author.id, :l => @l}%> 
+         <% end %> -
+
+         <%= link_to recommend_label, {:controller => 'recommendations', :action =>'recommend_author', :id =>@author.id, :l => @l}-%> )
+
+
+
+</div>
    <script>
    function twitter_share(){
      window.open('http://twitter.com/home?status=<%= URI.encode("recommending articles by #{@author.name} www.jurnalo.com/authors/#{@author.id}") -%>','sharer','toolbar=0,status=0');

@@ -310,9 +310,9 @@ module ApplicationHelper
    def search_label
      
       if @language ==2
-      label = 'suche'
+      label = 'suche Nachrichten'
       else
-      label = 'search' 
+      label = 'search news' 
       end
     
     return label
