@@ -29,6 +29,10 @@ module RawstoriesHelper
    return label
  end
  
+ 
+ 
+ 
+ 
  def haufen_label rawstory
     if @language == 2
       label = 'alle ' + rawstory.haufen.weight.to_s + ' Artikel'
