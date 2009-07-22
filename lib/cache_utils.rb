@@ -33,4 +33,15 @@ class CacheUtils
       end
     end
   end
+  class  UsersControllerCache < UsersController
+    def update_cache_articles_by_favorite_authors(user)
+      user_stories = find_articles_by_favorite_authors(user,1,true)
+      pages = user_stories.total_pages rescue 1
+      if pages > 1
+        (2..pages).each do |p|
+          user_stories = find_articles_by_favorite_authors(user,p,true)
+        end
+      end
+    end
+  end
 end

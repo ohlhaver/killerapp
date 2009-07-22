@@ -303,8 +303,8 @@ class UsersController < ApplicationController
         detail = s.rawstory_detail
         haufen = s.haufen
       end
-      Rails.cache.write(cache_key, user_stories) unless user_stories.blank?
     end
+    Rails.cache.write(cache_key, user_stories)
     return user_stories
   end
 
