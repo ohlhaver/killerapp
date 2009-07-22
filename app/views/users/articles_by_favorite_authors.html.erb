@@ -3,9 +3,7 @@
    <% @user_stories.each do |s| %>
      <%= render :partial => s, 
                 :locals  => {:rawstory    => s,
-                             :source      => @user_stories_s_h[s.source_id].to_a.first,
-                             :author      => @user_stories_a_h[s.author_id].to_a.first,
-   			     :show_image  => (@user_stories_r_d_h[s.id].to_a.first.image_exists rescue false), 
+   			     :show_image  => (s.rawstory_detail.image_exists rescue false), 
                              :image_src   => "/rawstories/image/#{s.id}",
                              :image_story => s}%>
    <% end %>

@@ -59,44 +59,7 @@ class UsersController < ApplicationController
   def articles_by_favorite_authors
     @user = get_user
     return if redirect_to_friend_list_if_not_a_friend(@user)
-    @user_stories =[]
-    unless @user.stories.blank?
-      story_ids     = @user.stories.split(' ')*","
-      #author_ids    = @user.subscriptions.collect{|s| s.author_id}*','
-      #author_ids    = @user.subscriptions.collect{|s| s.author.author_ids_in_group}.flatten.uniq*','
-      author_ids    = Subscription.find(:all, :conditions => ["`subscriptions`.user_id = ?", @current_user.id], :include => [:author]).collect{|s| s.author.author_ids_in_group}.flatten.uniq*','
-      unless story_ids.blank? or author_ids.blank?
-      @user_stories = Rawstory.find(:all,
-                                   :conditions => ["rawstories.id IN ( #{story_ids} ) and rawstories.author_id IN ( #{author_ids} ) and rawstory_details.is_duplicate = :false", {:false => false}],
-                                   :order      => "rawstories.id DESC",
-                                   :joins      => 'inner join rawstory_details on rawstory_details.rawstory_id = rawstories.id',
-                                   :limit      => 25)
-      end
-   
-   end
-   @user_stories = @user_stories.paginate :page => params[:page],
-                                                :per_page => 5                                             
-
-
-   @user_stories_r_d_h = {}
-   @user_stories_s_h = {}
-   @user_stories_a_h = {}
-
-   story_ids = @user_stories.collect{|s| s.id}*','
-   unless story_ids.blank?
-     @user_stories_r_d_h = RawstoryDetail.find(:all, :conditions => ["rawstory_id IN ( #{story_ids} )"]).group_by{|r| r.rawstory_id}
-   end
-   s_ids = @user_stories.collect{|s| s.source_id}*','
-   unless s_ids.blank?
-     @user_stories_s_h = Source.find(:all, 
-                                        :conditions => ["id IN ( #{s_ids} )"]).group_by{|s| s.id}
-   end
-   a_ids = @user_stories.collect{|s| s.author_id}*','
-   unless a_ids.blank?
-     @user_stories_a_h = Author.find(:all, 
-                                        :conditions => ["id IN ( #{a_ids} )"]).group_by{|a| a.id}
-   end
-
+    @user_stories = find_articles_by_favorite_authors(@user)
   end
   def grant_email_permission
     redirect_to :action => 'link_user_accounts', :l => @l
@@ -308,6 +271,41 @@ class UsersController < ApplicationController
     end
     redirect_to :controller => 'users', :action => 'friends', :id => user_id_or_user, :l => @l
     return true
+  end
+  def find_articles_by_favorite_authors(user,page=params[:page],force_cache_write=false)
+     cache_key = CacheUtils.generate_key({:controller => 'users',
+                                          :action     => 'articles_by_favorite_authors',
+                                          :page       => page,
+                                          :user_id    => user.id})
+
+
+    if force_cache_write == false
+      user_stories = Rails.cache.read(cache_key)
+      return user_stories unless user_stories.nil?
+    end
+    user_stories = []
+    unless user.stories.blank?
+      story_ids     = user.stories.split(' ')*","
+      author_ids    = Subscription.find(:all, :conditions => ["`subscriptions`.user_id = ?", user.id], :include => [:author]).collect{|s| s.author.author_ids_in_group}.flatten.uniq*','
+      unless story_ids.blank? or author_ids.blank?
+        user_stories = Rawstory.find(:all,
+                                   :conditions => ["rawstories.id IN ( #{story_ids} ) and rawstories.author_id IN ( #{author_ids} ) and rawstory_details.is_duplicate = :false", {:false => false}],
+                                   :order      => "rawstories.id DESC",
+                                   :joins      => 'inner join rawstory_details on rawstory_details.rawstory_id = rawstories.id',
+                                   :limit      => 25)
+      end
+
+      user_stories = user_stories.paginate :page => page,
+                                           :per_page => 5                                             
+      user_stories.each do |s|
+        source = s.source
+        author = s.author
+        detail = s.rawstory_detail
+        haufen = s.haufen
+      end
+      Rails.cache.write(cache_key, user_stories) unless user_stories.blank?
+    end
+    return user_stories
   end
 
   def verify_uninstall_signature
