@@ -273,6 +273,7 @@ class UsersController < ApplicationController
     return true
   end
   def find_articles_by_favorite_authors(user,page=params[:page],force_cache_write=false)
+     page = page.blank? ? 1 : page.to_i
      cache_key = CacheUtils.generate_key({:controller => 'users',
                                           :action     => 'articles_by_favorite_authors',
                                           :page       => page,
