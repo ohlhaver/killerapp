@@ -22,7 +22,7 @@
 <% else -%>
   <% name = user.fb_user.nil? ? user.name : user.fb_user.name -%> 
   <%= name %> : 
-  <% if params[:controller] == 'users' and params[:action] == 'profile' %>
+  <% if params[:controller] == 'users' and params[:action] == 'profile', :l => @l %>
   <%= profile_label %>
   <% else %>
   <%= link_to profile_label, :controller => 'users' , :action => 'profile', :id => user.id, :l => @l -%>

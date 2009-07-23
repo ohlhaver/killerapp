@@ -1,13 +1,15 @@
 <% unless user.facebook_user? %>
 <div class="message">
-  To be able to recommend articles and authors to your facebook friends, you need to connect your Jurnalo account with your facebook account.
-</div>
+  To recommend articles and authors to your friends, you need to connect your Jurnalo account with Facebook.
+<br><br>
 <%= facebook_login_button -%>
+</div>
 <% end %>
 
 <% if user.facebook_user? and !user.fb_offline_access_permission_granted %>
 <div class="message">
-  To be able to access your facebook friends who are also registered with Jurnalo, you need to grant Juranlo permission to access your facebook account offline.
-</div>
+  To see your facebook friends who are also registered with Jurnalo, you need to grant Juranlo permission to connect to your facebook account offline.
+
 <em><%= fb_prompt_permission('offline_access', "Click here to grant offline access permission.", "window.location='/users/link_user_accounts?l=#{@l}';") -%></em>
+</div>
 <% end %>

@@ -71,12 +71,14 @@ class UserMailer < ActionMailer::Base
        @body[:url]  = "http://www.jurnalo.de/" 
        @body[:user_new_stories] = @user_new_stories
        @body[:my_authors_link] = "http://www.jurnalo.com/subscriptions?l=d"
+       @body[:settings_link] = "http://www.jurnalo.com/settings?l=d"
        @body[:from] = "#{SITE_EMAIL}"
      else
        @subject    = 'New articles by your favorite authors'
        @body[:url]  = "http://#{SITE_URL}/" 
        @body[:user_new_stories] = @user_new_stories
        @body[:my_authors_link] = "http://#{SITE_URL}/subscriptions?l=e"
+       @body[:settings_link] = "http://#{SITE_URL}/settings?l=e"
        @body[:from] = "#{SITE_EMAIL}"
        
      end

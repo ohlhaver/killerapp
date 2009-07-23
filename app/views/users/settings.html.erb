@@ -22,13 +22,13 @@
     </p>
     <p>
       <select name="alert_type" id="alert_type">
-        <optgroup label="ON">
-        <%= options_for_select [['Immediately', User::Alert::IMMEDIATE],
-                                                ['Daily', User::Alert::DAILY],
-                                                ['Weekly', User::Alert::WEEKLY]], @current_user.alert_type -%>
+        <optgroup label=<%=on_label%>>
+        <%= options_for_select [[immediately_label, User::Alert::IMMEDIATE],
+                                                [daily_label, User::Alert::DAILY],
+                                                [weekly_label, User::Alert::WEEKLY]], @current_user.alert_type -%>
         </optgroup>
-        <optgroup label="OFF">
-          <%= options_for_select [['Off', User::Alert::OFF]], @current_user.alert_type -%>
+        <optgroup label=<%=off_label%>>
+          <%= options_for_select [[off_label, User::Alert::OFF]], @current_user.alert_type -%>
         </optgroup>
       </select>
     </p>
