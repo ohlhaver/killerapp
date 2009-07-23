@@ -200,7 +200,7 @@ class GroupsController < ApplicationController
         #haufens = haufens.first(36)
        
         haufens = haufens.paginate :page => params[:page],
-                                     :per_page => 5
+                                     :per_page => 10
         
                                    
       end
