@@ -97,5 +97,46 @@ module UsersHelper
   end
   end
   
+  def immediately_label
+  if @language == 2
+    label = 'Sofort'
+  else
+    label = 'Immediately'
+  end
+  end
+  
+  def daily_label
+  if @language == 2
+    label = 'Täglich'
+  else
+    label = 'Daily'
+  end
+  end
+  
+  def weekly_label
+  if @language == 2
+    label = 'Wöchentlich'
+  else
+    label = 'Weekly'
+  end
+  end
+  
+  def need_fb_connection_label
+  if @language == 2
+    label = ' Bitte verbinden Sie Ihren Jurnalo Zugang mit Facebook um Ihre Freunde sehen zu können.'
+  else
+    label = ' Please connect your Jurnalo account with Facebook to be able to view your friends.'
+  end
+  end
+  
+  def new_signup_label
+  if @language == 2
+    label = 'Oder hier als neuer Benutzer anmelden!'
+  else
+    label = 'Or click here to sign up as a new user!'
+  end
+  end
+  
+  
   
 end
