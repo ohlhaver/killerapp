@@ -6,9 +6,10 @@ class RawstoriesController < ApplicationController
     s = Rawstory.find(params[:id])
     si = s.rawstories_story_image.story_image
     response.headers['Content-Type'] = si.thumb_content_type
+
     # Ask the browser to cache the images
-    #response.headers["Expires"] = si.created_at.to_s
-    #response.headers['Cache-Control'] = "public"
+    response.headers['Expires']      = 'Thu, 31 Dec 2037 23:55:55 GMT'
+    response.headers['Cache-Control'] = "public"
     render :text => si.thumb_image_data
   end
   
