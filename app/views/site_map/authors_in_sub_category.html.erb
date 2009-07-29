@@ -1,0 +1,4 @@
+<div class ="pagelabel">Authors &gt;&gt; <%= @category.label%> &gt;&gt; <%= @sub_category.label%></div>
+<% @authors.each do |a| %>
+  <%= link_to a.name, :controller => 'authors', :action => 'show', :id => a.id -%> <br/><br/>
+<% end %>

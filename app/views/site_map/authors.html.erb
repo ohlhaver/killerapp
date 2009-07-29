@@ -1,0 +1,4 @@
+<div class ="pagelabel">Authors</div>
+<% @categories.each do |c| %>
+  <%= link_to c.label, :controller => 'site_map', :action => 'authors_in_category', :id => c.id -%> <br/><br/>
+<% end %>
