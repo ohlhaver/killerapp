@@ -181,7 +181,7 @@
       <% unless params[:controller] == 'groups' and params[:action] == 'index' %>
       <%= render :partial => '/layouts/google_ad' %>
       <% end -%>
-      ©2009 &nbsp; <%= link_to imprint_label, :controller => 'about', :action => 'imprint', :l => @l  %> - <%= link_to privacy_label, :controller => 'about', :action => 'privacy', :l => @l  %> - <% if @language == 2  %><%= link_to 'English edition', 'http://www.jurnalo.com' %> <%else%> <%= link_to 'jurnalo.de', 'http://www.jurnalo.com/?l=d' %> <%end%>
+      ©2009 &nbsp; <%= link_to imprint_label, :controller => 'about', :action => 'imprint', :l => @l  %> - <%= link_to privacy_label, :controller => 'about', :action => 'privacy', :l => @l  %> - <% if @language == 2  %><%= link_to 'English edition', 'http://www.jurnalo.com' %> <%else%> <%= link_to 'jurnalo.de', 'http://www.jurnalo.com/?l=d' %> <%end%> - <%= link_to 'authors', :controller => 'site_map', :action => 'authors', :l => @l%>
       <% if logged_in? %> - <%= (link_to 'Feedback [+]' , :controller => 'about', :action => 'feedback', :l => @l) %> <% end %>
 
     </div>
