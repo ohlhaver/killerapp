@@ -512,6 +512,13 @@ module ApplicationHelper
     end
   end
   
+  def author_link_label
+    if @language ==2
+      label = 'Autoren'
+    else
+      label = 'Authors'
+    end
+  end
   
  
 end
