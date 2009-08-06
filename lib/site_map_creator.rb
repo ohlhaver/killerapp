@@ -37,7 +37,7 @@ dir_name = "#{File.dirname(__FILE__)}/../public/site_maps"
 i = 0
 file_names = []
 while true
-  as = authors[(i*10000),10000]
+  as = authors[(i*50000),50000]
   break if as.blank?
   create_sitemap_file(as, "#{dir_name}/authors_e_#{i}.xml"){|a| "http://www.jurnalo.com/authors/#{a.id}?l=e"}
   file_names << "#{dir_name}/authors_e_#{i}.xml"
