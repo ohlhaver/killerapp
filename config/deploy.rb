@@ -44,6 +44,10 @@ task :after_deploy, :roles => [:web] do
     run <<-CMD
       cd #{release_path}/config && rm -rf ultrasphinx && ln -s #{shared_path}/config/ultrasphinx
     CMD
+    run <<-CMD
+      cd #{release_path}/public && rm -rf site_maps && ln -s #{shared_path}/site_maps
+    CMD
+
     run "cd /home/justus/#{application}/current; mongrel_rails cluster::restart"
 end
 
