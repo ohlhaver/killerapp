@@ -46,4 +46,4 @@ while true
   i += 1
 end
 
-create_site_map_index(file_names, "#{dir_name}/index.xml"){|fl| [File.basename(fl),File.atime(fl)]}
+create_site_map_index(file_names, "#{dir_name}/index.xml"){|fl| [File.basename(fl),File.atime(fl).to_date]}
