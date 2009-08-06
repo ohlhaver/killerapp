@@ -48,7 +48,7 @@ task :after_deploy, :roles => [:web] do
       cd #{release_path}/public && rm -rf site_maps && ln -s #{shared_path}/site_maps
     CMD
 
-    run "cd /home/justus/#{application}/current; mongrel_rails cluster::restart"
+    #run "cd /home/justus/#{application}/current; mongrel_rails cluster::restart"
 end
 
 after "deploy", "deploy:cleanup"
