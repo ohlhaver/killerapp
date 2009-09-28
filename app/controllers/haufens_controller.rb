@@ -70,7 +70,7 @@ protected
 
     @haufen_stories = @haufen_stories.sort_by {|u| - u.blub } 
     @haufen_stories = @haufen_stories.paginate :page     => params[:page],
-                                               :per_page => 5
+                                               :per_page => 10
     source_ids  = @haufen_stories.collect{|s| s.source_id}.reject{|s_id| s_id.blank?}*','
     unless source_ids.blank?
       @haufen_stories_sources_hashed = Source.find(:all, :conditions => [" id IN ( #{source_ids} )"]).group_by{|s| s.id}

@@ -14,7 +14,7 @@ class AuthorsController < ApplicationController
                                                         :sort_by     => 'created_at',
                                                         :filters     => {:author_id => author_ids_in_group, :is_duplicate => 0},
                                                         :page        => (params[:page] || 1).to_i,
-                                                        :per_page    => 5)
+                                                        :per_page    => 10)
         @rawstories_published.run
 
         #@rawstories_published = @author.rawstories.find(:all, :order => 'rawstories.id DESC')

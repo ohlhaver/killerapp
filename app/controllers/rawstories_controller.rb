@@ -85,7 +85,7 @@ class RawstoriesController < ApplicationController
     @haufen_stories = story.haufen.rawstories.find(:all, :order => 'rawstories.id DESC')
      (@haufen_stories = @haufen_stories.find_all {|u| u.opinion == conditions }) if conditions != nil
     @haufen_stories = @haufen_stories.paginate :page => params[:page],
-                                          :per_page => 8
+                                          :per_page => 10
   end
 
 
@@ -137,7 +137,7 @@ class RawstoriesController < ApplicationController
       @rawstories = opinion_stories if conditions == 1
       @rawstories = video_stories if conditions == 2
       @rawstories = @rawstories.paginate  :page => params[:page],
-                                          :per_page => 5
+                                          :per_page => 10
       source_ids  = @rawstories.collect{|s| s.source_id}.reject{|s_id| s_id.blank?}*','
       unless source_ids.blank?
        @rawstories_sources_hashed = Source.find(:all, :conditions => [" id IN ( #{source_ids} )"]).group_by{|s| s.id}
