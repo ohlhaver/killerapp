@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :facebook_session
   
   helper_method :iphone_user_agent?
-  include ExceptionNotifiable
+  #include ExceptionNotifiable
   include AuthenticatedSystem
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store

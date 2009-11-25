@@ -27,4 +27,5 @@ config.action_view.cache_template_loading            = true
 
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
-ExceptionNotifier.exception_recipients = %w(ohlhaver@gmail.com jrath95@gmail.com ubhay.iitd@gmail.com sinha.riteshk@gmail.com)
+
+#ExceptionNotifier.exception_recipients = %w(ohlhaver@gmail.com jrath95@gmail.com ubhay.iitd@gmail.com sinha.riteshk@gmail.com)
