@@ -135,14 +135,7 @@
               <% end %>
             </div>
             <div style="padding-top:3px;">
-              <% if @current_user.facebook_user?%>
-                 
-                <% if params[:controller] == 'users' and ['friends_actions','friends'].include?(params[:action]) and (params[:id].blank? or @current_user.id == params[:id].to_i) %>
-                  <span class="selected"><%= friends_label -%></span>
-                <% else %>
-                  <%= link_to friends_label, :controller => 'users' , :action => 'friends_actions', :l => @l -%>
-                <% end %>&nbsp;-&nbsp; 
-              <% end -%>
+           
               <% if params[:controller] == 'users' and params[:action] ==  'articles_by_favorite_authors' and (params[:id].blank? or @current_user.id == params[:id].to_s) %> 
                  <span class="selected"><%= my_authors  %></span> 
               <% else %> 
